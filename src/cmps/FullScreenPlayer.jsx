@@ -1,9 +1,9 @@
 import { FullPlayer } from "./FullPlayer";
 
-export function AppFooter() {
+export function FullScreenPlayer() {
   return (
-    <footer className="app-footer">
+    <div>
       <FullPlayer />
-    </footer>
+    </div>
   );
 }

@@ -1,16 +1,15 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import logo from '../assets/img/logo.png'
-import { CHANGE_COUNT } from '../store/user.reducer'
-
-import { utilService } from '../services/util.service'
-
+import React from "react";
+import { AppHeader } from "../cmps/AppHeader.jsx";
+import { Recommendations } from "../cmps/Recommendations.jsx";
+import { Catalog } from "../cmps/Catalog.jsx";
 
 export function HomePage() {
-
-    return (
-        <section>
-
-        </section >
-    )
+  return (
+    <section>
+      <AppHeader />
+      <Recommendations />
+      <Catalog />
+      {/*find other word for catalog*/}
+    </section>
+  );
 }

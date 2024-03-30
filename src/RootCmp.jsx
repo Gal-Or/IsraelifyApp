@@ -1,25 +1,31 @@
-import React from 'react'
-import { Routes, Route } from 'react-router'
+import React from "react";
+import { Routes, Route } from "react-router";
 
-import routes from './routes'
+import routes from "./routes";
 
-import { AppHeader } from './cmps/AppHeader'
-import { AppFooter } from './cmps/AppFooter'
-import { NavBar } from './cmps/NavBar'
+import { SidePopUp } from "./cmps/SidePopUp";
+import { AppFooter } from "./cmps/AppFooter";
+import { NavBar } from "./cmps/NavBar";
 
 export function RootCmp() {
+  return (
+    <div>
+      <NavBar />
 
-    return (
-        <div>
-            <NavBar />
-            <main>
-                <Routes>
-                    {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
-                </Routes>
-            </main>
-            <AppFooter />
-        </div>
-    )
+      <main>
+        <Routes>
+          {routes.map((route) => (
+            <Route
+              key={route.path}
+              exact={true}
+              element={route.component}
+              path={route.path}
+            />
+          ))}
+        </Routes>
+      </main>
+      <SidePopUp />
+      <AppFooter />
+    </div>
+  );
 }
-
-
