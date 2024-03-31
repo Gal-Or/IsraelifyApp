@@ -1,4 +1,4 @@
-import { ListOfStations } from "./ListOfStations.jsx ";
+import { ListOfStations } from "./ListOfStations";
 
 export function Catalog() {
   return (

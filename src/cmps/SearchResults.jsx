@@ -5,6 +5,7 @@ export function SearchResults() {
   return (
     <div>
       <SongResults />
+      <StationResults />
     </div>
   );
 }
