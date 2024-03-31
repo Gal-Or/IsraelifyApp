@@ -14,8 +14,45 @@
 
 // Views
 @import "views/HomePage";
+@import "views/StationPage";
+@import "views/SignInPage";
+@import "views/SignUpPage";
+@import "views/SearchPage";
 
 // Components
 @import "cmps/AppHeader";
 @import "cmps/AppFooter";
 @import "cmps/UserMsg";
+@import "cmps/BrowseAll";
+@import 'cmps/StationResults';
+@import 'cmps/StationHeader';
+@import 'cmps/StationContent';
+@import 'cmps/StationActions';
+@import 'cmps/SongList';
+@import 'cmps/SongDetails';
+@import 'cmps/SongResults';
+@import 'cmps/SongContainer';
+@import 'cmps/SongActions';
+@import 'cmps/SignUpForm';
+@import 'cmps/SignInForm';
+@import 'cmps/SignHeader';
+@import 'cmps/SignFooter';
+@import 'cmps/SidePopUp';
+@import 'cmps/SearchResults';
+@import 'cmps/Recommendations';
+@import 'cmps/Player';
+@import 'cmps/PlayerActions';
+@import 'cmps/NavBar';
+@import 'cmps/NavOptions';
+@import 'cmps/MinimalSong';
+@import 'cmps/ListOfStations';
+@import 'cmps/Library';
+@import 'cmps/ImgUploader';
+@import 'cmps/GenrePreview';
+@import 'cmps/GenreList';
+@import 'cmps/FullScreenPlayer';
+@import 'cmps/FullPlayer';
+@import 'cmps/Catalog';
+
+
+
