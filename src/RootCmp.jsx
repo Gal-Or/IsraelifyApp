@@ -10,8 +10,6 @@ import { NavBar } from "./cmps/NavBar";
 export function RootCmp() {
   return (
     <div>
-      <NavBar />
-
       <main>
         <Routes>
           {routes.map((route) => (
@@ -24,6 +22,7 @@ export function RootCmp() {
           ))}
         </Routes>
       </main>
+      <NavBar />
       <SidePopUp />
       <AppFooter />
     </div>
