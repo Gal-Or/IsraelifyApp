@@ -1,12 +1,12 @@
-import { ListOfStations } from "./ListOfStations";
+import { StationList } from "./StationList";
 
 export function Catalog() {
   return (
     <div>
-      <ListOfStations />
-      <ListOfStations />
-      <ListOfStations />
-      <ListOfStations />
+      {/* <StationList />
+      <StationList />
+      <StationList />
+      <StationList /> */}
     </div>
   );
 }

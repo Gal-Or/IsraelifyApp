@@ -1,7 +1,12 @@
+import { NavOptions } from "./NavOptions";
+import { Library } from "./Library";
+
 export function NavBar() {
   return (
     <section className="nav-bar">
-      <h1>NavBar</h1>
+      <NavOptions />
+      <Library />
+
     </section>
   );
 }

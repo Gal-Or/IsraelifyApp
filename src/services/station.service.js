@@ -11,11 +11,12 @@ export const stationService = {
   getDefaultFilter
 }
 
-var stations = _createStations()
-console.log(stations);
+_createStations()
+
 
 async function query(filterBy) {
   let stations = await storageService.query(STORAGE_KEY)
+  console.log("query:", stations);
   if (filterBy) {
     stations = filterEmails(stations, filterBy)
   }
@@ -49,9 +50,14 @@ function _createStations() {
 
   if (!stations || !stations.length) {
     stations = []
-    for (var i = 0; i < demoDataCount; i++)
+    for (var i = 0; i < demoDataCount; i++) {
       stations.push(_createStation())
+      console.log(`station ${i}`, stations[i]);
+    }
+
   }
+
+  utilService.saveToStorage(STORAGE_KEY, stations)
 
   return stations
 }

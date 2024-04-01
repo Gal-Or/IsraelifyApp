@@ -1,6 +1,6 @@
 import { StationHeader } from "../cmps/StationHeader.jsx";
 import { StationContent } from "../cmps/StationContent.jsx";
-import { ListOfStations } from "../cmps/ListOfStations.jsx";
+import { StationList } from "../cmps/StationList.jsx";
 
 export function StationPage() {
   return (

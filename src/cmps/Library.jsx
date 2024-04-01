@@ -1,7 +1,14 @@
+import { StationList } from "./StationList"
+
 export function Library() {
   return (
-    <div>
-      <h1>Library</h1>
-    </div>
+    <section className="library-container">
+      <section className="library-header">
+        Library Header
+
+      </section>
+
+      <StationList />
+    </section>
   );
 }

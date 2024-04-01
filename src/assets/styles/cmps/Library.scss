@@ -1,0 +1,47 @@
+.library-container {
+    display: none;
+}
+
+@include for-normal-layout {
+
+    .library-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+
+        .library-header {
+            grid-column: 1;
+        }
+
+        .station-list {
+            grid-column: 2;
+        }
+
+        .station-preview {
+            display: grid;
+            grid-template-columns: 2;
+            grid-template-rows: 2;
+
+            /*ask about if we need to open separeted file for preview style*/
+            img {
+                grid-column: 1;
+                grid-row: 1/3;
+                width: em(48px);
+                height: em(48px);
+                object-fit: cover;
+                border-radius: $station-img-border-radius;
+            }
+
+            .station-name {
+                grid-column: 2;
+                grid-row: 1;
+            }
+
+            .station-creator {
+                grid-column: 2;
+                grid-row: 2;
+            }
+        }
+
+    }
+}
