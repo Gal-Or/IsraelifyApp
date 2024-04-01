@@ -7,7 +7,7 @@ import { stationService } from "../services/station.service.js"
 
 export function HomePage() {
   return (
-    <section>
+    <section className="home-page">
       <AppHeader />
       <Recommendations />
       <Catalog />
