@@ -1,7 +1,6 @@
 .app-footer{
     background-color:$main-bg-clr; 
     color: $sec-font-clr;
-    padding: 20px;
-    margin: 10px;
-    text-align: center;
+    grid-row : -1;
+
 }

@@ -1,7 +1,7 @@
 export function NavBar() {
   return (
-    <div>
+    <section className="nav-bar">
       <h1>NavBar</h1>
-    </div>
+    </section>
   );
 }

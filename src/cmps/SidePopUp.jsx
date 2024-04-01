@@ -1,7 +1,7 @@
 export function SidePopUp() {
   return (
-    <div>
+    <section className="side-pop-up">
       <h1>SidePopUp</h1>
-    </div>
+    </section>
   );
 }

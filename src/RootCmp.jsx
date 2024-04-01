@@ -9,8 +9,8 @@ import { NavBar } from "./cmps/NavBar";
 
 export function RootCmp() {
   return (
-    <div>
-      <main>
+    <div className="page-container">
+      <main className="main-container">
         <Routes>
           {routes.map((route) => (
             <Route
