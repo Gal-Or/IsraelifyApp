@@ -48,7 +48,10 @@ p {
 }
 
 a {
-    //text-decoration: none;
+    text-decoration: unset;
+    color: unset;
+    cursor: pointer;
+
 }
 
 a:hover {

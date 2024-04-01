@@ -1,0 +1,18 @@
+.station-page {
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(em(200px), 40vh) 1fr;
+
+    .station-header {
+        grid-row: 1;
+
+        img {
+            object-fit: cover;
+        }
+    }
+
+    .station-content {
+        grid-row: 2;
+    }
+}

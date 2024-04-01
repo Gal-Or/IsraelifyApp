@@ -1,6 +1,8 @@
-export function StationHeader() {
+export function StationHeader({ station }) {
+
   return (
-    <div>
+    <div className="station-header">
+      <img src={station.songs[0].imgUrl} />
       <h1>StationHeader</h1>
     </div>
   );

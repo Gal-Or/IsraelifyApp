@@ -1,13 +1,40 @@
+import { useParams } from "react-router";
+import { useEffect, useState } from "react";
+
+import { stationService } from "../services/station.service.js";
+
+
 import { StationHeader } from "../cmps/StationHeader.jsx";
 import { StationContent } from "../cmps/StationContent.jsx";
-import { StationList } from "../cmps/StationList.jsx";
+
 
 export function StationPage() {
+
+  const params = useParams()
+
+  const [station, setStation] = useState(null)
+
+  useEffect(() => {
+    loadStation()
+  }, [params.stationId])
+
+  async function loadStation() {
+
+    try {
+      console.log(params.stationId);
+      const station = await stationService.getById(params.stationId)
+      setStation(station)
+
+    } catch (err) {
+      console.log("error in loadStation", err);
+    }
+  }
+
+  if (!station) return <h1>loading...</h1>
   return (
-    <section>
-      <StationHeader />
-      <StationContent />
-      <ListOfStations />
+    <section className="station-page">
+      <StationHeader station={station} />
+      <StationContent station={station} />
     </section>
   );
 }
