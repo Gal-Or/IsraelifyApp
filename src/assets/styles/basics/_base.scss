@@ -4,28 +4,34 @@
 
 
 html {
-    font-family: montserrat;
-    line-height: 1.6;
+    // font-family: montserrat;
+    // line-height: 1.6;
     color: $main-font-clr;
 }
 
 body {
-    font-size: rem(18px);
-    max-width: 1024px;
-    margin: auto;
+    //font-size: rem(18px);
+    margin: 0;
     background-color: $main-bg-clr;
-    font-family: montserrat;
+    //font-family: montserrat;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 
-    margin: 0 0 0.6em;
-    line-height: 1;
+    // margin: 0 0 0.6em;
+    // line-height: 1;
 }
 
 
-section, main, footer {
-    padding: 5px;
+section,
+main,
+footer {
+    //padding: 5px;
 }
 
 img {
@@ -33,13 +39,13 @@ img {
 }
 
 p {
-    margin: 0 0 1em;
+    //margin: 0 0 1em;
 }
 
 a {
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
+    //text-decoration: none;
 }
 
+a:hover {
+    //text-decoration: underline;
+}
