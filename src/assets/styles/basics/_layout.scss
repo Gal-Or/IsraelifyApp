@@ -4,8 +4,12 @@
     grid-template-rows:1fr auto  auto  ;
     width:100vw;
     height:100vh;
-    .app-footer{
-        grid-row: 2;
+   
+
+    .app-footer {
+      position: sticky;
+      bottom: 0; /* Stick to the bottom of the viewport */
+      z-index: 1; /* Ensure footer stays above other content */
     }
     .side-pop-up{
         display: none;
@@ -18,8 +22,9 @@
         .app-footer{
             grid-row: 2;
             grid-column: 1 / -1;
+          
         }
-        .Nav-bar{
+        .nav-bar{
             grid-row: 1;
             grid-column: 1 ;
         }
