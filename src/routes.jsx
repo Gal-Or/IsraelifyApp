@@ -1,3 +1,5 @@
+import { Navigate } from "react-router";
+
 import { HomePage } from "./pages/HomePage.jsx";
 import { SearchPage } from "./pages/SearchPage.jsx";
 import { StationPage } from "./pages/StationPage.jsx";
@@ -22,6 +24,12 @@ const routes = [
     path: "/search/:query",
     component: <SearchPage />,
     label: "Search",
+  },
+  {
+    //return to home page if no stationId
+    path: "/station",
+    component: <Navigate to="/" replace />,
+    label: "Station",
   },
   {
     path: "/station/:stationId",
