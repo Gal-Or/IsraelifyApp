@@ -2,7 +2,7 @@ import { stationService } from "../services/station.service";
 import { store } from "../store/store.js";
 
 import { LOAD_STATIONS } from "./station.reducer";
-import { REMOVE_STATION } from "./station.reducer";
+import { REMOVE_STATION, ADD_STATION } from "./station.reducer";
 import { ADD_SONG_TO_STATION } from "./station.reducer";
 
 export async function loadStations() {
@@ -28,7 +28,21 @@ export async function removeStation(stationId) {
   } catch (err) {
     console.log("Cannot remove station", err);
   }
+
+} export async function addStation(newStation) {
+  try {
+    newStation = await stationService.save(newStation);
+    store.dispatch({
+      type: ADD_STATION,
+      newStation,
+    });
+  } catch (err) {
+    console.log("Cannot add station", err);
+  }
+  return newStation._id
 }
+
+
 
 export async function addSongToStation(song, stationId = "Yz8RUJ") {
   try {

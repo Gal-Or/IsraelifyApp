@@ -1,5 +1,6 @@
 export const youtubeService = {
   query,
+  cleanUpResults
 };
 
 async function query(searchStr, maxResults = 10) {
@@ -9,4 +10,23 @@ async function query(searchStr, maxResults = 10) {
   );
   const data = await response.json();
   return data.items;
+}
+
+
+function cleanUpResults(results) {
+  console.log("before clean", results);
+  var cleanResults = results.map((result) => createResultObj(result));
+
+  return cleanResults;
+}
+
+function createResultObj(result) {
+  return {
+    id: result.id.videoId,
+    artist: result.snippet.channelTitle,
+    img: result.snippet.thumbnails.default.url,
+    name: result.snippet.title,
+    tags: [],
+    url: `https://www.youtube.com/watch?v=${result.id.videoId}`,
+  };
 }

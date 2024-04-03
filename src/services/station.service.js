@@ -12,6 +12,7 @@ export const stationService = {
   getById,
   getDefaultFilter,
   addSongToStation,
+  createDefaultStation
 };
 
 _createStations();
@@ -50,16 +51,29 @@ async function addSongToStation(song, stationId) {
   return await save(station);
 }
 
+function createDefaultStation() {
+
+  return {
+    type: "playlist",
+    tags: [],
+    createdBy: {
+      _id: "u101",
+      fullname: "Puki Ben David",
+      imgUrl: "http://some-photo/",
+    },
+    likedByUsers: [],
+    songs: []
+  }
+}
+
 function _createStations() {
   var stations = utilService.loadFromStorage(STORAGE_KEY);
   const demoDataCount = 10;
 
   if (!stations || !stations.length) {
     stations = [];
-    for (var i = 0; i < demoDataCount; i++) {
+    for (var i = 0; i < demoDataCount; i++)
       stations.push(_createStation());
-      console.log(`station ${i}`, stations[i]);
-    }
   }
 
   utilService.saveToStorage(STORAGE_KEY, stations);
