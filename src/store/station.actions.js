@@ -2,6 +2,7 @@ import { stationService } from "../services/station.service";
 import { store } from "../store/store.js";
 
 import { LOAD_STATIONS } from "./station.reducer";
+import { REMOVE_STATION } from "./station.reducer";
 
 export async function loadStations() {
   try {
@@ -13,5 +14,17 @@ export async function loadStations() {
     });
   } catch (err) {
     console.log("Cannot load stations", err);
+  }
+}
+
+export async function removeStation(stationId) {
+  try {
+    await stationService.remove(stationId);
+    store.dispatch({
+      type: REMOVE_STATION,
+      stationId,
+    });
+  } catch (err) {
+    console.log("Cannot remove station", err);
   }
 }
