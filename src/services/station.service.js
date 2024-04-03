@@ -11,6 +11,7 @@ export const stationService = {
   remove,
   getById,
   getDefaultFilter,
+  addSongToStation,
 };
 
 _createStations();
@@ -24,21 +25,29 @@ async function query(filterBy) {
   return stations;
 }
 
-function save(stationToSave) {
-  if (stationToSave.id) return storageService.put(STORAGE_KEY, stationToSave);
-  else return storageService.post(STORAGE_KEY, stationToSave);
+async function save(stationToSave) {
+  if (stationToSave._id)
+    return await storageService.put(STORAGE_KEY, stationToSave);
+  else return await storageService.post(STORAGE_KEY, stationToSave);
 }
 
-function remove(id) {
-  return storageService.remove(STORAGE_KEY, id);
+async function remove(id) {
+  return await storageService.remove(STORAGE_KEY, id);
 }
 
-function getById(id) {
-  return storageService.get(STORAGE_KEY, id);
+async function getById(id) {
+  return await storageService.get(STORAGE_KEY, id);
 }
 
 function getDefaultFilter() {
   return {};
+}
+async function addSongToStation(song, stationId) {
+  const station = await getById(stationId);
+  console.log("station  from service", station);
+  station.songs.push(song);
+  console.log("station after push", station);
+  return await save(station);
 }
 
 function _createStations() {

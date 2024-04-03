@@ -3,6 +3,7 @@ import { store } from "../store/store.js";
 
 import { LOAD_STATIONS } from "./station.reducer";
 import { REMOVE_STATION } from "./station.reducer";
+import { ADD_SONG_TO_STATION } from "./station.reducer";
 
 export async function loadStations() {
   try {
@@ -26,5 +27,18 @@ export async function removeStation(stationId) {
     });
   } catch (err) {
     console.log("Cannot remove station", err);
+  }
+}
+
+export async function addSongToStation(song, stationId = "Yz8RUJ") {
+  try {
+    await stationService.addSongToStation(song, stationId);
+    store.dispatch({
+      type: ADD_SONG_TO_STATION,
+      song,
+      stationId,
+    });
+  } catch (err) {
+    console.log("Cannot add song to station", err);
   }
 }
