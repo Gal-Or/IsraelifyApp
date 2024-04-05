@@ -20,16 +20,17 @@ export function SearchPage() {
   async function getYoutubeResults() {
     var res = await youtubeService.query(params.query);
     res = youtubeService.cleanUpResults(res);
-    console.log(res);
+    console.log("after clean", res); // "after clean
     setResults(res);
   }
-
 
   return (
     <section className="search-page">
       <AppHeader />
       {!params.query && <BrowseAll />}
-      {params.query && songResults && <SearchResults songResults={songResults} />}
+      {params.query && songResults && (
+        <SearchResults songResults={songResults} />
+      )}
     </section>
   );
 }
