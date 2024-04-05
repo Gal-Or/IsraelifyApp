@@ -14,7 +14,6 @@ export function SearchPage() {
 
   useEffect(() => {
     getYoutubeResults();
-    // console.log(s);
   }, [params.query]);
 
   async function getYoutubeResults() {

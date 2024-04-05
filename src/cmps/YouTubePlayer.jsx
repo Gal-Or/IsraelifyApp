@@ -47,7 +47,7 @@ export function YouTubePlayer() {
             event.target.getCurrentTime(),
             event.target.getDuration()
           );
-        }, 1000);
+        }, 100);
       }
       if (
         event.data == window.YT.PlayerState.PAUSED ||
@@ -68,6 +68,12 @@ export function YouTubePlayer() {
     const firstScriptTag = document.getElementsByTagName("script")[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+  }, []);
+
+  useEffect(() => {
+    if (youtubePlayer && currentSong) {
+      youtubePlayer.loadVideoById(currentSong.id);
+    }
   }, [currentSong]);
 
   return (
