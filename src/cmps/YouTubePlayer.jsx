@@ -35,7 +35,6 @@ export function YouTubePlayer() {
         })
       );
     };
-
     function onPlayerReady(event) {
       event.target.cueVideoById(currentSong ? currentSong.id : "mMfxI3r_LyA");
       console.log("onPlayerReady");
@@ -45,7 +44,6 @@ export function YouTubePlayer() {
       switch (event.data) {
         case window.YT.PlayerState.PLAYING:
           intervalRef.current = setInterval(() => {
-            console.log("Current time: ", event.target.getCurrentTime());
             updateTimeBar(
               event.target.getCurrentTime(),
               event.target.getDuration()
@@ -53,20 +51,11 @@ export function YouTubePlayer() {
           }, 1000);
           break;
         case window.YT.PlayerState.PAUSED:
-        case window.YT.PlayerState.ENDED:
           clearInterval(intervalRef.current);
           break;
-        case window.YT.PlayerState.CUED:
-          if (currentSong) {
-            console.log("onPlayerStateChange-current song -->", currentSong);
-          }
-          if (
-            !currentSong ||
-            currentSong.duration !== event.target.getDuration()
-          ) {
-            setSongDuration(event.target.getDuration());
-            console.log("onPlayerStateChange-setSongDuration -->", event);
-          }
+        case window.YT.PlayerState.ENDED:
+          clearInterval(intervalRef.current);
+          setPercentagePlayed(0);
           break;
         default:
           break;
@@ -84,6 +73,12 @@ export function YouTubePlayer() {
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
   }, []);
+  function handleTimeBarChange(newPercentage) {
+    const newTime = (newPercentage * youtubePlayer.getDuration()) / 100;
+    youtubePlayer.seekTo(newTime);
+    setPercentagePlayed(newPercentage);
+    //updateTimeBar(newTime, youtubePlayer.getDuration());
+  }
 
   useEffect(() => {
     if (youtubePlayer && currentSong) {
@@ -91,17 +86,23 @@ export function YouTubePlayer() {
     }
   }, [currentSong]);
 
-  function handleTimeBarChange(newPercentage) {
-    const newTime = (newPercentage * youtubePlayer.getDuration()) / 100;
-    youtubePlayer.seekTo(newTime);
-    updateTimeBar(newTime, youtubePlayer.getDuration());
+  function formatTime(time) {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes < 10 ? "0" : ""}${minutes}:${
+      seconds < 10 ? "0" : ""
+    }${seconds}`;
   }
 
   return (
     <div>
       <div className="youtube-player" id="player"></div>
-      {currentSong && <h2>duration : {youtubePlayer.getDuration()}</h2>}
-      {currentSong && <h2>current time : {youtubePlayer.getCurrentTime()}</h2>}
+      {currentSong && (
+        <h2>duration : {formatTime(youtubePlayer.getDuration())}</h2>
+      )}
+      {currentSong && (
+        <h2>current time : {formatTime(youtubePlayer.getCurrentTime())}</h2>
+      )}
 
       <TimeBar
         percentage={PercentagePlayed}

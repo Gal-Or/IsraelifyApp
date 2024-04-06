@@ -2,7 +2,7 @@ export const youtubeService = {
   query,
   cleanUpResults,
 };
-const API_KEY = "AIzaSyCIEC-IUYCVUJMIO8J-2Yn7w_SF-jUeKRw";
+const API_KEY = "AIzaSyAUugpSNUiVGYWSRyHy4n_WSQOGSxo0CTs";
 
 async function query(searchStr, maxResults = 10) {
   const response = await fetch(
