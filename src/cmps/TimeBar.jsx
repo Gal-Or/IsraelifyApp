@@ -11,7 +11,7 @@ export function TimeBar({ percentage, handleTimeBarChange }) {
     <div className="time-bar">
       <Slider
         value={isNaN(percentage) ? 0 : percentage}
-        aria-labelledby="continuous-slider"
+        //aria-labelledby="continuous-slider"
         valueLabelDisplay="auto"
         onChange={onTimeBarChange}
       />

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import { setYoutubePlayer } from "../store/player.actions";
-import { setSongDuration } from "../store/player.actions";
 import { useSelector } from "react-redux";
 import { TimeBar } from "./TimeBar";
 
@@ -17,8 +16,8 @@ export function YouTubePlayer() {
     const onYouTubeIframeAPIReady = () => {
       setYoutubePlayer(
         new YT.Player("player", {
-          height: "200",
-          width: "300",
+          height: "0",
+          width: "0",
           videoId: null,
           playerVars: {
             controls: 1,
@@ -89,9 +88,8 @@ export function YouTubePlayer() {
   function formatTime(time) {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
-    return `${minutes < 10 ? "0" : ""}${minutes}:${
-      seconds < 10 ? "0" : ""
-    }${seconds}`;
+    return `${minutes < 10 ? "0" : ""}${minutes}:${seconds < 10 ? "0" : ""
+      }${seconds}`;
   }
 
   return (
