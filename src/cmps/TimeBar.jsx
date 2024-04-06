@@ -1,13 +1,18 @@
 import React from "react";
 import Slider from "@mui/material/Slider";
 
-export function TimeBar({ percentage }) {
+export function TimeBar({ percentage, handleTimeBarChange }) {
+  function onTimeBarChange(event) {
+    handleTimeBarChange(event.target.value);
+  }
+
   return (
     <div className="time-bar">
       <Slider
         value={percentage}
         aria-labelledby="continuous-slider"
         valueLabelDisplay="auto"
+        onChange={onTimeBarChange}
       />
     </div>
   );

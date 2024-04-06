@@ -27,6 +27,7 @@ function createResultObj(result) {
     img: result.snippet.thumbnails.default.url,
     name: result.snippet.title,
     tags: [],
+    duration: 0,
     url: `https://www.youtube.com/watch?v=${result.id.videoId}`,
   };
 }
