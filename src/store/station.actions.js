@@ -44,7 +44,7 @@ export async function removeStation(stationId) {
 
 
 
-export async function addSongToStation(song, stationId = "Yz8RUJ") {
+export async function addSongToStation(song, stationId = "8af1yN") {
   try {
     await stationService.addSongToStation(song, stationId);
     store.dispatch({

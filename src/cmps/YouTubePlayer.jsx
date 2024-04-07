@@ -72,6 +72,7 @@ export function YouTubePlayer() {
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
   }, []);
+
   function handleTimeBarChange(newPercentage) {
     const newTime = (newPercentage * youtubePlayer.getDuration()) / 100;
     youtubePlayer.seekTo(newTime);
