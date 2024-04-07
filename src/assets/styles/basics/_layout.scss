@@ -33,6 +33,8 @@
     overflow: scroll;
     margin-left: rem(5px);
     margin-right: rem(5px);
+    resize: horizontal;
+    overflow: auto;
   }
   .side-pop-up {
     display: none;

@@ -83,7 +83,7 @@ export function YouTubePlayer() {
 
   useEffect(() => {
     if (youtubePlayer && currentSong) {
-      youtubePlayer.cueVideoById(currentSong.id);
+      youtubePlayer.loadVideoById(currentSong.id);
     }
   }, [currentSong]);
 
@@ -91,7 +91,9 @@ export function YouTubePlayer() {
     <div>
       <div className="youtube-player" id="player"></div>
       {youtubePlayer && youtubePlayer.getDuration ? (
-        <h2>duration : {currentSong.duration}</h2>
+        <h2>
+          duration : {utilService.formatTime(youtubePlayer.getDuration())}
+        </h2>
       ) : (
         <h2>duration : 0:00</h2>
       )}
