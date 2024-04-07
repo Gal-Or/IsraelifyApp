@@ -13,6 +13,7 @@ export function YouTubePlayer() {
   );
   const currentSong = useSelector((state) => state.playerModule.currentSong);
   const [PercentagePlayed, setPercentagePlayed] = React.useState(0);
+  const [duration, setDuration] = React.useState(0);
 
   useEffect(() => {
     //initiate the youtube player
@@ -84,6 +85,7 @@ export function YouTubePlayer() {
   useEffect(() => {
     if (youtubePlayer && currentSong) {
       youtubePlayer.loadVideoById(currentSong.id);
+      setDuration(youtubePlayer.getDuration());
     }
   }, [currentSong]);
 
@@ -103,7 +105,7 @@ export function YouTubePlayer() {
         <TimeBar
           percentage={PercentagePlayed}
           handleTimeBarChange={handleTimeBarChange}
-          endValue={youtubePlayer && youtubePlayer.getDuration()}
+          endValue={duration}
         />
       </div>
       {youtubePlayer && youtubePlayer.getDuration ? (
