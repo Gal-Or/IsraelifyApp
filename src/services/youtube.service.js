@@ -1,16 +1,32 @@
+import axios from "axios";
+
 export const youtubeService = {
   query,
   cleanUpResults,
 };
-const API_KEY = "AIzaSyAUugpSNUiVGYWSRyHy4n_WSQOGSxo0CTs";
+
+const API_KEYS = ["AIzaSyAUugpSNUiVGYWSRyHy4n_WSQOGSxo0CTs", "AIzaSyCIEC-IUYCVUJMIO8J-2Yn7w_SF-jUeKRw", "AIzaSyBTFrKBmHVcN7G3OymN6mW_gMcbSVUxWFU"];
+let apiIndex = 0
 
 async function query(searchStr, maxResults = 10) {
-  const response = await fetch(
-    `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchStr}&key=${API_KEY}&maxResults=${maxResults}&type=video`
-  );
 
-  const data = await response.json();
-  return data.items;
+  try {
+
+    const response = await axios.get(
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchStr}&key=${API_KEYS[apiIndex]}&maxResults=${maxResults}&type=video`
+    );
+    const data = await response.json();
+    return data.items;
+
+  } catch (err) {
+
+    if (err.response.status === 403) {
+      apiIndex++
+      if (apiIndex === API_KEYS.length)
+        apiIndex = 0
+    }
+    console.log("in catch->", err);
+  }
 }
 
 function cleanUpResults(results) {
