@@ -12,14 +12,13 @@ export const stationService = {
   getById,
   getDefaultFilter,
   addSongToStation,
-  createDefaultStation
+  createDefaultStation,
 };
 
 _createStations();
 
 async function query(filterBy) {
   let stations = await storageService.query(STORAGE_KEY);
-  console.log("query:", stations);
   if (filterBy) {
     stations = filterEmails(stations, filterBy);
   }
@@ -45,14 +44,11 @@ function getDefaultFilter() {
 }
 async function addSongToStation(song, stationId) {
   const station = await getById(stationId);
-  console.log("station  from service", station);
   station.songs.push(song);
-  console.log("station after push", station);
   return await save(station);
 }
 
 function createDefaultStation() {
-
   return {
     type: "playlist",
     tags: [],
@@ -62,8 +58,8 @@ function createDefaultStation() {
       imgUrl: "http://some-photo/",
     },
     likedByUsers: [],
-    songs: []
-  }
+    songs: [],
+  };
 }
 
 function _createStations() {
@@ -72,8 +68,7 @@ function _createStations() {
 
   if (!stations || !stations.length) {
     stations = [];
-    for (var i = 0; i < demoDataCount; i++)
-      stations.push(_createStation());
+    for (var i = 0; i < demoDataCount; i++) stations.push(_createStation());
   }
 
   utilService.saveToStorage(STORAGE_KEY, stations);

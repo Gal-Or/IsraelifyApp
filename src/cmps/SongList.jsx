@@ -2,13 +2,7 @@ import { useEffect } from "react";
 import { SongContainer } from "./SongContainer";
 
 export function SongList({ songList }) {
-
-  useEffect(() => {
-    console.log("songList:", songList);
-
-  }, [songList])
-
-  if (!songList) return <h1>loading...</h1>
+  if (!songList) return <h1>loading...</h1>;
   return (
     <ul className="song-list">
       {songList?.map((song, index) => (

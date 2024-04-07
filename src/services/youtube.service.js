@@ -14,17 +14,12 @@ let apiIndex = 0;
 
 async function query(searchStr, maxResults = 10) {
   try {
-    console.log("apiIndex in query->", apiIndex);
     const response = await axios.get(
       `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchStr}&key=${API_KEYS[apiIndex]}&maxResults=${maxResults}&type=video`
     );
-    console.log("response->", response);
     const data = response.data;
-    console.log("data->", data);
     return data.items;
   } catch (err) {
-    console.log("in catch->", err);
-
     if (err.response.status === 403) {
       apiIndex++;
       if (apiIndex === API_KEYS.length) apiIndex = 0;
@@ -34,7 +29,6 @@ async function query(searchStr, maxResults = 10) {
 }
 
 function cleanUpResults(results) {
-  //console.log("before clean", results);
   var cleanResults = results.map((result) => createResultObj(result));
 
   return cleanResults;

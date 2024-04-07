@@ -28,7 +28,6 @@ export function YouTubePlayer() {
             },
             onStateChange: (event) => {
               onPlayerStateChange(event);
-              console.log("onStateChange", event);
             },
           },
         })
@@ -36,7 +35,6 @@ export function YouTubePlayer() {
     };
     function onPlayerReady(event) {
       event.target.cueVideoById(currentSong ? currentSong.id : "mMfxI3r_LyA");
-      console.log("onPlayerReady");
     }
 
     function onPlayerStateChange(event) {
@@ -89,18 +87,23 @@ export function YouTubePlayer() {
   function formatTime(time) {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
-    return `${minutes < 10 ? "0" : ""}${minutes}:${seconds < 10 ? "0" : ""
-      }${seconds}`;
+    return `${minutes < 10 ? "0" : ""}${minutes}:${
+      seconds < 10 ? "0" : ""
+    }${seconds}`;
   }
 
   return (
     <div>
       <div className="youtube-player" id="player"></div>
-      {currentSong && (
+      {youtubePlayer && youtubePlayer.getDuration ? (
         <h2>duration : {formatTime(youtubePlayer.getDuration())}</h2>
+      ) : (
+        <h2>duration : 0:00</h2>
       )}
-      {currentSong && (
+      {youtubePlayer && youtubePlayer.getCurrentTime ? (
         <h2>current time : {formatTime(youtubePlayer.getCurrentTime())}</h2>
+      ) : (
+        <h2>current time : 0:00</h2>
       )}
 
       <TimeBar

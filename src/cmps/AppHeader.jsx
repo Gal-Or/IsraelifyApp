@@ -1,15 +1,13 @@
 import { useNavigate } from "react-router";
 
-
 import logo_no_bg from "../assets/imgs/logo_no_bg.png";
 
 export function AppHeader() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   function onInputChange(ev) {
-    let { value } = ev.target
-    console.log("value:", value);
-    navigate(`/search/${value}`)
+    let { value } = ev.target;
+    navigate(`/search/${value}`);
   }
 
   return (
