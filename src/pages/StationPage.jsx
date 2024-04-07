@@ -26,7 +26,7 @@ export function StationPage() {
 
     try {
       const station = await stationService.getById(params.stationId)
-      setEditMode(station.name)
+      setEditMode(!station.name)
       setStation(station)
 
     } catch (err) {
@@ -37,11 +37,10 @@ export function StationPage() {
   if (!station) return <h1>loading...</h1>
   return (
     <section className="station-page">
-      {editMode && <>
-        <StationHeader station={station} />
-        <StationContent station={station} />
-      </>}
-      <AddSongs />
+      <StationHeader station={station} />
+      <StationContent station={station} />
+
+      {editMode && <AddSongs />}
 
     </section>
   );

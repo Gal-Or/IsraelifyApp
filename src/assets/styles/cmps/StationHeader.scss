@@ -1,0 +1,51 @@
+.station-header {
+
+    .station-preview {
+
+        display: flex;
+        flex-direction: column;
+
+        img {
+            width: 20vw;
+            height: 20vw;
+            align-self: center;
+        }
+    }
+}
+
+@include for-normal-layout {
+
+    .station-header {
+        display: flex;
+        align-items: center;
+
+        padding: em(20px);
+
+        .station-preview {
+
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            column-gap: em(20px);
+            align-items: center;
+            align-content: center;
+
+            img {
+                width: em(200px);
+                height: em(200px);
+                border-radius: 4px;
+            }
+
+            .info-container {
+                display: flex;
+                flex-direction: column;
+                row-gap: em(20px);
+                align-self: stretch;
+                justify-content: flex-end;
+
+                .station-creator {}
+            }
+        }
+    }
+
+}
