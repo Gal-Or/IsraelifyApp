@@ -18,7 +18,6 @@ export function SearchPage() {
 
   async function getYoutubeResults() {
     var res = await youtubeService.query(params.query);
-    res = youtubeService.cleanUpResults(res);
     setResults(res);
   }
 

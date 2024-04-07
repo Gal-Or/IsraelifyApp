@@ -4,22 +4,14 @@ import { useEffect } from "react";
 import { useParams } from "react-router";
 
 export function SongResults({ songResults, onAddSongToStation }) {
+  const { stationId } = useParams();
 
-  const { stationId } = useParams()
-
-  useEffect(() => {
-    console.log("SongResults ---->", songResults);
-  }, []);
-  //
   async function onAddToPlaylist(song) {
     console.log(stationId);
     if (stationId) {
       await addSongToStation(song, stationId);
-      onAddSongToStation(song)
-    }
-    else
-      await addSongToStation(song); // TODO:  implement add from search page
-
+      onAddSongToStation(song);
+    } else await addSongToStation(song); // TODO:  implement add from search page
   }
   function onPlaySong(song) {
     setCurrentSong(song);

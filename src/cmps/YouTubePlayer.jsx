@@ -96,7 +96,7 @@ export function YouTubePlayer() {
     <div>
       <div className="youtube-player" id="player"></div>
       {youtubePlayer && youtubePlayer.getDuration ? (
-        <h2>duration : {formatTime(youtubePlayer.getDuration())}</h2>
+        <h2>duration : {currentSong.duration}</h2>
       ) : (
         <h2>duration : 0:00</h2>
       )}

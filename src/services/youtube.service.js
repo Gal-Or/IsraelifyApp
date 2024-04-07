@@ -18,7 +18,7 @@ async function query(searchStr, maxResults = 10) {
       `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchStr}&key=${API_KEYS[apiIndex]}&maxResults=${maxResults}&type=video`
     );
     const data = response.data;
-    return data.items;
+    return await cleanUpResults(data.items);
   } catch (err) {
     if (err.response.status === 403) {
       apiIndex++;
@@ -28,10 +28,40 @@ async function query(searchStr, maxResults = 10) {
   }
 }
 
-function cleanUpResults(results) {
+async function cleanUpResults(results) {
+  //console.log("before clean", results);
   var cleanResults = results.map((result) => createResultObj(result));
+  cleanResults = await getDurations(cleanResults);
 
   return cleanResults;
+}
+async function getDurations(results) {
+  // Use Promise.all to await all promises inside map function
+  const resultsWithDurations = await Promise.all(
+    results.map(async (result) => {
+      try {
+        const response = await axios.get(
+          `https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${result.id}&key=${API_KEYS[apiIndex]}`
+        );
+        const duration = await response.data.items[0].contentDetails.duration;
+        result.duration = formatDuration(duration);
+        return result;
+      } catch (error) {
+        console.error("Error fetching duration for video:", error);
+        return result; // Return result object even if duration fetch fails
+      }
+    })
+  );
+  return resultsWithDurations;
+}
+function formatDuration(duration) {
+  if (!duration) return 0;
+  const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+  const hours = parseInt(match[1]) || 0;
+  const minutes = parseInt(match[2]) || 0;
+  const seconds = parseInt(match[3]) || 0;
+  //return the duration in seconds
+  return hours * 3600 + minutes * 60 + seconds;
 }
 
 function createResultObj(result) {
