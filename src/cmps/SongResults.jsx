@@ -1,7 +1,9 @@
+import { useParams } from "react-router";
+
 import { addSongToStation } from "../store/station.actions";
 import { setCurrentSong } from "../store/player.actions";
-import { useEffect } from "react";
-import { useParams } from "react-router";
+
+import { utilService } from "../services/util.service";
 
 export function SongResults({ songResults, onAddSongToStation }) {
   const { stationId } = useParams();
@@ -24,6 +26,7 @@ export function SongResults({ songResults, onAddSongToStation }) {
           <img src={song.img} alt={song.name} style={{ width: "100px" }} />
           <h3>{song.name}</h3>
           <p>{song.artist}</p>
+          <p>{utilService.formatTime(song.duration)}</p>
 
           <button
             className="add-to-playlist"

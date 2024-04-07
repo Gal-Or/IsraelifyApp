@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from "react";
-import { setYoutubePlayer } from "../store/player.actions";
 import { useSelector } from "react-redux";
+
+import { setYoutubePlayer } from "../store/player.actions";
+import { utilService } from "../services/util.service";
+
 import { TimeBar } from "./TimeBar";
 
 export function YouTubePlayer() {
@@ -84,14 +87,6 @@ export function YouTubePlayer() {
     }
   }, [currentSong]);
 
-  function formatTime(time) {
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes < 10 ? "0" : ""}${minutes}:${
-      seconds < 10 ? "0" : ""
-    }${seconds}`;
-  }
-
   return (
     <div>
       <div className="youtube-player" id="player"></div>
@@ -101,7 +96,10 @@ export function YouTubePlayer() {
         <h2>duration : 0:00</h2>
       )}
       {youtubePlayer && youtubePlayer.getCurrentTime ? (
-        <h2>current time : {formatTime(youtubePlayer.getCurrentTime())}</h2>
+        <h2>
+          current time :{" "}
+          {utilService.formatTime(youtubePlayer.getCurrentTime())}
+        </h2>
       ) : (
         <h2>current time : 0:00</h2>
       )}
