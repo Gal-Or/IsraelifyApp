@@ -1,10 +1,11 @@
+import { useSelector } from "react-redux";
 import { SongDetails } from "./SongDetails";
 
 export function MinimalSong() {
+  const song = useSelector((state) => state.playerModule.currentSong);
   return (
-    <div>
-      <h1>img</h1>
-      <SongDetails />
+    <div className="minimal-song">
+      <SongDetails song={song} />
     </div>
   );
 }

@@ -19,12 +19,13 @@ export function Player() {
   }
 
   return (
-    <div>
-      <h1>Player</h1>
+    <div className="player">
+      <div className="player-actions">
+        <button onClick={onPlay}>Play</button>
+        <button onClick={onPause}>Pause</button>
+        <button onClick={onStop}>Stop</button>
+      </div>
       <YouTubePlayer />
-      <button onClick={onPlay}>Play</button>
-      <button onClick={onPause}>Pause</button>
-      <button onClick={onStop}>Stop</button>
     </div>
   );
 }

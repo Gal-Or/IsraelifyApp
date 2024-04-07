@@ -37,7 +37,7 @@ export function YouTubePlayer() {
       );
     };
     function onPlayerReady(event) {
-      event.target.cueVideoById(currentSong ? currentSong.id : "mMfxI3r_LyA");
+      event.target.cueVideoById(currentSong.id);
     }
 
     function onPlayerStateChange(event) {
@@ -90,26 +90,28 @@ export function YouTubePlayer() {
   return (
     <div>
       <div className="youtube-player" id="player"></div>
-      {youtubePlayer && youtubePlayer.getDuration ? (
-        <h2>
-          duration : {utilService.formatTime(youtubePlayer.getDuration())}
-        </h2>
-      ) : (
-        <h2>duration : 0:00</h2>
-      )}
+
       {youtubePlayer && youtubePlayer.getCurrentTime ? (
-        <h2>
+        <h2 className="current-time">
           current time :{" "}
           {utilService.formatTime(youtubePlayer.getCurrentTime())}
         </h2>
       ) : (
         <h2>current time : 0:00</h2>
       )}
-
-      <TimeBar
-        percentage={PercentagePlayed}
-        handleTimeBarChange={handleTimeBarChange}
-      />
+      <div className="time-bar">
+        <TimeBar
+          percentage={PercentagePlayed}
+          handleTimeBarChange={handleTimeBarChange}
+        />
+      </div>
+      {youtubePlayer && youtubePlayer.getDuration ? (
+        <h2 className="duration">
+          duration : {utilService.formatTime(youtubePlayer.getDuration())}
+        </h2>
+      ) : (
+        <h2 className="duration">duration : 0:00</h2>
+      )}
     </div>
   );
 }

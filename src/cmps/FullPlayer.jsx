@@ -3,7 +3,7 @@ import { PlayerActions } from "./PlayerActions.jsx";
 import { MinimalSong } from "./MinimalSong.jsx";
 export function FullPlayer() {
   return (
-    <div>
+    <div className="full-player">
       <MinimalSong />
       <Player />
       <PlayerActions />
