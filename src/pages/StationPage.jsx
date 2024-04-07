@@ -34,13 +34,17 @@ export function StationPage() {
     }
   }
 
+  function onAddSongToStation(song) {
+    setStation((prevStation) => ({ ...prevStation, songs: [...prevStation.songs, song] }))
+  }
+
   if (!station) return <h1>loading...</h1>
   return (
     <section className="station-page">
       <StationHeader station={station} />
       <StationContent station={station} />
 
-      {editMode && <AddSongs />}
+      {editMode && <AddSongs onAddSongToStation={onAddSongToStation} />}
 
     </section>
   );

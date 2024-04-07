@@ -7,7 +7,7 @@ export function StationContent({ station }) {
   return (
     <div className="station-content">
       <StationActions />
-      <SongList />
+      <SongList songList={station.songs} />
 
     </div>
   );

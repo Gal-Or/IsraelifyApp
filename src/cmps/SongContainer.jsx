@@ -1,10 +1,9 @@
 import { SongDetails } from "./SongDetails";
 import { SongActions } from "./SongActions";
-export function SongContainer() {
+export function SongContainer({ song }) {
   return (
-    <div>
-      <span>index</span>
-      <SongDetails />
+    <div className="song-container">
+      <SongDetails song={song} />
       <SongActions />
     </div>
   );

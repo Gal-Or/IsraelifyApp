@@ -14,7 +14,7 @@ async function query(searchStr, maxResults = 10) {
 }
 
 function cleanUpResults(results) {
-  console.log("before clean", results);
+  //console.log("before clean", results);
   var cleanResults = results.map((result) => createResultObj(result));
 
   return cleanResults;

@@ -3,7 +3,7 @@ import { youtubeService } from "../services/youtube.service.js";
 
 import { SongResults } from "./SongResults.jsx";
 
-export function AddSongs() {
+export function AddSongs({ onAddSongToStation }) {
     const [songResults, setResults] = useState(null);
 
     async function getYoutubeResults(queryTxt) {
@@ -21,7 +21,7 @@ export function AddSongs() {
     return (
         <>
             <input type="text" placeholder="Search" onChange={onInputChange} />
-            {songResults && <SongResults songResults={songResults} />}
+            {songResults && <SongResults songResults={songResults} onAddSongToStation={onAddSongToStation} />}
         </>
     )
 }

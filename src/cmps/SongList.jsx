@@ -1,13 +1,23 @@
+import { useEffect } from "react";
 import { SongContainer } from "./SongContainer";
 
-export function SongList() {
+export function SongList({ songList }) {
+
+  useEffect(() => {
+    console.log("songList:", songList);
+
+  }, [songList])
+
+  if (!songList) return <h1>loading...</h1>
   return (
-    <div>
-      <h1>SongList</h1>
-      <SongContainer />
-      <SongContainer />
-      <SongContainer />
-      <SongContainer />
-    </div>
+    <ul className="song-list">
+      {songList?.map((song, index) => (
+        <article key={index}>
+          <li key={song.id} className="">
+            <SongContainer song={song} />
+          </li>
+        </article>
+      ))}
+    </ul>
   );
 }

@@ -3,7 +3,7 @@ import { setCurrentSong } from "../store/player.actions";
 import { useEffect } from "react";
 import { useParams } from "react-router";
 
-export function SongResults({ songResults }) {
+export function SongResults({ songResults, onAddSongToStation }) {
 
   const { stationId } = useParams()
 
@@ -13,8 +13,10 @@ export function SongResults({ songResults }) {
   //
   async function onAddToPlaylist(song) {
     console.log(stationId);
-    if (stationId)
+    if (stationId) {
       await addSongToStation(song, stationId);
+      onAddSongToStation(song)
+    }
     else
       await addSongToStation(song); // TODO:  implement add from search page
 
