@@ -103,6 +103,7 @@ export function YouTubePlayer() {
         <TimeBar
           percentage={PercentagePlayed}
           handleTimeBarChange={handleTimeBarChange}
+          endValue={youtubePlayer && youtubePlayer.getDuration()}
         />
       </div>
       {youtubePlayer && youtubePlayer.getDuration ? (
