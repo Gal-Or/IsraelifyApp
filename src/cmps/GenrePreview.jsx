@@ -1,7 +1,8 @@
-export function GenrePreview() {
+export function GenrePreview({ genre }) {
   return (
-    <div>
-      <h1>GenrePreview</h1>
+    <div className="genre-preview">
+      <img src={genre.picture} alt="" />
+      <h2>{genre.name}</h2>
     </div>
   );
 }
