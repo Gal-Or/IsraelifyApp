@@ -6,12 +6,12 @@ import { setCurrentSong } from "../store/player.actions";
 import { utilService } from "../services/util.service";
 
 export function SongResults({ songResults, onAddSongToStation }) {
-  const { stationId } = useParams();
+  const params = useParams();
 
-  async function onAddToPlaylist(song) {
-    console.log(stationId);
-    if (stationId) {
-      await addSongToStation(song, stationId);
+  async function onAddToPlaylist(song, stationId = 0) {
+    if (params.stationId) {
+      console.log("stationId", params.stationId);
+      await addSongToStation(song, params.stationId);
       onAddSongToStation(song);
     } else await addSongToStation(song); // TODO:  implement add from search page
   }

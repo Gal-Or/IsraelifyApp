@@ -28,8 +28,8 @@ export async function removeStation(stationId) {
   } catch (err) {
     console.log("Cannot remove station", err);
   }
-
-} export async function addStation(newStation) {
+}
+export async function addStation(newStation) {
   try {
     newStation = await stationService.save(newStation);
     store.dispatch({
@@ -39,12 +39,10 @@ export async function removeStation(stationId) {
   } catch (err) {
     console.log("Cannot add station", err);
   }
-  return newStation._id
+  return newStation._id;
 }
 
-
-
-export async function addSongToStation(song, stationId = "8af1yN") {
+export async function addSongToStation(song, stationId = 0) {
   try {
     await stationService.addSongToStation(song, stationId);
     store.dispatch({
