@@ -1,7 +1,7 @@
 import { storageService } from "./async-storage.service";
 import { utilService } from "./util.service";
 
-import tunmbnail from "../assets/imgs/logo-Blue3D.png";
+import tunmbnail from "../assets/imgs/likedSongs.jpeg";
 
 const STORAGE_KEY = "stationsDB";
 
@@ -43,6 +43,11 @@ function getDefaultFilter() {
   return {};
 }
 async function addSongToStation(song, stationId) {
+  if (stationId === 0) {
+    //add to first station
+    const stations = await query();
+    stationId = stations[0]._id;
+  }
   const station = await getById(stationId);
   station.songs.push(song);
   return await save(station);
@@ -64,7 +69,7 @@ function createDefaultStation() {
 
 function _createStations() {
   var stations = utilService.loadFromStorage(STORAGE_KEY);
-  const demoDataCount = 10;
+  const demoDataCount = 1;
 
   if (!stations || !stations.length) {
     stations = [];
@@ -79,12 +84,12 @@ function _createStations() {
 function _createStation() {
   return {
     _id: utilService.makeId(),
-    name: "Funky Monks",
+    name: "Liked Songs",
     type: "playlist",
-    tags: ["Funk", "Happy"],
+    tags: ["liked"],
     createdBy: {
       _id: "u101",
-      fullname: "Puki Ben David",
+      fullname: "Bar and Gal",
       imgUrl: "http://some-photo/",
     },
     likedByUsers: ["{minimal-user}", "{minimal-user}"],
@@ -97,15 +102,6 @@ function _createStation() {
         addedBy: "{minimal-user}",
         addedAt: 162521765262,
         tags: ["Funk", "Happy", "hip-hop"],
-      },
-      {
-        id: "mUkfiLjooxs",
-        title: "The JB's - Pass The Peas",
-        url: "youtube/song.mp4",
-        img: tunmbnail,
-        addedBy: {},
-        addedAt: 162521765262,
-        tags: ["Funk", "Happy", "rock"],
       },
     ],
   };
