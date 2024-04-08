@@ -4,30 +4,49 @@
   grid-template-rows: auto auto; /* Define two rows */
   grid-template-columns: 1fr; /* Single column */
 
-  .player-actions {
-    grid-row: 1; /* Position player actions in the first row */
+  .player-controls {
+    grid-row: 1;
     display: flex;
-    justify-content: space-around; /* Spread buttons horizontally */
-    align-items: center; /* Center align */
+    justify-content: space-around;
+    align-items: center;
+
+    button {
+      background-color: blue; /* Set background color to blue */
+      border-radius: 50%; /* Make the button round */
+      padding: 10px; /* Add some padding for spacing */
+      border: none; /* Remove border */
+      cursor: pointer; /* Change cursor to pointer on hover */
+      transition: background-color 0.3s; /* Smooth transition for color change */
+
+      &:hover {
+        background-color: darkblue; /* Darken the background color on hover */
+      }
+
+      svg {
+        width: 24px; /* Set width of SVG icon */
+        height: 24px; /* Set height of SVG icon */
+        fill: white; /* Set SVG icon color to white */
+      }
+    }
   }
 
   .youtube-player {
-    display: grid; /* Enable subgrid */
-    grid-template-columns: 1fr 6fr auto; /* Three columns for current time, time bar, and duration */
-    align-items: center; /* Align items vertically */
+    display: grid;
+    grid-template-columns: 1fr 6fr auto;
+    align-items: center;
 
     .current-time {
-      grid-column: 1; /* Position current time on the left */
-      justify-self: start; /* Align to the start of the column */
+      grid-column: 1;
+      justify-self: start;
     }
 
     .time-bar {
-      grid-column: 2; /* Position time bar in the center */
+      grid-column: 2;
     }
 
     .duration {
-      grid-column: 3; /* Position duration on the right */
-      justify-self: end; /* Align to the end of the column */
+      grid-column: 3;
+      justify-self: end;
     }
   }
 }

@@ -1,12 +1,15 @@
 import { useSelector } from "react-redux";
+import { ReactSVG } from "react-svg";
 
 import { YouTubePlayer } from "./YouTubePlayer";
-import { useEffect, useState } from "react";
 
+import playIcon from "../assets/icons/playIcon.svg";
+import pauseIcon from "../assets/icons/pauseIcon.svg";
 export function Player() {
   const youtubePlayer = useSelector(
     (state) => state.playerModule.youtubePlayer
   );
+  const isPlaying = useSelector((state) => state.playerModule.isPlaying);
 
   function onPlay() {
     youtubePlayer.playVideo();
@@ -20,10 +23,17 @@ export function Player() {
 
   return (
     <div className="player">
-      <div className="player-actions">
-        <button onClick={onPlay}>Play</button>
-        <button onClick={onPause}>Pause</button>
-        <button onClick={onStop}>Stop</button>
+      <div className="player-controls">
+        {isPlaying ? (
+          <button onClick={onPause}>
+            <ReactSVG src={pauseIcon} />{" "}
+          </button>
+        ) : (
+          <button onClick={onPlay}>
+            {" "}
+            <ReactSVG src={playIcon} />{" "}
+          </button>
+        )}
       </div>
       <YouTubePlayer />
     </div>

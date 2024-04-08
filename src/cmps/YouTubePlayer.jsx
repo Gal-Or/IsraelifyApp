@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 
-import { setYoutubePlayer } from "../store/player.actions";
+import { setYoutubePlayer, setIsPlaying } from "../store/player.actions";
+
 import { utilService } from "../services/util.service";
 
 import { TimeBar } from "./TimeBar";
@@ -25,7 +26,7 @@ export function YouTubePlayer() {
         new YT.Player("player", {
           height: "0",
           width: "0",
-          videoId: null,
+          videoId: currentSong.id,
           playerVars: {
             controls: 1,
           },
@@ -56,15 +57,19 @@ export function YouTubePlayer() {
               event.target.getDuration()
             );
           }, 1000);
+          setIsPlaying(true);
           break;
         case window.YT.PlayerState.PAUSED:
           clearInterval(intervalRef.current);
+          setIsPlaying(false);
           break;
         case window.YT.PlayerState.ENDED:
           clearInterval(intervalRef.current);
           setPercentagePlayed(0);
+          setIsPlaying(false);
           break;
         default:
+          setIsPlaying(false);
           break;
       }
     }
