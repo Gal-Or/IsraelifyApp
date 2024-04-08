@@ -14,6 +14,9 @@ export function YouTubePlayer() {
   const currentSong = useSelector((state) => state.playerModule.currentSong);
   const [PercentagePlayed, setPercentagePlayed] = React.useState(0);
   const [duration, setDuration] = React.useState(0);
+  useEffect(() => {
+    console.log("duration", duration);
+  }, [duration]);
 
   useEffect(() => {
     //initiate the youtube player
@@ -39,9 +42,12 @@ export function YouTubePlayer() {
     };
     function onPlayerReady(event) {
       event.target.cueVideoById(currentSong.id);
+      event.target.playVideo();
+      event.target.pauseVideo();
     }
 
     function onPlayerStateChange(event) {
+      setDuration(event.target.getDuration());
       switch (event.data) {
         case window.YT.PlayerState.PLAYING:
           intervalRef.current = setInterval(() => {
@@ -76,7 +82,7 @@ export function YouTubePlayer() {
   }, []);
 
   function handleTimeBarChange(newPercentage) {
-    const newTime = (newPercentage * youtubePlayer.getDuration()) / 100;
+    const newTime = (newPercentage * duration) / 100;
     youtubePlayer.seekTo(newTime);
     setPercentagePlayed(newPercentage);
     //updateTimeBar(newTime, youtubePlayer.getDuration());
@@ -85,21 +91,22 @@ export function YouTubePlayer() {
   useEffect(() => {
     if (youtubePlayer && currentSong) {
       youtubePlayer.loadVideoById(currentSong.id);
+      youtubePlayer.playVideo();
+      youtubePlayer.pauseVideo();
       setDuration(youtubePlayer.getDuration());
     }
   }, [currentSong]);
 
   return (
-    <div>
-      <div className="youtube-player" id="player"></div>
+    <div className="youtube-player">
+      <div id="player"></div>
 
       {youtubePlayer && youtubePlayer.getCurrentTime ? (
-        <h2 className="current-time">
-          current time :{" "}
+        <span className="current-time">
           {utilService.formatTime(youtubePlayer.getCurrentTime())}
-        </h2>
+        </span>
       ) : (
-        <h2>current time : 0:00</h2>
+        <span className="current-time">0:00</span>
       )}
       <div className="time-bar">
         <TimeBar
@@ -109,11 +116,11 @@ export function YouTubePlayer() {
         />
       </div>
       {youtubePlayer && youtubePlayer.getDuration ? (
-        <h2 className="duration">
-          duration : {utilService.formatTime(youtubePlayer.getDuration())}
-        </h2>
+        <span className="duration">
+          {utilService.formatTime(youtubePlayer.getDuration())}
+        </span>
       ) : (
-        <h2 className="duration">duration : 0:00</h2>
+        <span className="duration">0:00</span>
       )}
     </div>
   );

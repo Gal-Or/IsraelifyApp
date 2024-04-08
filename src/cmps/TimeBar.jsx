@@ -3,20 +3,24 @@ import Slider from "@mui/material/Slider";
 import { utilService } from "../services/util.service";
 
 export function TimeBar({ percentage, handleTimeBarChange, endValue }) {
-  function onTimeBarChange(event) {
-    handleTimeBarChange(event.target.value);
+  function onTimeBarChange(event, newValue) {
+    handleTimeBarChange(newValue);
   }
 
   return (
     <div className="time-bar">
       <Slider
         value={isNaN(percentage) ? 0 : percentage}
-        //aria-labelledby="continuous-slider"
-        valueLabelDisplay={percentage === 0 ? "off" : "on"}
+        valueLabelDisplay="auto"
         valueLabelFormat={(value) =>
           utilService.formatTime((value * endValue) / 100)
         }
         onChange={onTimeBarChange}
+        classes={{
+          rail: "time-bar-rail",
+          track: "time-bar-track",
+          thumb: "time-bar-thumb",
+        }}
       />
     </div>
   );

@@ -1,0 +1,19 @@
+.time-bar {
+  width: 100%;
+
+  .time-bar-track {
+    height: 2px; /* Adjust the height of the track */
+  }
+
+  .time-bar-thumb {
+    width: 0px; /* Set the width of the thumb */
+    height: 0px; /* Set the height of the thumb */
+    background-color: #fff; /* Set the color of the thumb */
+    border-radius: 50%; /* Round the corners of the thumb */
+    //on hover
+    &:hover {
+      width: rem(10px); /* Set the width of the thumb on hover */
+      height: rem(10px); /* Set the height of the thumb on hover */
+    }
+  }
+}

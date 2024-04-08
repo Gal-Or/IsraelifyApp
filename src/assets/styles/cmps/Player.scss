@@ -1,2 +1,33 @@
-.youtube-player {
+.player {
+  grid-column: 2; /* Position within the subgrid */
+  display: subgrid; /* Enable subgrid */
+  grid-template-rows: auto auto; /* Define two rows */
+  grid-template-columns: 1fr; /* Single column */
+
+  .player-actions {
+    grid-row: 1; /* Position player actions in the first row */
+    display: flex;
+    justify-content: space-around; /* Spread buttons horizontally */
+    align-items: center; /* Center align */
+  }
+
+  .youtube-player {
+    display: grid; /* Enable subgrid */
+    grid-template-columns: 1fr 6fr auto; /* Three columns for current time, time bar, and duration */
+    align-items: center; /* Align items vertically */
+
+    .current-time {
+      grid-column: 1; /* Position current time on the left */
+      justify-self: start; /* Align to the start of the column */
+    }
+
+    .time-bar {
+      grid-column: 2; /* Position time bar in the center */
+    }
+
+    .duration {
+      grid-column: 3; /* Position duration on the right */
+      justify-self: end; /* Align to the end of the column */
+    }
+  }
 }
