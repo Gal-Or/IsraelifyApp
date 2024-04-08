@@ -43,8 +43,6 @@ export function YouTubePlayer() {
     };
     function onPlayerReady(event) {
       event.target.cueVideoById(currentSong.id);
-      event.target.playVideo();
-      event.target.pauseVideo();
     }
 
     function onPlayerStateChange(event) {
@@ -96,8 +94,6 @@ export function YouTubePlayer() {
   useEffect(() => {
     if (youtubePlayer && currentSong) {
       youtubePlayer.loadVideoById(currentSong.id);
-      youtubePlayer.playVideo();
-      youtubePlayer.pauseVideo();
       setDuration(youtubePlayer.getDuration());
     }
   }, [currentSong]);

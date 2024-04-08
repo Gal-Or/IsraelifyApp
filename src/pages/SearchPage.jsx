@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 
 import { youtubeService } from "../services/youtube.service.js";
+import { stationService } from "../services/station.service.js";
 
 import { AppHeader } from "../cmps/AppHeader.jsx";
 import { BrowseAll } from "../cmps/BrowseAll.jsx";
@@ -11,14 +12,21 @@ export function SearchPage() {
   var params = useParams();
 
   const [songResults, setResults] = useState(null);
+  const [stationResults, setStationResults] = useState(null);
 
   useEffect(() => {
     getYoutubeResults();
+    getStationResults();
   }, [params.query]);
 
   async function getYoutubeResults() {
     var res = await youtubeService.query(params.query);
     setResults(res);
+  }
+  async function getStationResults() {
+    var res = await stationService.findStationWithQuery(params.query);
+    console.log("res", res);
+    setStationResults(res);
   }
 
   return (
@@ -26,7 +34,10 @@ export function SearchPage() {
       <AppHeader />
       {!params.query && <BrowseAll />}
       {params.query && songResults && (
-        <SearchResults songResults={songResults} />
+        <SearchResults
+          songResults={songResults}
+          stationResults={stationResults}
+        />
       )}
     </section>
   );

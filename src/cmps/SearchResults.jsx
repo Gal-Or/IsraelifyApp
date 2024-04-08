@@ -1,11 +1,11 @@
 import { SongResults } from "./SongResults";
 import { StationResults } from "./StationResults";
 
-export function SearchResults({ songResults }) {
+export function SearchResults({ songResults, stationResults }) {
   return (
     <div>
       <SongResults songResults={songResults} />
-      <StationResults />
+      <StationResults stationResults={stationResults} />
     </div>
   );
 }
