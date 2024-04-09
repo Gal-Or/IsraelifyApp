@@ -1,19 +1,17 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
-export function SongDetails({ song }) {
-  useEffect(() => {
-    if (song) console.log(song.name);
-  }, [song]);
-
+export function SongDetails({ song, children }) {
   if (!song) return <div>Loading...</div>;
   return (
-    <div className="song-details flex align-center">
+    <div className="song-details">
       <div className="artist-img">
         <img src={song.img} alt={song.name} />
+        {children}
       </div>
       <div className="song-info">
         <p>{(song && song.name) || "Song Name"}</p>
         <small>{(song && song.artist) || "Artist"}</small>
+        {/* Display children elements */}
       </div>
     </div>
   );

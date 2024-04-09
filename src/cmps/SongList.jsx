@@ -6,11 +6,9 @@ export function SongList({ songList }) {
   return (
     <ul className="song-list">
       {songList?.map((song, index) => (
-        <article key={index}>
-          <li key={song.id} className="">
-            <SongContainer song={song} />
-          </li>
-        </article>
+        <li key={song.id}>
+          <SongContainer song={song} />
+        </li>
       ))}
     </ul>
   );
