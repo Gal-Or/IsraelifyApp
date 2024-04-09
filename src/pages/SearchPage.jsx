@@ -25,7 +25,6 @@ export function SearchPage() {
   }
   async function getStationResults() {
     var res = await stationService.findStationWithQuery(params.query);
-    console.log("res", res);
     setStationResults(res);
   }
 

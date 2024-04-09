@@ -12,9 +12,18 @@ export function YouTubePlayer() {
   const youtubePlayer = useSelector(
     (state) => state.playerModule.youtubePlayer
   );
+  const isPlaying = useSelector((state) => state.playerModule.isPlaying);
   const currentSong = useSelector((state) => state.playerModule.currentSong);
   const [PercentagePlayed, setPercentagePlayed] = React.useState(0);
   const [duration, setDuration] = React.useState(0);
+
+  useEffect(() => {
+    if (youtubePlayer && isPlaying) {
+      youtubePlayer.playVideo();
+    } else if (youtubePlayer) {
+      youtubePlayer.pauseVideo();
+    }
+  }, [isPlaying]);
 
   useEffect(() => {
     //initiate the youtube player
@@ -56,15 +65,15 @@ export function YouTubePlayer() {
           break;
         case window.YT.PlayerState.PAUSED:
           clearInterval(intervalRef.current);
-          setIsPlaying(false);
           break;
         case window.YT.PlayerState.ENDED:
           clearInterval(intervalRef.current);
           setPercentagePlayed(0);
-          setIsPlaying(false);
           break;
-        default:
+
+        case window.YT.PlayerState.CUED:
           setIsPlaying(false);
+        default:
           break;
       }
     }

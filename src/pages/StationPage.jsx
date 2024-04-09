@@ -26,7 +26,8 @@ export function StationPage() {
   }
 
   function onAddSongToStation(song) {
-    console.log("song", song);
+    //if song not in station
+    if (station.songs.find((stationSong) => stationSong.id === song.id)) return;
     setStation((prevStation) => ({
       ...prevStation,
       songs: [...prevStation.songs, song],
