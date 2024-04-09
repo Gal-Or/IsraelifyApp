@@ -1,9 +1,14 @@
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 import logo_no_bg from "../assets/imgs/logo_no_bg.png";
+import { useEffect } from "react";
 
 export function AppHeader() {
   const navigate = useNavigate();
+  const params = useParams();
+  useEffect(() => {
+    console.log(params);
+  }, [params]);
 
   function onInputChange(ev) {
     let { value } = ev.target;
@@ -12,9 +17,12 @@ export function AppHeader() {
 
   return (
     <header className="app-header">
-      <h1>header</h1>
-      <input type="text" placeholder="Search" onChange={onInputChange} />
-      <img src={logo_no_bg} alt="logo" className="logo" />
+      <input
+        type="text"
+        placeholder="Search"
+        onChange={onInputChange}
+        value={params.query || ""}
+      />
     </header>
   );
 }
