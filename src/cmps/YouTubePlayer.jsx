@@ -15,9 +15,6 @@ export function YouTubePlayer() {
   const currentSong = useSelector((state) => state.playerModule.currentSong);
   const [PercentagePlayed, setPercentagePlayed] = React.useState(0);
   const [duration, setDuration] = React.useState(0);
-  useEffect(() => {
-    console.log("duration", duration);
-  }, [duration]);
 
   useEffect(() => {
     //initiate the youtube player

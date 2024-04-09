@@ -32,12 +32,11 @@
 
   .youtube-player {
     display: grid;
-    grid-template-columns: 1fr 6fr auto;
+    grid-template-columns: 1fr 6fr 1fr;
     align-items: center;
 
     .current-time {
       grid-column: 1;
-      justify-self: start;
     }
 
     .time-bar {
