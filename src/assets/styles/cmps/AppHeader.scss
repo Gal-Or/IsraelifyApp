@@ -4,10 +4,8 @@
   display: flex;
   justify-content: space-around;
   align-items: start;
-
-  padding: 10px;
+  z-index: 2;
   top: 0;
-  //sticky
   position: sticky;
 
   input {

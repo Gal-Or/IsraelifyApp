@@ -7,5 +7,42 @@
 
 @font-face {
   font-family: "CircularSpotifyText";
+  src: url("../fonts/CircularSpotifyText-Medium.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CircularSpotifyText";
   src: url("../fonts/CircularSpotifyText-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CircularSpotifyText";
+  src: url("../fonts/CircularSpotifyText-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CircularSpotifyText";
+  src: url("../fonts/CircularSpotifyText-BlackItalic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "CircularSpotifyText";
+  src: url("../fonts/CircularSpotifyText-Book.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CircularSpotifyText";
+  src: url("../fonts/CircularSpotifyText-BookItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
 }

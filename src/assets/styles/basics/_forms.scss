@@ -1,15 +1,9 @@
 button {
-    border:0;
-    background-color: $sec-font-clr;
-    color:whitesmoke;
-    padding: 5px 10px;
-    margin: 5px;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 form > * {
-    display: block;
-    width: 200px;
-    margin: 10px 0px;
+  display: block;
+  width: 200px;
+  margin: 10px 0px;
 }
-

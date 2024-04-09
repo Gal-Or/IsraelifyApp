@@ -16,6 +16,7 @@
   .main-container {
     overflow-y: scroll;
     margin-right: rem(5px);
+    padding: rem(20px);
   }
 
   .app-footer {
@@ -35,6 +36,7 @@
     overflow: scroll;
     margin-left: rem(5px);
     margin-right: rem(5px);
+    background-color: $main-bg-clr;
   }
   .side-pop-up {
     display: none;

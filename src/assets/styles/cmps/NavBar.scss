@@ -1,0 +1,22 @@
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+  gap: em(5px);
+
+  //all the children of the nav-bar border-radius
+  > * {
+    border-radius: 10px;
+    background-color: $sec-bg-clr;
+  }
+  .nav-options {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    min-height: em(200px);
+  }
+  .library-container {
+    width: 100%;
+    height: 100%;
+    padding: em(10px);
+  }
+}
