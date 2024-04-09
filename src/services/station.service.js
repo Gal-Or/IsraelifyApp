@@ -15,6 +15,7 @@ export const stationService = {
   addSongToStation,
   createDefaultStation,
   findStationWithQuery,
+  getStationIds,
 };
 
 _createStations();
@@ -51,11 +52,14 @@ async function addSongToStation(song, stationId) {
     stationId = stations[0]._id;
   }
   const station = await getById(stationId);
+  //if song already in station
+  if (station.songs.find((stationSong) => stationSong.id === song.id)) return;
   station.songs.push(song);
   return await save(station);
 }
 
 async function findStationWithQuery(query) {
+  if (!query) return await storageService.query(STORAGE_KEY);
   const stations = await storageService.query(STORAGE_KEY);
   return stations.filter((station) => {
     return (
@@ -73,6 +77,7 @@ function createDefaultStation() {
     name: `New Playlist ${stationsCount}`,
     type: "playlist",
     tags: [],
+    backgroundColor: utilService.randomColor(),
     createdBy: {
       _id: "u101",
       fullname: "Puki Ben David",
@@ -81,6 +86,15 @@ function createDefaultStation() {
     likedByUsers: [],
     songs: [],
   };
+}
+
+async function getStationIds(song) {
+  //get all station ids  with the song id as array
+  const stations = await query();
+  const stationsWithSong = stations.filter((station) => {
+    return station.songs.some((song) => song.id === song.id);
+  });
+  return stationsWithSong;
 }
 
 function _createStations() {
@@ -103,6 +117,7 @@ function _createStation() {
     name: "Liked Songs",
     type: "playlist",
     tags: ["liked"],
+    backgroundColor: "#d8bfd8",
     createdBy: {
       _id: "u101",
       fullname: "Bar and Gal",

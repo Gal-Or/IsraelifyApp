@@ -1,11 +1,15 @@
 import axios from "axios";
 
+import { stationService } from "./station.service";
+
 export const youtubeService = {
   query,
   cleanUpResults,
 };
 
 const API_KEYS = [
+  "AIzaSyAwiy248SpXDp5Y1K0kpkksR_8lv6U2iro",
+  "AIzaSyCsiWL12-YD_3VZ3RpSfHPAFqkT-Yn2lOo",
   "AIzaSyAUugpSNUiVGYWSRyHy4n_WSQOGSxo0CTs",
   "AIzaSyCIEC-IUYCVUJMIO8J-2Yn7w_SF-jUeKRw",
   "AIzaSyBTFrKBmHVcN7G3OymN6mW_gMcbSVUxWFU",
@@ -32,7 +36,7 @@ async function cleanUpResults(results) {
   //console.log("before clean", results);
   var cleanResults = results.map((result) => createResultObj(result));
   cleanResults = await getDurations(cleanResults);
-
+  cleanResults.stationIds = await stationService.getStationIds();
   return cleanResults;
 }
 async function getDurations(results) {
@@ -54,6 +58,7 @@ async function getDurations(results) {
   );
   return resultsWithDurations;
 }
+
 function formatDuration(duration) {
   if (!duration) return 0;
   const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
@@ -74,5 +79,6 @@ function createResultObj(result) {
     tags: [],
     duration: 0,
     url: `https://www.youtube.com/watch?v=${result.id.videoId}`,
+    stationIds: [],
   };
 }
