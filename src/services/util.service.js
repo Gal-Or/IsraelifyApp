@@ -8,6 +8,7 @@ export const utilService = {
   loadFromStorage,
   getAssetSrc,
   formatTime,
+  randomColor,
 };
 
 function makeId(length = 6) {
@@ -112,4 +113,10 @@ function formatTime(time) {
   return `${minutes < 10 ? "0" : ""}${minutes}:${
     seconds < 10 ? "0" : ""
   }${seconds}`;
+}
+
+function randomColor() {
+  return `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${
+    Math.random() * 255
+  })`;
 }

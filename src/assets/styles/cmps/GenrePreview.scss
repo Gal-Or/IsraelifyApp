@@ -1,6 +1,25 @@
 .genre-preview {
+  display: flex;
+  width: rem(200px);
+  height: rem(200px);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+
   img {
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 50%;
+    max-height: 50%;
+    transform: rotate(25deg);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  span {
+    align-self: flex-start;
+    justify-self: flex-start;
+    padding: em(10px);
+    font-size: em(25px);
   }
 }

@@ -1,107 +1,130 @@
+import { utilService } from "./util.service";
+
 export const genres = [
   {
     id: "132",
     name: "Pop",
     picture: "https://api.deezer.com/genre/132/image",
+    color: utilService.randomColor(),
   },
   {
     id: "116",
     name: "Rap/Hip Hop",
     picture: "https://api.deezer.com/genre/116/image",
+    color: utilService.randomColor(),
   },
   {
     id: "152",
     name: "Rock",
     picture: "https://api.deezer.com/genre/152/image",
+    color: utilService.randomColor(),
   },
   {
     id: "113",
     name: "Dance",
     picture: "https://api.deezer.com/genre/113/image",
+    color: utilService.randomColor(),
   },
   {
     id: "165",
     name: "R&B",
     picture: "https://api.deezer.com/genre/165/image",
+    color: utilService.randomColor(),
   },
   {
     id: "85",
     name: "Alternative",
     picture: "https://api.deezer.com/genre/85/image",
+    color: utilService.randomColor(),
   },
   {
     id: "106",
     name: "Electro",
     picture: "https://api.deezer.com/genre/106/image",
+    color: utilService.randomColor(),
   },
   {
     id: "466",
     name: "Folk",
     picture: "https://api.deezer.com/genre/466/image",
+    color: utilService.randomColor(),
   },
   {
     id: "144",
     name: "Reggae",
     picture: "https://api.deezer.com/genre/144/image",
+    color: utilService.randomColor(),
   },
   {
     id: "129",
     name: "Jazz",
     picture: "https://api.deezer.com/genre/129/image",
+    color: utilService.randomColor(),
   },
   {
     id: "98",
     name: "Classical",
     picture: "https://api.deezer.com/genre/98/image",
+    color: utilService.randomColor(),
   },
   {
     id: "173",
     name: "Films/Games",
     picture: "https://api.deezer.com/genre/173/image",
+    color: utilService.randomColor(),
   },
   {
     id: "464",
     name: "Metal",
     picture: "https://api.deezer.com/genre/464/image",
+    color: utilService.randomColor(),
   },
   {
     id: "169",
     name: "Soul & Funk",
     picture: "https://api.deezer.com/genre/169/image",
+    color: utilService.randomColor(),
   },
   {
     id: "2",
     name: "African Music",
     picture: "https://api.deezer.com/genre/2/image",
+    color: utilService.randomColor(),
   },
   {
     id: "16",
     name: "Asian Music",
     picture: "https://api.deezer.com/genre/16/image",
+    color: utilService.randomColor(),
   },
   {
     id: "153",
     name: "Blues",
     picture: "https://api.deezer.com/genre/153/image",
+    color: utilService.randomColor(),
   },
   {
     id: "75",
     name: "Brazilian Music",
     picture: "https://api.deezer.com/genre/75/image",
+    color: utilService.randomColor(),
   },
   {
     id: "81",
     name: "Indian Music",
     picture: "https://api.deezer.com/genre/81/image",
+    color: utilService.randomColor(),
   },
   {
     id: "95",
     name: "Kids",
     picture: "https://api.deezer.com/genre/95/image",
+    color: utilService.randomColor(),
   },
   {
     id: "197",
     name: "Latin Music",
     picture: "https://api.deezer.com/genre/197/image",
+    color: utilService.randomColor(),
   },
 ];
