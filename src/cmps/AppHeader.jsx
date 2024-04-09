@@ -6,9 +6,6 @@ import { useEffect } from "react";
 export function AppHeader() {
   const navigate = useNavigate();
   const params = useParams();
-  useEffect(() => {
-    console.log(params);
-  }, [params]);
 
   function onInputChange(ev) {
     let { value } = ev.target;

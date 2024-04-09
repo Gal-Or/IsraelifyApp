@@ -18,6 +18,7 @@ export function AddSongs({ onAddSongToStation }) {
 
   return (
     <>
+      <h1>Add Songs</h1>
       <input type="text" placeholder="Search" onChange={onInputChange} />
       {songResults && (
         <SongResults
