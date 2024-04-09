@@ -1,7 +1,10 @@
+import { Link } from "react-router-dom";
+
 export function NavOptions() {
   return (
-    <div>
-      <h1>NavOptions</h1>
+    <div className="nav-options">
+      <Link to="/">Home</Link>
+      <Link to="/search">Search</Link>
     </div>
   );
 }
