@@ -35,8 +35,6 @@
     overflow: scroll;
     margin-left: rem(5px);
     margin-right: rem(5px);
-    resize: horizontal;
-    overflow: auto;
   }
   .side-pop-up {
     display: none;
@@ -52,6 +50,8 @@
     .nav-bar {
       grid-row: 1;
       grid-column: 1;
+      resize: horizontal;
+      overflow: auto;
     }
     .main-container {
       grid-row: 1;

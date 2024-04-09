@@ -1,19 +1,18 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-
 html {
-    // font-family: montserrat;
-    // line-height: 1.6;
-    color: $main-font-clr;
+  // font-family: montserrat;
+  // line-height: 1.6;
+  color: $main-font-clr;
 }
 
 body {
-    //font-size: rem(18px);
-    margin: 0;
-    background-color: $main-bg-clr;
-    //font-family: montserrat;
+  //font-size: rem(18px);
+  margin: 0;
+  background-color: $main-bg-clr;
+  font-family: "CircularSpotifyText";
 }
 
 h1,
@@ -22,38 +21,36 @@ h3,
 h4,
 h5,
 h6 {
-
-    // margin: 0 0 0.6em;
-    // line-height: 1;
+  // margin: 0 0 0.6em;
+  // line-height: 1;
 }
 
 ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 section,
 main,
 footer {
-    //padding: 5px;
+  //padding: 5px;
 }
 
 img {
-    width: 100%;
+  width: 100%;
 }
 
 p {
-    //margin: 0 0 1em;
+  //margin: 0 0 1em;
 }
 
 a {
-    text-decoration: unset;
-    color: unset;
-    cursor: pointer;
-
+  text-decoration: unset;
+  color: unset;
+  cursor: pointer;
 }
 
 a:hover {
-    //text-decoration: underline;
+  //text-decoration: underline;
 }
