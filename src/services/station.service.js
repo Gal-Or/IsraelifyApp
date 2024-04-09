@@ -4,6 +4,7 @@ import { utilService } from "./util.service";
 import tunmbnail from "../assets/imgs/likedSongs.jpeg";
 
 const STORAGE_KEY = "stationsDB";
+let stationsCount = 1;
 
 export const stationService = {
   query,
@@ -13,6 +14,7 @@ export const stationService = {
   getDefaultFilter,
   addSongToStation,
   createDefaultStation,
+  findStationWithQuery,
 };
 
 _createStations();
@@ -53,8 +55,22 @@ async function addSongToStation(song, stationId) {
   return await save(station);
 }
 
+async function findStationWithQuery(query) {
+  const stations = await storageService.query(STORAGE_KEY);
+  return stations.filter((station) => {
+    return (
+      station.name.toLowerCase().includes(query.toLowerCase()) ||
+      station.tags.some((tag) =>
+        tag.toLowerCase().includes(query.toLowerCase())
+      )
+    );
+  });
+}
+
 function createDefaultStation() {
+  stationsCount++;
   return {
+    name: `New Playlist ${stationsCount}`,
     type: "playlist",
     tags: [],
     createdBy: {
@@ -93,16 +109,7 @@ function _createStation() {
       imgUrl: "http://some-photo/",
     },
     likedByUsers: ["{minimal-user}", "{minimal-user}"],
-    songs: [
-      {
-        id: "s1001",
-        title: "The Meters - Cissy Strut",
-        url: "youtube/song.mp4",
-        img: tunmbnail,
-        addedBy: "{minimal-user}",
-        addedAt: 162521765262,
-        tags: ["Funk", "Happy", "hip-hop"],
-      },
-    ],
+    img: tunmbnail,
+    songs: [],
   };
 }

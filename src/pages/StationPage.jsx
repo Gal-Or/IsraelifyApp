@@ -11,7 +11,6 @@ export function StationPage() {
   const params = useParams();
 
   const [station, setStation] = useState(null);
-  const [editMode, setEditMode] = useState(false);
 
   useEffect(() => {
     loadStation();
@@ -20,7 +19,6 @@ export function StationPage() {
   async function loadStation() {
     try {
       const station = await stationService.getById(params.stationId);
-      setEditMode(!station.name);
       setStation(station);
     } catch (err) {
       console.log("error in loadStation", err);
@@ -41,7 +39,7 @@ export function StationPage() {
       <StationHeader station={station} />
       <StationContent station={station} />
 
-      {editMode && <AddSongs onAddSongToStation={onAddSongToStation} />}
+      <AddSongs onAddSongToStation={onAddSongToStation} />
     </section>
   );
 }

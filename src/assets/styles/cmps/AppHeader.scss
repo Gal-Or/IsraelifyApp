@@ -1,34 +1,21 @@
 .app-header {
-    background-color: $sec-font-clr;
-    padding: 10px;
+  background-image: linear-gradient(to bottom, $sec-bg-clr, $sec-bg-clr);
+  min-height: em(65px);
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
 
-    input {
-        display: none;
-    }
+  padding: 10px;
+  top: 0;
+  //sticky
+  position: sticky;
 
+  input {
+    display: none;
+    height: 30px;
+  }
 
-    nav {
-        font-size: .8em;
-        padding: 5px;
-
-    }
-
-    nav a:first-child {
-        margin-right: 30px;
-    }
-
-    nav a:not(:first-child) {
-        border-top: 1px solid $sec-font-clr;
-        padding: 0 5px;
-        margin: 10px;
-    }
-
-    nav .active {
-        color: $sec-font-clr;
-    }
-
-    img {
-        width: rem(75px);
-    }
-
+  img {
+    width: rem(75px);
+  }
 }

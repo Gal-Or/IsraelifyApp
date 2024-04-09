@@ -1,9 +1,10 @@
 .search-page {
+  display: flex;
+  flex-direction: column;
 
-    .app-header {
-        input {
-            display: block;
-        }
+  .app-header {
+    input {
+      display: block;
     }
-
+  }
 }

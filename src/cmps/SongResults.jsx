@@ -1,12 +1,13 @@
+import React, { useState } from "react";
 import { useParams } from "react-router";
-
 import { addSongToStation } from "../store/station.actions";
 import { setCurrentSong } from "../store/player.actions";
-
 import { utilService } from "../services/util.service";
+import { SongDetails } from "./SongDetails";
 
 export function SongResults({ songResults, onAddSongToStation }) {
   const params = useParams();
+  const [showAll, setShowAll] = useState(false);
 
   async function onAddToPlaylist(song, stationId = 0) {
     if (params.stationId) {
@@ -15,30 +16,30 @@ export function SongResults({ songResults, onAddSongToStation }) {
       onAddSongToStation(song);
     } else await addSongToStation(song); // TODO:  implement add from search page
   }
+
   function onPlaySong(song) {
     setCurrentSong(song);
   }
 
+  const displayedSongs = showAll ? songResults : songResults.slice(0, 5);
+
   return (
     <section className="song-results">
-      {songResults.map((song) => (
+      <h1>Songs</h1>
+      {displayedSongs.map((song) => (
         <article key={song.id} className="song-result">
-          <img src={song.img} alt={song.name} style={{ width: "100px" }} />
-          <h3>{song.name}</h3>
-          <p>{song.artist}</p>
-          <p>{utilService.formatTime(song.duration)}</p>
-
-          <button
-            className="add-to-playlist"
-            onClick={() => onAddToPlaylist(song)}
-          >
-            Add to playlist
-          </button>
-          <button className="play-song" onClick={() => onPlaySong(song)}>
-            Play song
-          </button>
+          <SongDetails song={song} />
+          <div className="song-actions">
+            <button onClick={() => onAddToPlaylist(song)}>+</button>
+            <button onClick={() => onPlaySong(song)}>▶</button>
+          </div>
         </article>
       ))}
+      {songResults.length > 5 && (
+        <button onClick={() => setShowAll(!showAll)}>
+          {showAll ? "Hide All" : "Show More"}
+        </button>
+      )}
     </section>
   );
 }

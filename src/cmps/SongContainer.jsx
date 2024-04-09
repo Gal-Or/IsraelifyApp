@@ -4,7 +4,7 @@ export function SongContainer({ song }) {
   return (
     <div className="song-container">
       <SongDetails song={song} />
-      <SongActions />
+      <SongActions song={song} />
     </div>
   );
 }
