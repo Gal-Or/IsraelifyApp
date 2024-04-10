@@ -6,23 +6,17 @@ import { stationService } from "../services/station.service.js";
 import { AppHeader } from "../cmps/AppHeader.jsx";
 import { BrowseAll } from "../cmps/BrowseAll.jsx";
 import { SearchResults } from "../cmps/SearchResults.jsx";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export function SearchPage() {
   var params = useParams();
-  const queryLengthRef = useRef(0);
 
   const [songResults, setResults] = useState(null);
   const [stationResults, setStationResults] = useState(null);
 
   useEffect(() => {
-    //replace + with spaces
-    const formatedQuery = params.query ? params.query.split("+").join(" ") : "";
-    queryLengthRef.current = formatedQuery.length;
-    if (queryLengthRef.current % 5 == 0) {
-      getYoutubeResults();
-      getStationResults();
-    }
+    getYoutubeResults();
+    getStationResults();
   }, [params.query]);
 
   async function getYoutubeResults() {
