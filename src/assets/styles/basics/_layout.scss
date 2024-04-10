@@ -16,7 +16,9 @@
   .main-container {
     overflow-y: scroll;
     margin-right: rem(5px);
-    padding: rem(20px);
+    padding-bottom: rem(5px);
+    padding-right: rem(5px);
+    padding-left: rem(5px);
   }
 
   .app-footer {

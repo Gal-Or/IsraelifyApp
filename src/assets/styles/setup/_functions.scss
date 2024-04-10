@@ -8,3 +8,8 @@
 @function em($pixels, $context: 16px) {
   @return calc(($pixels/$context) * 1em);
 }
+
+//trasperancy function
+@function addTransparency($color, $alpha) {
+  @return rgba($color, $alpha);
+}

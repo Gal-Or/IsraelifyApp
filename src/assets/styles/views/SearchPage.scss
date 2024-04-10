@@ -1,10 +1,11 @@
 .search-page {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   .app-header {
     top: 0;
+
     input {
       display: block;
     }

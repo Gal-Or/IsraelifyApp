@@ -3,6 +3,8 @@ import { ReactSVG } from "react-svg";
 
 import { YouTubePlayer } from "./YouTubePlayer";
 
+import { setIsPlaying } from "../store/player.actions";
+
 import playIcon from "../assets/icons/playIcon.svg";
 import pauseIcon from "../assets/icons/pauseIcon.svg";
 export function Player() {
@@ -16,9 +18,7 @@ export function Player() {
   }
   function onPause() {
     youtubePlayer.pauseVideo();
-  }
-  function onStop() {
-    youtubePlayer.stopVideo();
+    setIsPlaying(false);
   }
 
   return (

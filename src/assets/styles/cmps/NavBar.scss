@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: column;
   gap: em(5px);
+  min-width: em(75px);
 
   //all the children of the nav-bar border-radius
   > * {
-    border-radius: 10px;
+    border-radius: em(5px);
     background-color: $sec-bg-clr;
   }
   .nav-options {

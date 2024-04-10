@@ -1,6 +1,10 @@
 .app-header {
-  background-image: linear-gradient(to bottom, $sec-bg-clr, $sec-bg-clr);
-  min-height: em(65px);
+  background-image: linear-gradient(
+    to bottom,
+    $sec-bg-clr,
+    addTransparency($sec-bg-clr, 0.1)
+  );
+  max-height: em(60px);
   display: flex;
   justify-content: space-around;
   align-items: start;

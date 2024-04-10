@@ -8,6 +8,8 @@ export const youtubeService = {
 };
 
 const API_KEYS = [
+  "AIzaSyD0a5g5JEd4fDCBZ6-7y2apmTTnwo_FB4M",
+  "AIzaSyDBHRC0ThdnSEolReoM7qOCjGVUaGK19_Y",
   "AIzaSyAwiy248SpXDp5Y1K0kpkksR_8lv6U2iro",
   "AIzaSyCsiWL12-YD_3VZ3RpSfHPAFqkT-Yn2lOo",
   "AIzaSyAUugpSNUiVGYWSRyHy4n_WSQOGSxo0CTs",

@@ -1,20 +1,20 @@
 .station-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: minmax(em(200px), 40vh) 1fr;
+  .station-header {
+    grid-row: 1;
+    flex-grow: 1;
 
-    .station-header {
-        grid-row: 1;
-
-        img {
-            object-fit: cover;
-            height: 200px;
-            width: 200px;
-        }
+    img {
+      object-fit: cover;
+      height: 200px;
+      width: 200px;
     }
+  }
 
-    .station-content {
-        grid-row: 2;
-    }
+  .station-content {
+    grid-row: 2;
+  }
 }

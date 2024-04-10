@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import { stationService } from "../services/station.service.js";
 
+import { AppHeader } from "../cmps/AppHeader.jsx";
 import { StationHeader } from "../cmps/StationHeader.jsx";
 import { StationContent } from "../cmps/StationContent.jsx";
 import { AddSongs } from "../cmps/AddSongs.jsx";
@@ -36,11 +37,14 @@ export function StationPage() {
 
   if (!station) return <h1>loading...</h1>;
   return (
-    <section className="station-page">
-      <StationHeader station={station} />
-      <StationContent station={station} />
+    <>
+      <AppHeader />
+      <section className="station-page">
+        <StationHeader station={station} />
+        <StationContent station={station} />
 
-      <AddSongs onAddSongToStation={onAddSongToStation} />
-    </section>
+        <AddSongs onAddSongToStation={onAddSongToStation} />
+      </section>
+    </>
   );
 }
