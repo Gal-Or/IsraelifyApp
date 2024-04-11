@@ -1,19 +1,39 @@
 .time-bar {
-  width: 100%;
-
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  bottom: 0;
   .time-bar-track {
-    height: 2px; /* Adjust the height of the track */
+    height: 2px;
+    color: #fff;
   }
-
+  .time-bar-rail {
+    height: 2px;
+    color: $sec-font-clr;
+  }
   .time-bar-thumb {
     width: 0px; /* Set the width of the thumb */
     height: 0px; /* Set the height of the thumb */
-    background-color: #fff; /* Set the color of the thumb */
-    border-radius: 50%; /* Round the corners of the thumb */
-    //on hover
-    &:hover {
-      width: rem(10px); /* Set the width of the thumb on hover */
-      height: rem(10px); /* Set the height of the thumb on hover */
+  }
+}
+
+@include for-normal-layout {
+  .time-bar {
+    width: 100%;
+    position: relative;
+
+    .time-bar-track {
+      height: 2px; /* Adjust the height of the track */
+    }
+
+    .time-bar-thumb {
+      background-color: #fff; /* Set the color of the thumb */
+      border-radius: 50%; /* Round the corners of the thumb */
+      //on hover
+      &:hover {
+        width: rem(10px); /* Set the width of the thumb on hover */
+        height: rem(10px); /* Set the height of the thumb on hover */
+      }
     }
   }
 }

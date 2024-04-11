@@ -1,0 +1,64 @@
+//for mobile
+.song-details {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+
+  a {
+    font-size: unset;
+    font-family: unset;
+    color: unset;
+  }
+  p {
+    font-size: rem(13px);
+    color: $sec-font-clr;
+    overflow: hidden;
+    text-wrap: pretty;
+  }
+  .artist-img {
+    width: em(100px);
+    height: em(100px);
+    min-width: em(100px);
+    min-height: em(100px);
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+}
+
+@include for-normal-layout() {
+  .song-details {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+
+    a {
+      font-size: unset;
+      font-family: unset;
+      color: unset;
+    }
+    p {
+      font-size: rem(13px);
+      color: $sec-font-clr;
+      overflow: hidden;
+      text-wrap: pretty;
+    }
+    .artist-img {
+      width: em(100px);
+      height: em(100px);
+      min-width: em(100px);
+      min-height: em(100px);
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center center;
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.full-player {
+  display: flex;
+  .player-actions {
+    display: none;
+  }
+}
+
+@include for-normal-layout {
+  .full-player {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    padding: em(5px);
+    margin: em(10px);
+    gap: em(7px);
+
+    .song-details {
+      grid-column: 1;
+    }
+    .player {
+      grid-column: 2;
+    }
+    .player-actions {
+      display: flex;
+      grid-column: 3;
+    }
+  }
+}

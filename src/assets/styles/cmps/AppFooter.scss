@@ -1,58 +1,6 @@
 .app-footer {
   background-color: $main-bg-clr;
   color: $sec-font-clr;
-  grid-row: -1;
-}
-
-@include for-normal-layout {
-  .app-footer {
-    .full-player {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr;
-      padding: em(5px);
-      margin: em(10px);
-      gap: em(7px);
-
-      .minimal-song {
-        grid-column: 1;
-        .song-details {
-          position: relative;
-          display: flex;
-          justify-content: flex-start;
-          gap: 10px;
-          a {
-            font-size: unset;
-            font-family: unset;
-            color: unset;
-          }
-          p {
-            font-size: rem(13px);
-            color: $sec-font-clr;
-            overflow: hidden;
-            text-wrap: pretty;
-          }
-          .artist-img {
-            width: em(100px);
-            height: em(100px);
-            min-width: em(100px);
-            min-height: em(100px);
-
-            img {
-              height: 100%;
-              width: 100%;
-              object-fit: cover;
-              object-position: center center;
-            }
-          }
-        }
-      }
-      .player {
-        grid-column: 2;
-      }
-      .player-actions {
-        grid-column: 3;
-      }
-    }
-  }
+  display: block;
+  // max-height: rem(100px);
 }
