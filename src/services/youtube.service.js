@@ -7,18 +7,11 @@ export const youtubeService = {
   cleanUpResults,
 };
 
-const API_KEYS = [
-  "AIzaSyD0a5g5JEd4fDCBZ6-7y2apmTTnwo_FB4M",
-  "AIzaSyDBHRC0ThdnSEolReoM7qOCjGVUaGK19_Y",
-  "AIzaSyAwiy248SpXDp5Y1K0kpkksR_8lv6U2iro",
-  "AIzaSyCsiWL12-YD_3VZ3RpSfHPAFqkT-Yn2lOo",
-  "AIzaSyAUugpSNUiVGYWSRyHy4n_WSQOGSxo0CTs",
-  "AIzaSyCIEC-IUYCVUJMIO8J-2Yn7w_SF-jUeKRw",
-  "AIzaSyBTFrKBmHVcN7G3OymN6mW_gMcbSVUxWFU",
-];
+const API_KEYS = ["AIzaSyD6hbCDfVeYioooW4yx-SMhId8qzT7G0xc"];
 let apiIndex = 0;
 
 async function query(searchStr, maxResults = 10) {
+  if (!searchStr || searchStr.length < 3) return [];
   try {
     const response = await axios.get(
       `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchStr}&key=${API_KEYS[apiIndex]}&maxResults=${maxResults}&type=video`
@@ -29,7 +22,7 @@ async function query(searchStr, maxResults = 10) {
     if (err.response.status === 403) {
       apiIndex++;
       if (apiIndex === API_KEYS.length) apiIndex = 0;
-      return query(searchStr, maxResults);
+      if (API_KEYS.length !== 1) return query(searchStr, maxResults);
     }
   }
 }

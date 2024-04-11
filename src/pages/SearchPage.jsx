@@ -15,16 +15,19 @@ export function SearchPage() {
   const [stationResults, setStationResults] = useState(null);
 
   useEffect(() => {
-    getYoutubeResults();
-    getStationResults();
+    //replace + with spaces
+    const formatedQuery = params.query ? params.query.split("+").join(" ") : "";
+
+    getYoutubeResults(formatedQuery);
+    getStationResults(formatedQuery);
   }, [params.query]);
 
-  async function getYoutubeResults() {
-    var res = await youtubeService.query(params.query);
+  async function getYoutubeResults(query) {
+    var res = await youtubeService.query(query);
     setResults(res);
   }
-  async function getStationResults() {
-    var res = await stationService.findStationWithQuery(params.query);
+  async function getStationResults(query) {
+    var res = await stationService.findStationWithQuery(query);
     setStationResults(res);
   }
 
@@ -32,9 +35,9 @@ export function SearchPage() {
     <section className="search-page">
       <AppHeader />
       {!params.query && <BrowseAll />}
-      {params.query && songResults && (
+      {params.query && (
         <SearchResults
-          songResults={songResults}
+          songResults={songResults ? songResults : []}
           stationResults={stationResults}
         />
       )}

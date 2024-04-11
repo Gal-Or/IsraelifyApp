@@ -64,9 +64,7 @@ async function findStationWithQuery(query) {
   return stations.filter((station) => {
     return (
       station.name.toLowerCase().includes(query.toLowerCase()) ||
-      station.tags.some((tag) =>
-        tag.toLowerCase().includes(query.toLowerCase())
-      )
+      station.createdBy.fullname.toLowerCase().includes(query.toLowerCase())
     );
   });
 }
