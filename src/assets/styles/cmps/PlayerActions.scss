@@ -10,8 +10,9 @@
   .volume-bar {
     width: em(100px);
     .volume-bar-track {
-      color: $logo-clr;
+      color: #fff;
     }
+
     .volume-bar-rail {
       color: $sec-font-clr;
     }
@@ -21,12 +22,14 @@
       width: 0px;
       height: 0px;
     }
-  }
-  &:hover {
-    .volume-bar-thumb {
-      width: rem(15px);
-      height: rem(15px);
-      box-shadow: 0 0 0 0;
+    &:hover {
+      .volume-bar-thumb {
+        width: rem(15px);
+        height: rem(15px);
+      }
+      .volume-bar-track {
+        color: $logo-clr;
+      }
     }
   }
 }

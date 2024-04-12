@@ -1,15 +1,13 @@
 .time-bar {
-  width: 100vw;
+  width: 99vw;
   position: fixed;
-  left: 0;
+  left: 3px;
   bottom: 0;
   margin-bottom: em(10px);
   .time-bar-track {
-    height: 2px;
     color: #fff;
   }
   .time-bar-rail {
-    height: 2px;
     color: $sec-font-clr;
   }
   .time-bar-thumb {
@@ -23,17 +21,16 @@
     width: 100%;
     position: relative;
 
-    .time-bar-track {
-      height: 2px; /* Adjust the height of the track */
-    }
-
     .time-bar-thumb {
       background-color: #fff; /* Set the color of the thumb */
-      border-radius: 50%; /* Round the corners of the thumb */
-      //on hover
-      &:hover {
-        width: rem(10px); /* Set the width of the thumb on hover */
-        height: rem(10px); /* Set the height of the thumb on hover */
+    }
+    &:hover {
+      .time-bar-track {
+        color: $logo-clr; /* Change the color of the track on hover */
+      }
+      .time-bar-thumb {
+        width: rem(15px); /* Set the width of the thumb on hover */
+        height: rem(15px); /* Set the height of the thumb on hover */
       }
     }
   }
