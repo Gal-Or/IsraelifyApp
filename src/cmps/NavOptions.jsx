@@ -5,7 +5,7 @@ export function NavOptions() {
     <div className="nav-options">
       <Link to="/">Home</Link>
       <Link to="/search">Search</Link>
-      <Link className="to-library" to="/library">
+      <Link className="to-library" to="/">
         Library
       </Link>
     </div>
