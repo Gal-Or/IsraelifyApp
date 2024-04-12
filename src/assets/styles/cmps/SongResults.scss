@@ -55,10 +55,21 @@
       padding: 5px;
       svg {
         fill: $sec-bg-clr;
+        transition: transform 0.2s;
+
+        &:active {
+          transform: scale(1.1);
+        }
+        &:hover {
+          transform: scale(0.9);
+        }
       }
       .added {
         svg {
           fill: $logo-clr;
+          &:hover {
+            fill: $logo-clr;
+          }
         }
       }
       .duration {
