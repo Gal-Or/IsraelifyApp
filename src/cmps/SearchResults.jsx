@@ -28,7 +28,7 @@ export function SearchResults({ songResults, stationResults }) {
   return (
     <section className="search-results">
       <div className="top-song-result">
-        <h1>Top Song</h1>
+        <h1>Top result</h1>
         <div className="top-song-details">
           {songResults && songResults.length > 0 && (
             <>

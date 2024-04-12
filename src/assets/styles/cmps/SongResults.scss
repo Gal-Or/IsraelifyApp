@@ -1,6 +1,18 @@
 .song-results {
   padding: 20px;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  justify-content: space-between;
+  gap: 0px;
+  .song-header {
+    flex: 1;
+  }
+
   .song-result {
+    flex: 2;
     display: grid;
     grid-template-columns: 8% 63% 25%; /* Adjusted grid-template-columns */
     grid-template-rows: 1fr;
@@ -110,6 +122,12 @@
     }
 
     &:hover {
+      .song-info {
+        small {
+          color: #fff;
+        }
+      }
+
       .song-actions {
         svg {
           fill: $sec-font-clr;
@@ -133,7 +151,7 @@
       cursor: pointer;
     }
   }
-  background-color: #242424;
+  background-color: #656465;
   .song-details {
     .song-img {
       .play-btn {

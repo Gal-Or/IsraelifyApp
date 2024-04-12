@@ -64,11 +64,14 @@ export function SongResults({ songResults, onAddSongToStation }) {
     setLastActiveSong(song); // Set last active song when playing a new song
   }
 
-  const displayedSongs = showAll ? songResults : songResults.slice(0, 5);
+  const displayedSongs = showAll ? songResults : songResults.slice(0, 4);
   if (!currentStation) return <h1>Loading...</h1>;
   return (
     <section className="song-results">
-      <h1>Songs</h1>
+      <div className="songs-header">
+        <h1>Songs</h1>
+      </div>
+
       {displayedSongs.map((song) => (
         <article
           key={song.id}

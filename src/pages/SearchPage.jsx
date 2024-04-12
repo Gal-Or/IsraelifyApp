@@ -1,4 +1,5 @@
 import { useParams } from "react-router";
+import { useEffect, useState } from "react";
 
 import { youtubeService } from "../services/youtube.service.js";
 import { stationService } from "../services/station.service.js";
@@ -6,7 +7,7 @@ import { stationService } from "../services/station.service.js";
 import { AppHeader } from "../cmps/AppHeader.jsx";
 import { BrowseAll } from "../cmps/BrowseAll.jsx";
 import { SearchResults } from "../cmps/SearchResults.jsx";
-import { useEffect, useState } from "react";
+import { FilterBar } from "../cmps/FilterBar.jsx";
 
 export function SearchPage() {
   var params = useParams();
@@ -35,6 +36,7 @@ export function SearchPage() {
     <section className="search-page">
       <AppHeader />
       {!params.query && <BrowseAll />}
+      <FilterBar />
       {params.query && (
         <SearchResults
           songResults={songResults ? songResults : []}

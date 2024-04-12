@@ -12,6 +12,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr auto;
+
     gap: 20px;
 
     .top-song-result {
@@ -19,11 +20,24 @@
       grid-column: 1;
       position: relative; /* Add this line to position the play button */
       padding: em(20px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      container-type: inline-size;
+      margin: 0;
+      //strech the element to the full width and height of the parent
+      width: 100%;
+      height: 100%;
 
       .top-song-details {
         position: relative;
         border-radius: em(8px);
         padding: em(20px);
+        box-shadow: 0 8px 8px rgba(0, 0, 0, 0.01);
+        background-color: #181818;
+        display: flex;
+        flex-direction: column;
+        gap: em(20px);
 
         &:hover {
           background-color: #242424;

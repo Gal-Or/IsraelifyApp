@@ -61,3 +61,9 @@ svg {
   min-width: 15px;
   min-height: 15px;
 }
+
+:-webkit-any(article, aside, nav, section)
+  :-webkit-any(article, aside, nav, section)
+  h1 {
+  font-size: 1.17em;
+}
