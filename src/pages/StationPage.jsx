@@ -17,32 +17,44 @@ export function StationPage() {
     loadStation();
   }, [params.stationId]);
 
+  useEffect(() => {
+    console.log("Station updated:", station);
+  }, [station]);
+
   async function loadStation() {
     try {
       const station = await stationService.getById(params.stationId);
       setStation(station);
     } catch (err) {
-      console.log("error in loadStation", err);
+      console.log("Error in loadStation:", err);
     }
   }
 
   function onAddSongToStation(song) {
-    //if song not in station
-    if (station.songs.find((stationSong) => stationSong.id === song.id)) return;
-    setStation((prevStation) => ({
-      ...prevStation,
-      songs: [...prevStation.songs, song],
-    }));
+    // Ensure station is not null before accessing its songs property
+    if (!station) {
+      console.log("Station is null. Aborting addition of song.");
+      return;
+    }
+    if (station.songs.find((stationSong) => stationSong.id === song.id)) {
+      console.log("Song already exists in the station. Aborting addition.");
+      return;
+    }
+    const updatedStation = {
+      ...station,
+      songs: [...station.songs, song],
+    };
+    console.log("Adding song to station. Updated station:", updatedStation);
+    setStation(updatedStation);
   }
 
-  if (!station) return <h1>loading...</h1>;
+  if (!station) return <h1>Loading...</h1>;
   return (
     <>
       <AppHeader />
       <section className="station-page">
         <StationHeader station={station} />
         <StationContent station={station} />
-
         <AddSongs onAddSongToStation={onAddSongToStation} />
       </section>
     </>
