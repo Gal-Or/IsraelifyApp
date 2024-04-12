@@ -2,6 +2,8 @@ import { useSelector } from "react-redux";
 import { useRef, useState } from "react";
 import { ReactSVG } from "react-svg";
 
+import { useSpacebarPlayPause } from "../customHooks/useSpacebarPlayPause";
+
 import speaker from "../assets/icons/speaker.svg";
 import speakerMute from "../assets/icons/speakerMute.svg";
 import Slider from "@mui/material/Slider";
@@ -13,6 +15,8 @@ export function PlayerActions() {
 
   const volumeRef = useRef(100);
   const [volume, setVolume] = useState(volumeRef.current);
+
+  useSpacebarPlayPause();
 
   function onVolumeChange(event) {
     setVolume(event.target.value);
@@ -37,13 +41,20 @@ export function PlayerActions() {
       ) : (
         <ReactSVG src={speaker} onClick={() => onToggleSpeaker()} />
       )}
-      <Slider
-        value={volume}
-        aria-label="Volume"
-        aria-labelledby="continuous-slider"
-        valueLabelDisplay="auto"
-        onChange={onVolumeChange}
-      />
+      <div className="volume-bar">
+        <Slider
+          value={volume}
+          aria-label="Volume"
+          aria-labelledby="continuous-slider"
+          valueLabelDisplay="off"
+          onChange={onVolumeChange}
+          classes={{
+            rail: "volume-bar-rail",
+            track: "volume-bar-track",
+            thumb: "volume-bar-thumb",
+          }}
+        />
+      </div>
     </div>
   );
 }
