@@ -7,7 +7,7 @@ export function StationResults({ stationResults }) {
       <h1>StationResults</h1>
       <ul className="station-results">
         {stationResults.map((station) => (
-          <li key={station.id}>
+          <li key={station._id}>
             <StationPreview station={station} key={station.id} />
           </li>
         ))}

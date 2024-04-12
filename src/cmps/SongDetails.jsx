@@ -4,7 +4,7 @@ export function SongDetails({ song, children }) {
   if (!song) return <div>Loading...</div>;
   return (
     <div className="song-details">
-      <div className="artist-img">
+      <div className="song-img">
         <img src={song.img} alt={song.name} />
         {children}
       </div>

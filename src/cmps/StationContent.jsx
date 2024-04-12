@@ -1,11 +1,11 @@
-import { StationActions } from "./StationActions.jsx";
-import { SongList } from "./SongList.jsx";
+import { SongList } from "./SongList";
+import { StationActions } from "./StationActions";
 
 export function StationContent({ station }) {
   return (
     <div className="station-content">
       <StationActions />
-      <SongList songList={station.songs} />
+      <SongList station={station} />
     </div>
   );
 }

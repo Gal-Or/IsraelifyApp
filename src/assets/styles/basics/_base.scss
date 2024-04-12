@@ -9,12 +9,14 @@ html {
 }
 
 body {
-  //font-size: rem(18px);
   margin: 0;
   background-color: $main-bg-clr;
   font-family: "CircularSpotifyText";
+  font-size: 1.125rem;
 }
-
+div {
+  display: block;
+}
 h1,
 h2,
 h3,
@@ -38,11 +40,12 @@ footer {
 }
 
 img {
-  width: 100%;
+  max-width: 45vw;
+  max-height: 45vh;
 }
 
 p {
-  //margin: 0 0 1em;
+  margin: 0; //margin: 0 0 1em;
 }
 
 a {
@@ -53,4 +56,8 @@ a {
 
 a:hover {
   //text-decoration: underline;
+}
+svg {
+  min-width: 15px;
+  min-height: 15px;
 }

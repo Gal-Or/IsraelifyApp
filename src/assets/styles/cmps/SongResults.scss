@@ -1,51 +1,20 @@
 .song-results {
-  display: flex;
-  flex-direction: column;
-  box-shadow: em(10px) em(10px) em(10px) em(10px) rgba(0, 0, 0, 0.5);
-
+  padding: 20px;
   .song-result {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 8% 63% 25%; /* Adjusted grid-template-columns */
+    grid-template-rows: 1fr;
+    border-radius: 5px;
+    gap: 15px;
+    max-height: 70px;
+    width: 100%;
+    padding: em(10px);
     align-items: center;
-    padding: 10px;
-    border-radius: em(10px);
-    &:hover {
-      background-color: #242424;
-    }
-    .song-details {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      .song-title {
-        font-size: 1.2em;
-        font-weight: bold;
-      }
-      .song-artist {
-        font-size: 1em;
-        font-weight: bold;
-      }
-    }
-
-    .song-info {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: start;
-      .song-title {
-        font-size: 1.2em;
-        font-weight: bold;
-      }
-      .song-artist {
-        font-size: 1em;
-        font-weight: bold;
-      }
-    }
-    .artist-img {
+    overflow: hidden;
+    .song-img {
       position: relative; // Ensure positioning context for absolute positioning of play button
-      width: em(50px);
-      height: em(50px);
+      width: em(40px);
+      height: em(40px);
       border-radius: em(5px);
       overflow: hidden; // Ensure the play button doesn't overflow the image wrapper
       img {
@@ -54,6 +23,7 @@
         border-radius: em(5px);
       }
       .play-btn {
+        border: none;
         position: absolute; // Position the play button absolutely within the image wrapper
         top: 0; // Align play button to the top of the image
         left: 0; // Align play button to the left of the image
@@ -75,33 +45,88 @@
         }
       }
     }
+
     .song-actions {
       display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-
-      min-width: em(100px);
-      button {
-        display: none;
-        border-radius: 50%;
-        background-color: inherit;
-        //border line
-        border: rem(1px) solid $sec-font-clr;
-        padding: em(5px);
+      gap: 2px;
+      align-items: center;
+      justify-content: space-evenly;
+      color: $sec-font-clr;
+      padding: 5px;
+      svg {
+        fill: $sec-bg-clr;
+      }
+      .added {
         svg {
-          fill: $sec-font-clr;
-          width: em(20px);
-          height: em(20px);
+          fill: $logo-clr;
+        }
+      }
+      .duration {
+        font-size: 0.875rem;
+        display: block;
+        justify-self: center;
+        align-self: center;
+      }
+    }
+    .song-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      gap: 2px;
+      p {
+        font-size: 1rem;
+        font-weight: bold;
+        font-weight: 400;
+        text-wrap: nowrap;
+        overflow: hidden;
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+      small {
+        font-size: 0.875rem;
+        font-weight: bold;
+        color: #6a6a6a;
+
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
         }
       }
     }
-    //hover effect
+
     &:hover {
-      .song-actions button {
-        display: block;
+      .song-actions {
+        svg {
+          fill: $sec-font-clr;
+          cursor: pointer;
+        }
       }
-      .artist-img .play-btn {
-        display: flex; // Display play button on hover
+      background-color: #242424;
+      .song-img {
+        .play-btn {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+.song-result.active {
+  .song-actions {
+    svg {
+      fill: $sec-font-clr;
+      cursor: pointer;
+    }
+  }
+  background-color: #242424;
+  .song-details {
+    .song-img {
+      .play-btn {
+        display: flex;
       }
     }
   }

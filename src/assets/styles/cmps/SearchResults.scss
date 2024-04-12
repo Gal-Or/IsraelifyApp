@@ -1,0 +1,54 @@
+//for mobile layout
+.search-results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+@include for-normal-layout {
+  .search-results {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr auto;
+    gap: 20px;
+
+    .top-song-result {
+      grid-row: 1;
+      grid-column: 1;
+      position: relative; /* Add this line to position the play button */
+      padding: em(20px);
+
+      .top-song-details {
+        position: relative;
+        border-radius: em(8px);
+        padding: em(20px);
+
+        &:hover {
+          background-color: #242424;
+          .play-btn {
+            display: flex; /* Show play button on hover */
+          }
+        } /* Add this line to enable absolute positioning for the play button */
+      }
+
+      .play-btn {
+        display: none;
+        position: absolute; /* Position the play button absolutely */
+        bottom: 10px; /* Adjust bottom position as needed */
+        right: 10px; /* Adjust right position as needed */
+      }
+    }
+
+    .song-resuls {
+      grid-row: 1;
+      grid-column: 2;
+    }
+
+    .station-results {
+      grid-row: 2;
+      grid-column: 1 / -1;
+    }
+  }
+}

@@ -6,12 +6,12 @@ import { ReactSVG } from "react-svg";
 import { addSongToStation } from "../store/station.actions";
 import { setCurrentSong, setIsPlaying } from "../store/player.actions";
 
-import { SongDetails } from "./SongDetails";
-
 import playIcon from "../assets/icons/playIcon.svg";
 import pauseIcon from "../assets/icons/pauseIcon.svg";
-import addIcon from "../assets/icons/addIcon.svg";
+import addIcon from "../assets/icons/plusWithBorderIcon.svg";
 import tickIcon from "../assets/icons/tickIcon.svg";
+import DotsIcon from "../assets/icons/3DotsIcon.svg";
+import { utilService } from "../services/util.service";
 
 export function SongResults({ songResults, onAddSongToStation }) {
   const params = useParams();
@@ -19,19 +19,39 @@ export function SongResults({ songResults, onAddSongToStation }) {
   const isPlaying = useSelector((state) => state.playerModule.isPlaying);
   const currentSong = useSelector((state) => state.playerModule.currentSong);
   const stations = useSelector((state) => state.stationModule.stations);
+  const [currentStation, setCurrentStation] = useState({ songs: [] });
+  const [lastActiveSong, setLastActiveSong] = useState(null);
 
   useEffect(() => {
-    console.log("songResults", songResults);
-  }, [songResults]);
-  async function onAddToPlaylist(song, stationId = 0) {
+    let station;
+    if (params.stationId) {
+      station = stations.find((station) => station._id === params.stationId);
+    } else {
+      station = stations.find((station) => station._id === "liked-songs");
+    }
+    if (station) setCurrentStation(station);
+  }, [params]);
+
+  useEffect(() => {
+    console.log("currentStation", currentStation);
+  }, [currentStation]);
+
+  async function onAddToPlaylist(song, stationId = "liked-songs") {
     song.stationIds = params.stationId
       ? [...song.stationIds, params.stationId]
       : [...song.stationIds, stationId];
 
+    setCurrentStation((prevStation) => {
+      return {
+        ...prevStation,
+        songs: [...prevStation.songs, song],
+      };
+    });
     if (params.stationId) {
       await addSongToStation(song, params.stationId);
-      onAddSongToStation(song);
     } else await addSongToStation(song); // TODO:  implement add from search page
+
+    if (onAddSongToStation) onAddSongToStation(song);
   }
 
   function onPlaySong(song) {
@@ -41,16 +61,22 @@ export function SongResults({ songResults, onAddSongToStation }) {
     }
     setCurrentSong(song);
     setIsPlaying(true);
+    setLastActiveSong(song); // Set last active song when playing a new song
   }
 
   const displayedSongs = showAll ? songResults : songResults.slice(0, 5);
-
+  if (!currentStation) return <h1>Loading...</h1>;
   return (
     <section className="song-results">
       <h1>Songs</h1>
       {displayedSongs.map((song) => (
-        <article key={song.id} className="song-result">
-          <SongDetails song={song}>
+        <article
+          key={song.id}
+          className={`song-result ${lastActiveSong === song ? "active" : ""}`}
+          onClick={() => setLastActiveSong(song)}
+        >
+          <div className="song-img">
+            <img src={song.img} alt="song-thumbnail" />
             <button onClick={() => onPlaySong(song)} className="play-btn">
               <ReactSVG
                 src={
@@ -58,25 +84,39 @@ export function SongResults({ songResults, onAddSongToStation }) {
                 }
               />
             </button>
-          </SongDetails>
+          </div>
+          <div className="song-info">
+            <p>
+              {song.name.length > 30
+                ? song.name.slice(0, 30) + "..."
+                : song.name}
+            </p>
+            <small>{song.artist}</small>
+          </div>
           <div className="song-actions">
-            <button onClick={() => onAddToPlaylist(song)}>
-              {stations[0].songs.find(
-                (stationSong) => stationSong.id === song.id
-              ) ? (
-                <ReactSVG src={tickIcon} />
-              ) : (
-                <ReactSVG src={addIcon} />
-              )}
-            </button>
+            {currentStation.songs.find(
+              (stationSong) => stationSong.id === song.id
+            ) ? (
+              <ReactSVG
+                src={tickIcon}
+                onClick={() => onAddToPlaylist(song)}
+                className="added"
+              />
+            ) : (
+              <ReactSVG src={addIcon} onClick={() => onAddToPlaylist(song)} />
+            )}
+            <span className="duration">
+              {utilService.formatTime(song.duration)}
+            </span>
+            <ReactSVG src={DotsIcon} />
           </div>
         </article>
       ))}
-      {songResults.length > 5 && (
+      {/* {songResults.length > 5 && (
         <button onClick={() => setShowAll(!showAll)}>
           {showAll ? "Hide All" : "Show More"}
         </button>
-      )}
+      )} */}
     </section>
   );
 }

@@ -53,7 +53,9 @@ async function addSongToStation(song, stationId) {
   }
   const station = await getById(stationId);
   //if song already in station
-  if (station.songs.find((stationSong) => stationSong.id === song.id)) return;
+  if (station.songs.find((stationSong) => stationSong.id === song.id)) {
+    return;
+  }
   station.songs.push(song);
   return await save(station);
 }
@@ -111,7 +113,7 @@ function _createStations() {
 
 function _createStation() {
   return {
-    _id: utilService.makeId(),
+    _id: "liked-songs",
     name: "Liked Songs",
     type: "playlist",
     tags: ["liked"],
