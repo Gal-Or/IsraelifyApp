@@ -6,4 +6,27 @@
     width: em(16px);
     cursor: pointer;
   }
+
+  .volume-bar {
+    width: em(100px);
+    .volume-bar-track {
+      color: $logo-clr;
+    }
+    .volume-bar-rail {
+      color: $sec-font-clr;
+    }
+    .volume-bar-thumb {
+      background-color: #fff;
+      border-radius: 50%;
+      width: 0px;
+      height: 0px;
+    }
+  }
+  &:hover {
+    .volume-bar-thumb {
+      width: rem(15px);
+      height: rem(15px);
+      box-shadow: 0 0 0 0;
+    }
+  }
 }
