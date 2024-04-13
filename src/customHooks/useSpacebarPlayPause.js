@@ -7,7 +7,10 @@ export function useSpacebarPlayPause() {
   const isPlaying = useSelector((state) => state.playerModule.isPlaying);
   useEffect(() => {
     function handleKeyDown(event) {
-      if (event.keyCode === 32) {
+      if (
+        event.keyCode === 32 &&
+        event.target.tagName.toLowerCase() !== "input"
+      ) {
         event.preventDefault();
         setIsPlaying(!isPlaying);
       }

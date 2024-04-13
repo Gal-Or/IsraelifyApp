@@ -5,13 +5,17 @@ export function AppHeader() {
   const navigate = useNavigate();
   const params = useParams();
 
-  const [currentQuery, setCurrentQuery] = useState(params.query || "");
-
+  const [currentQuery, setCurrentQuery] = useState(
+    params.query ? formatQuery(params.query) : ""
+  );
+  function formatQuery(query) {
+    return query.split("+").join(" ");
+  }
   function onInputChange(ev) {
     let { value } = ev.target;
     setCurrentQuery(value);
-    //replace spaces with +
-    value = value.split(" ").join("+");
+    value = formatQuery(value);
+
     navigate(`/search/${value}`);
   }
 
