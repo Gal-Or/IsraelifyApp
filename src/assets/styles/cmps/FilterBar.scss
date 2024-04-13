@@ -3,11 +3,12 @@
   flex-direction: row;
   justify-content: start;
   gap: 20px;
+  padding: 20px;
 
   li {
     display: inline;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 35%;
     background-color: #181818;
     color: #fff;
     cursor: pointer;
