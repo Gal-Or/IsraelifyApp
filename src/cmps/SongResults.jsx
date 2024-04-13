@@ -89,11 +89,7 @@ export function SongResults({ songResults, onAddSongToStation }) {
             </button>
           </div>
           <div className="song-info">
-            <p>
-              {song.name.length > 30
-                ? song.name.slice(0, 30) + "..."
-                : song.name}
-            </p>
+            <p>{song.name}</p>
             <small>{song.artist}</small>
           </div>
           <div className="song-actions">

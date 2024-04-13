@@ -2,6 +2,10 @@ import axios from "axios";
 
 import { stationService } from "./station.service";
 
+export const youtubeService = {
+  query,
+};
+
 function createResultObj(result) {
   return {
     id: result.id.videoId,
@@ -121,7 +125,3 @@ function formatDuration(duration) {
   //return the duration in seconds
   return hours * 3600 + minutes * 60 + seconds;
 }
-
-export const youtubeService = {
-  query,
-};
