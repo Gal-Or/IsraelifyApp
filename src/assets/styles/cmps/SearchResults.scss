@@ -11,7 +11,7 @@
   .search-results {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: auto 1fr;
 
     gap: 20px;
 
@@ -43,6 +43,8 @@
           background-color: #242424;
           .play-btn {
             display: flex; /* Show play button on hover */
+            align-items: center;
+            justify-content: center;
           }
         } /* Add this line to enable absolute positioning for the play button */
       }
@@ -50,8 +52,17 @@
       .play-btn {
         display: none;
         position: absolute; /* Position the play button absolutely */
-        bottom: 10px; /* Adjust bottom position as needed */
-        right: 10px; /* Adjust right position as needed */
+        bottom: em(20px); /* Align play button to the bottom of the image */
+        right: em(20px); /* Align play button to the right of the image */
+        background-color: $logo-clr; /* Use the logo color for the play button */
+        border: none;
+        border-radius: 50%; /* Make the play button circular */
+        width: em(60px);
+        height: em(60px);
+        svg {
+          width: em(24px);
+          height: em(24px);
+        }
       }
     }
 
