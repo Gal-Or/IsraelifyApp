@@ -1,0 +1,85 @@
+.artist-results {
+  padding: 0;
+  margin: 0;
+
+  .artist-results-container {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    //strech the element to the full width and height of the parent
+    width: 100%;
+    height: 100%;
+
+    .artist-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+
+      .artist-img {
+        position: relative;
+        width: 16vh;
+        height: 16vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+
+        .play-btn {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 0;
+          height: 0;
+          opacity: 0;
+          bottom: em(8px); /* Align play button to the bottom of the image */
+          background-color: $logo-clr; /* Use the logo color for the play button */
+          border: none;
+          border-radius: 500px;
+        }
+      }
+
+      border-radius: em(8px);
+      padding: em(10px);
+      &:hover {
+        background-color: #242424;
+
+        .play-btn {
+          width: em(40px);
+          height: em(40px);
+          opacity: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0;
+          padding: 0;
+          //all child elements will be centered
+          * {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            * {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+
+          svg {
+            width: rem(24px);
+            height: rem(24px);
+          }
+        }
+      }
+    }
+  }
+}

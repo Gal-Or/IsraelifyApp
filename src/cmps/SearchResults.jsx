@@ -1,16 +1,18 @@
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+
+import { useState } from "react";
 import { ReactSVG } from "react-svg";
 
 import { setCurrentSong, setIsPlaying } from "../store/player.actions";
 
 import { SongResults } from "./SongResults";
 import { StationResults } from "./StationResults";
+import { ArtistResults } from "./ArtistResults";
 
 import playIcon from "../assets/icons/playIcon.svg";
 import pauseIcon from "../assets/icons/pauseIcon.svg";
 
-export function SearchResults({ songResults, stationResults }) {
+export function SearchResults({ songResults, stationResults, artistResults }) {
   const currentSong = useSelector((state) => state.playerModule.currentSong);
   const isPlaying = useSelector((state) => state.playerModule.isPlaying);
   const [lastActiveSong, setLastActiveSong] = useState(null);
@@ -27,6 +29,7 @@ export function SearchResults({ songResults, stationResults }) {
 
   return (
     <section className="search-results">
+      <ArtistResults artistResults={artistResults} />
       <div className="top-song-result">
         <h1>Top result</h1>
         <div className="top-song-details">
@@ -37,7 +40,10 @@ export function SearchResults({ songResults, stationResults }) {
               </div>
               <div className="song-info">
                 <p>{songResults[0].name}</p>
-                <small>{songResults[0].artist}</small>
+                <small>
+                  <span className="type">Song</span>
+                  <span className="artist">{songResults[0].artist}</span>
+                </small>
               </div>
               <button
                 onClick={() => onPlaySong(songResults[0])}

@@ -2,6 +2,7 @@ import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 
 import { youtubeService } from "../services/youtube.service.js";
+import { spotifyService } from "../services/spotify.service.js";
 import { stationService } from "../services/station.service.js";
 
 import { AppHeader } from "../cmps/AppHeader.jsx";
@@ -14,6 +15,7 @@ export function SearchPage() {
 
   const [songResults, setResults] = useState(null);
   const [stationResults, setStationResults] = useState(null);
+  const [artistResults, setArtistResults] = useState(null);
 
   useEffect(() => {
     //replace + with spaces
@@ -21,6 +23,7 @@ export function SearchPage() {
 
     getYoutubeResults(formatedQuery);
     getStationResults(formatedQuery);
+    getArtistResults(formatedQuery);
   }, [params.query]);
 
   async function getYoutubeResults(query) {
@@ -30,6 +33,10 @@ export function SearchPage() {
   async function getStationResults(query) {
     var res = await stationService.findStationWithQuery(query);
     setStationResults(res);
+  }
+  async function getArtistResults(query) {
+    var res = await spotifyService.getArtistResults(query);
+    setArtistResults(res);
   }
 
   return (
@@ -41,6 +48,7 @@ export function SearchPage() {
         <SearchResults
           songResults={songResults ? songResults : []}
           stationResults={stationResults}
+          artistResults={artistResults}
         />
       )}
     </section>
