@@ -1,42 +1,52 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+  outline: none;
 }
 
 html {
-  // font-family: montserrat;
-  // line-height: 1.6;
+  /* font-family: montserrat; */
+  /* line-height: 1.6; */
   color: $main-font-clr;
 }
 
 body {
-  margin: 0;
   background-color: $main-bg-clr;
   font-family: "CircularSpotifyText";
   font-size: 1.125rem;
 }
+
 div {
   display: block;
 }
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  // margin: 0 0 0.6em;
-  // line-height: 1;
+  font-family: "CircularSpotifyText";
+  font-weight: 700;
+  margin: 0;
 }
 
 ul {
-  list-style: none;
   margin: 0;
-  padding: 0;
 }
 
 section,
 main,
 footer {
-  //padding: 5px;
+  /* padding: 5px; */
 }
 
 img {
@@ -45,25 +55,24 @@ img {
 }
 
 p {
-  margin: 0; //margin: 0 0 1em;
+  margin: 0; /* margin: 0 0 1em; */
 }
 
 a {
-  text-decoration: unset;
-  color: unset;
   cursor: pointer;
 }
 
-a:hover {
-  //text-decoration: underline;
-}
 svg {
   min-width: 15px;
   min-height: 15px;
 }
 
-:-webkit-any(article, aside, nav, section)
-  :-webkit-any(article, aside, nav, section)
-  h1 {
+/* Adjusting h1 within specified elements */
+:-webkit-any(article, aside, nav, section) h1 {
   font-size: 1.17em;
+  margin: 0;
+}
+input {
+  //text input color black
+  color: black;
 }
