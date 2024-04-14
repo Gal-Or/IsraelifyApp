@@ -3,6 +3,7 @@
       $sec-bg-clr,
       addTransparency($sec-bg-clr, 0.1));
   max-height: em(60px);
+  height: em(30px);
   display: flex;
   justify-content: start;
   align-items: center;
@@ -37,7 +38,7 @@
     background-color: $input-bg-clr;
     justify-content: start;
     align-items: center;
-    border-radius: 50px;
+    border-radius: em(50px);
     height: em(48px);
     padding: em(6px) em(15px);
     width: em(300px);
@@ -50,7 +51,6 @@
 
     input {
       background-color: transparent;
-      height: 30px;
       margin-left: em(10px);
       width: 100%;
       box-sizing: border-box;
