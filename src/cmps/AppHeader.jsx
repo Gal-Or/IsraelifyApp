@@ -4,6 +4,7 @@ import { ReactSVG } from "react-svg";
 
 import rightArrow from "../assets/icons/right_arrow.svg"
 import leftArrow from "../assets/icons/left_arrow.svg"
+import search from "../assets/icons/search.svg"
 
 export function AppHeader() {
   const navigate = useNavigate();
@@ -34,13 +35,15 @@ export function AppHeader() {
         <ReactSVG src={rightArrow} />
       </button>
 
-      <input
-        type="text"
-        placeholder="Search"
-        onChange={onInputChange}
-        value={currentQuery} //formatQuery(currentQuery)}
-      />
-
+      <div class="input-wrapper">
+        <ReactSVG src={search} />
+        <input
+          type="text"
+          placeholder="What do you want to play?"
+          onChange={onInputChange}
+          value={currentQuery} //formatQuery(currentQuery)}
+        />
+      </div>
 
     </header>
   );

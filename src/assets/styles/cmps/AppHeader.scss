@@ -5,7 +5,7 @@
   max-height: em(60px);
   display: flex;
   justify-content: start;
-  align-items: start;
+  align-items: center;
   gap: em(5px);
   z-index: 2;
   top: 0;
@@ -32,12 +32,33 @@
     }
   }
 
-  input {
+  .input-wrapper {
     display: none;
-    height: 30px;
-    margin-left: em(20px);
+    background-color: $input-bg-clr;
+    justify-content: start;
+    align-items: center;
+    border-radius: 50px;
+    height: em(48px);
+    padding: em(6px) em(15px);
+    width: em(300px);
+
+    // this effects the div inside the svg div
+    div {
+      display: flex;
+      align-items: center;
+    }
+
+    input {
+      background-color: transparent;
+      height: 30px;
+      margin-left: em(10px);
+      width: 100%;
+      box-sizing: border-box;
+      color: white;
+    }
   }
 
+  // I don't know what the img is related to..
   img {
     width: rem(75px);
   }

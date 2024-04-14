@@ -3,12 +3,11 @@
   flex-direction: column;
   justify-content: flex-start;
 
-
   .app-header {
     top: 0;
 
-    input {
-      display: block;
+    .input-wrapper {
+      display: flex;
     }
   }
 }
