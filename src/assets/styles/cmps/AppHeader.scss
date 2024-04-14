@@ -1,20 +1,41 @@
 .app-header {
-  background-image: linear-gradient(
-    to bottom,
-    $sec-bg-clr,
-    addTransparency($sec-bg-clr, 0.1)
-  );
+  background-image: linear-gradient(to bottom,
+      $sec-bg-clr,
+      addTransparency($sec-bg-clr, 0.1));
   max-height: em(60px);
   display: flex;
-  justify-content: space-around;
+  justify-content: start;
   align-items: start;
+  gap: em(5px);
   z-index: 2;
   top: 0;
   position: sticky;
+  margin: em(15px);
+
+  button {
+    background-color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+
+    * {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    svg {
+      width: em(13px);
+      height: em(13px);
+      fill: white;
+      margin: em(10px);
+    }
+  }
 
   input {
     display: none;
     height: 30px;
+    margin-left: em(20px);
   }
 
   img {
