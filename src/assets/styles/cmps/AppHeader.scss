@@ -43,6 +43,12 @@
     padding: em(6px) em(15px);
     width: em(300px);
 
+    &:hover {
+      background-color: $input-hover-bg-clr;
+      border: em(1px) solid;
+      border-color: $input-hover-border-clr;
+    }
+
     // this effects the div inside the svg div
     div {
       display: flex;
