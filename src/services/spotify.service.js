@@ -1,7 +1,7 @@
 import axios from "axios";
 import qs from "qs";
-import translate from "translate";
-translate.key = "6b7bdea9-82d9-4ef7-b628-143d2fc60c78:fx";
+
+import logoBlue3D from "../assets/imgs/logo-Blue3D.png";
 const SPOTIFY_CLIENT_ID = "e87cf49e042f446ca8d49ee1b49653f0";
 const SPOTIFY_CLIENT_SECRET = "bd49c32ee0b74d6dbdf0dafbcfc0a4a9";
 
@@ -105,7 +105,7 @@ async function getSpotifyToken() {
 }
 
 async function getArtistResults(query) {
-  if (!query || query.length < 3) return [];
+  if (!query || query.length < 2) return [];
   try {
     // Check if results are available in the cache
     const cachedResults = getFromCache(query);
@@ -127,8 +127,7 @@ async function getArtistResults(query) {
         Authorization: `Bearer ${token}`,
       },
     });
-
-    const artists = response.data.artists.items;
+    const artists = cleanArtistsData(response.data.artists.items);
 
     // Save results to cache
     saveToCache(query, artists);
@@ -138,4 +137,23 @@ async function getArtistResults(query) {
     console.error("Error fetching data:", error);
     throw error;
   }
+}
+
+// Function to clean up the artist data
+function cleanArtistsData(artists) {
+  //check if imgurl is available if so replace it with the logoBlue3D
+  let artistsWithImg = artists.map((artist) => {
+    if (artist.images.length === 0) {
+      artist.images.push({ url: logoBlue3D });
+    }
+    return artist;
+  });
+
+  return artistsWithImg.map((artist) => {
+    return {
+      id: artist.id,
+      name: artist.name,
+      imgUrl: artist.images[0].url,
+    };
+  });
 }
