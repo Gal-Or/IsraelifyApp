@@ -4,13 +4,14 @@
 
   .artist-results-container {
     padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    //strech the element to the full width and height of the parent
-    width: 100%;
-    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 1fr);
+    grid-template-rows: 1fr;
 
+    gap: 20px;
     .artist-card {
+      //first row
+      grid-row: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -18,8 +19,8 @@
 
       .artist-img {
         position: relative;
-        width: 16vh;
-        height: 16vh;
+        width: 16dvh;
+        height: 16dvh;
         overflow: hidden;
         display: flex;
         justify-content: center;
@@ -32,6 +33,7 @@
           height: 100%;
           object-fit: cover;
           border-radius: 50%;
+          box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
         }
 
         .play-btn {
@@ -75,8 +77,8 @@
           }
 
           svg {
-            width: rem(24px);
-            height: rem(24px);
+            width: rem(20px);
+            height: rem(20px);
           }
         }
       }

@@ -16,10 +16,11 @@
     text-wrap: pretty;
   }
   .song-img {
-    width: em(100px);
-    height: em(100px);
-    min-width: em(100px);
-    min-height: em(100px);
+    width: em(56px);
+    height: em(56px);
+    max-width: em(56px);
+    min-height: em(56px);
+
     img {
       height: 100%;
       width: 100%;

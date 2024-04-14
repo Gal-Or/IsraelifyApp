@@ -1,5 +1,4 @@
 .time-bar {
-  width: 99vw;
   position: fixed;
   left: 3px;
   bottom: 0;
@@ -20,6 +19,9 @@
   .time-bar {
     width: 100%;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .time-bar-thumb {
       background-color: #fff; /* Set the color of the thumb */

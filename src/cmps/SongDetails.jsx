@@ -11,7 +11,6 @@ export function SongDetails({ song, children }) {
       <div className="song-info">
         <p>{(song && song.name) || "Song Name"}</p>
         <small>{(song && song.artist) || "Artist"}</small>
-        {/* Display children elements */}
       </div>
     </div>
   );
