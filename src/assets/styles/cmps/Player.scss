@@ -1,25 +1,37 @@
 .player {
   grid-column: 2; /* Position within the subgrid */
-  display: subgrid; /* Enable subgrid */
+  display: grid; /* Enable subgrid */
   grid-template-rows: auto auto; /* Define two rows */
   grid-template-columns: 1fr; /* Single column */
+  width: 100%; /* Set width to 100% */
+  max-height: inherit; /* Inherit max-height from parent */
 
   .player-controls {
     grid-row: 1;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 15px;
     align-items: center;
+    .next-prev {
+      background-color: transparent;
+      transform: scale(0.65);
+    }
 
     button {
-      background-color: blue; /* Set background color to blue */
-      border-radius: 50%; /* Make the button round */
+      background-color: $logo-clr; /* Set background color */
       padding: 10px; /* Add some padding for spacing */
       border: none; /* Remove border */
       cursor: pointer; /* Change cursor to pointer on hover */
       transition: background-color 0.3s; /* Smooth transition for color change */
+      border-radius: 50%; /* Make button round */
 
       &:hover {
         background-color: darkblue; /* Darken the background color on hover */
+      }
+      * {
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       svg {
@@ -31,21 +43,30 @@
   }
 
   .youtube-player {
-    display: grid;
-    grid-template-columns: 1fr 6fr 1fr;
-    align-items: center;
+    display: flex;
+
+    align-items: start;
+    justify-items: start;
+    max-height: inherit;
 
     .current-time {
       grid-column: 1;
+
+      font-size: 0.75em;
+      padding: 0px 13px 0px 0px;
     }
 
     .time-bar {
       grid-column: 2;
+      width: 100%;
+      padding: 0;
+      top: 0;
     }
 
     .duration {
       grid-column: 3;
-      justify-self: end;
+      justify-self: center;
+      font-size: 0.75em;
     }
   }
 }

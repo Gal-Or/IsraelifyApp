@@ -7,6 +7,8 @@ import { setIsPlaying } from "../store/player.actions";
 
 import playIcon from "../assets/icons/playIcon.svg";
 import pauseIcon from "../assets/icons/pauseIcon.svg";
+import NextSongIcon from "../assets/icons/NextSongIcon.svg";
+import PrevSongIcon from "../assets/icons/LastSongIcon.svg";
 export function Player() {
   const youtubePlayer = useSelector(
     (state) => state.playerModule.youtubePlayer
@@ -24,6 +26,9 @@ export function Player() {
   return (
     <div className="player">
       <div className="player-controls">
+        <button className="next-prev">
+          <ReactSVG src={PrevSongIcon} />
+        </button>
         {isPlaying ? (
           <button onClick={onPause}>
             <ReactSVG src={pauseIcon} />{" "}
@@ -34,6 +39,9 @@ export function Player() {
             <ReactSVG src={playIcon} />{" "}
           </button>
         )}
+        <button className="next-prev">
+          <ReactSVG src={NextSongIcon} />
+        </button>
       </div>
       <YouTubePlayer />
     </div>

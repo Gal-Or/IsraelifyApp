@@ -1,5 +1,6 @@
 .full-player {
   display: flex;
+  width: 100%;
   .player-actions {
     display: none;
   }
@@ -8,21 +9,24 @@
 @include for-normal-layout {
   .full-player {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    padding: em(5px);
-    margin: em(10px);
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto;
+    height: 72px;
     gap: em(7px);
+    justify-content: stretch;
 
     .song-details {
       grid-column: 1;
+      max-height: inherit;
     }
     .player {
       grid-column: 2;
+      max-height: inherit;
     }
     .player-actions {
       display: flex;
       grid-column: 3;
+      max-height: inherit;
     }
   }
 }
