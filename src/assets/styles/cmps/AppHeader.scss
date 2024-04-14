@@ -2,8 +2,7 @@
   background-image: linear-gradient(to bottom,
       $sec-bg-clr,
       addTransparency($sec-bg-clr, 0.1));
-  max-height: em(60px);
-  height: em(30px);
+  height: em(50px);
   display: flex;
   justify-content: start;
   align-items: center;
@@ -11,7 +10,7 @@
   z-index: 2;
   top: 0;
   position: sticky;
-  margin: em(15px);
+  margin: em(15px) 0 em(15px) 0;
 
   button {
     background-color: black;
