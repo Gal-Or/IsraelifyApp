@@ -61,12 +61,16 @@ async function addSongToStation(song, stationId) {
 }
 
 async function findStationWithQuery(query) {
-  if (!query) return await storageService.query(STORAGE_KEY);
-  const stations = await storageService.query(STORAGE_KEY);
+  const result = await storageService.query(STORAGE_KEY);
+  if (!query || query.length < 1) return result;
+  const stations = result;
   return stations.filter((station) => {
     return (
       station.name.toLowerCase().includes(query.toLowerCase()) ||
-      station.createdBy.fullname.toLowerCase().includes(query.toLowerCase())
+      station.createdBy.fullname.toLowerCase().includes(query.toLowerCase()) ||
+      station.tags.some((tag) =>
+        tag.toLowerCase().includes(query.toLowerCase())
+      )
     );
   });
 }
