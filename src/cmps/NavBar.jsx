@@ -13,7 +13,9 @@ export function NavBar() {
     handleHeight: false,
   });
 
-  function onResize() {}
+  function onResize() {
+    console.log("width", width);
+  }
 
   return (
     <section className="nav-bar" ref={ref}>

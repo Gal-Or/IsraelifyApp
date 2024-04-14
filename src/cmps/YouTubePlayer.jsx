@@ -69,10 +69,10 @@ export function YouTubePlayer() {
         case window.YT.PlayerState.ENDED:
           clearInterval(intervalRef.current);
           setPercentagePlayed(0);
+          setIsPlaying(false);
           break;
 
         case window.YT.PlayerState.CUED:
-          setIsPlaying(false);
         default:
           break;
       }

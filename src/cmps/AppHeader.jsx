@@ -13,12 +13,13 @@ export function AppHeader() {
     params.query ? formatQuery(params.query) : ""
   );
   function formatQuery(query) {
-    return query.split("+").join(" ");
+    return query.split(" ").join("+");
   }
   function onInputChange(ev) {
     let { value } = ev.target;
-    setCurrentQuery(value);
+
     value = formatQuery(value);
+    setCurrentQuery(value);
 
     navigate(`/search/${value}`);
   }
@@ -37,7 +38,7 @@ export function AppHeader() {
         type="text"
         placeholder="Search"
         onChange={onInputChange}
-        value={currentQuery}
+        value={currentQuery} //formatQuery(currentQuery)}
       />
 
 

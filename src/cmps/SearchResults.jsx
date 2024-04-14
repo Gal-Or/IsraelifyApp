@@ -15,7 +15,6 @@ import pauseIcon from "../assets/icons/pauseIcon.svg";
 export function SearchResults({ songResults, stationResults, artistResults }) {
   const currentSong = useSelector((state) => state.playerModule.currentSong);
   const isPlaying = useSelector((state) => state.playerModule.isPlaying);
-  const [lastActiveSong, setLastActiveSong] = useState(null);
 
   function onPlaySong(song) {
     if (currentSong.id === song.id) {

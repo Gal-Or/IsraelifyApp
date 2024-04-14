@@ -32,10 +32,6 @@ export function SongResults({ songResults, onAddSongToStation }) {
     if (station) setCurrentStation(station);
   }, [params]);
 
-  useEffect(() => {
-    console.log("currentStation", currentStation);
-  }, [currentStation]);
-
   async function onAddToPlaylist(song, stationId = "liked-songs") {
     song.stationIds = params.stationId
       ? [...song.stationIds, params.stationId]
@@ -98,7 +94,9 @@ export function SongResults({ songResults, onAddSongToStation }) {
             ) ? (
               <ReactSVG
                 src={tickIcon}
-                onClick={() => onAddToPlaylist(song)}
+                onClick={() => {
+                  console.log("song already in station");
+                }}
                 className="added"
               />
             ) : (

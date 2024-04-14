@@ -17,10 +17,6 @@ export function StationPage() {
     loadStation();
   }, [params.stationId]);
 
-  useEffect(() => {
-    console.log("Station updated:", station);
-  }, [station]);
-
   async function loadStation() {
     try {
       const station = await stationService.getById(params.stationId);
