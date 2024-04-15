@@ -6,19 +6,48 @@
   overflow: scroll;
   margin-left: rem(5px);
   margin-right: rem(5px);
+
   .nav-options {
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
+
     .to-library {
       display: block;
     }
   }
 
   //all the children of the nav-bar border-radius
-  > * {
+  >* {
     border-radius: em(5px);
     background-color: $sec-bg-clr;
+  }
+
+  .nav-options {
+
+    a {
+      display: flex;
+      gap: em(10px);
+      text-decoration: none;
+    }
+
+    svg {
+      height: em(16px);
+      width: em(16px);
+      fill: $sec-font-clr;
+    }
+
+    .nav-page {
+      color: $sec-font-clr;
+    }
+
+    .clicked {
+      color: white;
+
+      svg {
+        fill: white;
+      }
+    }
   }
 
   .library-container {
@@ -32,15 +61,20 @@
   .nav-bar {
     .nav-options {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: start;
       flex-direction: column;
-      min-height: em(200px);
+      gap: em(15px);
+      min-height: em(70px);
+      padding: em(20px) em(20px) em(20px) em(5px);
+
+
       .to-library {
         display: none;
       }
     }
   }
 }
+
 svg {
   fill: white;
 }
