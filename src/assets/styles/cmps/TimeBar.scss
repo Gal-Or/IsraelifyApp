@@ -25,6 +25,9 @@
 
     .time-bar-thumb {
       background-color: #fff; /* Set the color of the thumb */
+      &:hover {
+        box-shadow: 0 0 0 0; /* Remove the box shadow on hover */
+      }
     }
     &:hover {
       .time-bar-track {

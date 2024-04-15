@@ -2,9 +2,9 @@ import { useNavigate, useParams } from "react-router";
 import { useState } from "react";
 import { ReactSVG } from "react-svg";
 
-import rightArrow from "../assets/icons/right_arrow.svg"
-import leftArrow from "../assets/icons/left_arrow.svg"
-import search from "../assets/icons/search.svg"
+import rightArrow from "../assets/icons/right_arrow.svg";
+import leftArrow from "../assets/icons/left_arrow.svg";
+import search from "../assets/icons/search.svg";
 
 export function AppHeader() {
   const navigate = useNavigate();
@@ -14,20 +14,19 @@ export function AppHeader() {
     params.query ? formatQuery(params.query) : ""
   );
   function formatQuery(query) {
-    return query.split(" ").join("+");
+    return query.split("+").join(" ");
   }
   function onInputChange(ev) {
     let { value } = ev.target;
+    setCurrentQuery(value);
 
     value = formatQuery(value);
-    setCurrentQuery(value);
 
     navigate(`/search/${value}`);
   }
 
   return (
     <header className="app-header">
-
       <button className="left-arrow-btn">
         <ReactSVG src={leftArrow} />
       </button>
@@ -41,10 +40,9 @@ export function AppHeader() {
           type="text"
           placeholder="What do you want to play?"
           onChange={onInputChange}
-          value={currentQuery} //formatQuery(currentQuery)}
+          value={formatQuery(currentQuery)}
         />
       </div>
-
     </header>
   );
 }
