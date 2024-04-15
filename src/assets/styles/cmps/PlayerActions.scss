@@ -21,6 +21,9 @@
       border-radius: 50%;
       width: 0px;
       height: 0px;
+      &:hover {
+        box-shadow: 0 0 0 0;
+      }
     }
     &:hover {
       .volume-bar-thumb {
