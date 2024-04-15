@@ -1,17 +1,18 @@
 .artist-results {
   padding: 0;
   margin: 0;
+  max-height: 300px;
+  overflow: hidden;
 
   .artist-results-container {
     padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 1fr);
-    grid-template-rows: 1fr;
+    display: flex;
+    flex-wrap: wrap;
 
     gap: 20px;
     .artist-card {
-      //first row
-      grid-row: 1;
+      flex: auto;
+
       display: flex;
       flex-direction: column;
       justify-content: center;
