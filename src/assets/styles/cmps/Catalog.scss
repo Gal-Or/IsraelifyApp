@@ -1,0 +1,39 @@
+.catalog {
+
+    display: flex;
+    flex-direction: column;
+    gap: em(10px);
+
+    h3 {
+        margin-top: em(40px);
+    }
+
+    .list-container {
+        max-height: em(220px);
+        overflow: hidden;
+    }
+
+    .station-list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: em(20px);
+    }
+
+    .station-preview {
+        display: flex;
+        flex-direction: column;
+        gap: em(10px);
+        align-items: center;
+        max-width: em(200px);
+        max-height: em(200px);
+
+        img {
+            max-width: em(140px);
+            max-height: em(140px);
+            border-radius: em(6px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .5);
+        }
+
+    }
+}
