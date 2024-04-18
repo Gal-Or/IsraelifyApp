@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: em(5px);
   min-width: em(75px);
-  overflow: scroll;
+  overflow: hidden;
   margin-left: rem(5px);
   margin-right: rem(5px);
 
@@ -18,13 +18,12 @@
   }
 
   //all the children of the nav-bar border-radius
-  >* {
+  > * {
     border-radius: em(5px);
     background-color: $sec-bg-clr;
   }
 
   .nav-options {
-
     a {
       display: flex;
       gap: em(10px);
@@ -54,6 +53,7 @@
     width: 100%;
     height: 100%;
     padding: em(10px);
+    overflow: scroll;
   }
 }
 
@@ -67,14 +67,9 @@
       min-height: em(70px);
       padding: em(20px) em(20px) em(20px) em(5px);
 
-
       .to-library {
         display: none;
       }
     }
   }
-}
-
-svg {
-  fill: white;
 }
