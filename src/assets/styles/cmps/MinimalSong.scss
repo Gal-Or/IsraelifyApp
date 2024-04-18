@@ -60,4 +60,33 @@
       }
     }
   }
+  .add-to-playlist {
+    background-color: transparent;
+    //all the children of the button
+    .liked-icon {
+      svg {
+        fill: $logo-clr;
+      }
+      &:hover {
+        svg {
+          fill: $logo-clr;
+        }
+      }
+    }
+    > * {
+      svg {
+        fill: #b3b3b3;
+      }
+      &:hover {
+        svg {
+          fill: #fff;
+        }
+      }
+    }
+    &:hover {
+      > * {
+        transform: scale(1.1);
+      }
+    }
+  }
 }

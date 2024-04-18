@@ -1,6 +1,6 @@
 .player {
   display: grid; /* Enable subgrid */
-  grid-template-rows: auto auto; /* Define two rows */
+  grid-template-rows: 1fr 1fr; /* Define two rows */
   grid-template-columns: 1fr; /* Single column */
   width: 100%; /* Set width to 100% */
   align-items: center; /* Align items to center */
@@ -14,12 +14,11 @@
     align-items: center;
     .next-prev {
       background-color: transparent;
-      transform: scale(0.65);
 
       svg {
         fill: #b3b3b3;
-        width: em(32px);
-        height: em(32px);
+        width: rem(16px);
+        height: rem(16px);
       }
       &:hover {
         svg {
@@ -66,10 +65,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: em(10px);
 
     .current-time {
       font-size: 0.75em;
+      justify-self: end;
+      padding-right: 1em;
     }
 
     .time-bar {
@@ -79,6 +79,9 @@
 
     .duration {
       font-size: 0.75em;
+      //set it to left
+      justify-self: start;
+      padding-left: 1em;
     }
   }
 }

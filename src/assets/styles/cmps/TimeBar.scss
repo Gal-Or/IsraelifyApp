@@ -17,14 +17,19 @@
 @include for-normal-layout {
   .time-bar {
     width: 100%;
-    max-width: 33vw;
     position: relative;
+    padding: 0;
+
+    .MuiSlider-root {
+      padding: 0;
+    }
 
     .time-bar-thumb {
       background-color: #fff; /* Set the color of the thumb */
       &:hover {
         box-shadow: 0 0 0 0; /* Remove the box shadow on hover */
       }
+      padding: 0; /* Remove padding */
     }
     &:hover {
       .time-bar-track {
