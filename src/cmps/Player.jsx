@@ -34,7 +34,7 @@ export function Player() {
             <ReactSVG src={pauseIcon} />{" "}
           </button>
         ) : (
-          <button onClick={onPlay}>
+          <button onClick={onPlay} className="play-btn">
             {" "}
             <ReactSVG src={playIcon} />{" "}
           </button>

@@ -11,9 +11,10 @@
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: auto;
-    height: 72px;
-    gap: em(7px);
-    justify-content: stretch;
+    height: max-content;
+    gap: em(10px);
+    justify-content: center;
+    align-items: center;
 
     .song-details {
       grid-column: 1;

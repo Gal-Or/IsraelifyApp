@@ -1,8 +1,7 @@
 .time-bar {
-  position: fixed;
-  left: 3px;
-  bottom: 0;
-  margin-bottom: em(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .time-bar-track {
     color: #fff;
   }
@@ -18,10 +17,8 @@
 @include for-normal-layout {
   .time-bar {
     width: 100%;
+    max-width: 33vw;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     .time-bar-thumb {
       background-color: #fff; /* Set the color of the thumb */

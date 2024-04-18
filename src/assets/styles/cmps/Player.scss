@@ -1,10 +1,10 @@
 .player {
-  grid-column: 2; /* Position within the subgrid */
   display: grid; /* Enable subgrid */
   grid-template-rows: auto auto; /* Define two rows */
   grid-template-columns: 1fr; /* Single column */
   width: 100%; /* Set width to 100% */
-  max-height: inherit; /* Inherit max-height from parent */
+  align-items: center; /* Align items to center */
+  justify-content: center; /* Justify content to center */
 
   .player-controls {
     grid-row: 1;
@@ -15,19 +15,32 @@
     .next-prev {
       background-color: transparent;
       transform: scale(0.65);
+
+      svg {
+        fill: #b3b3b3;
+        width: em(32px);
+        height: em(32px);
+      }
+      &:hover {
+        svg {
+          fill: #fff;
+        }
+      }
     }
 
     button {
-      background-color: $logo-clr; /* Set background color */
+      background-color: #fff; /* Set background color */
       padding: 10px; /* Add some padding for spacing */
       border: none; /* Remove border */
       cursor: pointer; /* Change cursor to pointer on hover */
       transition: background-color 0.3s; /* Smooth transition for color change */
       border-radius: 50%; /* Make button round */
+      width: rem(32px);
+      height: rem(32px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-      &:hover {
-        background-color: darkblue; /* Darken the background color on hover */
-      }
       * {
         display: flex;
         justify-content: center;
@@ -35,37 +48,36 @@
       }
 
       svg {
-        width: 24px; /* Set width of SVG icon */
-        height: 24px; /* Set height of SVG icon */
-        fill: white; /* Set SVG icon color to white */
+        width: rem(16px); /* Set width of SVG icon */
+        height: rem(16px); /* Set height of SVG icon */
+      }
+    }
+    .play-btn {
+      &:hover {
+        transform: scale(1.1); /* Scale button on hover */
+      }
+      &:active {
+        transform: scale(0.9); /* Scale button on click */
       }
     }
   }
 
   .youtube-player {
     display: flex;
-
-    align-items: start;
-    justify-items: start;
-    max-height: inherit;
+    justify-content: center;
+    align-items: center;
+    gap: em(10px);
 
     .current-time {
-      grid-column: 1;
-
       font-size: 0.75em;
-      padding: 0px 13px 0px 0px;
     }
 
     .time-bar {
-      grid-column: 2;
       width: 100%;
       padding: 0;
-      top: 0;
     }
 
     .duration {
-      grid-column: 3;
-      justify-self: center;
       font-size: 0.75em;
     }
   }
