@@ -1,25 +1,32 @@
 .genre-preview {
   display: flex;
-  width: rem(200px);
-  height: rem(200px);
+  flex-direction: column;
+  aspect-ratio: 2/2;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
-  flex-direction: column;
-  justify-content: space-between;
-
-  img {
-    max-width: 50%;
-    max-height: 50%;
-    transform: rotate(25deg);
+  cursor: pointer;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  .genre-img {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    right: -15px;
+    bottom: -15px;
+    transform: (18%, -2%);
+
+    img {
+      max-width: 100px;
+      max-height: 100px;
+      transform: rotate(25deg);
+
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
   span {
     align-self: flex-start;
     justify-self: flex-start;
     padding: em(10px);
-    font-size: em(25px);
+    font-size: calc(20px + 0.5vw);
   }
 }

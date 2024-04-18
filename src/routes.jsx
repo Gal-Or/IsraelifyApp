@@ -37,6 +37,16 @@ const routes = [
     label: "Station",
   },
   {
+    path: "/genre",
+    component: <Navigate to="/" replace />,
+    label: "Genre",
+  },
+  {
+    path: "/genre/:genreId",
+    component: <Navigate to="/" replace />,
+    label: "Genre",
+  },
+  {
     path: "/signin",
     component: <SignInPage />,
     label: "Sign In",
