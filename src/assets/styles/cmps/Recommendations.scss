@@ -1,0 +1,10 @@
+.recommendations-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: em(5px);
+
+    &>* {
+        flex: 1 1 251px;
+    }
+}

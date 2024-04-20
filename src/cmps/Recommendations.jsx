@@ -1,7 +1,16 @@
+import { MiniPreview } from "./MiniPreview";
+
 export function Recommendations() {
   return (
-    <div>
-      <h1>Recommendations</h1>
+    <div className="recommendations-container">
+      <MiniPreview />
+      <MiniPreview />
+      <MiniPreview />
+      <MiniPreview />
+      <MiniPreview />
+      <MiniPreview />
+      <MiniPreview />
+      <MiniPreview />
     </div>
   );
 }
