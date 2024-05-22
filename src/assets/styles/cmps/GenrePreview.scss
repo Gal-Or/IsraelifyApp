@@ -17,9 +17,7 @@
       max-width: 100px;
       max-height: 100px;
       transform: rotate(25deg);
-
-      width: 100%;
-      height: 100%;
+      aspect-ratio: 1/1;
       object-fit: cover;
     }
   }
@@ -28,5 +26,6 @@
     justify-self: flex-start;
     padding: em(10px);
     font-size: calc(20px + 0.5vw);
+    z-index: 1;
   }
 }

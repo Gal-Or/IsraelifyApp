@@ -1,18 +1,25 @@
-//for mobile layout
+// Variables
+$spacing: 10px;
+$border-radius: 8px;
+$shadow: 0 8px 8px rgba(0, 0, 0, 0.01);
+$background-dark: #181818;
+$background-hover: #242424;
+$logo-color: $logo-clr; // Assuming $logo-clr is defined elsewhere
+
+// Mobile layout
 .search-results {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
 
-@include for-normal-layout {
-  .search-results {
+  // Normal layout
+  @include for-normal-layout {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 2fr;
     grid-template-rows: auto auto 1fr;
-    gap: em(10px);
-    //set to start from top of the cell
+    gap: $spacing;
+    margin-top: $spacing;
 
     .artist-results {
       grid-row: 2;
@@ -22,83 +29,81 @@
     .top-song-result {
       grid-row: 1;
       grid-column: 1;
-      position: relative; /* Add this line to position the play button */
-      padding: em(20px);
+      position: relative;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      container-type: inline-size;
-      padding: 20px;
-      //strech the element to the full width and height of the parent
+      justify-content: space-evenly;
+      gap: $spacing;
+
       width: 100%;
       height: 100%;
+      min-width: 400px;
+      min-height: 200px;
 
       .top-song-details {
         position: relative;
-        border-radius: em(8px);
-        padding: em(20px);
-        box-shadow: 0 8px 8px rgba(0, 0, 0, 0.01);
-        background-color: #181818;
+        border-radius: $border-radius;
+        padding: $spacing * 2;
+        box-shadow: $shadow;
+        background-color: $background-dark;
         display: flex;
         flex-direction: column;
-        gap: em(20px);
+        gap: $spacing * 2;
 
         &:hover {
-          background-color: #242424;
+          background-color: $background-hover;
           .play-btn {
-            display: flex; /* Show play button on hover */
-            align-items: center;
-            justify-content: center;
+            display: flex;
           }
         }
 
         .song-img {
-          position: relative;
-          width: em(85px);
-          height: em(85px);
-          border-radius: em(8px);
+          width: 85px;
+          height: 85px;
+          border-radius: $border-radius;
           overflow: hidden;
-          box-shadow: 0 8px 8px rgba(0, 0, 0, 0.01);
+          box-shadow: $shadow;
+
           img {
             width: 100%;
             height: 100%;
-            border-radius: em(8px);
+            border-radius: $border-radius;
           }
         }
+
         .song-info {
           display: flex;
           flex-direction: column;
-          gap: em(5px);
-          flex-wrap: nowrap;
+          gap: $spacing;
 
           p {
             margin: 0;
             font-size: 1.8rem;
             font-weight: 700;
-            white-space: nowrap; /* Ensure the text stays on one line */
-            overflow: hidden; /* Hide the overflow text */
-            text-overflow: ellipsis; /* Display an ellipsis for overflow text */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             max-width: calc(
-              100%
-            ); /* Adjust the max width to accommodate the play button */
+              100% - 60px
+            ); // Adjusted max-width considering play button width
           }
 
           small {
-            font-size: em(12px);
-            white-space: nowrap; /* Ensure the text stays on one line */
-            overflow: hidden; /* Hide the overflow text */
-            text-overflow: ellipsis; /* Display an ellipsis for overflow text */
+            font-size: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
             .type {
               color: $sec-font-clr;
               font-weight: 400;
               &::after {
                 content: "•";
-                //set size of the dot
                 font-size: 0.5rem;
-                margin-left: 0.2rem;
-                margin-right: 0.2rem;
+                margin: 0 0.2rem;
               }
             }
+
             &:hover {
               .artist {
                 text-decoration: underline;
@@ -110,24 +115,26 @@
 
       .play-btn {
         display: none;
-        position: absolute; /* Position the play button absolutely */
-        bottom: em(20px); /* Align play button to the bottom of the image */
-        right: em(20px); /* Align play button to the right of the image */
-        background-color: $logo-clr; /* Use the logo color for the play button */
+        position: absolute;
+        bottom: $spacing * 2;
+        right: $spacing * 2;
+        background-color: $logo-color;
         border: none;
-        border-radius: 50%; /* Make the play button circular */
-        width: em(40px);
-        height: em(40px);
-        box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        box-shadow: $shadow;
+
         * {
           margin: 0;
           display: flex;
           justify-content: center;
           align-items: center;
         }
+
         svg {
-          width: rem(20px);
-          height: rem(20px);
+          width: 20px;
+          height: 20px;
         }
       }
     }
