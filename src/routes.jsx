@@ -3,6 +3,7 @@ import { Navigate } from "react-router";
 import { HomePage } from "./pages/HomePage.jsx";
 import { SearchPage } from "./pages/SearchPage.jsx";
 import { StationPage } from "./pages/StationPage.jsx";
+import { GenrePage } from "./pages/GenrePage.jsx";
 import { SignInPage } from "./pages/SignInPage.jsx";
 import { SignUpPage } from "./pages/SignUpPage.jsx";
 
@@ -43,7 +44,7 @@ const routes = [
   },
   {
     path: "/genre/:genreId",
-    component: <Navigate to="/" replace />,
+    component: <GenrePage />,
     label: "Genre",
   },
   {
