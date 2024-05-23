@@ -2,6 +2,7 @@ import { MiniPreview } from "./MiniPreview";
 
 export function Recommendations() {
   return (
+
     <div className="recommendations-container">
       <MiniPreview />
       <MiniPreview />
@@ -12,5 +13,6 @@ export function Recommendations() {
       <MiniPreview />
       <MiniPreview />
     </div>
+
   );
 }

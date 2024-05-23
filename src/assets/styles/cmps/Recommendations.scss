@@ -4,7 +4,20 @@
     justify-content: space-between;
     gap: em(5px);
 
-    &>* {
-        flex: 1 1 251px;
+    .mini-preview {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 49%;
+
     }
+
+    // @mixin for-normal-layout {
+
+    //     .mini-preview {
+    //         flex-basis: 24%;
+    //         background-color: red;
+    //     }
+
+
+    // }
 }
