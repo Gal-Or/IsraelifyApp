@@ -1,0 +1,464 @@
+{
+  "demo_stations": [
+    {
+      "name": "New Playlist 2",
+      "type": "playlist",
+      "tags": [],
+      "backgroundColor": "rgb(69.45369386034588, 231.75565992100815, 28.068902081358274)",
+      "createdBy": {
+        "_id": "u101",
+        "fullname": "Puki Ben David",
+        "imgUrl": "http://some-photo/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "ZkXG3ZrXlbc",
+          "artist": "Drake",
+          "img": "https://i.ytimg.com/vi/ZkXG3ZrXlbc/default.jpg",
+          "name": "DRAKE - FAMILY MATTERS",
+          "tags": [],
+          "duration": 458,
+          "url": "https://www.youtube.com/watch?v=ZkXG3ZrXlbc",
+          "stationIds": ["T3qSs"]
+        },
+        {
+          "id": "_CL6n0FJZpk",
+          "artist": "DrDreVEVO",
+          "img": "https://i.ytimg.com/vi/_CL6n0FJZpk/default.jpg",
+          "name": "Dr. Dre - Still D.R.E. ft. Snoop Dogg",
+          "tags": [],
+          "duration": 291,
+          "url": "https://www.youtube.com/watch?v=_CL6n0FJZpk",
+          "stationIds": ["T3qSs"]
+        },
+        {
+          "id": "28hYUZMufDg",
+          "artist": "DaBaby",
+          "img": "https://i.ytimg.com/vi/28hYUZMufDg/default.jpg",
+          "name": "DaBaby - BOP on Broadway (Hip Hop Musical)",
+          "tags": [],
+          "duration": 184,
+          "url": "https://www.youtube.com/watch?v=28hYUZMufDg",
+          "stationIds": ["T3qSs"]
+        },
+        {
+          "id": "eXvBjCO19QY",
+          "artist": "2PacVEVO",
+          "img": "https://i.ytimg.com/vi/eXvBjCO19QY/default.jpg",
+          "name": "2Pac - Changes ft. Talent",
+          "tags": [],
+          "duration": 271,
+          "url": "https://www.youtube.com/watch?v=eXvBjCO19QY",
+          "stationIds": ["T3qSs"]
+        }
+      ],
+      "_id": "T3qSs"
+    },
+    {
+      "name": "New Playlist 3",
+      "type": "playlist",
+      "tags": [],
+      "backgroundColor": "rgb(253.56566737629024, 206.02713494502964, 6.308671099026038)",
+      "createdBy": {
+        "_id": "u101",
+        "fullname": "Puki Ben David",
+        "imgUrl": "http://some-photo/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "5NPBIwQyPWE",
+          "artist": "AvrilLavigneVEVO",
+          "img": "https://i.ytimg.com/vi/5NPBIwQyPWE/default.jpg",
+          "name": "Avril Lavigne - Complicated (Official Video)",
+          "tags": [],
+          "duration": 254,
+          "url": "https://www.youtube.com/watch?v=5NPBIwQyPWE",
+          "stationIds": ["9VMYo"]
+        },
+        {
+          "id": "a9cyG_yfh1k",
+          "artist": "Dua Lipa",
+          "img": "https://i.ytimg.com/vi/a9cyG_yfh1k/default.jpg",
+          "name": "Dua Lipa - Illusion (Official Music Video)",
+          "tags": [],
+          "duration": 187,
+          "url": "https://www.youtube.com/watch?v=a9cyG_yfh1k",
+          "stationIds": ["9VMYo"]
+        },
+        {
+          "id": "t4H_Zoh7G5A",
+          "artist": "JenniferLopezVEVO",
+          "img": "https://i.ytimg.com/vi/t4H_Zoh7G5A/default.jpg",
+          "name": "Jennifer Lopez - On The Floor ft. Pitbull",
+          "tags": [],
+          "duration": 267,
+          "url": "https://www.youtube.com/watch?v=t4H_Zoh7G5A",
+          "stationIds": ["9VMYo"]
+        }
+      ],
+      "_id": "9VMYo"
+    },
+    {
+      "name": "New Playlist 3",
+      "type": "playlist",
+      "tags": [],
+      "backgroundColor": "rgb(129.40759214354338, 61.35967004052582, 71.14032925563158)",
+      "createdBy": {
+        "_id": "u101",
+        "fullname": "Puki Ben David",
+        "imgUrl": "http://some-photo/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "L_XJ_s5IsQc",
+          "artist": "GroundUP Music NYC",
+          "img": "https://i.ytimg.com/vi/L_XJ_s5IsQc/default.jpg",
+          "name": "Snarky Puppy - Lingus (We Like It Here)",
+          "tags": [],
+          "duration": 644,
+          "url": "https://www.youtube.com/watch?v=L_XJ_s5IsQc",
+          "stationIds": ["cR4sr"]
+        },
+        {
+          "id": "GS2Y_CkaXP0",
+          "artist": "RobertGlasperVEVO",
+          "img": "https://i.ytimg.com/vi/GS2Y_CkaXP0/default.jpg",
+          "name": "Robert Glasper - So Beautiful (Live At Capitol Studios) (Official Video)",
+          "tags": [],
+          "duration": 436,
+          "url": "https://www.youtube.com/watch?v=GS2Y_CkaXP0",
+          "stationIds": ["cR4sr"]
+        },
+        {
+          "id": "v5757BToo0M",
+          "artist": "RobertGlasperVEVO",
+          "img": "https://i.ytimg.com/vi/v5757BToo0M/default.jpg",
+          "name": "Robert Glasper - Shine ft. D Smoke &amp; Tiffany Gouché (Official Music Video)",
+          "tags": [],
+          "duration": 275,
+          "url": "https://www.youtube.com/watch?v=v5757BToo0M",
+          "stationIds": ["cR4sr"]
+        }
+      ],
+      "_id": "cR4sr"
+    },
+    {
+      "name": "New Playlist 4",
+      "type": "playlist",
+      "tags": [],
+      "backgroundColor": "rgb(96.19965371370218, 9.887848849655073, 88.16694853266691)",
+      "createdBy": {
+        "_id": "u101",
+        "fullname": "Puki Ben David",
+        "imgUrl": "http://some-photo/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "bEeaS6fuUoA",
+          "artist": "BillWithersVEVO",
+          "img": "https://i.ytimg.com/vi/bEeaS6fuUoA/default.jpg",
+          "name": "Bill Withers - Lovely Day (Official Audio)",
+          "tags": [],
+          "duration": 256,
+          "url": "https://www.youtube.com/watch?v=bEeaS6fuUoA",
+          "stationIds": ["Hx9W5"]
+        },
+        {
+          "id": "mHONNcZbwDY",
+          "artist": "LionelRichieVEVO",
+          "img": "https://i.ytimg.com/vi/mHONNcZbwDY/default.jpg",
+          "name": "Lionel Richie - Hello (Official Music Video)",
+          "tags": [],
+          "duration": 327,
+          "url": "https://www.youtube.com/watch?v=mHONNcZbwDY",
+          "stationIds": ["Hx9W5"]
+        },
+        {
+          "id": "ZHwVBirqD2s",
+          "artist": "EltonJohnVEVO",
+          "img": "https://i.ytimg.com/vi/ZHwVBirqD2s/default.jpg",
+          "name": "Elton John - I&#39;m Still Standing",
+          "tags": [],
+          "duration": 183,
+          "url": "https://www.youtube.com/watch?v=ZHwVBirqD2s",
+          "stationIds": ["Hx9W5"]
+        }
+      ],
+      "_id": "Hx9W5"
+    },
+    {
+      "name": "New Playlist 5",
+      "type": "playlist",
+      "tags": [],
+      "backgroundColor": "rgb(61.82724576832374, 15.208789930019556, 44.62635928146664)",
+      "createdBy": {
+        "_id": "u101",
+        "fullname": "Puki Ben David",
+        "imgUrl": "http://some-photo/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "Xty2gi5cMa8",
+          "artist": "DrakeVEVO",
+          "img": "https://i.ytimg.com/vi/Xty2gi5cMa8/default.jpg",
+          "name": "Drake - First Person Shooter ft. J. Cole",
+          "tags": [],
+          "duration": 301,
+          "url": "https://www.youtube.com/watch?v=Xty2gi5cMa8",
+          "stationIds": ["Pq6KC"]
+        },
+        {
+          "id": "0dvaNfnHY9s",
+          "artist": "Est Lyrics",
+          "img": "https://i.ytimg.com/vi/0dvaNfnHY9s/default.jpg",
+          "name": "Suur Papa - A.V.R Lyrics",
+          "tags": [],
+          "duration": 199,
+          "url": "https://www.youtube.com/watch?v=0dvaNfnHY9s",
+          "stationIds": ["Pq6KC"]
+        },
+        {
+          "id": "r_QZe8Z66x8",
+          "artist": "EltonJohnVEVO",
+          "img": "https://i.ytimg.com/vi/r_QZe8Z66x8/default.jpg",
+          "name": "Elton John - Rocket Man (Royal Festival Hall, London 1972)",
+          "tags": [],
+          "duration": 265,
+          "url": "https://www.youtube.com/watch?v=r_QZe8Z66x8",
+          "stationIds": ["Pq6KC"]
+        }
+      ],
+      "_id": "Pq6KC"
+    },
+    {
+      "name": "New Playlist 6",
+      "type": "playlist",
+      "tags": [],
+      "backgroundColor": "rgb(75.20065238967889, 35.29945361797554, 162.16784958762234)",
+      "createdBy": {
+        "_id": "u101",
+        "fullname": "Puki Ben David",
+        "imgUrl": "http://some-photo/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "3tmd-ClpJxA",
+          "artist": "Shawn Mendes",
+          "img": "https://i.ytimg.com/vi/3tmd-ClpJxA/default.jpg",
+          "name": "Shawn Mendes - There's Nothing Holdin' Me Back",
+          "tags": [],
+          "duration": 201,
+          "url": "https://www.youtube.com/watch?v=3tmd-ClpJxA",
+          "stationIds": ["a6NsD"]
+        },
+        {
+          "id": "0CakdV1VZtU",
+          "artist": "Maroon 5",
+          "img": "https://i.ytimg.com/vi/0CakdV1VZtU/default.jpg",
+          "name": "Maroon 5 - Memories (Official Video)",
+          "tags": [],
+          "duration": 175,
+          "url": "https://www.youtube.com/watch?v=0CakdV1VZtU",
+          "stationIds": ["a6NsD"]
+        },
+        {
+          "id": "NtgDkC2oYPM",
+          "artist": "ArianaGrandeVevo",
+          "img": "https://i.ytimg.com/vi/NtgDkC2oYPM/default.jpg",
+          "name": "Ariana Grande - 7 rings",
+          "tags": [],
+          "duration": 179,
+          "url": "https://www.youtube.com/watch?v=NtgDkC2oYPM",
+          "stationIds": ["a6NsD"]
+        }
+      ],
+      "_id": "a6NsD"
+    },
+    {
+      "name": "New Playlist 7",
+      "type": "playlist",
+      "tags": [],
+      "backgroundColor": "rgb(210.243563456123, 100.6794235679046, 55.3365790056734)",
+      "createdBy": {
+        "_id": "u101",
+        "fullname": "Puki Ben David",
+        "imgUrl": "http://some-photo/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "U4aRi3m4UeA",
+          "artist": "Queen",
+          "img": "https://i.ytimg.com/vi/U4aRi3m4UeA/default.jpg",
+          "name": "Queen - Bohemian Rhapsody (Official Video Remastered)",
+          "tags": [],
+          "duration": 354,
+          "url": "https://www.youtube.com/watch?v=U4aRi3m4UeA",
+          "stationIds": ["e9LmQ"]
+        },
+        {
+          "id": "Zi_XLOBDo_Y",
+          "artist": "Nirvana",
+          "img": "https://i.ytimg.com/vi/Zi_XLOBDo_Y/default.jpg",
+          "name": "Nirvana - Smells Like Teen Spirit (Official Music Video)",
+          "tags": [],
+          "duration": 279,
+          "url": "https://www.youtube.com/watch?v=Zi_XLOBDo_Y",
+          "stationIds": ["e9LmQ"]
+        },
+        {
+          "id": "bXoSBM1jd8I",
+          "artist": "The Beatles",
+          "img": "https://i.ytimg.com/vi/bXoSBM1jd8I/default.jpg",
+          "name": "The Beatles - Hey Jude",
+          "tags": [],
+          "duration": 431,
+          "url": "https://www.youtube.com/watch?v=bXoSBM1jd8I",
+          "stationIds": ["e9LmQ"]
+        }
+      ],
+      "_id": "e9LmQ"
+    },
+    {
+      "name": "New Playlist 8",
+      "type": "playlist",
+      "tags": [],
+      "backgroundColor": "rgb(50.123456, 150.456789, 200.789123)",
+      "createdBy": {
+        "_id": "u101",
+        "fullname": "Puki Ben David",
+        "imgUrl": "http://some-photo/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "CevxZvSJLk8",
+          "artist": "ShakiraVEVO",
+          "img": "https://i.ytimg.com/vi/CevxZvSJLk8/default.jpg",
+          "name": "Shakira - Waka Waka (This Time for Africa) (The Official 2010 FIFA World Cup™ Song)",
+          "tags": [],
+          "duration": 212,
+          "url": "https://www.youtube.com/watch?v=CevxZvSJLk8",
+          "stationIds": ["g2LmR"]
+        },
+        {
+          "id": "3JZ4pnNtyxQ",
+          "artist": "LadyGagaVEVO",
+          "img": "https://i.ytimg.com/vi/3JZ4pnNtyxQ/default.jpg",
+          "name": "Lady Gaga - Bad Romance (Official Music Video)",
+          "tags": [],
+          "duration": 307,
+          "url": "https://www.youtube.com/watch?v=3JZ4pnNtyxQ",
+          "stationIds": ["g2LmR"]
+        },
+        {
+          "id": "y6Sxv-sUYtM",
+          "artist": "PharrellWilliamsVEVO",
+          "img": "https://i.ytimg.com/vi/y6Sxv-sUYtM/default.jpg",
+          "name": "Pharrell Williams - Happy (Official Music Video)",
+          "tags": [],
+          "duration": 233,
+          "url": "https://www.youtube.com/watch?v=y6Sxv-sUYtM",
+          "stationIds": ["g2LmR"]
+        }
+      ],
+      "_id": "g2LmR"
+    },
+    {
+      "name": "New Playlist 9",
+      "type": "playlist",
+      "tags": [],
+      "backgroundColor": "rgb(110.555, 220.444, 30.333)",
+      "createdBy": {
+        "_id": "u101",
+        "fullname": "Puki Ben David",
+        "imgUrl": "http://some-photo/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "7wtfhZwyrcc",
+          "artist": "ImagineDragonsVEVO",
+          "img": "https://i.ytimg.com/vi/7wtfhZwyrcc/default.jpg",
+          "name": "Imagine Dragons - Believer",
+          "tags": [],
+          "duration": 204,
+          "url": "https://www.youtube.com/watch?v=7wtfhZwyrcc",
+          "stationIds": ["p4QxS"]
+        },
+        {
+          "id": "RqtVQ8NWBQo",
+          "artist": "TheWeekndVEVO",
+          "img": "https://i.ytimg.com/vi/RqtVQ8NWBQo/default.jpg",
+          "name": "The Weeknd - Blinding Lights (Official Video)",
+          "tags": [],
+          "duration": 225,
+          "url": "https://www.youtube.com/watch?v=RqtVQ8NWBQo",
+          "stationIds": ["p4QxS"]
+        },
+        {
+          "id": "ktvTqknDobU",
+          "artist": "ImagineDragonsVEVO",
+          "img": "https://i.ytimg.com/vi/ktvTqknDobU/default.jpg",
+          "name": "Imagine Dragons - Radioactive",
+          "tags": [],
+          "duration": 201,
+          "url": "https://www.youtube.com/watch?v=ktvTqknDobU",
+          "stationIds": ["p4QxS"]
+        }
+      ],
+      "_id": "p4QxS"
+    },
+    {
+      "name": "New Playlist 10",
+      "type": "playlist",
+      "tags": [],
+      "backgroundColor": "rgb(80.777, 90.666, 100.555)",
+      "createdBy": {
+        "_id": "u101",
+        "fullname": "Puki Ben David",
+        "imgUrl": "http://some-photo/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "1G4isv_Fylg",
+          "artist": "DaftPunkVEVO",
+          "img": "https://i.ytimg.com/vi/1G4isv_Fylg/default.jpg",
+          "name": "Daft Punk - Get Lucky (Official Audio) ft. Pharrell Williams, Nile Rodgers",
+          "tags": [],
+          "duration": 375,
+          "url": "https://www.youtube.com/watch?v=1G4isv_Fylg",
+          "stationIds": ["m5NzT"]
+        },
+        {
+          "id": "ru0K8uYEZWw",
+          "artist": "JustinTimberlakeVEVO",
+          "img": "https://i.ytimg.com/vi/ru0K8uYEZWw/default.jpg",
+          "name": "Justin Timberlake - CAN'T STOP THE FEELING! (From DreamWorks Animation's Trolls) (Official Video)",
+          "tags": [],
+          "duration": 276,
+          "url": "https://www.youtube.com/watch?v=ru0K8uYEZWw",
+          "stationIds": ["m5NzT"]
+        },
+        {
+          "id": "e-ORhEE9VVg",
+          "artist": "TaylorSwiftVEVO",
+          "img": "https://i.ytimg.com/vi/e-ORhEE9VVg/default.jpg",
+          "name": "Taylor Swift - Blank Space",
+          "tags": [],
+          "duration": 231,
+          "url": "https://www.youtube.com/watch?v=e-ORhEE9VVg",
+          "stationIds": ["m5NzT"]
+        }
+      ],
+      "_id": "m5NzT"
+    }
+  ]
+}
