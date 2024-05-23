@@ -18,7 +18,7 @@
   }
 
   //all the children of the nav-bar border-radius
-  > * {
+  >* {
     border-radius: em(5px);
     background-color: $sec-bg-clr;
   }
@@ -49,11 +49,26 @@
     }
   }
 
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+
   .library-container {
+    padding: 10px;
     width: 100%;
     height: 100%;
     padding: em(10px);
-    overflow: scroll;
+    overflow-y: scroll;
+  }
+
+  .library-container::-webkit-scrollbar {
+    background-color: transparent;
+    scrollbar-width: thin;
+
+  }
+
+  .library-container:hover::-webkit-scrollbar-thumb {
+    background: #555;
   }
 }
 
