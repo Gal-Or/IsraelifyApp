@@ -1,7 +1,4 @@
 .app-header {
-  background-image: linear-gradient(to bottom,
-      $sec-bg-clr,
-      addTransparency($sec-bg-clr, 0.1));
   height: em(50px);
   display: flex;
   justify-content: start;
@@ -10,7 +7,7 @@
   z-index: 2;
   top: 0;
   position: sticky;
-  margin: em(15px) 0 em(15px) 0;
+  // margin: em(15px) 0 em(15px) 0;
 
   button {
     background-color: black;

@@ -21,6 +21,7 @@ export function StationPage() {
     try {
       const station = await stationService.getById(params.stationId);
       setStation(station);
+      console.log("Loaded station :", station);
     } catch (err) {
       console.log("Error in loadStation:", err);
     }
@@ -46,13 +47,27 @@ export function StationPage() {
 
   if (!station) return <h1>Loading...</h1>;
   return (
-    <>
+    <div
+      className="station-page-container"
+      style={{
+        backgroundImage: `linear-gradient(to bottom,${station.backgroundColor} , rgba(255, 0, 0, 0))`,
+      }}
+    >
       <AppHeader />
       <section className="station-page">
         <StationHeader station={station} />
         <StationContent station={station} />
         <AddSongs onAddSongToStation={onAddSongToStation} />
       </section>
-    </>
+    </div>
   );
 }
+
+// .station-page-container {
+//   background-image: linear-gradient(
+//     to bottom,
+//     rgba(255, 0, 0, 1),
+//     rgba(255, 0, 0, 0)
+//   ); /* Red to transparent gradient */
+//   height: 500px; /* Adjust height as per your design */
+// }
