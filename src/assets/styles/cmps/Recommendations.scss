@@ -1,4 +1,6 @@
 .recommendations-container {
+
+    container-type: inline-size; // for container query
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -11,13 +13,11 @@
 
     }
 
-    // @mixin for-normal-layout {
+    @container (min-width: 700px) {
+        .mini-preview {
+            flex-basis: 24%;
+        }
+    }
 
-    //     .mini-preview {
-    //         flex-basis: 24%;
-    //         background-color: red;
-    //     }
 
-
-    // }
 }
