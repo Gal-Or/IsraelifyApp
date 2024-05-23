@@ -23,7 +23,6 @@ export function SearchResults({ songResults, stationResults, artistResults }) {
     }
     setCurrentSong(song);
     setIsPlaying(true);
-    setLastActiveSong(song); // Set last active song when playing a new song
   }
 
   return (

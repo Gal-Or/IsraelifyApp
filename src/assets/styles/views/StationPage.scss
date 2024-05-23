@@ -1,5 +1,6 @@
 .station-page-container {
-  height: 300px; /* Adjust height as per your design */
+  height: em(400px);
+  padding: 15px;
 }
 
 .station-page {
@@ -10,12 +11,6 @@
   .station-header {
     grid-row: 1;
     flex-grow: 1;
-
-    img {
-      object-fit: cover;
-      height: 200px;
-      width: 200px;
-    }
   }
 
   .station-content {
