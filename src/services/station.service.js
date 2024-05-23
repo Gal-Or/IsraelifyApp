@@ -65,7 +65,7 @@ async function findStationWithQuery(query) {
   const result = await storageService.query(STORAGE_KEY);
   if (!query || query.length < 1) return result;
   const stations = result;
-  return stations.filter((station) => {
+  var filteredStations = stations.filter((station) => {
     return (
       station.name.toLowerCase().includes(query.toLowerCase()) ||
       station.createdBy.fullname.toLowerCase().includes(query.toLowerCase()) ||
@@ -74,6 +74,36 @@ async function findStationWithQuery(query) {
       )
     );
   });
+
+  // If filteredStations is less than 6, fill the rest with random stations
+  filteredStations = fillWithRandomStations(filteredStations, stations, 6);
+
+  return filteredStations;
+}
+
+function fillWithRandomStations(filteredStations, allStations, minLength) {
+  if (filteredStations.length >= minLength) return filteredStations;
+
+  // Get stations that are not in the filteredStations
+  const remainingStations = allStations.filter(
+    (station) => !filteredStations.includes(station)
+  );
+
+  // Shuffle the remainingStations array
+  for (let i = remainingStations.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [remainingStations[i], remainingStations[j]] = [
+      remainingStations[j],
+      remainingStations[i],
+    ];
+  }
+
+  // Add random stations to fill up the filteredStations to the specified minLength
+  while (filteredStations.length < minLength && remainingStations.length > 0) {
+    filteredStations.push(remainingStations.pop());
+  }
+
+  return filteredStations;
 }
 
 function createDefaultStation() {

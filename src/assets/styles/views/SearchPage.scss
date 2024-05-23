@@ -2,12 +2,23 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin: auto;
+  padding: auto;
 
   .app-header {
+    background-color: $sec-bg-clr;
     top: 0;
 
     .input-wrapper {
       display: flex;
     }
+  }
+  .filter-bar-container {
+    //below the app header
+    display: flex;
+    position: sticky;
+    z-index: 1;
+    top: em(50px);
+    background-color: $sec-bg-clr;
   }
 }

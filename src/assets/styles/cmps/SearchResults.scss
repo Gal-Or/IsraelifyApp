@@ -11,11 +11,15 @@
   .search-results {
     display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: auto auto 1fr;
+    grid-template-rows: auto auto auto;
     gap: em(10px);
     //set to start from top of the cell
 
     .artist-results {
+      grid-row: 3;
+      grid-column: 1 / -1;
+    }
+    .station-results {
       grid-row: 2;
       grid-column: 1 / -1;
     }
@@ -142,13 +146,6 @@
     .song-resuls {
       grid-row: 1;
       grid-column: 2;
-    }
-
-    .station-results {
-      padding: 0;
-      margin: 0;
-      grid-row: 3;
-      grid-column: 1 / -1;
     }
   }
 }

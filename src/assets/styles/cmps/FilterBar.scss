@@ -1,19 +1,37 @@
+.filter-bar-container {
+  margin: 10px;
+}
+
 .filter-bar {
   display: flex;
   flex-direction: row;
   justify-content: start;
-  gap: 20px;
+  gap: 10px;
   padding: 5px;
 
   li {
-    display: inline;
-    padding: 10px;
-    border-radius: 35%;
-    background-color: #181818;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 12px; // Adjusted padding to make the buttons smaller
+    border-radius: 15px; // Adjusted border-radius to match the shape in the image
+    background-color: #2a2a2a;
     color: #fff;
     cursor: pointer;
+    border: 1px solid transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease,
+      box-shadow 0.3s ease;
+
+    &.selected {
+      background-color: #fff;
+      color: #000;
+      &:hover {
+        background-color: #fff;
+      }
+    }
+
     &:hover {
-      background-color: #242424;
+      background-color: #404040;
     }
   }
 }
