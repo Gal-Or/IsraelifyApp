@@ -31,14 +31,5 @@
       }
       padding: 0; /* Remove padding */
     }
-    &:hover {
-      .time-bar-track {
-        color: $logo-clr; /* Change the color of the track on hover */
-      }
-      .time-bar-thumb {
-        width: rem(15px); /* Set the width of the thumb on hover */
-        height: rem(15px); /* Set the height of the thumb on hover */
-      }
-    }
   }
 }

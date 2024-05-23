@@ -1,5 +1,6 @@
 import { storageService } from "./async-storage.service";
 import { utilService } from "./util.service";
+import demo_stations from "../assets/data/stations.json";
 
 import tunmbnail from "../assets/imgs/likedSongs.jpeg";
 
@@ -108,6 +109,14 @@ function _createStations() {
   if (!stations || !stations.length) {
     stations = [];
     for (var i = 0; i < demoDataCount; i++) stations.push(_createStation());
+  }
+
+  if (stations.length < 10) {
+    console.log("Adding demo stations", demo_stations);
+    //add more stations from ../assets/data/stations.json
+    demo_stations.demo_stations.forEach((station) => {
+      stations.push(station);
+    });
   }
 
   utilService.saveToStorage(STORAGE_KEY, stations);

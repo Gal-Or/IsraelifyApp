@@ -1,5 +1,6 @@
 import axios from "axios";
 import qs from "qs";
+import { getJson } from "serpapi";
 
 import logoBlue3D from "../assets/imgs/logo-Blue3D.png";
 const SPOTIFY_CLIENT_ID = "e87cf49e042f446ca8d49ee1b49653f0";
@@ -9,7 +10,7 @@ import { utilService } from "./util.service";
 
 export const spotifyService = {
   getArtistResults,
-  getGenres,
+  getSongsByGenre,
 };
 
 // Function to generate a cache key based on the search query
@@ -44,44 +45,6 @@ function getFromCache(query) {
   }
   console.log("cacheEntry", cacheEntry);
   return cacheEntry.results;
-}
-async function getGenres() {
-  //check if results are available in the cache
-  const cachedResults = localStorage.getItem("genres");
-  console.log("cachedResults", cachedResults);
-  if (cachedResults) {
-    console.log("spotify Results retrieved from cache");
-    const cachedResults = await JSON.parse(localStorage.getItem("genres"));
-    return cachedResults;
-  }
-
-  try {
-    const token = await getSpotifyToken();
-    const url = `https://api.spotify.com/v1/browse/categories`;
-    const params = {
-      locale: "he_IL",
-      limit: 50,
-    };
-    const response = await axios.get(url, {
-      params,
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-
-    //add Random color for each item in response.data.categories.items
-    let genres = response.data.categories.items.map((genre) => {
-      genre.color = utilService.randomColor();
-      return genre;
-    });
-
-    localStorage.setItem("genres", JSON.stringify(genres));
-
-    return genres;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    throw error;
-  }
 }
 
 async function getSpotifyToken() {
@@ -156,4 +119,15 @@ function cleanArtistsData(artists) {
       imgUrl: artist.images[0].url,
     };
   });
+}
+
+async function getSongsByGenre(genre) {
+  const token = await getSpotifyToken();
+  const url = `https://api.spotify.com/v1/recommendations?market=US&limit=40&min_popularity=50&seed_genres=${genre}`;
+  const response = await axios.get(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data.tracks;
 }

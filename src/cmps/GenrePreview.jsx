@@ -5,7 +5,7 @@ export function GenrePreview({ genre }) {
     <div className="genre-preview" style={{ backgroundColor: genre.color }}>
       <span>{genre.name}</span>
       <div className="genre-img">
-        <img src={genre.picture} alt="" />
+        <img src={genre.photo} alt={genre.name} />
       </div>
     </div>
   );

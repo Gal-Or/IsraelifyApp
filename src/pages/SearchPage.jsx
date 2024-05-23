@@ -43,13 +43,16 @@ export function SearchPage() {
     <section className="search-page">
       <AppHeader />
       {!params.query && <BrowseAll />}
-      <FilterBar />
+
       {params.query && (
-        <SearchResults
-          songResults={songResults ? songResults : []}
-          stationResults={stationResults}
-          artistResults={artistResults}
-        />
+        <>
+          <FilterBar />
+          <SearchResults
+            songResults={songResults ? songResults : []}
+            stationResults={stationResults}
+            artistResults={artistResults}
+          />
+        </>
       )}
     </section>
   );

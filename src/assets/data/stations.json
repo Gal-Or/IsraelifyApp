@@ -1,0 +1,419 @@
+{
+  "demo_stations": [
+    {
+      "name": "Hip Hop Legends",
+      "type": "playlist",
+      "tags": ["hip hop"],
+      "backgroundColor": "rgb(69.45369386034588, 231.75565992100815, 28.068902081358274)",
+      "createdBy": {
+        "_id": "u101",
+        "fullname": "Puki Ben David",
+        "imgUrl": "http://some-photo/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "ZkXG3ZrXlbc",
+          "artist": "Drake",
+          "img": "https://i.ytimg.com/vi/ZkXG3ZrXlbc/default.jpg",
+          "name": "DRAKE - FAMILY MATTERS",
+          "tags": [],
+          "duration": 458,
+          "url": "https://www.youtube.com/watch?v=ZkXG3ZrXlbc",
+          "stationIds": ["T3qSs"]
+        },
+        {
+          "id": "_CL6n0FJZpk",
+          "artist": "DrDreVEVO",
+          "img": "https://i.ytimg.com/vi/_CL6n0FJZpk/default.jpg",
+          "name": "Dr. Dre - Still D.R.E. ft. Snoop Dogg",
+          "tags": [],
+          "duration": 291,
+          "url": "https://www.youtube.com/watch?v=_CL6n0FJZpk",
+          "stationIds": ["T3qSs"]
+        },
+        {
+          "id": "28hYUZMufDg",
+          "artist": "DaBaby",
+          "img": "https://i.ytimg.com/vi/28hYUZMufDg/default.jpg",
+          "name": "DaBaby - BOP on Broadway (Hip Hop Musical)",
+          "tags": [],
+          "duration": 184,
+          "url": "https://www.youtube.com/watch?v=28hYUZMufDg",
+          "stationIds": ["T3qSs"]
+        },
+        {
+          "id": "eXvBjCO19QY",
+          "artist": "2PacVEVO",
+          "img": "https://i.ytimg.com/vi/eXvBjCO19QY/default.jpg",
+          "name": "2Pac - Changes ft. Talent",
+          "tags": [],
+          "duration": 271,
+          "url": "https://www.youtube.com/watch?v=eXvBjCO19QY",
+          "stationIds": ["T3qSs"]
+        }
+      ],
+      "_id": "T3qSs"
+    },
+    {
+      "name": "Pop Icons",
+      "type": "playlist",
+      "tags": ["pop"],
+      "backgroundColor": "rgb(253.56566737629024, 206.02713494502964, 6.308671099026038)",
+      "createdBy": {
+        "_id": "u101",
+        "fullname": "Puki Ben David",
+        "imgUrl": "http://some-photo/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "5NPBIwQyPWE",
+          "artist": "AvrilLavigneVEVO",
+          "img": "https://i.ytimg.com/vi/5NPBIwQyPWE/default.jpg",
+          "name": "Avril Lavigne - Complicated (Official Video)",
+          "tags": [],
+          "duration": 254,
+          "url": "https://www.youtube.com/watch?v=5NPBIwQyPWE",
+          "stationIds": ["9VMYo"]
+        },
+        {
+          "id": "a9cyG_yfh1k",
+          "artist": "Dua Lipa",
+          "img": "https://i.ytimg.com/vi/a9cyG_yfh1k/default.jpg",
+          "name": "Dua Lipa - Illusion (Official Music Video)",
+          "tags": [],
+          "duration": 187,
+          "url": "https://www.youtube.com/watch?v=a9cyG_yfh1k",
+          "stationIds": ["9VMYo"]
+        },
+        {
+          "id": "t4H_Zoh7G5A",
+          "artist": "JenniferLopezVEVO",
+          "img": "https://i.ytimg.com/vi/t4H_Zoh7G5A/default.jpg",
+          "name": "Jennifer Lopez - On The Floor ft. Pitbull",
+          "tags": [],
+          "duration": 267,
+          "url": "https://www.youtube.com/watch?v=t4H_Zoh7G5A",
+          "stationIds": ["9VMYo"]
+        }
+      ],
+      "_id": "9VMYo"
+    },
+    {
+      "name": "Jazz & Soul Grooves",
+      "type": "playlist",
+      "tags": ["jazz", "soul"],
+      "backgroundColor": "rgb(129.40759214354338, 61.35967004052582, 71.14032925563158)",
+      "createdBy": {
+        "_id": "u101",
+        "fullname": "Puki Ben David",
+        "imgUrl": "http://some-photo/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "L_XJ_s5IsQc",
+          "artist": "GroundUP Music NYC",
+          "img": "https://i.ytimg.com/vi/L_XJ_s5IsQc/default.jpg",
+          "name": "Snarky Puppy - Lingus (We Like It Here)",
+          "tags": [],
+          "duration": 644,
+          "url": "https://www.youtube.com/watch?v=L_XJ_s5IsQc",
+          "stationIds": ["cR4sr"]
+        },
+        {
+          "id": "GS2Y_CkaXP0",
+          "artist": "RobertGlasperVEVO",
+          "img": "https://i.ytimg.com/vi/GS2Y_CkaXP0/default.jpg",
+          "name": "Robert Glasper - So Beautiful (Live At Capitol Studios) (Official Video)",
+          "tags": [],
+          "duration": 436,
+          "url": "https://www.youtube.com/watch?v=GS2Y_CkaXP0",
+          "stationIds": ["cR4sr"]
+        },
+        {
+          "id": "v5757BToo0M",
+          "artist": "RobertGlasperVEVO",
+          "img": "https://i.ytimg.com/vi/v5757BToo0M/default.jpg",
+          "name": "Robert Glasper - Shine ft. D Smoke & Tiffany Gouché (Official Music Video)",
+          "tags": [],
+          "duration": 275,
+          "url": "https://www.youtube.com/watch?v=v5757BToo0M",
+          "stationIds": ["cR4sr"]
+        }
+      ],
+      "_id": "cR4sr"
+    },
+    {
+      "name": "Classic Hits",
+      "type": "playlist",
+      "tags": ["classic", "hits"],
+      "backgroundColor": "rgb(96.19965371370218, 9.887848849655073, 88.16694853266691)",
+      "createdBy": {
+        "_id": "u101",
+        "fullname": "Puki Ben David",
+        "imgUrl": "http://some-photo/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "bEeaS6fuUoA",
+          "artist": "BillWithersVEVO",
+          "img": "https://i.ytimg.com/vi/bEeaS6fuUoA/default.jpg",
+          "name": "Bill Withers - Lovely Day (Official Audio)",
+          "tags": [],
+          "duration": 256,
+          "url": "https://www.youtube.com/watch?v=bEeaS6fuUoA",
+          "stationIds": ["Hx9W5"]
+        },
+        {
+          "id": "mHONNcZbwDY",
+          "artist": "LionelRichieVEVO",
+          "img": "https://i.ytimg.com/vi/mHONNcZbwDY/default.jpg",
+          "name": "Lionel Richie - Hello (Official Music Video)",
+          "tags": [],
+          "duration": 327,
+          "url": "https://www.youtube.com/watch?v=mHONNcZbwDY",
+          "stationIds": ["Hx9W5"]
+        },
+        {
+          "id": "ZHwVBirqD2s",
+          "artist": "EltonJohnVEVO",
+          "img": "https://i.ytimg.com/vi/ZHwVBirqD2s/default.jpg",
+          "name": "Elton John - I'm Still Standing",
+          "tags": [],
+          "duration": 183,
+          "url": "https://www.youtube.com/watch?v=ZHwVBirqD2s",
+          "stationIds": ["Hx9W5"]
+        }
+      ],
+      "_id": "Hx9W5"
+    },
+    {
+      "name": "Modern Classics",
+      "type": "playlist",
+      "tags": ["modern", "classics"],
+      "backgroundColor": "rgb(206.8846432400976, 238.43650307445758, 110.57631807520302)",
+      "createdBy": {
+        "_id": "u102",
+        "fullname": "Jane Smith",
+        "imgUrl": "http://another-photo/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "X-yIEMduRXk",
+          "artist": "Adele",
+          "img": "https://i.ytimg.com/vi/X-yIEMduRXk/default.jpg",
+          "name": "Adele - Easy On Me (Official Video)",
+          "tags": [],
+          "duration": 224,
+          "url": "https://www.youtube.com/watch?v=X-yIEMduRXk",
+          "stationIds": ["NxY4s"]
+        },
+        {
+          "id": "HeOpRzcqKrE",
+          "artist": "EdSheeranVEVO",
+          "img": "https://i.ytimg.com/vi/HeOpRzcqKrE/default.jpg",
+          "name": "Ed Sheeran - Bad Habits [Official Video]",
+          "tags": [],
+          "duration": 251,
+          "url": "https://www.youtube.com/watch?v=HeOpRzcqKrE",
+          "stationIds": ["NxY4s"]
+        },
+        {
+          "id": "xx5xVc_68NE",
+          "artist": "SamSmithVEVO",
+          "img": "https://i.ytimg.com/vi/xx5xVc_68NE/default.jpg",
+          "name": "Sam Smith - Diamonds (Official Music Video)",
+          "tags": [],
+          "duration": 230,
+          "url": "https://www.youtube.com/watch?v=xx5xVc_68NE",
+          "stationIds": ["NxY4s"]
+        }
+      ],
+      "_id": "NxY4s"
+    },
+    {
+      "name": "Rock Anthems",
+      "type": "playlist",
+      "tags": ["rock"],
+      "backgroundColor": "rgb(155.9673746584574, 31.73468849746495, 14.43746020230176)",
+      "createdBy": {
+        "_id": "u103",
+        "fullname": "John Doe",
+        "imgUrl": "http://example-photo/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "N_qF-",
+          "artist": "Guns N' Roses",
+          "img": "https://i.ytimg.com/vi/1w7OgIMMRc4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAltVU4BcPPrrIW6tFmu_gvvrKyM",
+          "name": "Sweet Child O' Mine",
+          "tags": [],
+          "duration": 356,
+          "url": "https://www.youtube.com/watch?v=N9GqZlyCMdU",
+          "stationIds": ["RxS3a"]
+        },
+        {
+          "id": "fJ9rUzIMcZQ",
+          "artist": "Queen Official",
+          "img": "https://i.ytimg.com/vi/fJ9rUzIMcZQ/default.jpg",
+          "name": "Bohemian Rhapsody",
+          "tags": [],
+          "duration": 354,
+          "url": "https://www.youtube.com/watch?v=fJ9rUzIMcZQ",
+          "stationIds": ["RxS3a"]
+        },
+        {
+          "id": "kXYiU_JCYtU",
+          "artist": "Linkin Park",
+          "img": "https://i.ytimg.com/vi/kXYiU_JCYtU/default.jpg",
+          "name": "Numb",
+          "tags": [],
+          "duration": 216,
+          "url": "https://www.youtube.com/watch?v=kXYiU_JCYtU",
+          "stationIds": ["RxS3a"]
+        }
+      ],
+      "_id": "RxS3a"
+    },
+    {
+      "name": "Country Roads",
+      "type": "playlist",
+      "tags": ["country"],
+      "backgroundColor": "rgb(245.45369386034588, 203.75565992100815, 138.068902081358274)",
+      "createdBy": {
+        "_id": "u104",
+        "fullname": "Alice Cooper",
+        "imgUrl": "http://photo-example/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "1vrEljMfXYo",
+          "artist": "John Denver",
+          "img": "https://i.ytimg.com/vi/1vrEljMfXYo/default.jpg",
+          "name": "Take Me Home, Country Roads",
+          "tags": [],
+          "duration": 216,
+          "url": "https://www.youtube.com/watch?v=1vrEljMfXYo",
+          "stationIds": ["xY3sR"]
+        },
+        {
+          "id": "pqdaskhEa0I",
+          "artist": "Tim McGraw",
+          "img": "https://i.ytimg.com/vi/pqdaskhEa0I/default.jpg",
+          "name": "Humble And Kind",
+          "tags": [],
+          "duration": 248,
+          "url": "https://www.youtube.com/watch?v=pqdaskhEa0I",
+          "stationIds": ["xY3sR"]
+        },
+        {
+          "id": "kQ8xqyoZXCc",
+          "artist": "Dolly Parton",
+          "img": "https://i.ytimg.com/vi/Ixrje2rXLMA/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDZ2pKYeR7sqgFCo01x5jn7K8IBPg",
+          "name": "Jolene",
+          "tags": [],
+          "duration": 155,
+          "url": "https://www.youtube.com/watch?v=Ixrje2rXLMA",
+          "stationIds": ["xY3sR"]
+        }
+      ],
+      "_id": "xY3sR"
+    },
+    {
+      "name": "EDM Party",
+      "type": "playlist",
+      "tags": ["edm"],
+      "backgroundColor": "rgb(245.64359386034588, 150.75565992100815, 178.068902081358274)",
+      "createdBy": {
+        "_id": "u105",
+        "fullname": "Sam Johnson",
+        "imgUrl": "http://photo-sample/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "PT2_F-1esPk",
+          "artist": "The Chainsmokers",
+          "img": "https://i.ytimg.com/vi/PT2_F-1esPk/default.jpg",
+          "name": "Closer ft. Halsey",
+          "tags": [],
+          "duration": 244,
+          "url": "https://www.youtube.com/watch?v=PT2_F-1esPk",
+          "stationIds": ["EDmP"]
+        },
+        {
+          "id": "a59gmGkq_pw",
+          "artist": "Martin Garrix",
+          "img": "https://i.ytimg.com/vi/a59gmGkq_pw/default.jpg",
+          "name": "Animals",
+          "tags": [],
+          "duration": 270,
+          "url": "https://www.youtube.com/watch?v=a59gmGkq_pw",
+          "stationIds": ["EDmP"]
+        },
+        {
+          "id": "UP8yVPtW5YE",
+          "artist": "Zedd",
+          "img": "https://i.ytimg.com/vi/h--P8HzYZ74/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD7353vgvHzUOYs8CoYQ2kPj6GmaA",
+          "name": "Stay ft. Alessia Cara",
+          "tags": [],
+          "duration": 209,
+          "url": "https://www.youtube.com/watch?v=UP8yVPtW5YE",
+          "stationIds": ["EDmP"]
+        }
+      ],
+      "_id": "EDmP"
+    },
+    {
+      "name": "Reggae Vibes",
+      "type": "playlist",
+      "tags": ["reggae"],
+      "backgroundColor": "rgb(85.45369386034588, 231.75565992100815, 208.068902081358274)",
+      "createdBy": {
+        "_id": "u106",
+        "fullname": "Bob Marley",
+        "imgUrl": "http://example-photo2/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "IN0KkGeEURw",
+          "artist": "Bob Marley",
+          "img": "https://i.ytimg.com/vi/IN0KkGeEURw/default.jpg",
+          "name": "One Love",
+          "tags": [],
+          "duration": 178,
+          "url": "https://www.youtube.com/watch?v=IN0KkGeEURw",
+          "stationIds": ["RV1b3"]
+        },
+        {
+          "id": "6cIePqdz03A",
+          "artist": "Peter Tosh",
+          "img": "https://i.ytimg.com/vi/6cIePqdz03A/default.jpg",
+          "name": "Legalize It",
+          "tags": [],
+          "duration": 274,
+          "url": "https://www.youtube.com/watch?v=6cIePqdz03A",
+          "stationIds": ["RV1b3"]
+        },
+        {
+          "id": "U7dBMYUyRAQ",
+          "artist": "Jimmy Cliff",
+          "img": "https://i.ytimg.com/vi/U7dBMYUyRAQ/default.jpg",
+          "name": "You Can Get It If You Really Want",
+          "tags": [],
+          "duration": 161,
+          "url": "https://www.youtube.com/watch?v=U7dBMYUyRAQ",
+          "stationIds": ["RV1b3"]
+        }
+      ],
+      "_id": "RV1b3"
+    }
+  ]
+}

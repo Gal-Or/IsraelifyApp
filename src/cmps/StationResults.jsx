@@ -4,7 +4,7 @@ export function StationResults({ stationResults }) {
   if (!stationResults) return <div>Loading...</div>;
   return (
     <div className="station-results">
-      <h1>StationResults</h1>
+      <h1>Playlists</h1>
       <ul className="station-results-list">
         {stationResults.map((station) => (
           <li key={station._id}>
