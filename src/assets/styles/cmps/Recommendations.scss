@@ -5,12 +5,14 @@
     flex-wrap: wrap;
     justify-content: space-between;
     gap: em(5px);
+    margin: em(20px);
+    min-width: em(400px);
+
 
     .mini-preview {
         flex-grow: 1;
         flex-shrink: 1;
         flex-basis: 49%;
-
     }
 
     @container (min-width: 700px) {
