@@ -17,7 +17,10 @@ export function StationHeader({ station }) {
   return (
     <div className="station-header" onClick={openModal}>
       <div className="station-header-grid">
-        <div className="station-header-img">img here</div>
+        <div className="station-header-img">
+          {" "}
+          <img src={station.songs[0].img} alt="" />
+        </div>
         <div className="station-header-info">
           <span className="station-type">Playlist</span>
           <span className="station-name">
