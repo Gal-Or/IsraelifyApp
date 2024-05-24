@@ -1,8 +1,11 @@
 import { storageService } from "./async-storage.service";
 import { utilService } from "./util.service";
+import { uploadService } from "../services/upload.service"
 import demo_stations from "../assets/data/stations.json";
 
 import tunmbnail from "../assets/imgs/likedSongs.jpeg";
+
+
 
 const STORAGE_KEY = "stationsDB";
 let stationsCount = 1;
@@ -17,6 +20,7 @@ export const stationService = {
   createDefaultStation,
   findStationWithQuery,
   getStationIds,
+  editStationInfo
 };
 
 _createStations();
@@ -30,6 +34,7 @@ async function query(filterBy) {
 }
 
 async function save(stationToSave) {
+  console.log("to save:", stationToSave);
   if (stationToSave._id)
     return await storageService.put(STORAGE_KEY, stationToSave);
   else return await storageService.post(STORAGE_KEY, stationToSave);
@@ -132,6 +137,15 @@ async function getStationIds(song) {
   return stationsWithSong;
 }
 
+async function editStationInfo(station) {
+
+  console.log("in editStationInfo :", station);
+  let newStation = await getById(station._id)
+  newStation = { ...newStation, name: station.name, img: station.img, description: station.description }
+  return await save(newStation);
+
+}
+
 function _createStations() {
   var stations = utilService.loadFromStorage(STORAGE_KEY);
   const demoDataCount = 1;
@@ -171,3 +185,5 @@ function _createStation() {
     songs: [],
   };
 }
+
+

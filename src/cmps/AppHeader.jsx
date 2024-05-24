@@ -34,7 +34,7 @@ export function AppHeader() {
         <ReactSVG src={rightArrow} />
       </button>
 
-      <div class="input-wrapper">
+      <div className="input-wrapper">
         <ReactSVG src={search} />
         <input
           type="text"

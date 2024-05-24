@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { StationEditModal } from "./StationEditModal";
 import { StationPreview } from "./StationPreview";
 
-export function StationHeader({ station }) {
+import tempStationImg from "../assets/imgs/logo-Blue3D.png";
+
+
+export function StationHeader({ station, onSetStation }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -11,6 +14,7 @@ export function StationHeader({ station }) {
   };
 
   const closeModal = () => {
+    console.log("isModalOpen:", isModalOpen);
     setIsModalOpen(false);
   };
 
@@ -19,7 +23,11 @@ export function StationHeader({ station }) {
       <div className="station-header-grid">
         <div className="station-header-img">
           {" "}
-          <img src={station.songs[0].img} alt="" />
+          <img src={station.img
+            ? station.img
+            : station.songs.length > 0
+              ? station.songs[0].img
+              : tempStationImg} alt="" />
         </div>
         <div className="station-header-info">
           <span className="station-type">Playlist</span>
@@ -30,7 +38,7 @@ export function StationHeader({ station }) {
         </div>
       </div>
       {isModalOpen && (
-        <StationEditModal station={station} closeModal={closeModal} />
+        <StationEditModal station={station} closeModal={closeModal} onSetStation={onSetStation} />
       )}
     </div>
   );
