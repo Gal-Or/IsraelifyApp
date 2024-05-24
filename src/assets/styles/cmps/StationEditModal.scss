@@ -1,15 +1,28 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
 .station-edit-modal {
+  background: #333;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  background-color: #121212; // Dark background similar to Spotify's theme
-  color: #fff; // White text for contrast
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  max-width: 600px;
-  margin: auto;
-  position: relative;
 
   h1 {
     grid-column: 1 / -1;
@@ -93,14 +106,14 @@
       padding: 10px;
       border: none;
       border-radius: 5px;
-      background-color: #1ed760; // Spotify light green
-      color: #fff;
+      background-color: #fff;
+      color: #333;
       font-size: 1rem;
       cursor: pointer;
       transition: background-color 0.3s;
 
       &:hover {
-        background-color: #1db954; // Slightly darker green on hover
+        background-color: #1db954;
       }
     }
   }
@@ -110,6 +123,6 @@
     margin-top: 20px;
     font-size: 0.8rem;
     text-align: center;
-    color: #b3b3b3; // Light gray for less emphasis
+    color: #b3b3b3;
   }
 }
