@@ -53,6 +53,7 @@ export function StationPage() {
         backgroundImage: `linear-gradient(to bottom,${station.backgroundColor} , rgba(255, 0, 0, 0))`,
       }}
     >
+      
       <AppHeader />
       <section className="station-page">
         <StationHeader station={station} />

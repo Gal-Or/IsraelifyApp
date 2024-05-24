@@ -38,6 +38,15 @@
     height: em(48px);
     padding: em(6px) em(15px);
     width: em(300px);
+    &:focus-within {
+      border: em(2px) solid white;
+      &:hover {
+        border: em(2px) solid white;
+      }
+      svg {
+        fill: white;
+      }
+    }
 
     &:hover {
       background-color: $input-hover-bg-clr;
