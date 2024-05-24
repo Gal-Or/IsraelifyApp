@@ -1,33 +1,32 @@
 import React, { useState } from "react";
 import { StationEditModal } from "./StationEditModal";
-import { StationPreview } from "./StationPreview";
-
 import tempStationImg from "../assets/imgs/logo-Blue3D.png";
-
 
 export function StationHeader({ station, onSetStation }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
     setIsModalOpen(true);
-    console.log("isModalOpen", isModalOpen);
   };
 
   const closeModal = () => {
-    console.log("isModalOpen:", isModalOpen);
     setIsModalOpen(false);
   };
 
   return (
-    <div className="station-header" onClick={openModal}>
-      <div className="station-header-grid">
+    <div className="station-header">
+      <div className="station-header-grid" onClick={openModal}>
         <div className="station-header-img">
-          {" "}
-          <img src={station.img
-            ? station.img
-            : station.songs.length > 0
-              ? station.songs[0].img
-              : tempStationImg} alt="" />
+          <img
+            src={
+              station.img
+                ? station.img
+                : station.songs.length > 0
+                ? station.songs[0].img
+                : tempStationImg
+            }
+            alt=""
+          />
         </div>
         <div className="station-header-info">
           <span className="station-type">Playlist</span>
@@ -38,7 +37,11 @@ export function StationHeader({ station, onSetStation }) {
         </div>
       </div>
       {isModalOpen && (
-        <StationEditModal station={station} closeModal={closeModal} onSetStation={onSetStation} />
+        <StationEditModal
+          station={station}
+          closeModal={closeModal}
+          onSetStation={onSetStation}
+        />
       )}
     </div>
   );

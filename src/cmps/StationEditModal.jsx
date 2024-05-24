@@ -2,52 +2,65 @@ import { useState } from "react";
 import { stationService } from "../services/station.service";
 import { uploadService } from "../services/upload.service";
 
-
 export function StationEditModal({ station, closeModal, onSetStation }) {
-
-  const [stationToEdit, setStationToEdit] = useState(station)
+  const [stationToEdit, setStationToEdit] = useState(station);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function handleChange(ev) {
+    let { value, name: field, type } = ev.target;
+    if (type === "file") return addImgUrlToStation(ev);
 
-    let { value, name: field, type } = ev.target
-    if (type === 'file')
-      return addImgUrlToStation(ev)
-
-    console.log(value);
-
-    setStationToEdit(prev => ({ ...prev, [field]: value }))
+    setStationToEdit((prev) => ({ ...prev, [field]: value }));
   }
 
   async function addImgUrlToStation(ev) {
-
-    let imgUrl = await uploadService.uploadImg(ev)
-    imgUrl = imgUrl.url
-    setStationToEdit(prev => ({ ...prev, img: imgUrl }))
-
+    setIsLoading(true);
+    try {
+      let imgUrl = await uploadService.uploadImg(ev);
+      imgUrl = imgUrl.url;
+      setStationToEdit((prev) => ({ ...prev, img: imgUrl }));
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   async function onSubmit(ev) {
-    ev.preventDefault()
+    ev.preventDefault();
     try {
-      await stationService.editStationInfo(stationToEdit)
-      onSetStation({ name: stationToEdit.name, img: stationToEdit.img, description: stationToEdit.description })
-      closeModal()
-      //add user success msg 
+      await stationService.editStationInfo(stationToEdit);
+      onSetStation({
+        name: stationToEdit.name,
+        img: stationToEdit.img,
+        description: stationToEdit.description,
+      });
+      closeModal();
     } catch (err) {
-      //add user error msg 
+      // Add user error message
     }
-
-
   }
 
   return (
     <div className="station-edit-modal">
-      <h1>Edit Station</h1>
-      <form onSubmit={(ev) => onSubmit(ev)}>
-
-        <label className="img-uploder" > hello
-          <input hidden accept="image/.jpg, image/.jpeg, image/.png" type="file" name='img' onChange={handleChange} />
+      <button className="close-btn" onClick={() => closeModal()}>
+        &times;
+      </button>
+      <h1>Edit details</h1>
+      <div className="img-uploader">
+        <label>
+          {isLoading ? (
+            <div className="loading-indicator">Loading...</div>
+          ) : (
+            <img src={stationToEdit.img || "default-image-url"} alt="Station" />
+          )}
+          <input
+            accept="image/.jpg, image/.jpeg, image/.png"
+            type="file"
+            name="img"
+            onChange={handleChange}
+          />
         </label>
+      </div>
+      <div className="form-fields">
         <label htmlFor="name">Station Name:</label>
         <input
           type="text"
@@ -65,8 +78,16 @@ export function StationEditModal({ station, closeModal, onSetStation }) {
           value={stationToEdit.description}
           onChange={handleChange}
         ></textarea>
-        <button type="submit">Save</button>
-      </form>
+      </div>
+      <div className="actions">
+        <button type="submit" onClick={onSubmit}>
+          Save
+        </button>
+      </div>
+      <div className="disclaimer">
+        By proceeding, you agree to give Spotify access to the image you choose
+        to upload. Please make sure you have the right to upload the image.
+      </div>
     </div>
   );
 }
