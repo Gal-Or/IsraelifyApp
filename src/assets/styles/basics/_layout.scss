@@ -8,15 +8,14 @@
   padding-top: rem(8px);
   border-radius: rem(5px);
   overflow-x: hidden;
-  align-items: start;
   gap: rem(5px);
 
   .main-container {
     overflow-y: scroll;
     margin-right: rem(8px);
-    padding-bottom: rem(8px);
-    padding-right: rem(8px);
-    padding-left: rem(8px);
+    // padding-bottom: rem(8px);
+    // padding-right: rem(8px);
+    // padding-left: rem(8px);
     border-radius: rem(8px);
 
     background-color: $sec-bg-clr;
