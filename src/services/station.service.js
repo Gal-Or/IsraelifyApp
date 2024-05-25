@@ -1,11 +1,9 @@
 import { storageService } from "./async-storage.service";
 import { utilService } from "./util.service";
-import { uploadService } from "../services/upload.service"
+import { uploadService } from "../services/upload.service";
 import demo_stations from "../assets/data/stations.json";
 
 import tunmbnail from "../assets/imgs/likedSongs.jpeg";
-
-
 
 const STORAGE_KEY = "stationsDB";
 let stationsCount = 1;
@@ -20,7 +18,8 @@ export const stationService = {
   createDefaultStation,
   findStationWithQuery,
   getStationIds,
-  editStationInfo
+  editStationInfo,
+  updateSongOrder,
 };
 
 _createStations();
@@ -62,6 +61,7 @@ async function addSongToStation(song, stationId) {
   if (station.songs.find((stationSong) => stationSong.id === song.id)) {
     return;
   }
+  song.order = station.songs.length + 1;
   station.songs.push(song);
   return await save(station);
 }
@@ -138,12 +138,15 @@ async function getStationIds(song) {
 }
 
 async function editStationInfo(station) {
-
   console.log("in editStationInfo :", station);
-  let newStation = await getById(station._id)
-  newStation = { ...newStation, name: station.name, img: station.img, description: station.description }
+  let newStation = await getById(station._id);
+  newStation = {
+    ...newStation,
+    name: station.name,
+    img: station.img,
+    description: station.description,
+  };
   return await save(newStation);
-
 }
 
 function _createStations() {
@@ -159,6 +162,11 @@ function _createStations() {
     console.log("Adding demo stations", demo_stations);
     //add more stations from ../assets/data/stations.json
     demo_stations.demo_stations.forEach((station) => {
+      //add number to each song that will indicate the station play order
+      station.songs.forEach((song, idx) => {
+        song.order = idx + 1;
+      });
+
       stations.push(station);
     });
   }
@@ -166,6 +174,21 @@ function _createStations() {
   utilService.saveToStorage(STORAGE_KEY, stations);
 
   return stations;
+}
+async function updateSongOrder(stationId, songId, newOrder) {
+  const station = await getById(stationId);
+  const songIdx = station.songs.findIndex((song) => song.id === songId);
+  if (songIdx === -1) return;
+
+  const song = station.songs.splice(songIdx, 1)[0];
+  station.songs.splice(newOrder, 0, song);
+
+  // Update song order numbers
+  station.songs.forEach((song, index) => {
+    song.order = index + 1;
+  });
+
+  return await save(station);
 }
 
 function _createStation() {
@@ -185,5 +208,3 @@ function _createStation() {
     songs: [],
   };
 }
-
-
