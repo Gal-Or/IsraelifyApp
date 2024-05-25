@@ -55,7 +55,7 @@
       flex-direction: column;
       gap: 0.5em;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       text-align: center;
 
       .station-type {
@@ -89,9 +89,8 @@
       justify-content: space-between;
 
       .station-header-img {
-        position: relative;
-        width: em(150px);
-        height: em(150px);
+        width: 20vw;
+        height: 20vw;
         box-shadow: 0 0 100px 20px rgba(0, 0, 0, 0.4);
         border-radius: 2.5%;
         overflow: hidden;
@@ -132,13 +131,34 @@
       .station-header-info {
         display: flex;
         flex-direction: column;
-        gap: 1em;
-        align-items: center;
-        justify-content: center;
-
+        align-items: start;
+        justify-content: flex-end;
+        gap: 0;
         .station-type {
           font-size: 0.5em;
           font-weight: normal;
+        }
+        .station-name {
+          font-size: 1.5em;
+        }
+        .station-creator {
+          font-size: 0.7em;
+        }
+        .station-description {
+          font-size: 0.5em;
+          word-break: break-word;
+        }
+
+        @container (min-width: 1000px) {
+          .station-name {
+            font-size: 3.2em;
+          }
+          .station-creator {
+            font-size: 0.7em;
+          }
+          .station-description {
+            font-size: 0.5em;
+          }
         }
       }
     }

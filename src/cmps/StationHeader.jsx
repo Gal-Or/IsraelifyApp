@@ -37,6 +37,9 @@ export function StationHeader({ station, onSetStation }) {
             <span className="station-name">
               {station.name ? station.name : "New Playlist"}
             </span>
+            <span className="station-description">
+              {station.description ? station.description : "No description"}
+            </span>
             <span className="station-creator">
               {station.createdBy.fullname}
             </span>
