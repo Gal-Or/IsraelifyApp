@@ -4,8 +4,17 @@
     flex-direction: column;
     gap: em(10px);
 
-    h3 {
-        margin-top: em(40px);
+    .title-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: em(50px);
+    }
+
+    .show-all-link {
+        color: $sec-font-clr;
+        align-self: flex-end;
+        font-size: em(14px);
     }
 
     .list-container {

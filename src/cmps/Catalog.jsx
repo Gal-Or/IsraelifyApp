@@ -3,7 +3,11 @@ import { StationList } from "./StationList";
 export function Catalog() {
   return (
     <div className="catalog">
-      <h3>Made for you</h3>
+      <div className="title-container">
+        <h3>Made for you</h3>
+        <a className="show-all-link">Show all</a>
+      </div>
+
       <div className="list-container">
         <StationList width={200} />
       </div>

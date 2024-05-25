@@ -15,7 +15,7 @@ html {
 body {
   background-color: $main-bg-clr;
   font-family: "CircularSpotifyText";
-  font-size: 1.125rem;
+  font-size: em(18px);
 }
 
 div {
