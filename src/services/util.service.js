@@ -1,3 +1,5 @@
+import ms from "ms";
+
 export const utilService = {
   makeId,
   makeLorem,
@@ -9,6 +11,7 @@ export const utilService = {
   getAssetSrc,
   formatTime,
   randomColor,
+  formatDate,
 };
 
 function makeId(length = 6) {
@@ -119,4 +122,11 @@ function randomColor() {
   return `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${
     Math.random() * 255
   })`;
+}
+
+function formatDate(date) {
+  return new Date(date).toLocaleDateString("en-US", {
+    month: "short",
+    year: "numeric",
+  });
 }

@@ -50,16 +50,15 @@
       text-wrap: pretty;
     }
     .song-img {
-      width: em(100px);
-      height: em(100px);
-      min-width: em(100px);
-      min-height: em(100px);
-
+      position: relative; // Ensure positioning context for absolute positioning of play button
+      width: em(40px);
+      height: em(40px);
+      border-radius: em(5px);
+      overflow: hidden; // Ensure the play button doesn't overflow the image wrapper
       img {
-        height: 100%;
         width: 100%;
-        object-fit: cover;
-        object-position: center center;
+        height: 100%;
+        border-radius: em(5px);
       }
     }
   }

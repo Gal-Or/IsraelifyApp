@@ -2,6 +2,8 @@ import { useState, useCallback } from "react";
 import { useDrop } from "react-dnd";
 import { SongContainer } from "./SongContainer";
 import { stationService } from "../services/station.service";
+import { ReactSVG } from "react-svg";
+import clockIcon from "../assets/icons/clock.svg";
 
 export function SongList({ station }) {
   const [songs, setSongs] = useState(station.songs || []);
@@ -34,6 +36,17 @@ export function SongList({ station }) {
 
   return (
     <ul ref={drop} className="song-list">
+      <li className="song-header">
+        <div className="song-order">#</div>
+        <div className="song-title">Title</div>
+        <div className="song-album">Album</div>
+        <div className="song-date-added">Date Added</div>
+        <div className="song-duration">
+          {/* Set width and height to match other header elements */}
+          <ReactSVG src={clockIcon} style={{ width: "20px", height: "20px" }} />
+        </div>
+      </li>
+
       {songs.map((song, index) => (
         <SongContainer
           key={song.id}

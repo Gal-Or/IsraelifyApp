@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { useSelector } from "react-redux";
 import { ReactSVG } from "react-svg";
@@ -7,6 +7,7 @@ import pauseIcon from "../assets/icons/pauseIcon.svg";
 import { setCurrentSong, setIsPlaying } from "../store/player.actions";
 import { SongDetails } from "./SongDetails";
 import { SongActions } from "./SongActions";
+import { utilService } from "../services/util.service";
 
 export function SongContainer({ song, index, moveSong }) {
   const ref = useRef(null);
@@ -62,6 +63,10 @@ export function SongContainer({ song, index, moveSong }) {
     setIsPlaying(true);
   }
 
+  useEffect(() => {
+    if (song) console.log(`Song added at `, song.addedAt);
+  });
+
   return (
     <li
       ref={ref}
@@ -69,14 +74,19 @@ export function SongContainer({ song, index, moveSong }) {
       className="song-container"
       style={{ opacity: isDragging ? 0.5 : 1 }}
     >
-      <SongDetails song={song}>
-        <button onClick={() => onPlaySong(song)} className="play-btn">
-          <ReactSVG
-            src={isPlaying && currentSong.id === song.id ? pauseIcon : playIcon}
-          />
-        </button>
-      </SongDetails>
-      <SongActions song={song} />
+      <div className="song-order">
+        <span>{index + 1}</span>
+      </div>
+      <SongDetails song={song}></SongDetails>
+      <div className="song-album">
+        <span>album</span>
+      </div>
+      <div className="song-date-added">
+        <span>{utilService.formatDate(song.addedAt)}</span>
+      </div>
+      <div className="song-duration">
+        <span>{utilService.formatTime(song.duration)}</span>
+      </div>
     </li>
   );
 }

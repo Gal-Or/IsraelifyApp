@@ -162,9 +162,10 @@ function _createStations() {
     console.log("Adding demo stations", demo_stations);
     //add more stations from ../assets/data/stations.json
     demo_stations.demo_stations.forEach((station) => {
-      //add number to each song that will indicate the station play order
+      //add number to each song that will indicate the station play order and randomize "addedAt"
       station.songs.forEach((song, idx) => {
         song.order = idx + 1;
+        song.addedAt = Date.now() - Math.floor(Math.random() * 1000000000);
       });
 
       stations.push(station);

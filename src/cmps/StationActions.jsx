@@ -1,6 +1,6 @@
 export function StationActions() {
   return (
-    <div>
+    <div className="station-actions">
       <h1>StationActions</h1>
     </div>
   );

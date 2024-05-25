@@ -21,11 +21,11 @@ export function SongActions({ song }) {
 
   return (
     <div className="song-actions">
-      {/* <button onClick={() => onPlaySong(song)}>
+      <button onClick={() => onPlaySong(song)}>
         <ReactSVG
           src={isPlaying && currentSong.id === song.id ? pauseIcon : playIcon}
         />
-      </button> */}
+      </button>
     </div>
   );
 }
