@@ -65,7 +65,9 @@ export function StationEditModal({ station, closeModal, onSetStation }) {
               <div className="loading-indicator">Loading...</div>
             ) : (
               <img
-                src={stationToEdit.img || "default-image-url"}
+                src={
+                  stationToEdit.img ? stationToEdit.img : station.songs[0].img
+                }
                 alt="Station"
               />
             )}

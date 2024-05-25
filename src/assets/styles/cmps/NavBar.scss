@@ -1,7 +1,7 @@
 .nav-bar {
   display: flex;
   flex-direction: column;
-  gap: em(5px);
+  gap: em(8px);
   min-width: em(75px);
   overflow: hidden;
   margin-left: rem(5px);
@@ -18,8 +18,8 @@
   }
 
   //all the children of the nav-bar border-radius
-  >* {
-    border-radius: em(5px);
+  > * {
+    border-radius: em(8px);
     background-color: $sec-bg-clr;
   }
 
@@ -64,7 +64,6 @@
   .library-container::-webkit-scrollbar {
     background-color: transparent;
     scrollbar-width: thin;
-
   }
 
   .library-container:hover::-webkit-scrollbar-thumb {

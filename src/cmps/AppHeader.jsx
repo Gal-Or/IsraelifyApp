@@ -27,10 +27,10 @@ export function AppHeader() {
 
   return (
     <header className="app-header">
-      <button className="left-arrow-btn">
+      <button className="left-arrow-btn" onClick={() => navigate(-1)}>
         <ReactSVG src={leftArrow} />
       </button>
-      <button className="right-arrow-btn">
+      <button className="right-arrow-btn" onClick={() => navigate(1)}>
         <ReactSVG src={rightArrow} />
       </button>
 

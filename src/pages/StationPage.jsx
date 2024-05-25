@@ -17,11 +17,9 @@ export function StationPage() {
     loadStation();
   }, [params.stationId]);
 
-
   async function onSetStation(fieldsToUpdate) {
-    stationService.editStationInfo({ ...station, ...fieldsToUpdate })
-    setStation(prev => ({ ...prev, ...fieldsToUpdate }))
-
+    stationService.editStationInfo({ ...station, ...fieldsToUpdate });
+    setStation((prev) => ({ ...prev, ...fieldsToUpdate }));
   }
 
   async function loadStation() {
@@ -60,7 +58,6 @@ export function StationPage() {
         backgroundImage: `linear-gradient(to bottom,${station.backgroundColor} , rgba(255, 0, 0, 0))`,
       }}
     >
-
       <AppHeader />
       <section className="station-page">
         <StationHeader station={station} onSetStation={onSetStation} />

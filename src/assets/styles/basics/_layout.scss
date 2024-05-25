@@ -2,20 +2,22 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto auto;
-  width: 90%;
+  width: 100%;
   height: 100%;
   max-height: 100vh;
-  padding-top: rem(5px);
+  padding-top: rem(8px);
   border-radius: rem(5px);
+  overflow-x: hidden;
+  align-items: start;
+  gap: rem(5px);
 
   .main-container {
     overflow-y: scroll;
-    margin-right: rem(5px);
-    // padding-bottom: rem(5px);
-    // padding-right: rem(5px);
-    // padding-left: rem(5px);
-    border-radius: rem(5px);
-    position: sticky;
+    margin-right: rem(8px);
+    padding-bottom: rem(8px);
+    padding-right: rem(8px);
+    padding-left: rem(8px);
+    border-radius: rem(8px);
 
     background-color: $sec-bg-clr;
     // padding: 0 em(15px) em(15px) em(15px);
