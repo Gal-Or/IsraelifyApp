@@ -4,22 +4,21 @@
   justify-content: flex-start;
   gap: 10px;
 
-  a {
-    font-size: unset;
-    font-family: unset;
-    color: unset;
-  }
   p {
     font-size: rem(13px);
     color: $sec-font-clr;
     overflow: hidden;
     text-wrap: pretty;
   }
+  small {
+    font-size: rem(11px);
+    color: $sec-font-clr;
+  }
   .song-img {
     width: em(56px);
     height: em(56px);
-    max-width: em(56px);
-    min-height: em(56px);
+
+    aspect-ratio: 1/1;
 
     img {
       height: 100%;
@@ -41,12 +40,17 @@
     a {
       font-size: unset;
       font-family: unset;
-      color: unset;
+      color: $main-font-clr;
     }
     p {
       font-size: rem(13px);
-      color: $sec-font-clr;
+      color: white;
       overflow: hidden;
+      text-wrap: pretty;
+    }
+    small {
+      font-size: rem(11px);
+      color: $sec-font-clr;
       text-wrap: pretty;
     }
     .song-img {

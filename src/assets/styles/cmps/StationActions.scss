@@ -1,3 +1,23 @@
 .station-actions {
-  font-size: 7rem;
+  display: flex;
+  justify-content: start;
+  align-self: center;
+  align-items: center;
+  gap: em(15px);
+  min-height: em(70px);
+  padding: em(10px);
+
+  button {
+    background-color: $sec-font-clr;
+    color: $main-bg-clr;
+    border: none;
+    border-radius: em(5px);
+    padding: em(5px) em(10px);
+    font-size: rem(13px);
+    cursor: pointer;
+  }
+  //last button aligns to the right
+  button:last-child {
+    margin-left: auto;
+  }
 }

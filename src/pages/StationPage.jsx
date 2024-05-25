@@ -18,8 +18,9 @@ export function StationPage() {
   }, [params.stationId]);
 
   async function onSetStation(fieldsToUpdate) {
-    stationService.editStationInfo({ ...station, ...fieldsToUpdate });
-    setStation((prev) => ({ ...prev, ...fieldsToUpdate }));
+    const updatedStation = { ...station, ...fieldsToUpdate };
+    setStation(updatedStation);
+    await stationService.editStationInfo(updatedStation);
   }
 
   async function loadStation() {
@@ -33,7 +34,8 @@ export function StationPage() {
   }
 
   function onAddSongToStation(song) {
-    // Ensure station is not null before accessing its songs property
+    song.addedAt = Date.now();
+    console.log("Adding song to station:", song);
     if (!station) {
       console.log("Station is null. Aborting addition of song.");
       return;
@@ -42,11 +44,12 @@ export function StationPage() {
       console.log("Song already exists in the station. Aborting addition.");
       return;
     }
+
     const updatedStation = {
       ...station,
       songs: [...station.songs, song],
     };
-    console.log("Adding song to station. Updated station:", updatedStation);
+
     setStation(updatedStation);
   }
 
@@ -67,12 +70,3 @@ export function StationPage() {
     </div>
   );
 }
-
-// .station-page-container {
-//   background-image: linear-gradient(
-//     to bottom,
-//     rgba(255, 0, 0, 1),
-//     rgba(255, 0, 0, 0)
-//   ); /* Red to transparent gradient */
-//   height: 500px; /* Adjust height as per your design */
-// }

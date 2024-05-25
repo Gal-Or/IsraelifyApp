@@ -9,7 +9,14 @@ import { SongDetails } from "./SongDetails";
 import { SongActions } from "./SongActions";
 import { utilService } from "../services/util.service";
 
-export function SongContainer({ song, index, moveSong }) {
+export function SongContainer({
+  song,
+  index,
+  moveSong,
+  className,
+  onClick,
+  isCompact,
+}) {
   const ref = useRef(null);
   const isPlaying = useSelector((state) => state.playerModule.isPlaying);
   const currentSong = useSelector((state) => state.playerModule.currentSong);
@@ -63,21 +70,18 @@ export function SongContainer({ song, index, moveSong }) {
     setIsPlaying(true);
   }
 
-  useEffect(() => {
-    if (song) console.log(`Song added at `, song.addedAt);
-  });
-
   return (
     <li
       ref={ref}
       data-handler-id={handlerId}
-      className="song-container"
+      className={className}
       style={{ opacity: isDragging ? 0.5 : 1 }}
+      onClick={() => onClick(song)}
     >
       <div className="song-order">
         <span>{index + 1}</span>
       </div>
-      <SongDetails song={song}></SongDetails>
+      <SongDetails song={song} isCompact={isCompact} />
       <div className="song-album">
         <span>album</span>
       </div>

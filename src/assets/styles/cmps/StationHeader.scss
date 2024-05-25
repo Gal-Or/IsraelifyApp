@@ -13,8 +13,8 @@
 
     .station-header-img {
       position: relative;
-      width: 120px;
-      height: 120px;
+      width: em(100px);
+      height: em(100px);
       box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.4);
       border-radius: 5%;
       overflow: hidden;
@@ -89,8 +89,8 @@
       justify-content: space-between;
 
       .station-header-img {
-        width: 20vw;
-        height: 20vw;
+        width: 17vw;
+        height: 17vw;
         box-shadow: 0 0 100px 20px rgba(0, 0, 0, 0.4);
         border-radius: 2.5%;
         overflow: hidden;
