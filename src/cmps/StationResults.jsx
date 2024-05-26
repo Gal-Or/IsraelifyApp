@@ -11,9 +11,9 @@ export function StationResults({ stationResults }) {
     if (containerRef.current && containerRef.current.firstElementChild) {
       const firstChild = containerRef.current.firstElementChild;
       const firstChildHeight = firstChild.offsetHeight;
-      containerRef.current.style.maxHeight = `${firstChildHeight}px`;
+      containerRef.current.style.maxHeight = `${firstChildHeight + 15}px`;
     }
-  }, [stationResults]);
+  }, [stationResults, containerRef]);
 
   if (!stationResults) return <div>Loading...</div>;
 

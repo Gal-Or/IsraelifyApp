@@ -1,80 +1,70 @@
 .artist-results {
-  padding: 0;
-  margin: 0;
-  max-height: 300px;
-  overflow: hidden;
-
   .artist-results-container {
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-auto-rows: fit-content;
+    gap: 1em;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+
     .artist-card {
-      flex: auto;
       display: flex;
       flex-direction: column;
       justify-content: center;
       position: relative;
+      border-radius: 8px;
+      padding: 10px;
 
       .artist-img {
         position: relative;
-        width: 16vh;
-        height: 16vh;
+        width: 100%;
+        padding-top: 100%; /* This ensures a 1:1 aspect ratio */
         overflow: hidden;
         display: flex;
+        box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
         justify-content: center;
         align-items: center;
+
         img {
+          position: absolute;
+          top: 0;
+          left: 0;
           width: 100%;
           height: 100%;
-          object-fit: cover;
           border-radius: 50%;
-          box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+
+          object-fit: cover;
         }
 
         .play-btn {
           position: absolute;
-          bottom: 0;
-          right: 0;
+          bottom: 8px;
+          right: 8px;
           width: 0;
           height: 0;
           opacity: 0;
-          bottom: em(8px); /* Align play button to the bottom of the image */
           background-color: $logo-clr; /* Use the logo color for the play button */
           border: none;
-          border-radius: 500px;
+          border-radius: 50%;
+          z-index: 1;
         }
       }
 
-      border-radius: em(8px);
-      padding: em(10px);
       &:hover {
         background-color: #242424;
 
         .play-btn {
-          width: em(40px);
-          height: em(40px);
+          width: 40px;
+          height: 40px;
           opacity: 1;
           display: flex;
           justify-content: center;
           align-items: center;
-          margin: 0;
-          padding: 0;
-          //all child elements will be centered
-          * {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            * {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
-          }
 
           svg {
-            width: rem(20px);
-            height: rem(20px);
+            width: 20px;
+            height: 20px;
           }
         }
       }
