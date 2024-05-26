@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import { stationService } from "../services/station.service";
 import { loadStations, removeStation } from "../store/station.actions";
@@ -13,6 +13,16 @@ export function StationList({ width }) {
     (storeState) => storeState.stationModule.stations
   );
 
+  const containerRef = useRef(null);
+  useEffect(() => {
+    if (containerRef.current && containerRef.current.firstElementChild) {
+      const firstChild = containerRef.current.firstElementChild;
+      const firstChildHeight = firstChild.offsetHeight;
+      containerRef.current.style.maxHeight = `${firstChildHeight}px`;
+      console.log("firstChildHeight:", firstChildHeight);
+    }
+  }, [stations]);
+
   useEffect(() => {
     loadStations();
   }, []);
@@ -22,7 +32,7 @@ export function StationList({ width }) {
   }
 
   return (
-    <ul className="station-list">
+    <ul className="station-list" ref={containerRef}>
       {stations?.map((station, index) => (
         <article key={index}>
           <NavLink key={index} to={`/station/${station._id}`}>
@@ -30,13 +40,13 @@ export function StationList({ width }) {
               <StationPreview station={station} width={width} />
             </li>
           </NavLink>
-          <button
+          {/* <button
             className="delete-btn"
             key={station._id}
             onClick={(ev) => onDeleteStation(ev, station._id)}
           >
             Delete
-          </button>
+          </button> */}
         </article>
       ))}
     </ul>

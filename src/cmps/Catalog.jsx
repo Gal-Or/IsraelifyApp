@@ -5,22 +5,22 @@ export function Catalog() {
     <div className="catalog">
       <div className="title-container">
         <h3>Made for you</h3>
-        <a className="show-all-link">Show all</a>
+        <a className="show">Show all</a>
       </div>
+      <StationList width={200} />
 
-      <div className="list-container">
-        <StationList width={200} />
+      <div className="title-container">
+        <h3>Yout top mixes</h3>
+        <a className="show">Show all</a>
       </div>
+      <StationList />
 
-      <h3>Yout top mixes</h3>
-      <div className="list-container">
-        <StationList />
+      <div className="title-container">
+        <h3>Recently played</h3>
+        <a className="show">Show all</a>
       </div>
+      <StationList />
 
-      <h3>Recently played</h3>
-      <div className="list-container">
-        <StationList />
-      </div>
     </div>
   );
 }
