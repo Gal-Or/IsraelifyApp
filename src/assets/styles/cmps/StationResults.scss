@@ -16,6 +16,11 @@
       border-radius: 8px;
       padding: 10px;
 
+      p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
       .station-img {
         position: relative;
         width: 100%;
