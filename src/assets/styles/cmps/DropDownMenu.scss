@@ -1,0 +1,83 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background-color: transparent;
+  color: $sec-font-clr;
+  padding: 8px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between; // Ensures the arrow is on the right
+
+  .dropdown-icon {
+    fill: $sec-font-clr;
+  }
+
+  &:after {
+    margin-left: 8px;
+  }
+}
+.dropdown-menu-container {
+  background-color: $sec-bg-clr;
+  display: block;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+  top: 100%; // Ensure it appears below the toggle
+  right: 0; // Ensure it appears aligned to the right
+
+  h3 {
+    padding: 12px 16px;
+    margin: 0;
+    background-color: $sec-bg-clr;
+    color: $sec-font-clr;
+    font-size: 0.875rem;
+  }
+
+  .dropdown-menu {
+    list-style-type: none;
+
+    li {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      color: $sec-font-clr;
+      svg {
+        fill: $sec-font-clr;
+      }
+
+      &:last-child {
+        text-align: right; // Ensure last child is right-aligned
+      }
+
+      &:hover {
+        background-color: darken($sec-bg-clr, 10%);
+      }
+    }
+    li.selected {
+      color: $logo-clr;
+      svg {
+        fill: $logo-clr;
+      }
+      .tick-icon {
+        fill: $logo-clr;
+        margin-left: auto; // Align the icon to the right
+      }
+    }
+  }
+}
+
+.dropdown-icon {
+  margin-right: 8px; // Space between icon and label
+  width: 16px; // Adjust size as needed
+  height: 16px; // Adjust size as needed
+}

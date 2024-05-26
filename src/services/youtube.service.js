@@ -104,7 +104,12 @@ async function getDurations(results) {
           `https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${result.id}&key=${API_KEYS[apiIndex]}`
         );
         const duration = await response.data.items[0].contentDetails.duration;
+        if (duration === "P0D") {
+          // Skip if duration is 0
+          return result;
+        }
         result.duration = formatDuration(duration);
+        console.log("duration", result.duration);
         return result;
       } catch (error) {
         console.error("Error fetching duration for video:", error);
@@ -112,6 +117,7 @@ async function getDurations(results) {
       }
     })
   );
+  console.log("after clean", resultsWithDurations);
   return resultsWithDurations;
 }
 

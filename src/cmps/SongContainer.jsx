@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { useSelector } from "react-redux";
 import { ReactSVG } from "react-svg";
@@ -7,8 +7,16 @@ import pauseIcon from "../assets/icons/pauseIcon.svg";
 import { setCurrentSong, setIsPlaying } from "../store/player.actions";
 import { SongDetails } from "./SongDetails";
 import { SongActions } from "./SongActions";
+import { utilService } from "../services/util.service";
 
-export function SongContainer({ song, index, moveSong }) {
+export function SongContainer({
+  song,
+  index,
+  moveSong,
+  className,
+  onClick,
+  isCompact,
+}) {
   const ref = useRef(null);
   const isPlaying = useSelector((state) => state.playerModule.isPlaying);
   const currentSong = useSelector((state) => state.playerModule.currentSong);
@@ -66,17 +74,34 @@ export function SongContainer({ song, index, moveSong }) {
     <li
       ref={ref}
       data-handler-id={handlerId}
-      className="song-container"
+      className={className}
       style={{ opacity: isDragging ? 0.5 : 1 }}
+      onClick={() => onClick(song)}
     >
-      <SongDetails song={song}>
-        <button onClick={() => onPlaySong(song)} className="play-btn">
+      <div className="song-order-play">
+        <button
+          className="play-btn"
+          onClick={(ev) => {
+            ev.stopPropagation();
+            onPlaySong(song);
+          }}
+        >
           <ReactSVG
             src={isPlaying && currentSong.id === song.id ? pauseIcon : playIcon}
           />
         </button>
-      </SongDetails>
-      <SongActions song={song} />
+        <span className="song-order">{index + 1}</span>
+      </div>
+      <SongDetails song={song} isCompact={isCompact} />
+      <div className="song-album">
+        <span>album</span>
+      </div>
+      <div className="song-date-added">
+        <span>{utilService.formatDate(song.addedAt)}</span>
+      </div>
+      <div className="song-duration">
+        <span>{utilService.formatTime(song.duration)}</span>
+      </div>
     </li>
   );
 }

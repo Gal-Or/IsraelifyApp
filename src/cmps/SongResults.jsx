@@ -10,7 +10,7 @@ import playIcon from "../assets/icons/playIcon.svg";
 import pauseIcon from "../assets/icons/pauseIcon.svg";
 import addIcon from "../assets/icons/plusWithBorderIcon.svg";
 import tickIcon from "../assets/icons/tickIcon.svg";
-import DotsIcon from "../assets/icons/3DotsIcon.svg";
+import DotsIcon from "../assets/icons/Ellipses.svg";
 import { utilService } from "../services/util.service";
 
 export function SongResults({ songResults, onAddSongToStation }) {
@@ -33,10 +33,11 @@ export function SongResults({ songResults, onAddSongToStation }) {
   }, [params]);
 
   async function onAddToPlaylist(song, stationId = "liked-songs") {
+    if (!song) return;
+    song.addedAt = Date.now();
     song.stationIds = params.stationId
       ? [...song.stationIds, params.stationId]
       : [...song.stationIds, stationId];
-
     setCurrentStation((prevStation) => {
       return {
         ...prevStation,
@@ -45,7 +46,7 @@ export function SongResults({ songResults, onAddSongToStation }) {
     });
     if (params.stationId) {
       await addSongToStation(song, params.stationId);
-    } else await addSongToStation(song); // TODO:  implement add from search page
+    } else await addSongToStation(song);
 
     if (onAddSongToStation) onAddSongToStation(song);
   }
@@ -57,7 +58,7 @@ export function SongResults({ songResults, onAddSongToStation }) {
     }
     setCurrentSong(song);
     setIsPlaying(true);
-    setLastActiveSong(song); // Set last active song when playing a new song
+    setLastActiveSong(song);
   }
 
   const displayedSongs = showAll ? songResults : songResults.slice(0, 4);
@@ -103,17 +104,14 @@ export function SongResults({ songResults, onAddSongToStation }) {
               <ReactSVG src={addIcon} onClick={() => onAddToPlaylist(song)} />
             )}
             <span className="duration">
-              {utilService.formatTime(song.duration)}
+              {song.duration === 0
+                ? "live"
+                : utilService.formatTime(song.duration)}
             </span>
             <ReactSVG src={DotsIcon} />
           </div>
         </article>
       ))}
-      {/* {songResults.length > 5 && (
-        <button onClick={() => setShowAll(!showAll)}>
-          {showAll ? "Hide All" : "Show More"}
-        </button>
-      )} */}
     </section>
   );
 }

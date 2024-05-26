@@ -10,7 +10,7 @@
   // margin: em(15px) 0 em(15px) 0;
 
   button {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.5);
     border: none;
     cursor: pointer;
     border-radius: 50%;
@@ -24,7 +24,7 @@
     svg {
       width: em(13px);
       height: em(13px);
-      fill: white;
+      fill: rgba(255, 255, 255, 0.8);
       margin: em(10px);
     }
   }

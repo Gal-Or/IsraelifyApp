@@ -1,9 +1,7 @@
 import { useSelector } from "react-redux";
 import { useRef, useState } from "react";
 import { ReactSVG } from "react-svg";
-
 import { useSpacebarPlayPause } from "../customHooks/useSpacebarPlayPause";
-
 import speaker from "../assets/icons/speaker.svg";
 import speakerMute from "../assets/icons/speakerMute.svg";
 import Slider from "@mui/material/Slider";
@@ -15,6 +13,7 @@ export function PlayerActions() {
 
   const volumeRef = useRef(100);
   const [volume, setVolume] = useState(volumeRef.current);
+  const [isFullScreen, setIsFullScreen] = useState(false);
 
   useSpacebarPlayPause();
 
@@ -32,6 +31,21 @@ export function PlayerActions() {
       setVolume(0);
       youtubePlayer.mute();
     }
+  }
+
+  function handleFullScreen() {
+    const iframe = youtubePlayer.getIframe();
+
+    if (iframe.requestFullscreen) {
+      iframe.requestFullscreen();
+    } else if (iframe.mozRequestFullScreen) {
+      iframe.mozRequestFullScreen();
+    } else if (iframe.webkitRequestFullscreen) {
+      iframe.webkitRequestFullscreen();
+    } else if (iframe.msRequestFullscreen) {
+      iframe.msRequestFullscreen();
+    }
+    setIsFullScreen(!isFullScreen);
   }
 
   return (
@@ -55,6 +69,12 @@ export function PlayerActions() {
           }}
         />
       </div>
+      <button
+        onClick={handleFullScreen}
+        className="ytp-fullscreen-button ytp-button"
+      >
+        Full Screen
+      </button>
     </div>
   );
 }

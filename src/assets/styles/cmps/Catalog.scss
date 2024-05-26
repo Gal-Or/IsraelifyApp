@@ -1,67 +1,66 @@
 .catalog {
+  display: flex;
+  flex-direction: column;
+  gap: em(10px);
 
+  .title-container {
     display: flex;
-    flex-direction: column;
-    gap: em(10px);
+    justify-content: space-between;
+    align-items: center;
+    height: em(50px);
+  }
 
-    .title-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: em(50px);
-    }
+  .show-all-link {
+    color: $sec-font-clr;
+    align-self: flex-end;
+    font-size: em(14px);
+  }
 
-    .show-all-link {
-        color: $sec-font-clr;
-        align-self: flex-end;
-        font-size: em(14px);
-    }
+  .station-list {
 
-    .station-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-auto-rows: fit-content;
+    column-gap: em(1px);
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
 
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-        grid-auto-rows: fit-content;
-        column-gap: em(1px);
-        padding: 0;
-        margin: 0;
+
+    .station-preview {
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      border-radius: 8px;
+      padding: 10px;
+      row-gap: em(5px);
+
+      .img-container {
+
+        position: relative;
+        width: 100%;
+        padding-top: 100%;
+        /* This ensures a 1:1 aspect ratio */
         overflow: hidden;
+        display: flex;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        border-radius: em(6px);
 
+        img {
 
-        .station-preview {
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            border-radius: 8px;
-            padding: 10px;
-            row-gap: em(5px);
-
-            .img-container {
-
-                position: relative;
-                width: 100%;
-                padding-top: 100%;
-                /* This ensures a 1:1 aspect ratio */
-                overflow: hidden;
-                display: flex;
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-                justify-content: center;
-                align-items: center;
-                border-radius: em(6px);
-
-                img {
-
-                    min-width: 100%;
-                    min-height: 100%;
-                    object-fit: cover;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                }
-            }
+          min-width: 100%;
+          min-height: 100%;
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
         }
+      }
     }
+  }
 
 }

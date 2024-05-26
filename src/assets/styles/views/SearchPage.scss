@@ -2,16 +2,18 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: em(10px);
-
   .app-header {
     background-color: $sec-bg-clr;
-    top: 0;
-
+    padding: em(10px);
     .input-wrapper {
       display: flex;
     }
   }
+
+  .search-container {
+    padding: em(10px);
+  }
+
   .filter-bar-container {
     //below the app header
     display: flex;

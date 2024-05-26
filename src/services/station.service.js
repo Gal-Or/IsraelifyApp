@@ -20,6 +20,7 @@ export const stationService = {
   getStationIds,
   editStationInfo,
   updateSongOrder,
+  getStationDuration,
 };
 
 _createStations();
@@ -81,7 +82,7 @@ async function findStationWithQuery(query) {
   });
 
   // If filteredStations is less than 6, fill the rest with random stations
-  filteredStations = fillWithRandomStations(filteredStations, stations, 6);
+  filteredStations = fillWithRandomStations(filteredStations, stations, 10);
 
   return filteredStations;
 }
@@ -149,6 +150,16 @@ async function editStationInfo(station) {
   return await save(newStation);
 }
 
+function getStationDuration(songs) {
+  let duration = 0;
+  songs.forEach((song) => {
+    duration += song.duration;
+  });
+  const minutes = Math.floor(duration / 60);
+  const seconds = duration % 60;
+  return `${minutes} min ${seconds < 10 ? "0" + seconds : seconds} sec`;
+}
+
 function _createStations() {
   var stations = utilService.loadFromStorage(STORAGE_KEY);
   const demoDataCount = 1;
@@ -162,9 +173,10 @@ function _createStations() {
     console.log("Adding demo stations", demo_stations);
     //add more stations from ../assets/data/stations.json
     demo_stations.demo_stations.forEach((station) => {
-      //add number to each song that will indicate the station play order
+      //add number to each song that will indicate the station play order and randomize "addedAt"
       station.songs.forEach((song, idx) => {
         song.order = idx + 1;
+        song.addedAt = Date.now() - Math.floor(Math.random() * 1000000000);
       });
 
       stations.push(station);

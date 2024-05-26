@@ -1,11 +1,13 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useDrop } from "react-dnd";
 import { SongContainer } from "./SongContainer";
 import { stationService } from "../services/station.service";
+import { ReactSVG } from "react-svg";
+import clockIcon from "../assets/icons/clock.svg";
 
-export function SongList({ station }) {
+export function SongList({ station, isCompact }) {
   const [songs, setSongs] = useState(station.songs || []);
-
+  const [lastActiveSong, setLastActiveSong] = useState(null);
   const moveSong = useCallback(
     async (dragIndex, hoverIndex) => {
       const dragSong = songs[dragIndex];
@@ -13,14 +15,12 @@ export function SongList({ station }) {
       newSongs.splice(dragIndex, 1);
       newSongs.splice(hoverIndex, 0, dragSong);
 
-      // Update the order property of songs
       newSongs.forEach((song, index) => {
         song.order = index + 1;
       });
 
       setSongs(newSongs);
 
-      // Call the service to update the order in the database
       await stationService.updateSongOrder(
         station._id,
         dragSong.id,
@@ -32,14 +32,35 @@ export function SongList({ station }) {
 
   const [, drop] = useDrop({ accept: "SONG" });
 
+  // Sync the songs state with the station prop
+  useEffect(() => {
+    console.log("isCompact", isCompact);
+    setSongs(station.songs || []);
+  }, [station.songs, isCompact]);
+
   return (
-    <ul ref={drop} className="song-list">
+    <ul ref={drop} className={`song-list ${isCompact ? "compact" : ""}`}>
+      <li className="song-header">
+        <div className="song-order">#</div>
+        <div className="song-title">Title</div>
+        <div className="song-album">Album</div>
+        <div className="song-date-added">Date Added</div>
+        <div className="song-duration">
+          <ReactSVG src={clockIcon} style={{ width: "20px", height: "20px" }} />
+        </div>
+      </li>
+      <hr />
       {songs.map((song, index) => (
         <SongContainer
+          onClick={() => setLastActiveSong(song)}
           key={song.id}
           index={index}
           song={song}
+          className={`song-container ${
+            song.id === lastActiveSong?.id ? "active" : ""
+          }`}
           moveSong={moveSong}
+          isCompact={isCompact}
         />
       ))}
     </ul>

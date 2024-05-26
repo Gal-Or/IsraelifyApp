@@ -1,0 +1,35 @@
+.station-actions {
+  display: flex;
+  justify-content: start;
+  align-self: center;
+  align-items: center;
+  gap: em(30px);
+  min-height: em(70px);
+  padding: 0 em(20px);
+
+  .play-btn {
+    width: em(70px);
+    height: em(70px);
+    background-color: $logo-clr; /* Use the logo color for the play button */
+    border: none;
+    border-radius: 500px;
+
+    svg {
+      width: em(25px);
+      height: em(25px);
+    }
+  }
+  .more-btn {
+    background-color: transparent;
+    border: none;
+    svg {
+      width: em(27px);
+      height: em(27px);
+      fill: $sec-font-clr;
+    }
+  }
+
+  .change-view {
+    margin-left: auto;
+  }
+}

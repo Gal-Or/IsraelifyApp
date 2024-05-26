@@ -8,6 +8,7 @@ export function AddSongs({ onAddSongToStation }) {
 
   async function getYoutubeResults(queryTxt) {
     var res = await youtubeService.query(queryTxt);
+    console.log("res:", res);
     setResults(res);
   }
 
