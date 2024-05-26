@@ -8,11 +8,9 @@
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
-
-    gap: 20px;
+    gap: 30px;
     .artist-card {
       flex: auto;
-
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -20,8 +18,8 @@
 
       .artist-img {
         position: relative;
-        width: 16dvh;
-        height: 16dvh;
+        width: 16vh;
+        height: 16vh;
         overflow: hidden;
         display: flex;
         justify-content: center;

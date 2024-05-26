@@ -81,7 +81,7 @@ async function findStationWithQuery(query) {
   });
 
   // If filteredStations is less than 6, fill the rest with random stations
-  filteredStations = fillWithRandomStations(filteredStations, stations, 6);
+  filteredStations = fillWithRandomStations(filteredStations, stations, 10);
 
   return filteredStations;
 }

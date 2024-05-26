@@ -42,18 +42,20 @@ export function SearchPage() {
   return (
     <section className="search-page">
       <AppHeader />
-      {!params.query && <BrowseAll />}
+      <div className="search-container">
+        {!params.query && <BrowseAll />}
 
-      {params.query && (
-        <>
-          <FilterBar />
-          <SearchResults
-            songResults={songResults ? songResults : []}
-            stationResults={stationResults}
-            artistResults={artistResults}
-          />
-        </>
-      )}
+        {params.query && (
+          <>
+            <FilterBar />
+            <SearchResults
+              songResults={songResults ? songResults : []}
+              stationResults={stationResults}
+              artistResults={artistResults}
+            />
+          </>
+        )}
+      </div>
     </section>
   );
 }

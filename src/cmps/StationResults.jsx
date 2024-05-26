@@ -13,8 +13,8 @@ export function StationResults({ stationResults }) {
       <div className="station-results-container">
         {stationResults &&
           stationResults.map((station, index) => (
-            <NavLink key={index} to={`/station/${station._id}`}>
-              <article key={station._id} className="station-card">
+            <article key={station._id} className="station-card">
+              <NavLink key={index} to={`/station/${station._id}`}>
                 <div className="station-card-container">
                   <div className="station-img">
                     <img
@@ -43,8 +43,8 @@ export function StationResults({ stationResults }) {
                     </small>
                   </div>
                 </div>
-              </article>
-            </NavLink>
+              </NavLink>
+            </article>
           ))}
       </div>
     </section>

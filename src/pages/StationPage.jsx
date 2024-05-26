@@ -53,12 +53,16 @@ export function StationPage() {
     setStation(updatedStation);
   }
 
+  function returnColor(color) {
+    return color.split("(")[1].split(")")[0];
+  }
+
   if (!station) return <h1>Loading...</h1>;
   return (
     <div
       className="station-page-container"
       style={{
-        backgroundImage: `linear-gradient(to bottom,${station.backgroundColor} , rgba(255, 0, 0, 0))`,
+        backgroundImage: `linear-gradient(to bottom, ${station.backgroundColor} 0%,rgba(18,18,18,0.1) 65%)`,
       }}
     >
       <AppHeader />

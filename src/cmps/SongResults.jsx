@@ -10,7 +10,7 @@ import playIcon from "../assets/icons/playIcon.svg";
 import pauseIcon from "../assets/icons/pauseIcon.svg";
 import addIcon from "../assets/icons/plusWithBorderIcon.svg";
 import tickIcon from "../assets/icons/tickIcon.svg";
-import DotsIcon from "../assets/icons/3DotsIcon.svg";
+import DotsIcon from "../assets/icons/Ellipses.svg";
 import { utilService } from "../services/util.service";
 
 export function SongResults({ songResults, onAddSongToStation }) {

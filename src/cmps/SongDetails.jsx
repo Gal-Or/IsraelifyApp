@@ -4,7 +4,9 @@ export function SongDetails({ song, children, isCompact }) {
   useEffect(() => {
     console.log("SongDetails rendered", isCompact);
   }, [isCompact]);
+
   if (!song) return <div>Loading...</div>;
+
   return (
     <div className="song-details">
       {!isCompact && (

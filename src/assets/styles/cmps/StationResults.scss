@@ -1,12 +1,14 @@
 .station-results {
   max-height: 300px;
   overflow: hidden;
+  padding: 0;
+  margin: 0;
+
   .station-results-container {
     padding: 20px;
     display: flex;
-    gap: 20px;
-    flex-direction: row;
     flex-wrap: wrap;
+    gap: 30px;
 
     .station-card {
       flex: auto;
@@ -14,6 +16,7 @@
       flex-direction: column;
       justify-content: center;
       position: relative;
+
       .station-img {
         position: relative;
         width: 16dvh;
