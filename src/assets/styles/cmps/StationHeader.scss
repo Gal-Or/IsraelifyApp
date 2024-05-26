@@ -1,6 +1,6 @@
-// Mobile layout
 .station-header {
   padding: 1em;
+  overflow: hidden;
 
   .station-header-grid {
     display: flex;
@@ -13,8 +13,8 @@
 
     .station-header-img {
       position: relative;
-      width: em(100px);
-      height: em(100px);
+      width: 100px;
+      height: 100px;
       box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.4);
       border-radius: 5%;
       overflow: hidden;
@@ -63,10 +63,6 @@
         font-weight: normal;
       }
 
-      .station-name {
-        font-size: 1.25em;
-      }
-
       .station-creator {
         font-size: 1em;
       }
@@ -76,6 +72,9 @@
 
 @include for-normal-layout {
   .station-header {
+    height: 100%;
+    padding: 1em;
+
     .station-header-grid {
       display: grid;
       grid-template-columns: 1fr 5fr;
@@ -89,9 +88,8 @@
       justify-content: space-between;
 
       .station-header-img {
-        width: 17vw;
-        height: 17vw;
-        box-shadow: 0 0 100px 20px rgba(0, 0, 0, 0.4);
+        width: 15vw;
+        height: 15vw;
         border-radius: 2.5%;
         overflow: hidden;
 
@@ -129,36 +127,67 @@
       }
 
       .station-header-info {
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: start;
-        justify-content: flex-end;
+        justify-content: end;
         gap: 0;
+
         .station-type {
           font-size: 0.5em;
           font-weight: normal;
+          align-self: start;
         }
         .station-name {
-          font-size: 1.5em;
+          font-size: 3em;
+          font-family: "CircularSpotifyTextBold";
+          font-weight: 700;
+          display: inline;
+          text-wrap: nowrap;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
-        .station-creator {
-          font-size: 0.7em;
+        .station-info {
+          display: flex;
+          flex-direction: row;
+          gap: 0.15em;
+
+          .station-creator {
+            font-family: "CircularSpotifyTextBold";
+            font-weight: 700;
+            display: flex;
+            gap: 0.3em;
+            justify-content: start;
+            align-items: center;
+            font-size: 0.5em;
+
+            &::after {
+              font-size: 0.5em;
+              content: "•";
+            }
+
+            img {
+              width: 35px;
+              height: 35px;
+              border-radius: 50%;
+            }
+          }
+
+          .station-stats {
+            display: flex;
+            gap: 0.5em;
+            font-size: 0.5em;
+            align-items: center;
+            justify-content: start;
+          }
         }
+
         .station-description {
           font-size: 0.5em;
           word-break: break-word;
-        }
-
-        @container (min-width: 1000px) {
-          .station-name {
-            font-size: 3.2em;
-          }
-          .station-creator {
-            font-size: 0.7em;
-          }
-          .station-description {
-            font-size: 0.5em;
-          }
+          color: $sec-font-clr;
         }
       }
     }

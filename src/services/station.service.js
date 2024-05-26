@@ -20,6 +20,7 @@ export const stationService = {
   getStationIds,
   editStationInfo,
   updateSongOrder,
+  getStationDuration,
 };
 
 _createStations();
@@ -147,6 +148,16 @@ async function editStationInfo(station) {
     description: station.description,
   };
   return await save(newStation);
+}
+
+function getStationDuration(songs) {
+  let duration = 0;
+  songs.forEach((song) => {
+    duration += song.duration;
+  });
+  const minutes = Math.floor(duration / 60);
+  const seconds = duration % 60;
+  return `${minutes} min ${seconds < 10 ? "0" + seconds : seconds} sec`;
 }
 
 function _createStations() {
