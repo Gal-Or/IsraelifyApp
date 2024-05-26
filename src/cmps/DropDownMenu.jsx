@@ -3,7 +3,15 @@ import PropTypes from "prop-types";
 import { ReactSVG } from "react-svg";
 
 import tickIcon from "../assets/icons/tick.svg";
-export function Dropdown({ options, onSelect, headline }) {
+export function Dropdown({
+  options,
+  onSelect,
+  headline,
+  toggle,
+  className,
+  toggleTick = false,
+  closeOnSelect = true,
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(options[0]);
   const dropdownRef = useRef(null);
@@ -15,6 +23,7 @@ export function Dropdown({ options, onSelect, headline }) {
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     onSelect(option);
+    if (closeOnSelect) setIsOpen(false);
   };
 
   const handleClickOutside = (event) => {
@@ -31,9 +40,13 @@ export function Dropdown({ options, onSelect, headline }) {
   }, []);
 
   return (
-    <div className="dropdown" ref={dropdownRef}>
+    <div className={`dropdown ${className}`} ref={dropdownRef}>
       <button className="dropdown-toggle" onClick={handleToggle}>
-        {selectedOption ? selectedOption.label : selectedOption.value}
+        {toggle
+          ? toggle
+          : selectedOption
+          ? selectedOption.label
+          : selectedOption.value}
         {selectedOption.icon && (
           <ReactSVG src={selectedOption.icon} className="dropdown-icon" />
         )}
@@ -54,7 +67,7 @@ export function Dropdown({ options, onSelect, headline }) {
                   <ReactSVG src={option.icon} className="dropdown-icon" />
                 )}
                 {option.label}
-                {option.value === selectedOption.value && (
+                {toggleTick && option.value === selectedOption.value && (
                   <ReactSVG src={tickIcon} className="tick-icon" />
                 )}
               </li>

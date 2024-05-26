@@ -1,8 +1,8 @@
 .genre-preview {
   display: flex;
   flex-direction: column;
-  aspect-ratio: 2/1;
-  border-radius: 8px;
+  aspect-ratio: 75/40;
+  border-radius: em(5px);
   overflow: hidden;
   position: relative;
   cursor: pointer;
