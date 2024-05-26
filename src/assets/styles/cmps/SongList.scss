@@ -6,9 +6,10 @@
   .song-header,
   .song-container {
     display: grid;
-    grid-template-columns: 50px 2fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 40% 8fr 8fr 8fr;
     align-items: center;
-    padding: 10px 0;
+    padding: em(10px);
+    gap: em(20px);
 
     .song-order,
     .song-date-added,
@@ -60,8 +61,46 @@
     font-size: 14px;
     width: 100%;
     border-radius: em(5px);
+
+    .song-order-play {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .song-order {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        color: #888;
+      }
+      .play-btn {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        color: #888;
+        background-color: transparent;
+
+        svg {
+          width: em(16px);
+          height: em(16px);
+          fill: white;
+          background-color: transparent;
+        }
+      }
+    }
+
     &:hover {
       background-color: rgba(255, 255, 255, 0.1);
+      .song-order-play {
+        .song-order {
+          display: none;
+        }
+      }
+      .play-btn {
+        display: block;
+      }
     }
   }
   .song-container.active {

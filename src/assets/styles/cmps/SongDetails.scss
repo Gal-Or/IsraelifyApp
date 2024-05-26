@@ -1,14 +1,15 @@
-//for mobile
 .song-details {
   display: flex;
   justify-content: flex-start;
   gap: 10px;
+  max-width: 35vw;
 
   p {
     font-size: rem(13px);
     color: $sec-font-clr;
     overflow: hidden;
-    text-wrap: pretty;
+    white-space: nowrap; // Ensures the text is on a single line
+    text-overflow: ellipsis; // Adds ellipsis (...) if the text is too long
   }
   small {
     font-size: rem(11px);
@@ -17,7 +18,6 @@
   .song-img {
     width: em(56px);
     height: em(56px);
-
     aspect-ratio: 1/1;
 
     img {
@@ -42,23 +42,31 @@
       font-family: unset;
       color: $main-font-clr;
     }
-    p {
-      font-size: rem(13px);
-      color: white;
+    .song-info {
       overflow: hidden;
-      text-wrap: pretty;
+      max-width: 70%;
+
+      p {
+        font-size: rem(13px);
+        color: white;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      small {
+        font-size: rem(11px);
+        color: $sec-font-clr;
+        text-wrap: pretty;
+      }
     }
-    small {
-      font-size: rem(11px);
-      color: $sec-font-clr;
-      text-wrap: pretty;
-    }
+
     .song-img {
-      position: relative; // Ensure positioning context for absolute positioning of play button
+      position: relative;
       width: em(40px);
       height: em(40px);
       border-radius: em(5px);
-      overflow: hidden; // Ensure the play button doesn't overflow the image wrapper
+      overflow: hidden;
       img {
         width: 100%;
         height: 100%;

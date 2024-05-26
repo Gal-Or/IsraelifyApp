@@ -78,8 +78,19 @@ export function SongContainer({
       style={{ opacity: isDragging ? 0.5 : 1 }}
       onClick={() => onClick(song)}
     >
-      <div className="song-order">
-        <span>{index + 1}</span>
+      <div className="song-order-play">
+        <button
+          className="play-btn"
+          onClick={(ev) => {
+            ev.stopPropagation();
+            onPlaySong(song);
+          }}
+        >
+          <ReactSVG
+            src={isPlaying && currentSong.id === song.id ? pauseIcon : playIcon}
+          />
+        </button>
+        <span className="song-order">{index + 1}</span>
       </div>
       <SongDetails song={song} isCompact={isCompact} />
       <div className="song-album">

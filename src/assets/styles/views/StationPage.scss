@@ -1,6 +1,9 @@
 .station-page-container {
-  height: em(350px);
-  padding: 15px;
+  height: 100%;
+  padding: 0;
+  .app-header {
+    padding: 1em;
+  }
 }
 
 .station-page {
