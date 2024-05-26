@@ -2,7 +2,7 @@
   .artist-results-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    grid-auto-rows: fit-content;
+    grid-auto-rows: 1fr;
     gap: 1em;
     padding: 0;
     margin: 0;
@@ -33,7 +33,6 @@
           width: 100%;
           height: 100%;
           border-radius: 50%;
-
           object-fit: cover;
         }
 
