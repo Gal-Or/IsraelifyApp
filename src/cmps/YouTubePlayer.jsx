@@ -1,10 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-
 import { setYoutubePlayer, setIsPlaying } from "../store/player.actions";
-
 import { utilService } from "../services/util.service";
-
 import { TimeBar } from "./TimeBar";
 
 export function YouTubePlayer() {
@@ -14,8 +11,8 @@ export function YouTubePlayer() {
   );
   const isPlaying = useSelector((state) => state.playerModule.isPlaying);
   const currentSong = useSelector((state) => state.playerModule.currentSong);
-  const [PercentagePlayed, setPercentagePlayed] = React.useState(0);
-  const [duration, setDuration] = React.useState(0);
+  const [PercentagePlayed, setPercentagePlayed] = useState(0);
+  const [duration, setDuration] = useState(0);
 
   useEffect(() => {
     if (youtubePlayer && isPlaying) {
@@ -26,7 +23,6 @@ export function YouTubePlayer() {
   }, [isPlaying]);
 
   useEffect(() => {
-    //initiate the youtube player
     const onYouTubeIframeAPIReady = () => {
       setYoutubePlayer(
         new YT.Player("player", {
@@ -34,7 +30,7 @@ export function YouTubePlayer() {
           width: "0",
           videoId: currentSong.id,
           playerVars: {
-            controls: 1,
+            controls: 0,
           },
           events: {
             onReady: (event) => {
@@ -47,8 +43,10 @@ export function YouTubePlayer() {
         })
       );
     };
+
     function onPlayerReady(event) {
       event.target.cueVideoById(currentSong.id);
+      console.log("onPlayerReady");
     }
 
     function onPlayerStateChange(event) {
@@ -71,30 +69,45 @@ export function YouTubePlayer() {
           setPercentagePlayed(0);
           setIsPlaying(false);
           break;
-
         case window.YT.PlayerState.CUED:
+
         default:
           break;
       }
     }
+
     function updateTimeBar(currentTime, duration) {
       const percentage = (currentTime / duration) * 100;
       setPercentagePlayed(percentage);
     }
 
-    // Load YouTube API script asynchronously
     const tag = document.createElement("script");
     tag.src = "https://www.youtube.com/iframe_api";
     const firstScriptTag = document.getElementsByTagName("script")[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+
+    return () => {
+      document.removeEventListener("fullscreenchange", handleFullScreenChange);
+      document.removeEventListener(
+        "mozfullscreenchange",
+        handleFullScreenChange
+      );
+      document.removeEventListener(
+        "webkitfullscreenchange",
+        handleFullScreenChange
+      );
+      document.removeEventListener(
+        "msfullscreenchange",
+        handleFullScreenChange
+      );
+    };
   }, []);
 
   function handleTimeBarChange(newPercentage) {
     const newTime = (newPercentage * duration) / 100;
     youtubePlayer.seekTo(newTime);
     setPercentagePlayed(newPercentage);
-    //updateTimeBar(newTime, youtubePlayer.getDuration());
   }
 
   useEffect(() => {
@@ -106,8 +119,7 @@ export function YouTubePlayer() {
 
   return (
     <div className="youtube-player">
-      <div id="player"></div>
-
+      <div id="player" className="yt"></div>
       {youtubePlayer && youtubePlayer.getCurrentTime ? (
         <span className="current-time">
           {utilService.formatTime(youtubePlayer.getCurrentTime())}
