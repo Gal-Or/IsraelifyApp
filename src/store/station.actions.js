@@ -4,6 +4,7 @@ import { store } from "../store/store.js";
 import { LOAD_STATIONS } from "./station.reducer";
 import { REMOVE_STATION, ADD_STATION } from "./station.reducer";
 import { ADD_SONG_TO_STATION } from "./station.reducer";
+import { SET_CURRENT_STATION } from "./station.reducer";
 
 export async function loadStations() {
   try {
@@ -53,4 +54,11 @@ export async function addSongToStation(song, stationId = 0) {
   } catch (err) {
     console.log("Cannot add song to station", err);
   }
+}
+
+export function setCurrentStation(station) {
+  store.dispatch({
+    type: SET_CURRENT_STATION,
+    station,
+  });
 }

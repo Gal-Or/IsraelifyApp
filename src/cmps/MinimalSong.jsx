@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { ReactSVG } from "react-svg";
-
+import { AddSongToStationButton } from "./AddSongToStationButton";
 import { addSongToStation } from "../store/station.actions";
 
 import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
@@ -39,14 +39,15 @@ export function MinimalSong() {
         <p>{song.name}</p>
         <small>{song.artist}</small>
       </div>
-      <button className="add-to-playlist" onClick={onAddToPlaylist}>
+      <AddSongToStationButton song={song} />
+      {/* <button className="add-to-playlist" onClick={onAddToPlaylist}>
         {likedSongs &&
         likedSongs.find((likedSong) => likedSong.id === song.id) ? (
           <ReactSVG src={tickIcon} className="liked-icon" />
         ) : (
           <ReactSVG src={addToPlaylistIcon} />
         )}
-      </button>
+      </button> */}
     </section>
   );
 }

@@ -1,6 +1,7 @@
 import axios from "axios";
 import qs from "qs";
 import { getJson } from "serpapi";
+import { youtubeService } from "./youtube.service";
 
 import logoBlue3D from "../assets/imgs/logo-Blue3D.png";
 const SPOTIFY_CLIENT_ID = "e87cf49e042f446ca8d49ee1b49653f0";
@@ -122,12 +123,34 @@ function cleanArtistsData(artists) {
 }
 
 async function getSongsByGenre(genre) {
-  const token = await getSpotifyToken();
-  const url = `https://api.spotify.com/v1/recommendations?market=US&limit=40&min_popularity=50&seed_genres=${genre}`;
-  const response = await axios.get(url, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  return response.data.tracks;
+  if (!genre) return [];
+  try {
+    // Check if results are available in the cache
+    const cachedResults = getFromCache(genre);
+    if (cachedResults) {
+      console.log("spotify Results retrieved from cache");
+      return cachedResults;
+    }
+
+    const token = await getSpotifyToken();
+    const url = `https://api.spotify.com/v1/recommendations?market=US&limit=25&min_popularity=50&seed_genres=${genre}`;
+    const response = await axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const songs = response.data.tracks;
+    //add youtube video id to each song
+    // for (let song of songs) {
+    //   const query = `${song.name} ${song.artists[0].name} lyrics`;
+    //   const videoId = await youtubeService.getVideoId(query);
+    //   if (!videoId) continue;
+    //   song.videoId = videoId;
+    // }
+    saveToCache(genre, response.data.tracks);
+    return response.data.tracks;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
 }

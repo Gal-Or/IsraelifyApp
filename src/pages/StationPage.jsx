@@ -1,5 +1,6 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 import { stationService } from "../services/station.service.js";
 
@@ -7,11 +8,15 @@ import { AppHeader } from "../cmps/AppHeader.jsx";
 import { StationHeader } from "../cmps/StationHeader.jsx";
 import { StationContent } from "../cmps/StationContent.jsx";
 import { AddSongs } from "../cmps/AddSongs.jsx";
+import { setCurrentStation } from "../store/station.actions.js";
 
 export function StationPage() {
   const params = useParams();
 
   const [station, setStation] = useState(null);
+  const currentStation = useSelector(
+    (state) => state.stationModule.currentStation
+  );
 
   useEffect(() => {
     loadStation();
@@ -21,6 +26,10 @@ export function StationPage() {
       mainElement.style.backgroundImage = "none";
     };
   }, [params.stationId]);
+
+  useEffect(() => {
+    console.log("Station changed from page ---->:", currentStation);
+  }, [currentStation]);
 
   async function onSetStation(fieldsToUpdate) {
     const updatedStation = { ...station, ...fieldsToUpdate };
@@ -33,6 +42,7 @@ export function StationPage() {
       const station = await stationService.getById(params.stationId);
       setStation(station);
       setMainElementStyle(station.backgroundColor);
+      setCurrentStation(station);
 
       console.log("Loaded station :", station);
     } catch (err) {
@@ -71,8 +81,8 @@ export function StationPage() {
     <div className="station-page-container">
       <AppHeader />
       <section className="station-page">
-        <StationHeader station={station} onSetStation={onSetStation} />
-        <StationContent station={station} />
+        <StationHeader station={currentStation} onSetStation={onSetStation} />
+        <StationContent station={currentStation} />
         <AddSongs onAddSongToStation={onAddSongToStation} />
       </section>
     </div>

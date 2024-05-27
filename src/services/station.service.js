@@ -21,6 +21,7 @@ export const stationService = {
   editStationInfo,
   updateSongOrder,
   getStationDuration,
+  checkIfSongInExistInAnyStation,
 };
 
 _createStations();
@@ -203,6 +204,14 @@ async function updateSongOrder(stationId, songId, newOrder) {
   return await save(station);
 }
 
+async function checkIfSongInExistInAnyStation(song) {
+  const stations = await query();
+  const res = stations.some((station) =>
+    station.songs.find((stationSong) => stationSong.id === song.id)
+  );
+  console.log("checkIfSongInExistInAnyStation", res);
+  return res;
+}
 function _createStation() {
   return {
     _id: "liked-songs",
