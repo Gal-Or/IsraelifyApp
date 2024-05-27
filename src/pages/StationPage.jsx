@@ -15,6 +15,11 @@ export function StationPage() {
 
   useEffect(() => {
     loadStation();
+    return () => {
+      const mainElement = document.querySelector(".main-container");
+      if (!mainElement) return;
+      mainElement.style.backgroundImage = "none";
+    };
   }, [params.stationId]);
 
   async function onSetStation(fieldsToUpdate) {
@@ -27,6 +32,8 @@ export function StationPage() {
     try {
       const station = await stationService.getById(params.stationId);
       setStation(station);
+      setMainElementStyle(station.backgroundColor);
+
       console.log("Loaded station :", station);
     } catch (err) {
       console.log("Error in loadStation:", err);
@@ -53,18 +60,15 @@ export function StationPage() {
     setStation(updatedStation);
   }
 
-  function returnColor(color) {
-    return color.split("(")[1].split(")")[0];
+  function setMainElementStyle(backgroundColor) {
+    const mainElement = document.querySelector(".main-container");
+    if (!mainElement || !backgroundColor) return;
+    mainElement.style.backgroundImage = `linear-gradient(to bottom, ${backgroundColor} 0%,rgba(18,18,18,0.1) 65%)`;
   }
 
   if (!station) return <h1>Loading...</h1>;
   return (
-    <div
-      className="station-page-container"
-      style={{
-        backgroundImage: `linear-gradient(to bottom, ${station.backgroundColor} 0%,rgba(18,18,18,0.1) 65%)`,
-      }}
-    >
+    <div className="station-page-container">
       <AppHeader />
       <section className="station-page">
         <StationHeader station={station} onSetStation={onSetStation} />
