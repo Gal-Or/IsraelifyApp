@@ -22,6 +22,9 @@ export function AddSongToStationButton({ song }) {
     console.log("Current song changed in AddSongToStationButton:", currentSong);
     checkSongExistInAnyStations();
   }, [currentSong]);
+  useEffect(() => {
+    console.log("buttonState changed in AddSongToStationButton:", buttonState);
+  }, [buttonState]);
 
   async function checkSongExistInAnyStations() {
     if (!stations) return;
@@ -43,6 +46,10 @@ export function AddSongToStationButton({ song }) {
 
   function onAddToStation(stationId) {
     console.log("Adding song to station:", stationId);
+    //update the button state when clicling the button
+    if (buttonState === EXIST_IN_STATION) setButtonState(ADD_TO_STATION);
+    else setButtonState(EXIST_IN_STATION);
+
     addSongToStation(song, stationId);
   }
 
