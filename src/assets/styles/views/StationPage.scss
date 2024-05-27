@@ -4,12 +4,20 @@
   .app-header {
     padding: 1em;
   }
+  scrollbar-color: rgba(85, 85, 85, 0.5) transparent;
 }
 
 .station-page {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  hr {
+    border: em(0.6px) solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+  }
+  .add-songs-header-line {
+    padding: 0.625em;
+  }
 
   .station-header {
     grid-row: 1;
