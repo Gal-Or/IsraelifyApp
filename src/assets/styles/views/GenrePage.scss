@@ -1,0 +1,55 @@
+.genre-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+
+  h1 {
+    text-transform: capitalize;
+    color: $primary-color;
+    margin-bottom: 20px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    .songs,
+    .stations {
+      flex: 1;
+      margin-bottom: 20px;
+
+      h2 {
+        font-size: 1.5rem;
+        color: $secondary-color;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+
+        li {
+          padding: 10px;
+          background-color: $background-color;
+          margin-bottom: 10px;
+          border-radius: 5px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: lighten($background-color, 5%);
+          }
+        }
+      }
+
+      p {
+        font-size: 1rem;
+        color: $text-color;
+      }
+    }
+  }
+}

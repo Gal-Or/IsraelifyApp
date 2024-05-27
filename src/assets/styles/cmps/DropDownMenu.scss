@@ -91,6 +91,11 @@
 @media (min-width: 768px) {
   .dropdown-toggle {
     padding: 8px 16px;
+    svg {
+      width: em(25px);
+      height: em(25px);
+      fill: $sec-font-clr;
+    }
   }
 
   .dropdown-menu-container {
