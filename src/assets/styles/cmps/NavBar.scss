@@ -85,6 +85,10 @@
       padding: em(10px);
       overflow-y: scroll;
 
+      .play-btn {
+        display: none;
+      }
+
       .library-header {
         display: grid;
         grid-template-columns: auto auto;
