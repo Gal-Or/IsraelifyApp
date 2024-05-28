@@ -62,6 +62,7 @@ export function StationActions({ station, setIsCompact, isCompact }) {
           onSelect={handleViewSelect}
           headline="View as"
           key={station._id + "view"}
+          toggleTick={true}
         />
       </div>
     </div>

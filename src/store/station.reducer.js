@@ -36,7 +36,7 @@ export function stationReducer(state = initialState, action) {
           return station;
         }),
         currentStation:
-          state.currentStation._id === action.stationId
+          state.currentStation && state.currentStation._id === action.stationId
             ? {
                 ...state.currentStation,
                 songs: [...state.currentStation.songs, action.song],
