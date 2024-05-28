@@ -1,38 +1,43 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { ReactSVG } from "react-svg";
-
 import tickIcon from "../assets/icons/tick.svg";
-export function Dropdown({
-  options, // An array of objects representing the dropdown options. Each object should have 'label' and 'value' properties, and optionally an 'icon' property.
-  onSelect, // A callback function that is triggered when an option is selected. Receives the selected option as an argument.
-  headline, // An optional string that, if provided, will be displayed as a headline at the top of the dropdown menu.
-  toggle, // An optional element or string to customize the dropdown toggle button. If not provided, the selected option's label or value will be used.
-  className, // An optional string for custom CSS classes to style the dropdown component.
-  toggleTick = false, // A boolean that determines whether to show a tick icon next to the selected option in the dropdown menu.
-  closeOnSelect = true, // A boolean that determines whether the dropdown menu should close after an option is selected.
-  showSelected = true, // A boolean that determines whether the selected option should be displayed in the dropdown toggle button.
-}) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(options[0]);
-  const dropdownRef = useRef(null);
 
+// Dropdown component
+export function Dropdown({
+  options, // Array of objects representing the dropdown options.
+  onSelect, // Callback function triggered when an option is selected.
+  headline, // Optional string to display as a headline at the top of the dropdown menu.
+  toggle, // Optional element or string for customizing the dropdown toggle button.
+  className, // Optional string for custom CSS classes.
+  toggleTick = false, // Boolean to show a tick icon next to the selected option.
+  closeOnSelect = true, // Boolean to close the dropdown menu after an option is selected.
+  showSelected = true, // Boolean to display the selected option in the dropdown toggle button.
+}) {
+  const [isOpen, setIsOpen] = useState(false); // State to manage dropdown open/closed state.
+  const [selectedOption, setSelectedOption] = useState(options[0]); // State to manage the selected option.
+  const dropdownRef = useRef(null); // Reference to the dropdown element to detect clicks outside.
+
+  // Toggle the dropdown's open/closed state.
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
 
+  // Handle the selection of an option.
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     onSelect(option);
     if (closeOnSelect) setIsOpen(false);
   };
 
+  // Close the dropdown when clicking outside of it.
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsOpen(false);
     }
   };
 
+  // Add event listener for detecting clicks outside the dropdown.
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -82,13 +87,20 @@ export function Dropdown({
   );
 }
 
+// PropTypes to validate props
 Dropdown.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
       value: PropTypes.any.isRequired,
-      icon: PropTypes.string, // icon is now optional
+      icon: PropTypes.string, // Optional icon property.
     })
   ).isRequired,
   onSelect: PropTypes.func.isRequired,
+  headline: PropTypes.string,
+  toggle: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  className: PropTypes.string,
+  toggleTick: PropTypes.bool,
+  closeOnSelect: PropTypes.bool,
+  showSelected: PropTypes.bool,
 };
