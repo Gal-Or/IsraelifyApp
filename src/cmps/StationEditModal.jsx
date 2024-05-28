@@ -40,7 +40,6 @@ export function StationEditModal({ station, closeModal, onSetStation }) {
   async function onSubmit(ev) {
     ev.preventDefault();
     try {
-      await stationService.editStationInfo(stationToEdit);
       onSetStation({
         name: stationToEdit.name,
         img: stationToEdit.img,

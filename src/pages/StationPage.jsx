@@ -8,12 +8,11 @@ import { AppHeader } from "../cmps/AppHeader.jsx";
 import { StationHeader } from "../cmps/StationHeader.jsx";
 import { StationContent } from "../cmps/StationContent.jsx";
 import { AddSongs } from "../cmps/AddSongs.jsx";
-import { setCurrentStation } from "../store/station.actions.js";
+import { setCurrentStation, updateStation } from "../store/station.actions.js";
 
 export function StationPage() {
   const params = useParams();
 
-  const [station, setStation] = useState(null);
   const currentStation = useSelector(
     (state) => state.stationModule.currentStation
   );
@@ -32,17 +31,15 @@ export function StationPage() {
   }, [currentStation]);
 
   async function onSetStation(fieldsToUpdate) {
-    const updatedStation = { ...station, ...fieldsToUpdate };
-    setStation(updatedStation);
-    await stationService.editStationInfo(updatedStation);
+    const updatedStation = { ...currentStation, ...fieldsToUpdate };
+    await updateStation(updatedStation);
   }
 
   async function loadStation() {
     try {
       const station = await stationService.getById(params.stationId);
-      setStation(station);
-      setMainElementStyle(station.backgroundColor);
       setCurrentStation(station);
+      setMainElementStyle(station.backgroundColor);
 
       console.log("Loaded station :", station);
     } catch (err) {
@@ -53,21 +50,23 @@ export function StationPage() {
   function onAddSongToStation(song) {
     song.addedAt = Date.now();
     console.log("Adding song to station:", song);
-    if (!station) {
+    if (!currentStation) {
       console.log("Station is null. Aborting addition of song.");
       return;
     }
-    if (station.songs.find((stationSong) => stationSong.id === song.id)) {
+    if (
+      currentStation.songs.find((stationSong) => stationSong.id === song.id)
+    ) {
       console.log("Song already exists in the station. Aborting addition.");
       return;
     }
 
     const updatedStation = {
-      ...station,
-      songs: [...station.songs, song],
+      ...currentStation,
+      songs: [...currentStation.songs, song],
     };
 
-    setStation(updatedStation);
+    setCurrentStation(updatedStation);
   }
 
   function setMainElementStyle(backgroundColor) {
@@ -76,7 +75,7 @@ export function StationPage() {
     mainElement.style.backgroundImage = `linear-gradient(to bottom, ${backgroundColor} 0%,rgba(18,18,18,0.1) 65%)`;
   }
 
-  if (!station) return <h1>Loading...</h1>;
+  if (!currentStation) return <div>Loading...</div>;
   return (
     <div className="station-page-container">
       <AppHeader />

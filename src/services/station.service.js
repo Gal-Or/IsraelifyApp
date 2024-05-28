@@ -179,8 +179,8 @@ function _createStations() {
         song.order = idx + 1;
         song.addedAt = Date.now() - Math.floor(Math.random() * 1000000000);
       });
-
-      stations.push(station);
+      if (!stations.find((s) => s._id === station._id)) stations.push(station);
+      else console.log("station already exists");
     });
   }
 

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { ReactSVG } from "react-svg";
 import playIcon from "../assets/icons/playIcon.svg";
 import pauseIcon from "../assets/icons/pauseIcon.svg";
@@ -44,7 +44,6 @@ export function SongContainer({
   const ref = useRef(null);
   const isPlaying = useSelector((state) => state.playerModule.isPlaying);
   const currentSong = useSelector((state) => state.playerModule.currentSong);
-  const dispatch = useDispatch();
 
   const [{ handlerId }, drop] = useDrop({
     accept: "SONG",
@@ -85,14 +84,13 @@ export function SongContainer({
   });
 
   drag(drop(ref));
-
   function onPlaySong(song) {
     if (currentSong.id === song.id) {
-      dispatch(setIsPlaying(!isPlaying));
+      setIsPlaying(!isPlaying);
       return;
     }
-    dispatch(setCurrentSong(song));
-    dispatch(setIsPlaying(true));
+    setCurrentSong(song);
+    setIsPlaying(true);
   }
 
   const handleContextMenu = (event) => {
