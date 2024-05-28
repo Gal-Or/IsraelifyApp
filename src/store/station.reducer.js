@@ -21,6 +21,10 @@ export function stationReducer(state = initialState, action) {
         stations: state.stations.filter(
           (station) => station._id !== action.stationId
         ),
+        currentStation:
+          state.currentStation && state.currentStation._id === action.stationId
+            ? null
+            : state.currentStation,
       };
       break;
     case ADD_STATION:

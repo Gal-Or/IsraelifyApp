@@ -1,13 +1,36 @@
-import { useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { ReactSVG } from "react-svg";
 import playIcon from "../assets/icons/playIcon.svg";
 import pauseIcon from "../assets/icons/pauseIcon.svg";
 import { setCurrentSong, setIsPlaying } from "../store/player.actions";
 import { SongDetails } from "./SongDetails";
-import { SongActions } from "./SongActions";
 import { utilService } from "../services/util.service";
+import { ContextMenu } from "./ContextMenu";
+import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
+import addIcon from "../assets/icons/AddToQueue.svg";
+import deleteIcon from "../assets/icons/delete.svg";
+const options = [
+  {
+    label: "Add to playlist ",
+    value: "open add to playlist modal",
+    icon: <ReactSVG src={addToPlaylistIcon} />,
+    onClick: () => console.log("Add to playlist"),
+  },
+  {
+    label: "Add to queue",
+    value: "add to queue",
+    icon: <ReactSVG src={addIcon} />,
+    onClick: () => console.log("Add to queue"),
+  },
+  {
+    label: "Remove",
+    value: "remove",
+    icon: <ReactSVG src={deleteIcon} />,
+    onClick: () => console.log("Remove"),
+  },
+];
 
 export function SongContainer({
   song,
@@ -17,9 +40,11 @@ export function SongContainer({
   onClick,
   isCompact,
 }) {
+  const [contextMenu, setContextMenu] = useState(null);
   const ref = useRef(null);
   const isPlaying = useSelector((state) => state.playerModule.isPlaying);
   const currentSong = useSelector((state) => state.playerModule.currentSong);
+  const dispatch = useDispatch();
 
   const [{ handlerId }, drop] = useDrop({
     accept: "SONG",
@@ -63,12 +88,24 @@ export function SongContainer({
 
   function onPlaySong(song) {
     if (currentSong.id === song.id) {
-      setIsPlaying(!isPlaying);
+      dispatch(setIsPlaying(!isPlaying));
       return;
     }
-    setCurrentSong(song);
-    setIsPlaying(true);
+    dispatch(setCurrentSong(song));
+    dispatch(setIsPlaying(true));
   }
+
+  const handleContextMenu = (event) => {
+    event.preventDefault();
+    setContextMenu({
+      position: { x: event.clientX, y: event.clientY },
+      options,
+    });
+  };
+
+  const handleCloseContextMenu = () => {
+    setContextMenu(null);
+  };
 
   return (
     <li
@@ -77,6 +114,7 @@ export function SongContainer({
       className={className}
       style={{ opacity: isDragging ? 0.5 : 1 }}
       onClick={() => onClick(song)}
+      onContextMenu={handleContextMenu}
     >
       <div className="song-order-play">
         <button
@@ -102,6 +140,13 @@ export function SongContainer({
       <div className="song-duration">
         <span>{utilService.formatTime(song.duration)}</span>
       </div>
+      {contextMenu && (
+        <ContextMenu
+          position={contextMenu.position}
+          options={contextMenu.options}
+          onClose={handleCloseContextMenu}
+        />
+      )}
     </li>
   );
 }
