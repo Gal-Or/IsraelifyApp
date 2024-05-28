@@ -18,9 +18,15 @@ export function StationList({ width }) {
     if (containerRef.current && containerRef.current.firstElementChild) {
       const firstChild = containerRef.current.firstElementChild;
       const firstChildHeight = firstChild.offsetHeight;
-      containerRef.current.style.maxHeight = `${firstChildHeight}px`;
-      console.log("firstChildHeight:", firstChildHeight);
+
+      if (containerRef.current.parentElement.className !== "library-container") {
+        containerRef.current.style.maxHeight = `${firstChildHeight}px`;
+        console.log("firstChildHeight:", firstChildHeight);
+      }
     }
+    return () => {
+      containerRef.current.style.maxHeight = "none";
+    };
   }, [stations]);
 
   useEffect(() => {
