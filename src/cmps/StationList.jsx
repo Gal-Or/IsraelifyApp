@@ -25,7 +25,8 @@ export function StationList({ width }) {
       }
     }
     return () => {
-      containerRef.current.style.maxHeight = "unset";
+      if (containerRef.current !== null)
+        containerRef.current.style.maxHeight = "unset";
     };
   }, [stations]);
 
