@@ -13,7 +13,12 @@ import deleteIcon from "../assets/icons/delete.svg";
 import editIcon from "../assets/icons/pencil.svg";
 import addIcon from "../assets/icons/AddToQueue.svg";
 
-export function StationActions({ station, setIsCompact, isCompact }) {
+export function StationActions({
+  station,
+  setIsCompact,
+  isCompact,
+  openModal,
+}) {
   const navigate = useNavigate();
   const viewOptions = [
     { label: "List", value: false, icon: listIcon },
@@ -36,7 +41,7 @@ export function StationActions({ station, setIsCompact, isCompact }) {
         navigate("/");
         break;
       case "edit":
-        console.log("edit");
+        openModal(); // Call openModal here
         break;
       case "add to queue":
         console.log("add to queue");
