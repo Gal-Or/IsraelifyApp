@@ -5,14 +5,10 @@ import tempStationImg from "../assets/imgs/logo-Blue3D.png";
 import pencil from "../assets/icons/pencil.svg";
 import { stationService } from "../services/station.service";
 
-export function StationHeader({ station, onSetStation }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+export function StationHeader({ station, onSetStation, openModal }) {
   const stationHeaderRef = useRef(null);
   const stationNameRef = useRef(null);
   const stationImgRef = useRef(null);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
 
   const adjustFontSize = () => {
     const headerWidth = stationHeaderRef.current.offsetWidth;
@@ -93,13 +89,6 @@ export function StationHeader({ station, onSetStation }) {
           </div>
         </div>
       </div>
-      {isModalOpen && (
-        <StationEditModal
-          station={station}
-          closeModal={closeModal}
-          onSetStation={onSetStation}
-        />
-      )}
     </div>
   );
 }

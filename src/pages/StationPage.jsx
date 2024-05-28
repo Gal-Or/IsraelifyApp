@@ -9,9 +9,11 @@ import { StationHeader } from "../cmps/StationHeader.jsx";
 import { StationContent } from "../cmps/StationContent.jsx";
 import { AddSongs } from "../cmps/AddSongs.jsx";
 import { setCurrentStation, updateStation } from "../store/station.actions.js";
+import { StationEditModal } from "../cmps/StationEditModal"; // Import the modal here
 
 export function StationPage() {
   const params = useParams();
+  const [isModalOpen, setIsModalOpen] = useState(false); // Modal state here
 
   const currentStation = useSelector(
     (state) => state.stationModule.currentStation
@@ -75,14 +77,28 @@ export function StationPage() {
     mainElement.style.backgroundImage = `linear-gradient(to bottom, ${backgroundColor} 0%,rgba(18,18,18,0.1) 65%)`;
   }
 
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   if (!currentStation) return <div>Loading...</div>;
   return (
     <div className="station-page-container">
       <AppHeader />
       <section className="station-page">
-        <StationHeader station={currentStation} onSetStation={onSetStation} />
-        <StationContent station={currentStation} />
+        <StationHeader
+          station={currentStation}
+          onSetStation={onSetStation}
+          openModal={openModal}
+        />
+        <StationContent station={currentStation} openModal={openModal} />
         <AddSongs onAddSongToStation={onAddSongToStation} />
+        {isModalOpen && (
+          <StationEditModal
+            station={currentStation}
+            closeModal={closeModal}
+            onSetStation={onSetStation}
+          />
+        )}
       </section>
     </div>
   );

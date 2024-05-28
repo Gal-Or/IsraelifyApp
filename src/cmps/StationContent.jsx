@@ -3,7 +3,7 @@ import { DragAndDropContext } from "./DragAndDropContext";
 import { SongList } from "./SongList";
 import { StationActions } from "./StationActions";
 
-export function StationContent({ station }) {
+export function StationContent({ station, openModal }) {
   const [isCompact, setIsCompact] = useState(false);
 
   return (
@@ -13,6 +13,7 @@ export function StationContent({ station }) {
           station={station}
           setIsCompact={setIsCompact}
           isCompact={isCompact}
+          openModal={openModal}
         />
         <SongList station={station} isCompact={isCompact} />
       </div>
