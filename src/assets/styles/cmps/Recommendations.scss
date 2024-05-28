@@ -8,11 +8,51 @@
     margin: em(4px);
     min-width: em(400px);
 
-
     .mini-preview {
         flex-grow: 1;
         flex-shrink: 1;
         flex-basis: 49%;
+
+        .play-btn {
+
+            display: flex;
+            visibility: hidden;
+            background-color: $logo-clr;
+            border: none;
+            border-radius: 50%;
+            width: em(80px);
+            aspect-ratio: 1/1;
+            opacity: 1;
+            margin-right: em(10px);
+            align-items: center;
+            justify-content: center;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+
+            * {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            svg {
+                width: em(18px);
+                height: em(18px);
+            }
+
+            &:hover {
+                width: em(85px);
+            }
+        }
+
+        &:hover {
+            background-color: rgba(159, 157, 157, 0.375);
+            transition: background-color 0.5s;
+
+            .play-btn {
+                visibility: visible;
+            }
+        }
     }
 
     @container (min-width: 700px) {
