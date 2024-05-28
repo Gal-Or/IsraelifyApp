@@ -16,26 +16,33 @@ export function NavOptions() {
       <Link to="/">
         {location.pathname === '/'
           ?
-          <><ReactSVG src={homeClicked} className="clicked" />
-            <span className="nav-page clicked">Home</span></>
+          <div className="icon-lable-div">
+            <ReactSVG src={homeClicked} className="clicked" />
+            <span className="clicked">Home</span>
+          </div>
           :
-          <><ReactSVG src={home} />
-            <span className="nav-page">Home</span></>}
+          <div className="icon-lable-div"><ReactSVG src={home} />
+            <span >Home</span>
+          </div>}
       </Link>
 
       <Link to="/search">
         {location.pathname === '/search'
           ?
-          <><ReactSVG src={searchClicked} className="clicked" />
-            <span className="nav-page clicked">Search</span></>
+          <div className="icon-lable-div">
+            <ReactSVG src={searchClicked} className="clicked" />
+            <span className="clicked">Search</span>
+          </div>
           :
-          <><ReactSVG src={search} />
-            <span className="nav-page">Search</span></>}
+          <div className="icon-lable-div">
+            <ReactSVG src={search} />
+            <span >Search</span>
+          </div>}
       </Link>
 
-      <Link className="to-library" to="/">
+      {/* <Link className="to-library" to="/">
         Library
-      </Link>
+      </Link> */}
     </div>
   );
 }

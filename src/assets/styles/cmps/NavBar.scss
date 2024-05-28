@@ -1,4 +1,7 @@
 .nav-bar {
+
+  /*  mobile display */
+
   display: flex;
   flex-direction: column;
   gap: em(8px);
@@ -18,17 +21,16 @@
   }
 
   //all the children of the nav-bar border-radius
-  > * {
+  >* {
     border-radius: em(8px);
     background-color: $sec-bg-clr;
   }
 
-  .nav-options {
-    a {
-      display: flex;
-      gap: em(10px);
-      text-decoration: none;
-    }
+
+}
+
+@include for-normal-layout {
+  .nav-bar {
 
     svg {
       height: em(16px);
@@ -36,43 +38,29 @@
       fill: $sec-font-clr;
     }
 
-    .nav-page {
+    span {
       color: $sec-font-clr;
     }
 
-    .clicked {
-      color: white;
+    .icon-lable-div {
+      display: flex;
+      grid-template-columns: 1fr 1fr;
+      gap: em(10px);
+      text-decoration: none;
+    }
+
+    .icon-lable-div:hover {
+      span {
+        color: white;
+        transition: color 300ms linear;
+      }
 
       svg {
         fill: white;
+        transition: fill 300ms linear;
       }
     }
-  }
 
-  ::-webkit-scrollbar-button {
-    display: none;
-  }
-
-  .library-container {
-    padding: 10px;
-    width: 100%;
-    height: 100%;
-    padding: em(10px);
-    overflow-y: scroll;
-  }
-
-  .library-container::-webkit-scrollbar {
-    background-color: transparent;
-    scrollbar-width: thin;
-  }
-
-  .library-container:hover::-webkit-scrollbar-thumb {
-    background: #555;
-  }
-}
-
-@include for-normal-layout {
-  .nav-bar {
     .nav-options {
       display: flex;
       justify-content: start;
@@ -81,9 +69,81 @@
       min-height: em(70px);
       padding: em(20px) em(20px) em(20px) em(5px);
 
-      .to-library {
-        display: none;
+      .clicked {
+        color: white;
+
+        svg {
+          fill: white;
+        }
       }
+    }
+
+    .library-container {
+      padding: 10px;
+      width: 100%;
+      height: 100%;
+      padding: em(10px);
+      overflow-y: scroll;
+
+      .library-header {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: em(10px);
+        background-color: $sec-bg-clr;
+        border-radius: em(8px);
+        margin-bottom: em(10px);
+
+        .icon-lable-div {
+          grid-column: 1;
+        }
+
+        .library-header-right {
+          display: flex;
+          justify-content: end;
+          gap: em(10px);
+          grid-column: 2;
+          grid-row: 1;
+
+          svg {
+            height: em(12px);
+            width: em(12px);
+            fill: $sec-font-clr;
+
+          }
+
+          button {
+            background-color: transparent;
+            cursor: pointer;
+            border-radius: 50%;
+            border: none;
+            aspect-ratio: 1/1;
+
+          }
+
+          button:hover {
+            background-color: rgba(53, 51, 51, 0.363);
+            transition: background-color 150ms linear;
+
+            svg {
+              fill: white;
+              transition: fill 150ms linear;
+            }
+          }
+        }
+      }
+    }
+
+    ::-webkit-scrollbar-button {
+      display: none;
+    }
+
+    .library-container::-webkit-scrollbar {
+      background-color: transparent;
+      scrollbar-width: thin;
+    }
+
+    .library-container:hover::-webkit-scrollbar-thumb {
+      background: #555;
     }
   }
 }
