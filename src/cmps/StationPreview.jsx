@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
+import { ReactSVG } from "react-svg";
+
 import tempStationImg from "../assets/imgs/logo-Blue3D.png";
+import playIcon from "../assets/icons/playIcon.svg";
+
 
 export function StationPreview({ station, width }) {
   var imgSrc = station.img
@@ -13,6 +17,12 @@ export function StationPreview({ station, width }) {
 
       <div className="img-container">
         <img src={imgSrc} alt={station.name} />
+        <button
+          className="play-btn"
+          onClick={() => console.log(station)}
+        >
+          <ReactSVG src={playIcon} />
+        </button>
       </div>
 
       <div className="info-container" style={width < 100 ? { display: "none" } : {}}>
