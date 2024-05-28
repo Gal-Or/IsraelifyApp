@@ -29,17 +29,15 @@
     margin: 0;
     overflow: hidden;
 
-
     .station-preview {
 
       display: flex;
       flex-direction: column;
       justify-content: center;
       position: relative;
-      border-radius: 8px;
-      padding: 10px;
+      border-radius: em(8px);
+      padding: em(10px);
       row-gap: em(5px);
-
 
       .img-container {
 
@@ -63,6 +61,51 @@
           top: 0;
           left: 0;
           border-radius: 5%;
+        }
+
+        .play-btn {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 0;
+          height: 0;
+          opacity: 0;
+          background-color: $logo-clr;
+          border: none;
+          border-radius: 50%;
+        }
+      }
+
+      .info-container {
+
+        span {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      &:hover {
+        background-color: #242424;
+
+        .play-btn {
+          width: 40px;
+          height: 40px;
+          opacity: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          * {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          svg {
+            width: 20px;
+            height: 20px;
+          }
         }
       }
     }
