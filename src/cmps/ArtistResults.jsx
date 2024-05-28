@@ -1,24 +1,30 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { ReactSVG } from "react-svg";
-
 import playIcon from "../assets/icons/playIcon.svg";
+import { useVisibleCount } from "../customHooks/useVisibleCount";
 
 export function ArtistResults({ artistResults }) {
-  const containerRef = useRef(null);
+  // Use the custom hook to get the container ref, visible count, and update function
+  const [containerRef, visibleCount, updateVisibleCount] = useVisibleCount(
+    150,
+    16
+  );
+
+  // Recalculate the visible count when artistResults change
   useEffect(() => {
-    if (containerRef.current && containerRef.current.firstElementChild) {
-      const firstChild = containerRef.current.firstElementChild;
-      const firstChildHeight = firstChild.offsetHeight;
-      containerRef.current.style.maxHeight = `${firstChildHeight}px`;
-    }
-  }, [artistResults]);
+    updateVisibleCount();
+  }, [artistResults, updateVisibleCount]);
+
+  // Show loading message if artistResults are not available
   if (!artistResults) return <div>Loading...</div>;
+
   return (
     <section className="artist-results">
       <h1>Artists</h1>
       <div className="artist-results-container" ref={containerRef}>
         {artistResults &&
-          artistResults.map((artist) => (
+          // Only show the number of items that fit in the visible count
+          artistResults.slice(0, visibleCount).map((artist) => (
             <article key={artist.id} className="artist-card">
               <div className="artist-card-container">
                 <div className="artist-img">

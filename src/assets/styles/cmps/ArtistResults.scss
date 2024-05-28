@@ -2,11 +2,12 @@
   .artist-results-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    grid-auto-rows: 1fr;
     gap: 1em;
     padding: 0;
     margin: 0;
     overflow: hidden;
+    width: 100%;
+    height: auto;
 
     .artist-card {
       display: flex;
@@ -16,15 +17,22 @@
       border-radius: 8px;
       padding: 10px;
 
+      p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
       .artist-img {
         position: relative;
         width: 100%;
         padding-top: 100%; /* This ensures a 1:1 aspect ratio */
-        overflow: hidden;
         display: flex;
-        box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
         justify-content: center;
         align-items: center;
+        box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        border-radius: 50%;
 
         img {
           position: absolute;
@@ -32,21 +40,20 @@
           left: 0;
           width: 100%;
           height: 100%;
-          border-radius: 50%;
+          border-radius: 5%;
           object-fit: cover;
         }
 
         .play-btn {
           position: absolute;
-          bottom: 8px;
-          right: 8px;
+          bottom: 0;
+          right: 0;
           width: 0;
           height: 0;
           opacity: 0;
-          background-color: $logo-clr; /* Use the logo color for the play button */
+          background-color: #007bff;
           border: none;
           border-radius: 50%;
-          z-index: 1;
         }
       }
 
@@ -58,8 +65,14 @@
           height: 40px;
           opacity: 1;
           display: flex;
-          justify-content: center;
           align-items: center;
+          justify-content: center;
+
+          * {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
 
           svg {
             width: 20px;
