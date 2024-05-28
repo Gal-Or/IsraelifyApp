@@ -40,12 +40,7 @@ export function Library({ width, setWidth }) {
           <button className="plus-btn">
             <ReactSVG src={rightArrow} />
           </button>
-
         </div>
-
-
-
-
       </section>
 
       <StationList width={width} />
