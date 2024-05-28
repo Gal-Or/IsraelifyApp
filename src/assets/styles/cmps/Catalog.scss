@@ -1,19 +1,23 @@
 .catalog {
   display: flex;
   flex-direction: column;
-  gap: em(10px);
+  gap: em(5px);
 
   .title-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    height: em(50px);
+    // align-items: center;
+    height: em(40px);
+
+    h3 {
+      font-size: em(20px);
+    }
   }
 
   .show-all-link {
     color: $sec-font-clr;
     align-self: flex-end;
-    font-size: em(14px);
+    font-size: em(12px);
   }
 
   .station-list {
