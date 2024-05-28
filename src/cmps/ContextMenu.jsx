@@ -3,6 +3,29 @@ import React, { useEffect, useRef } from "react";
 export function ContextMenu({ position, options, onClose }) {
   const contextMenuRef = useRef(null);
 
+  const setPosition = (menu) => {
+    if (menu) {
+      const { innerWidth, innerHeight } = window;
+      const { offsetWidth, offsetHeight } = menu;
+      let { x, y } = position;
+
+      const rightOverflow = x + offsetWidth > innerWidth;
+      const bottomOverflow = y + offsetHeight > innerHeight;
+
+      if (rightOverflow && bottomOverflow) {
+        x = x - offsetWidth;
+        y = y - offsetHeight;
+      } else if (rightOverflow) {
+        x = x - offsetWidth;
+      } else if (bottomOverflow) {
+        y = y - offsetHeight;
+      }
+
+      menu.style.left = `${x}px`;
+      menu.style.top = `${y}px`;
+    }
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -21,9 +44,11 @@ export function ContextMenu({ position, options, onClose }) {
 
   return (
     <div
-      ref={contextMenuRef}
+      ref={(el) => {
+        contextMenuRef.current = el;
+        setPosition(el);
+      }}
       className="context-menu"
-      style={{ top: position.y, left: position.x }}
     >
       <ul>
         {options.map((option, index) => (

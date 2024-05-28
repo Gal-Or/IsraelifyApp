@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ReactSVG } from "react-svg";
@@ -11,16 +11,42 @@ import pauseIcon from "../assets/icons/pauseIcon.svg";
 import addIcon from "../assets/icons/plusWithBorderIcon.svg";
 import tickIcon from "../assets/icons/tickIcon.svg";
 import DotsIcon from "../assets/icons/Ellipses.svg";
+import deleteIcon from "../assets/icons/delete.svg";
+import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
 import { utilService } from "../services/util.service";
+import { ContextMenu } from "./ContextMenu";
+
+const options = [
+  {
+    label: "Add to playlist ",
+    value: "open add to playlist modal",
+    icon: <ReactSVG src={addToPlaylistIcon} />,
+    onClick: () => console.log("Add to playlist"),
+  },
+  {
+    label: "Add to queue",
+    value: "add to queue",
+    icon: <ReactSVG src={addIcon} />,
+    onClick: () => console.log("Add to queue"),
+  },
+  {
+    label: "Remove",
+    value: "remove",
+    icon: <ReactSVG src={deleteIcon} />,
+    onClick: () => console.log("Remove"),
+  },
+];
 
 export function SongResults({ songResults, onAddSongToStation }) {
   const params = useParams();
   const [showAll, setShowAll] = useState(false);
+  const [contextMenu, setContextMenu] = useState(null);
   const isPlaying = useSelector((state) => state.playerModule.isPlaying);
   const currentSong = useSelector((state) => state.playerModule.currentSong);
   const stations = useSelector((state) => state.stationModule.stations);
   const [currentStation, setCurrentStation] = useState({ songs: [] });
   const [lastActiveSong, setLastActiveSong] = useState(null);
+  const contextMenuRef = useRef(null);
 
   useEffect(() => {
     let station;
@@ -61,8 +87,21 @@ export function SongResults({ songResults, onAddSongToStation }) {
     setLastActiveSong(song);
   }
 
+  const handleContextMenu = (event, song) => {
+    event.preventDefault();
+    setContextMenu({
+      position: { x: event.clientX, y: event.clientY },
+      options,
+    });
+  };
+
+  const handleCloseContextMenu = () => {
+    setContextMenu(null);
+  };
+
   const displayedSongs = showAll ? songResults : songResults.slice(0, 4);
   if (!currentStation) return <h1>Loading...</h1>;
+
   return (
     <section className="song-results">
       <div className="songs-header">
@@ -74,6 +113,7 @@ export function SongResults({ songResults, onAddSongToStation }) {
           key={song.id}
           className={`song-result ${lastActiveSong === song ? "active" : ""}`}
           onClick={() => setLastActiveSong(song)}
+          onContextMenu={(event) => handleContextMenu(event, song)}
         >
           <div className="song-img">
             <img src={song.img} alt="song-thumbnail" />
@@ -108,10 +148,21 @@ export function SongResults({ songResults, onAddSongToStation }) {
                 ? "live"
                 : utilService.formatTime(song.duration)}
             </span>
-            <ReactSVG src={DotsIcon} />
+            <ReactSVG
+              src={DotsIcon}
+              onClick={(event) => handleContextMenu(event, song)}
+            />
           </div>
         </article>
       ))}
+      {contextMenu && (
+        <ContextMenu
+          ref={contextMenuRef}
+          position={contextMenu.position}
+          options={contextMenu.options}
+          onClose={handleCloseContextMenu}
+        />
+      )}
     </section>
   );
 }
