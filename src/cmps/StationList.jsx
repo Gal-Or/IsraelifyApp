@@ -41,12 +41,13 @@ export function StationList({ width }) {
   return (
     <ul className="station-list" ref={containerRef}>
       {stations?.map((station, index) => (
+
         <article key={index}>
           <NavLink key={index} to={`/station/${station._id}`}>
-            <li key={station._id} className="">
-              <StationPreview station={station} width={width} />
-            </li>
+            <StationPreview station={station} width={width} />
           </NavLink>
+
+
           {/* <button
             className="delete-btn"
             key={station._id}
