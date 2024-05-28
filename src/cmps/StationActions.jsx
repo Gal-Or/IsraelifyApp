@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import { ReactSVG } from "react-svg";
 import { Dropdown } from "./DropDownMenu";
 
+import { removeStation } from "../store/station.actions";
 import playIcon from "../assets/icons/playIcon.svg";
 import pauseIcon from "../assets/icons/pauseIcon.svg";
 import DotsIcon from "../assets/icons/Ellipses.svg";
@@ -12,6 +14,7 @@ import editIcon from "../assets/icons/pencil.svg";
 import addIcon from "../assets/icons/AddToQueue.svg";
 
 export function StationActions({ station, setIsCompact, isCompact }) {
+  const navigate = useNavigate();
   const viewOptions = [
     { label: "List", value: false, icon: listIcon },
     { label: "Compact", value: true, icon: compactIcon },
@@ -26,10 +29,11 @@ export function StationActions({ station, setIsCompact, isCompact }) {
     setIsCompact(option.value);
   };
 
-  const handleMoreSelect = (option) => {
+  const handleMoreSelect = async (option) => {
     switch (option.value) {
       case "delete":
-        console.log("delete");
+        await removeStation(station._id);
+        navigate("/");
         break;
       case "edit":
         console.log("edit");

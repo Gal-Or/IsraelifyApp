@@ -125,8 +125,18 @@ function randomColor() {
 }
 
 function formatDate(date) {
-  return new Date(date).toLocaleDateString("en-US", {
-    month: "short",
-    year: "numeric",
-  });
+  if (!date) return "Unknown date";
+  //if date is more then a week ago return the date
+  if (Date.now() - date > ms("7d"))
+    return new Date(date).toLocaleDateString("en-US", {
+      month: "short",
+      year: "numeric",
+    });
+  //return the time passed since the date with ms lib ,if it less then day give hours and if it less the hour write "last hour")
+  else {
+    if (Date.now() - date < ms("1h")) return "Last hour";
+    if (Date.now() - date < ms("1d"))
+      return ms(Date.now() - date, { long: true }).split(" ")[0] + " hours ago";
+    return ms(Date.now() - date, { long: true }).split(" ")[0] + " days ago";
+  }
 }

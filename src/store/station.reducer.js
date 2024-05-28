@@ -3,6 +3,7 @@ export const REMOVE_STATION = "REMOVE_STATION";
 export const ADD_SONG_TO_STATION = "ADD_SONG_TO_STATION";
 export const ADD_STATION = "ADD_STATION";
 export const SET_CURRENT_STATION = "SET_CURRENT_STATION";
+export const UPDATE_STATION = "UPDATE_STATION";
 
 const initialState = {
   stations: [],
@@ -35,17 +36,36 @@ export function stationReducer(state = initialState, action) {
         ...state,
         stations: state.stations.map((station) => {
           if (station._id === action.stationId) {
-            return { ...station, songs: [...station.songs, action.song] };
+            if (
+              station.songs.find(
+                (stationSong) => stationSong.id === action.song.id
+              )
+            ) {
+              console.log(
+                "Song already exists in the station. Aborting addition."
+              );
+              return station;
+            } else
+              return { ...station, songs: [...station.songs, action.song] };
           }
           return station;
         }),
         currentStation:
           state.currentStation && state.currentStation._id === action.stationId
-            ? {
-                ...state.currentStation,
-                songs: [...state.currentStation.songs, action.song],
-              }
+            ? state.currentStation.songs.find(
+                (stationSong) => stationSong.id === action.song.id
+              )
+              ? state.currentStation
+              : {
+                  ...state.currentStation,
+                  songs: [...state.currentStation.songs, action.song],
+                }
             : state.currentStation,
+        // ? {
+        //     ...state.currentStation,
+        //     songs: [...state.currentStation.songs, action.song],
+        //   }
+        // : state.currentStation,
       };
 
       console.log("New state:", newState);
@@ -54,6 +74,23 @@ export function stationReducer(state = initialState, action) {
     case SET_CURRENT_STATION:
       newState = { ...state, currentStation: action.station };
       console.log("SET_CURRENT_STATION-New state:", newState);
+      break;
+
+    case UPDATE_STATION:
+      newState = {
+        ...state,
+        stations: state.stations.map((station) => {
+          if (station._id === action.station._id) {
+            return { ...station, ...action.station };
+          }
+          return station;
+        }),
+        currentStation:
+          state.currentStation &&
+          state.currentStation._id === action.station._id
+            ? { ...state.currentStation, ...action.station }
+            : state.currentStation,
+      };
       break;
 
     default:
