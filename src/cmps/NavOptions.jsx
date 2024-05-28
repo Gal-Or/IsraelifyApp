@@ -39,10 +39,6 @@ export function NavOptions() {
             <span >Search</span>
           </div>}
       </Link>
-
-      {/* <Link className="to-library" to="/">
-        Library
-      </Link> */}
     </div>
   );
 }
