@@ -69,7 +69,7 @@ async function getSpotifyToken() {
 }
 
 async function getArtistResults(query) {
-  if (!query || query.length < 2) return [];
+  if (!query || query.length < 1) return [];
   try {
     // Check if results are available in the cache
     const cachedResults = getFromCache(query);

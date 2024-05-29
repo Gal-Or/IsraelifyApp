@@ -21,6 +21,8 @@ export function SearchPage() {
     //replace + with spaces
     const formatedQuery = params.query ? params.query.split("+").join(" ") : "";
 
+    if (params.type) console.log("type:", params.type);
+
     getYoutubeResults(formatedQuery);
     getStationResults(formatedQuery);
     getArtistResults(formatedQuery);

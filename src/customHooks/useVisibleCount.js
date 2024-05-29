@@ -21,7 +21,7 @@ export const useVisibleCount = (cardWidth, gapWidth) => {
   };
 
   // Debounced version of the update function to limit how often it runs , 1000ms = 1.0s
-  const debouncedUpdateVisibleCount = debounce(updateVisibleCount, 500);
+  const debouncedUpdateVisibleCount = debounce(updateVisibleCount, 100);
 
   // useEffect to set up the initial visible count and add a resize event listener
   useEffect(() => {
