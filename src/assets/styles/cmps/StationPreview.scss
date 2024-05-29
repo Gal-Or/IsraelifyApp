@@ -6,6 +6,12 @@
         flex-direction: column;
         justify-content: left;
 
+        span {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
         .station-name {
             font-size: em(15px);
         }

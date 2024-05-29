@@ -18,7 +18,8 @@
 
       .station-preview {
         display: grid;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: max-content max-content;
+        column-gap: em(10px);
         padding: em(4px);
         border-radius: em(4px);
 
