@@ -12,13 +12,19 @@
     // .library-header {}
 
     .station-list {
-      row-gap: em(10px);
+      row-gap: em(2px);
       display: flex;
       flex-direction: column;
 
       .station-preview {
         display: grid;
         grid-template-columns: 1fr 2fr;
+        padding: em(4px);
+        border-radius: em(4px);
+
+        &:hover {
+          background-color: rgba(84, 79, 79, 0.149);
+        }
 
         .img-container {
           display: flex;
@@ -29,7 +35,7 @@
             width: em(40px);
             height: em(40px);
             object-fit: cover;
-            border-radius: 10%;
+            border-radius: em(4px);
           }
         }
 
