@@ -1,82 +1,61 @@
 .page-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr auto auto;
-  width: 100%;
-  height: 100%;
-  max-height: 100vh;
-  padding-top: rem(8px);
-  border-radius: rem(5px);
-  overflow-x: hidden;
-  gap: rem(5px);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: em(10px);
+}
 
-  .main-container {
-    overflow-y: scroll;
-    margin-right: rem(8px);
-    // padding-bottom: rem(8px);
-    // padding-right: rem(8px);
-    // padding-left: rem(8px);
-    border-radius: rem(8px);
-    background-color: $sec-bg-clr;
-    // padding: 0 em(15px) em(15px) em(15px);
+.main-content {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+}
 
-    &::-webkit-scrollbar {
-      background-color: transparent;
-      scrollbar-width: thin;
-    }
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+}
 
-    &:hover::-webkit-scrollbar-thumb {
-      background: #555;
-    }
-  }
+.separator {
+  width: 10px;
+  cursor: col-resize;
+  background-color: #ccc;
+}
 
-  .app-footer {
-    position: sticky;
-    bottom: 0;
-    /* Stick to the bottom of the viewport */
-    /* Ensure footer stays above other content */
-    grid-row: 2;
-  }
+.content-area {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+}
 
-  .nav-bar {
-    grid-row: 3;
-    grid-column: 1;
+.main-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-right: 8px;
+  border-radius: 8px;
+  background-color: $sec-bg-clr;
+}
 
-    /* Ensure nav-bar stays above other content */
-  }
+.main-container::-webkit-scrollbar {
+  background-color: transparent;
+  scrollbar-width: thin;
+}
 
-  .side-pop-up {
-    display: none;
-  }
+.main-container:hover::-webkit-scrollbar-thumb {
+  background: #555;
+}
 
-  @include for-normal-layout {
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 12fr 1fr;
+.toggle-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
 
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+.app-footer {
+  flex-shrink: 0;
+}
 
-    .app-footer {
-      grid-row: 2;
-      grid-column: 1 / -1;
-    }
-
-    .nav-bar {
-      grid-row: 1;
-      grid-column: 1;
-      resize: horizontal;
-      overflow-y: auto;
-      position: initial;
-      top: 0;
-      /* Stick to the top of the viewport */
-      left: 0;
-      /* Stick to the left of the viewport */
-    }
-
-    .main-container {
-      grid-row: 1;
-      grid-column: 2;
-    }
-  }
+.side-pop-up {
+  display: flex;
+  flex-direction: column;
 }
