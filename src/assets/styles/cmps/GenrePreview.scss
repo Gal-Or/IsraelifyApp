@@ -1,11 +1,12 @@
 .genre-preview {
   display: flex;
   flex-direction: column;
-  aspect-ratio: 75/40;
+  aspect-ratio: 280/158;
   border-radius: em(5px);
   overflow: hidden;
   position: relative;
   cursor: pointer;
+
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   .genre-img {
     position: absolute;
@@ -14,8 +15,8 @@
     transform: (18%, -2%);
 
     img {
-      max-width: 100px;
-      max-height: 100px;
+      max-width: em(100px);
+      max-height: em(100px);
       transform: rotate(25deg);
       aspect-ratio: 1/1;
       object-fit: cover;
@@ -24,8 +25,9 @@
   span {
     align-self: flex-start;
     justify-self: flex-start;
-    padding: em(10px);
-    font-size: calc(20px + 0.5vw);
+    padding: em(6px) em(10px);
+    font-size: em(20px);
+
     z-index: 1;
   }
 }
