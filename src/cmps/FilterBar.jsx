@@ -1,30 +1,35 @@
-import React, { useState } from "react";
+import { useNavigate, useParams } from "react-router";
 
 export function FilterBar() {
-  const [selectedFilter, setSelectedFilter] = useState("All");
-
+  const { type, query } = useParams();
+  const navigate = useNavigate();
   const handleFilterClick = (filter) => {
-    setSelectedFilter(filter);
-    console.log(`Selected filter: ${filter}`);
+    if (type === filter) return;
+    if (filter === "all") {
+      navigate(`/search/${query}`);
+      return;
+    }
+    // Change the URL to reflect the new filter
+    navigate(`/search/${query}/${filter}`);
   };
 
   return (
     <div className="filter-bar-container">
       <ul className="filter-bar">
         <li
-          className={selectedFilter === "All" ? "selected" : ""}
-          onClick={() => handleFilterClick("All")}
+          className={type === "all" ? "selected" : ""}
+          onClick={() => handleFilterClick("all")}
         >
           All
         </li>
         <li
-          className={selectedFilter === "songs" ? "selected" : ""}
+          className={type === "songs" ? "selected" : ""}
           onClick={() => handleFilterClick("songs")}
         >
           songs
         </li>
         <li
-          className={selectedFilter === "stations" ? "selected" : ""}
+          className={type === "stations" ? "selected" : ""}
           onClick={() => handleFilterClick("stations")}
         >
           stations

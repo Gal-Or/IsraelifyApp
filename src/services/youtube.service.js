@@ -58,7 +58,7 @@ function getFromCache(searchStr) {
 }
 
 async function query(searchStr, maxResults = 10) {
-  if (!searchStr || searchStr.length < 2) return [];
+  if (!searchStr || searchStr.length < 1) return [];
   // Check if results are available in the cache
   const cachedResults = getFromCache(searchStr);
   if (cachedResults) {

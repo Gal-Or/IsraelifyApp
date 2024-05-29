@@ -21,8 +21,14 @@ const routes = [
     component: <SearchPage />,
     label: "Search",
   },
+
   {
     path: "/search/:query",
+    component: <SearchPage />,
+    label: "Search",
+  },
+  {
+    path: "/search/:query/:type",
     component: <SearchPage />,
     label: "Search",
   },
