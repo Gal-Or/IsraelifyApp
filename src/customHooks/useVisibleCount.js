@@ -14,7 +14,7 @@ export const useVisibleCount = (cardWidth, gapWidth) => {
       // Get the width of the container
       const containerWidth = containerRef.current.offsetWidth;
       // Calculate the number of items that fit in the container
-      const count = Math.floor(containerWidth / (cardWidth + gapWidth));
+      const count = Math.floor(containerWidth / (cardWidth + gapWidth + 2));
       // Update the state with the new count
       setVisibleCount(count);
     }
@@ -26,7 +26,7 @@ export const useVisibleCount = (cardWidth, gapWidth) => {
   // useEffect to set up the initial visible count and add a resize event listener
   useEffect(() => {
     // Calculate the initial visible count
-    updateVisibleCount();
+    debouncedUpdateVisibleCount();
     // Add an event listener to update the count on window resize
     window.addEventListener("resize", debouncedUpdateVisibleCount);
     // Cleanup function to remove the event listener when the component unmounts

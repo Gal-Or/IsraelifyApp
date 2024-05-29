@@ -3,7 +3,7 @@
 .search-results {
   display: grid;
   grid-template-columns: 23fr 33fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr 1fr;
   gap: em(10px);
   //set to start from top of the cell
 
