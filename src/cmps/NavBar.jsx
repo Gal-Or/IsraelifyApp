@@ -3,7 +3,10 @@ import { Library } from "./Library";
 
 import { useResizeDetector } from "react-resize-detector";
 
+
 export function NavBar() {
+
+
   const { width, ref } = useResizeDetector({
     handleHeight: false,
     refreshMode: "throttle",

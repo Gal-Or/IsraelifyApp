@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
+import { Dropdown } from "./DropDownMenu";
+
 
 import { stationService } from "../services/station.service";
 
@@ -11,10 +13,25 @@ import LibraryClose from "../assets/icons/libraryClose.svg";
 import LibraryOpen from "../assets/icons/libraryOpen.svg";
 import plus from "../assets/icons/plus.svg";
 import rightArrow from "../assets/icons/full_right_arrow.svg";
+import listIcon from "../assets/icons/list.svg";
+import compactIcon from "../assets/icons/compact.svg";
+
+
 
 export function Library({ width, setWidth }) {
+
+  const [isCompact, setIsCompact] = useState(false);
   const [isOpen, setIsOpen] = useState(true);
   const navigate = useNavigate();
+
+  const viewOptions = [
+    { label: "List", value: false, icon: listIcon },
+    { label: "Compact", value: true, icon: compactIcon },
+  ];
+
+  const handleViewSelect = (option) => {
+    setIsCompact(option.value);
+  };
 
   async function onCreateStation() {
     var newStation = stationService.createDefaultStation();
@@ -41,9 +58,19 @@ export function Library({ width, setWidth }) {
             <ReactSVG src={rightArrow} />
           </button>
         </div>
+
+        <div className="library-view-options">
+          <Dropdown
+            options={viewOptions}
+            onSelect={handleViewSelect}
+            headline="View as"
+            key={"view"}
+            toggleTick={true}
+          />
+        </div>
       </section>
 
-      <StationList width={width} />
+      <StationList width={width} isCompact={isCompact} />
     </section >
   );
 }

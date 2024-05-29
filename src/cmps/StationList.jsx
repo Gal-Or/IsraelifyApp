@@ -7,7 +7,7 @@ import { StationPreview } from "./StationPreview";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-export function StationList({ width }) {
+export function StationList({ width, isCompact }) {
   //const [stations, setStations] = useState([])
   const stations = useSelector(
     (storeState) => storeState.stationModule.stations
@@ -39,12 +39,12 @@ export function StationList({ width }) {
   }
 
   return (
-    <ul className="station-list" ref={containerRef}>
+    <section className={`station-list ${isCompact ? " compact" : ""}`} ref={containerRef} >
       {stations?.map((station, index) => (
 
         <article key={index}>
           <NavLink key={index} to={`/station/${station._id}`}>
-            <StationPreview station={station} width={width} />
+            <StationPreview station={station} width={width} isCompact={isCompact} />
           </NavLink>
 
 
@@ -56,7 +56,8 @@ export function StationList({ width }) {
             Delete
           </button> */}
         </article>
-      ))}
-    </ul>
+      ))
+      }
+    </section >
   );
 }
