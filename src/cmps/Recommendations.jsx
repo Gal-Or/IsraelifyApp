@@ -10,8 +10,7 @@ export function Recommendations() {
       <MiniPreview />
       <MiniPreview />
       <MiniPreview />
-      <MiniPreview />
-      <MiniPreview />
+
     </div>
 
   );
