@@ -17,9 +17,21 @@
 }
 
 .separator {
-  width: 10px;
+  width: 0.08em;
   cursor: col-resize;
-  background-color: #ccc;
+  background-color: transparent;
+  height: 97%;
+  align-self: center;
+  margin: 0 4px;
+  transition: background-color 0.3s ease, height 0.3s ease, margin 0.3s ease;
+
+  &:hover {
+    background-color: rgba($color: $sec-font-clr, $alpha: 0.7);
+  }
+
+  &.dragging {
+    background-color: $sec-font-clr;
+  }
 }
 
 .content-area {
@@ -34,15 +46,15 @@
   margin-right: 8px;
   border-radius: 8px;
   background-color: $sec-bg-clr;
-}
 
-.main-container::-webkit-scrollbar {
-  background-color: transparent;
-  scrollbar-width: thin;
-}
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    scrollbar-width: thin;
+  }
 
-.main-container:hover::-webkit-scrollbar-thumb {
-  background: #555;
+  &:hover::-webkit-scrollbar-thumb {
+    background: #555;
+  }
 }
 
 .toggle-button {

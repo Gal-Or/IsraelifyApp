@@ -12,13 +12,14 @@ export function RootCmp() {
 
   const renderNavBar = (position) => {
     return (
-      <div className="nav-bar" style={{ width: position }}>
+      <div className="nav-bar-content" style={{ width: position }}>
         <NavBar />
       </div>
     );
   };
-  const renderSeperator = (separatorProps) => {
-    return <div className="separator" {...separatorProps} />;
+  const renderSeperator = (separatorProps, isDragging) => {
+    const className = `separator ${isDragging ? "dragging" : ""}`;
+    return <div className={className} {...separatorProps} />;
   };
 
   const renderMainContainer = () => {
@@ -80,10 +81,10 @@ export function RootCmp() {
     <div className="page-container">
       <div className="main-content">
         <Resizable axis="x" initial={250} min={50}>
-          {({ position, separatorProps }) => (
+          {({ position, separatorProps, isDragging }) => (
             <>
               {renderNavBar(position)}
-              {renderSeperator(separatorProps)}
+              {renderSeperator(separatorProps, isDragging)}
               {renderContentArea()}
             </>
           )}
