@@ -4,6 +4,7 @@ import { genresService } from "../services/genres.service.js";
 import { GenrePreview } from "./GenrePreview.jsx";
 import { Link } from "react-router-dom";
 import { Loader } from "./Loader.jsx";
+import { utilService } from "../services/util.service.js";
 
 export function GenreList() {
   const [genres, setGenres] = useState(null);
@@ -12,6 +13,7 @@ export function GenreList() {
   }, []);
   async function loadGenres() {
     const genres = await genresService.query();
+    utilService.shuffle(genres);
     setGenres(genres);
   }
   if (!genres) return <Loader />;

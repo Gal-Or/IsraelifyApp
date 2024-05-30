@@ -12,7 +12,17 @@ export const utilService = {
   formatTime,
   randomColor,
   formatDate,
+  capitalize,
+  shuffle,
 };
+
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
+}
+
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
 function makeId(length = 6) {
   var txt = "";

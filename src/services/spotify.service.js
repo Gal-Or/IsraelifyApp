@@ -146,7 +146,6 @@ async function getSongsByGenre(genre) {
     //   song.videoId = videoId;
     // }
 
-    songs[0].backgroundColor = utilService.randomColor();
     //drop id from songs
     songs = songs.map((song, idx) => {
       return { ...song, id: `track${idx}` };

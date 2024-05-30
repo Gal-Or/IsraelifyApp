@@ -20,6 +20,7 @@ import listIcon from "../assets/icons/listIcon.svg";
 import { Dropdown } from "../cmps/DropDownMenu";
 import elipsesIcon from "../assets/icons/Ellipses.svg";
 import { AppHeader } from "../cmps/AppHeader";
+import { genresService } from "../services/genres.service";
 
 export function GenrePage() {
   const [genreSongs, setGenreSongs] = useState(null);
@@ -46,8 +47,9 @@ export function GenrePage() {
 
   async function loadGenreSongs(genreId) {
     const songs = await spotifyService.getSongsByGenre(genreId);
+    const color = await genresService.getGenreColor(genreId);
     setGenreSongs(songs);
-    setMainElementStyle(songs[0].backgroundColor || "black");
+    setMainElementStyle(color);
   }
 
   const openModal = () => setIsModalOpen(true);

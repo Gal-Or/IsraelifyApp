@@ -2,7 +2,13 @@ import { utilService } from "./util.service";
 import { spotifyService } from "./spotify.service.js";
 export const genresService = {
   query,
+  getGenreColor,
 };
+
+async function getGenreColor(genreId) {
+  const genre = genres.find((genre) => genre.name === genreId);
+  return genre.color;
+}
 const genres = [
   {
     name: "acoustic",
@@ -415,7 +421,7 @@ const genres = [
   {
     name: "kids",
     photo:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGvnrEXhAI9veS9HXSgShNtow6OpZpw6ccdbDPvAAmWSOijBo&s",
+      "https://img.freepik.com/free-vector/little-girl-blowing-flute-with-music-notes-white-background_1308-110144.jpg?t=st=1717085413~exp=1717089013~hmac=9f061ef8e733d458e7c0d2bea7e55977df13fdf360b673fc2a25f29bfa4f2a85&w=1800",
     color: "rgb(205, 237, 114)",
   },
   {
@@ -493,7 +499,7 @@ const genres = [
   {
     name: "opera",
     photo:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6BVx5Y-zETjfO9X9c2CPKuDufrOfSRPdZkBbRfwSvt32NYTI&s",
+      "https://imgs.classicfm.com/images/609444?crop=16_9&width=660&relax=1&format=webp&signature=FZMM8AX-9Fy5JMnzk2Mz0CFscic=",
     color: "rgb(9, 132, 52)",
   },
   {
@@ -584,7 +590,7 @@ const genres = [
     name: "reggae",
     photo:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaZjStIqXMuukJdXaIoVEpgYejHMKnAWYN7oV_eXzbxnF_B-WG&s",
-    color: "rgb(237, 249, 236)",
+    color: "rgb(77, 200, 91)",
   },
   {
     name: "reggaeton",
