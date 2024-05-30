@@ -12,6 +12,7 @@ import { utilService } from "./util.service";
 export const spotifyService = {
   getArtistResults,
   getSongsByGenre,
+  updateGenreSongsCache,
 };
 
 // Function to generate a cache key based on the search query
@@ -20,8 +21,8 @@ function generateCacheKey(query) {
 }
 
 // Function to save results to the cache
-function saveToCache(query, results) {
-  const cacheKey = generateCacheKey(query);
+function saveToCache(query, results, key) {
+  const cacheKey = key || generateCacheKey(query);
   const cacheEntry = {
     query,
     time: new Date().getTime(), // Save current timestamp
@@ -31,8 +32,8 @@ function saveToCache(query, results) {
 }
 
 // Function to retrieve results from the cache
-function getFromCache(query) {
-  const cacheKey = generateCacheKey(query);
+function getFromCache(query, key) {
+  const cacheKey = key || generateCacheKey(query);
   const cachedData = localStorage.getItem(cacheKey);
   if (!cachedData) return null;
   const cacheEntry = JSON.parse(cachedData);
@@ -44,7 +45,6 @@ function getFromCache(query) {
     localStorage.removeItem(cacheKey);
     return null;
   }
-  console.log("cacheEntry", cacheEntry);
   return cacheEntry.results;
 }
 
@@ -74,7 +74,6 @@ async function getArtistResults(query) {
     // Check if results are available in the cache
     const cachedResults = getFromCache(query);
     if (cachedResults) {
-      console.log("spotify Results retrieved from cache");
       return cachedResults;
     }
 
@@ -126,9 +125,8 @@ async function getSongsByGenre(genre) {
   if (!genre) return [];
   try {
     // Check if results are available in the cache
-    const cachedResults = getFromCache(genre);
+    const cachedResults = getFromCache(genre, `spotify_genre_songs_${genre}`);
     if (cachedResults) {
-      console.log("spotify Results retrieved from cache");
       return cachedResults;
     }
 
@@ -139,7 +137,7 @@ async function getSongsByGenre(genre) {
         Authorization: `Bearer ${token}`,
       },
     });
-    const songs = response.data.tracks;
+    var songs = response.data.tracks;
     //add youtube video id to each song
     // for (let song of songs) {
     //   const query = `${song.name} ${song.artists[0].name} lyrics`;
@@ -147,10 +145,29 @@ async function getSongsByGenre(genre) {
     //   if (!videoId) continue;
     //   song.videoId = videoId;
     // }
-    saveToCache(genre, response.data.tracks);
-    return response.data.tracks;
+
+    songs[0].backgroundColor = utilService.randomColor();
+    //drop id from songs
+    songs = songs.map((song) => {
+      return { ...song, id: null };
+    });
+    saveToCache(genre, response.data.tracks, `spotify_genre_songs_${genre}`);
+    return songs;
   } catch (error) {
     console.error("Error fetching data:", error);
     throw error;
   }
+}
+
+//function to update song in cache
+function updateGenreSongsCache(genre, updatedSong) {
+  if (!updatedSong.img) updatedSong.img = updatedSong.album.images[0].url;
+  const cachedResults = getFromCache(genre, `spotify_genre_songs_${genre}`);
+  if (!cachedResults) return;
+
+  const updatedSongs = cachedResults.map((song, idx) =>
+    song.name === updatedSong.name ? updatedSong : song
+  );
+
+  saveToCache(genre, updatedSongs, `spotify_genre_songs_${genre}`);
 }

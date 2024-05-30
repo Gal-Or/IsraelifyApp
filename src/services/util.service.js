@@ -111,6 +111,10 @@ function getAssetSrc(name) {
   return mod.default;
 }
 function formatTime(time) {
+  //if bigger time/60 is bigger then 250 minutes it means that the time come in ms and not in seconds
+  if (time / 60 > 250) {
+    time = time / 1000;
+  }
   const minutes = Math.floor(time / 60);
   const seconds = Math.floor(time % 60);
   return `${minutes < 10 ? "0" : ""}${minutes}:${
@@ -126,6 +130,9 @@ function randomColor() {
 
 function formatDate(date) {
   if (!date) return "Unknown date";
+  if (typeof date === "string") date = new Date(date);
+  if (typeof date === "number") date = new Date(date);
+
   //if date is more then a week ago return the date
   if (Date.now() - date > ms("7d"))
     return new Date(date).toLocaleDateString("en-US", {

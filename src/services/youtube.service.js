@@ -19,7 +19,7 @@ function createResultObj(result) {
   };
 }
 
-const API_KEYS = ["AIzaSyBnlSUfkpYRUJPrMIBWC_8fQRq7Q2C4fas"];
+const API_KEYS = ["AIzaSyA4GrtDo-M6Gj_89NM-arZJGcKRIQvOhkk"];
 let apiIndex = 0;
 
 const CACHE_KEY_PREFIX = "youtube_search_cache_";
@@ -62,7 +62,6 @@ async function query(searchStr, maxResults = 10) {
   // Check if results are available in the cache
   const cachedResults = getFromCache(searchStr);
   if (cachedResults) {
-    console.log("Results retrieved from cache");
     return cachedResults;
   }
   try {
@@ -88,7 +87,6 @@ async function query(searchStr, maxResults = 10) {
 }
 
 async function cleanUpResults(results) {
-  //console.log("before clean", results);
   var cleanResults = results.map((result) => createResultObj(result));
   cleanResults = await getDurations(cleanResults);
   cleanResults.stationIds = await stationService.getStationIds();
@@ -109,7 +107,6 @@ async function getDurations(results) {
           return result;
         }
         result.duration = formatDuration(duration);
-        console.log("duration", result.duration);
         return result;
       } catch (error) {
         console.error("Error fetching duration for video:", error);
@@ -117,7 +114,6 @@ async function getDurations(results) {
       }
     })
   );
-  console.log("after clean", resultsWithDurations);
   return resultsWithDurations;
 }
 
