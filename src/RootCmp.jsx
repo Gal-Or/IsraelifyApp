@@ -6,6 +6,7 @@ import routes from "./routes";
 import { SidePopUp } from "./cmps/SidePopUp";
 import { AppFooter } from "./cmps/AppFooter";
 import { NavBar } from "./cmps/NavBar";
+import { SignInPage } from "./pages/SignInPage";
 
 export function RootCmp() {
   const [showSidePopUp, setShowSidePopUp] = useState(false);
@@ -79,6 +80,9 @@ export function RootCmp() {
 
   return (
     <div className="page-container">
+      <Routes>
+        <Route element={<SignInPage />} path="/signin" />
+      </Routes>
       <div className="main-content">
         <Resizable axis="x" initial={250} min={50}>
           {({ position, separatorProps, isDragging }) => (

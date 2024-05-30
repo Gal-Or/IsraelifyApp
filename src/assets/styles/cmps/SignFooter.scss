@@ -1,0 +1,19 @@
+.sign-footer {
+  background-color: #121212;
+  padding: 20px 0;
+  text-align: center;
+
+  bottom: 0;
+  width: 100%;
+
+  small {
+    color: #b3b3b3;
+    font-size: 12px;
+
+    span {
+      color: #b3b3b3;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}

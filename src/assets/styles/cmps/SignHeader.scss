@@ -1,0 +1,29 @@
+.sign-header {
+  height: 100px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #121212;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  svg {
+    width: 100px;
+    height: 100%;
+    fill: #fff;
+  }
+  .nav-links {
+    display: flex;
+    gap: 20px;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+  }
+}

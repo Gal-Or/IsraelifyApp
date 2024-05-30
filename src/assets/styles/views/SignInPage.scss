@@ -1,0 +1,8 @@
+.sign-in-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: em(30px);
+  background-image: linear-gradient(to bottom, #2a2a2a 0%, #000 100%);
+}

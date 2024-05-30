@@ -7,8 +7,6 @@ import { GenrePage } from "./pages/GenrePage.jsx";
 import { SignInPage } from "./pages/SignInPage.jsx";
 import { SignUpPage } from "./pages/SignUpPage.jsx";
 
-//home-page,signup-page,signin-page,search-page,station-page
-
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
   {
@@ -53,6 +51,11 @@ const routes = [
     component: <GenrePage />,
     label: "Genre",
   },
+];
+
+export default routes;
+
+export const authRoutes = [
   {
     path: "/signin",
     component: <SignInPage />,
@@ -64,5 +67,3 @@ const routes = [
     label: "Sign Up",
   },
 ];
-
-export default routes;

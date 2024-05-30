@@ -1,0 +1,150 @@
+.sign-in-form {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 40px;
+  width: 45vw;
+  margin: 0 auto;
+  padding: 40px 200px;
+  background-color: #121212;
+  border-radius: 8px;
+  text-align: center;
+  aspect-ratio: 735 / 955;
+  color: #ffffff;
+
+  h1 {
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+
+  .social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border: 1px solid #5b5b5b;
+    border-radius: 80px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: transparent;
+  }
+
+  .social-button:hover {
+    opacity: 0.8;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  input {
+    padding: 16px;
+    border: 1px solid #1db954;
+    border-radius: 24px;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    outline: none;
+    width: 100%;
+  }
+
+  input::placeholder {
+    color: #999;
+  }
+
+  .password-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .remember-me input {
+    margin-right: 8px;
+  }
+
+  .login-btn {
+    width: 100%;
+    padding: 16px;
+    background-color: #1db954;
+    border: none;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .login-btn:hover {
+    background-color: #1ed760;
+  }
+
+  .forgot-password {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #1db954;
+  }
+
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+
+  hr {
+    width: 100%;
+    border: 1px solid #333;
+    margin: 24px 0;
+  }
+
+  .sign-up {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sign-up p {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .sign-up a {
+    font-size: 14px;
+    color: #1db954;
+  }
+
+  .sign-up a:hover {
+    text-decoration: underline;
+  }
+}
