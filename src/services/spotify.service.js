@@ -148,8 +148,8 @@ async function getSongsByGenre(genre) {
 
     songs[0].backgroundColor = utilService.randomColor();
     //drop id from songs
-    songs = songs.map((song) => {
-      return { ...song, id: null };
+    songs = songs.map((song, idx) => {
+      return { ...song, id: `track${idx}` };
     });
     saveToCache(genre, response.data.tracks, `spotify_genre_songs_${genre}`);
     return songs;

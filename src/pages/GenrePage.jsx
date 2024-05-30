@@ -56,7 +56,8 @@ export function GenrePage() {
   const onPlaySong = async (song) => {
     var songToPlay = song;
 
-    if (!song.id || song.id.length === 22) {
+    //if song id contains "track" or its length is 22
+    if (song.id.includes("track") || song.id.length === 22) {
       // Fetch YouTube URL for the song
       const searchStr = `${song.name} ${song.artists
         .map((artist) => artist.name)
@@ -67,6 +68,14 @@ export function GenrePage() {
         spotifyService.updateGenreSongsCache(params.genreId, songToPlay);
       }
     }
+
+    if (currentSong.id === songToPlay.id) {
+      setIsPlaying(!isPlaying);
+      return;
+    }
+    setCurrentSong(songToPlay);
+    setIsPlaying(true);
+
     setGenreSongs((prevSongs) => {
       return prevSongs.map((prevSong) => {
         if (prevSong.id === songToPlay.id) {
@@ -75,13 +84,6 @@ export function GenrePage() {
         return prevSong;
       });
     });
-
-    if (currentSong.id === songToPlay.id) {
-      setIsPlaying(!isPlaying);
-      return;
-    }
-    setCurrentSong(songToPlay);
-    setIsPlaying(true);
   };
 
   const viewOptions = [
