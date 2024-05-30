@@ -11,7 +11,7 @@ export function MiniPreview() {
             <span>name</span>
             <button
                 className="play-btn"
-                onClick={() => console.log(station)}
+                onClick={() => console.log("play")}
             >
                 <ReactSVG src={playIcon} />
             </button>
