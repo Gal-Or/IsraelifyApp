@@ -1,4 +1,5 @@
 import { useParams } from "react-router";
+import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 
 import { youtubeService } from "../services/youtube.service.js";
@@ -12,21 +13,36 @@ import { FilterBar } from "../cmps/FilterBar.jsx";
 
 export function SearchPage() {
   var params = useParams();
-
+  const navigate = useNavigate();
+  const [viewType, setViewType] = useState(params.viewType || "all"); // Default to "all"
   const [songResults, setResults] = useState(null);
   const [stationResults, setStationResults] = useState(null);
   const [artistResults, setArtistResults] = useState(null);
 
   useEffect(() => {
-    //replace + with spaces
-    const formatedQuery = params.query ? params.query.split("+").join(" ") : "";
+    // Replace + with spaces
+    const formattedQuery = params.query
+      ? params.query.split("+").join(" ")
+      : "";
 
-    if (params.type) console.log("type:", params.type);
+    if (params.viewType) {
+      setViewType(params.viewType);
+    } else {
+      setViewType("all");
+    }
 
-    getYoutubeResults(formatedQuery);
-    getStationResults(formatedQuery);
-    getArtistResults(formatedQuery);
-  }, [params.query]);
+    getYoutubeResults(formattedQuery);
+    getStationResults(formattedQuery);
+    getArtistResults(formattedQuery);
+  }, [params.query, params.viewType]);
+
+  // On view type change navigate to the new URL
+  useEffect(() => {
+    if (viewType !== params.viewType) {
+      navigate(`/search/${params.query}/${viewType}`);
+      if (!params.query) navigate(`/search`);
+    }
+  }, [viewType]);
 
   async function getYoutubeResults(query) {
     var res = await youtubeService.query(query);

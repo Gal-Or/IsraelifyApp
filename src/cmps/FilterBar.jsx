@@ -34,6 +34,12 @@ export function FilterBar() {
         >
           stations
         </li>
+        <li
+          className={type === "artists" ? "selected" : ""}
+          onClick={() => handleFilterClick("artists")}
+        >
+          artists
+        </li>
       </ul>
     </div>
   );
