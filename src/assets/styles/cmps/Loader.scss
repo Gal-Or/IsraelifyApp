@@ -11,7 +11,7 @@
     width: 12px;
     height: 12px;
     margin: 8px;
-    background-color: #1db954; // Spotify green for circles
+    background-color: $logo-clr;
     border-radius: 50%;
     animation: bounce 1.2s infinite ease-in-out both;
   }
@@ -26,7 +26,7 @@
 
   .loader-text {
     margin-top: 20px;
-    color: #1db954; // Spotify green for text
+    color: $logo-clr;
     font-size: 1.2rem;
     font-weight: bold;
     letter-spacing: 1px;
