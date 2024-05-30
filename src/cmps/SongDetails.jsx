@@ -1,11 +1,8 @@
 import React, { useEffect } from "react";
+import { Loader } from "./Loader";
 
 export function SongDetails({ song, children, isCompact }) {
-  useEffect(() => {
-    console.log("SongDetails rendered", isCompact);
-  }, [isCompact]);
-
-  if (!song) return <div>Loading...</div>;
+  if (!song) return <Loader />;
 
   return (
     <div className="song-details">

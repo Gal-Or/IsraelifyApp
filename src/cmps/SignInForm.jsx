@@ -3,6 +3,7 @@ import { ReactSVG } from "react-svg";
 import facebookIcon from "../assets/icons/facebook.svg";
 import googleIcon from "../assets/icons/google.svg";
 import appleIcon from "../assets/icons/apple.svg";
+import { NavLink } from "react-router-dom";
 
 export function SignInForm() {
   return (
@@ -21,6 +22,9 @@ export function SignInForm() {
           <ReactSVG src={appleIcon} className="icon" />
           Continue with Apple
         </button>
+        <NavLink to="/">
+          <button className="social-button as guest">Continue as guest</button>{" "}
+        </NavLink>
       </div>
       <form>
         <div className="input-group">

@@ -4,6 +4,7 @@ import { ReactSVG } from "react-svg";
 import tempStationImg from "../assets/imgs/logo-Blue3D.png";
 import playIcon from "../assets/icons/playIcon.svg";
 import { useVisibleCount } from "../customHooks/useVisibleCount";
+import { Loader } from "./Loader";
 
 export function StationResults({ stationResults }) {
   // Use the custom hook to get the container ref, visible count, and update function
@@ -18,7 +19,7 @@ export function StationResults({ stationResults }) {
   }, [stationResults, updateVisibleCount]);
 
   // Show loading message if stationResults are not available
-  if (!stationResults) return <div>Loading...</div>;
+  if (!stationResults) return <Loader />;
 
   return (
     <section className="station-results">

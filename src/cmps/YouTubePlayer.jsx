@@ -46,7 +46,6 @@ export function YouTubePlayer() {
 
     function onPlayerReady(event) {
       event.target.cueVideoById(currentSong.id);
-      console.log("onPlayerReady");
     }
 
     function onPlayerStateChange(event) {

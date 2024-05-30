@@ -17,6 +17,8 @@ export function TopResult({ song }) {
     setIsPlaying(true);
   }
 
+  if (!song) return <Loader />;
+
   return (
     <div className="top-song-result">
       <h1>Top result</h1>

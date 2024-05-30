@@ -15,6 +15,7 @@ import deleteIcon from "../assets/icons/delete.svg";
 import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
 import { utilService } from "../services/util.service";
 import { ContextMenu } from "./ContextMenu";
+import { Loader } from "./Loader";
 
 const options = [
   {
@@ -100,7 +101,8 @@ export function SongResults({ songResults, onAddSongToStation }) {
   };
 
   const displayedSongs = showAll ? songResults : songResults.slice(0, 4);
-  if (!currentStation) return <h1>Loading...</h1>;
+  if (!currentStation) return <Loader />;
+  if (!songResults || !songResults.length) return <Loader />;
 
   return (
     <section className="song-results">

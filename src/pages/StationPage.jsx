@@ -10,6 +10,7 @@ import { StationContent } from "../cmps/StationContent.jsx";
 import { AddSongs } from "../cmps/AddSongs.jsx";
 import { setCurrentStation, updateStation } from "../store/station.actions.js";
 import { StationEditModal } from "../cmps/StationEditModal"; // Import the modal here
+import { Loader } from "../cmps/Loader.jsx";
 
 export function StationPage() {
   const params = useParams();
@@ -28,9 +29,7 @@ export function StationPage() {
     };
   }, [params.stationId]);
 
-  useEffect(() => {
-    console.log("Station changed from page ---->:", currentStation);
-  }, [currentStation]);
+  useEffect(() => {}, [currentStation]);
 
   async function onSetStation(fieldsToUpdate) {
     const updatedStation = { ...currentStation, ...fieldsToUpdate };
@@ -42,8 +41,6 @@ export function StationPage() {
       const station = await stationService.getById(params.stationId);
       setCurrentStation(station);
       setMainElementStyle(station.backgroundColor);
-
-      console.log("Loaded station :", station);
     } catch (err) {
       console.log("Error in loadStation:", err);
     }
@@ -51,7 +48,6 @@ export function StationPage() {
 
   function onAddSongToStation(song) {
     song.addedAt = Date.now();
-    console.log("Adding song to station:", song);
     if (!currentStation) {
       console.log("Station is null. Aborting addition of song.");
       return;
@@ -80,7 +76,7 @@ export function StationPage() {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  if (!currentStation) return <div>Loading...</div>;
+  if (!currentStation) return <Loader />;
   return (
     <div className="station-page-container">
       <AppHeader />

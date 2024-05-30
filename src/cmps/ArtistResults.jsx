@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { ReactSVG } from "react-svg";
 import playIcon from "../assets/icons/playIcon.svg";
 import { useVisibleCount } from "../customHooks/useVisibleCount";
+import { Loader } from "./Loader";
 
 export function ArtistResults({ artistResults }) {
   // Use the custom hook to get the container ref, visible count, and update function
@@ -16,7 +17,7 @@ export function ArtistResults({ artistResults }) {
   }, [artistResults, updateVisibleCount]);
 
   // Show loading message if artistResults are not available
-  if (!artistResults) return <div>Loading...</div>;
+  if (!artistResults) return <Loader />;
 
   return (
     <section className="artist-results">

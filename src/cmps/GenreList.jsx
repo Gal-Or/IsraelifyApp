@@ -3,6 +3,7 @@ import { genresService } from "../services/genres.service.js";
 
 import { GenrePreview } from "./GenrePreview.jsx";
 import { Link } from "react-router-dom";
+import { Loader } from "./Loader.jsx";
 
 export function GenreList() {
   const [genres, setGenres] = useState(null);
@@ -13,7 +14,7 @@ export function GenreList() {
     const genres = await genresService.query();
     setGenres(genres);
   }
-  if (!genres) return <div>Loading...</div>;
+  if (!genres) return <Loader />;
   return (
     <section className="genre-list">
       {genres.map((genre) => (
