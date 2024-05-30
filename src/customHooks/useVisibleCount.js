@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { debounce } from "lodash";
+import { throttle } from "lodash";
 
 // Custom hook to calculate the number of visible items in a grid
 export const useVisibleCount = (cardWidth, gapWidth) => {
@@ -20,19 +20,19 @@ export const useVisibleCount = (cardWidth, gapWidth) => {
     }
   };
 
-  // Debounced version of the update function to limit how often it runs , 1000ms = 1.0s
-  const debouncedUpdateVisibleCount = debounce(updateVisibleCount, 100);
+  // Throttled version of the update function to limit how often it runs , 1000ms = 1.0s
+  const throttledUpdateVisibleCount = throttle(updateVisibleCount, 20);
 
   // useEffect to set up the initial visible count and add a resize event listener
   useEffect(() => {
     // Calculate the initial visible count
-    debouncedUpdateVisibleCount();
+    throttledUpdateVisibleCount();
     // Add an event listener to update the count on window resize
-    window.addEventListener("resize", debouncedUpdateVisibleCount);
+    window.addEventListener("resize", throttledUpdateVisibleCount);
     // Cleanup function to remove the event listener when the component unmounts
     return () =>
-      window.removeEventListener("resize", debouncedUpdateVisibleCount);
-  }, [debouncedUpdateVisibleCount]);
+      window.removeEventListener("resize", throttledUpdateVisibleCount);
+  }, [throttledUpdateVisibleCount]);
 
   // Return the container reference, visible count, and update function
   return [containerRef, visibleCount, updateVisibleCount];
