@@ -103,6 +103,10 @@ export function YouTubePlayer() {
     };
   }, []);
 
+  function handleFullScreenChange() {
+    console.log("full screen change");
+  }
+
   function handleTimeBarChange(newPercentage) {
     const newTime = (newPercentage * duration) / 100;
     youtubePlayer.seekTo(newTime);
