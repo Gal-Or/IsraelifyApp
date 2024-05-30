@@ -1,5 +1,4 @@
 import { Navigate } from "react-router";
-
 import { HomePage } from "./pages/HomePage.jsx";
 import { SearchPage } from "./pages/SearchPage.jsx";
 import { StationPage } from "./pages/StationPage.jsx";
@@ -7,7 +6,7 @@ import { GenrePage } from "./pages/GenrePage.jsx";
 import { SignInPage } from "./pages/SignInPage.jsx";
 import { SignUpPage } from "./pages/SignUpPage.jsx";
 
-// Routes accesible from the main navigation (in AppHeader)
+// Routes accessible from the main navigation (in AppHeader)
 const routes = [
   {
     path: "/",
@@ -19,19 +18,18 @@ const routes = [
     component: <SearchPage />,
     label: "Search",
   },
-
   {
     path: "/search/:query",
     component: <SearchPage />,
     label: "Search",
   },
   {
-    path: "/search/:query/:type",
+    path: "/search/:query/:viewType",
     component: <SearchPage />,
     label: "Search",
   },
   {
-    //return to home page if no stationId
+    // Return to home page if no stationId
     path: "/station",
     component: <Navigate to="/" replace />,
     label: "Station",

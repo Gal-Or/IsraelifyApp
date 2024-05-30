@@ -23,7 +23,7 @@ export function SignInForm() {
           Continue with Apple
         </button>
         <NavLink to="/">
-          <button className="social-button as guest">Continue as guest</button>{" "}
+          <button className="social-button guest">Continue as guest</button>
         </NavLink>
       </div>
       <form>

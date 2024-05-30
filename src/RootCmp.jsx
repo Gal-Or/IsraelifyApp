@@ -1,16 +1,12 @@
-import { useState } from "react";
-import { Routes, Route } from "react-router";
+import React, { useState } from "react";
+import { Routes, Route, Navigate } from "react-router";
 import Resizable from "react-resizable-layout";
-
-import routes from "./routes";
 import { SidePopUp } from "./cmps/SidePopUp";
 import { AppFooter } from "./cmps/AppFooter";
 import { NavBar } from "./cmps/NavBar";
-import { SignInPage } from "./pages/SignInPage";
+import routes, { authRoutes } from "./routes";
 
-export function RootCmp() {
-  const [showSidePopUp, setShowSidePopUp] = useState(false);
-
+const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
   const renderNavBar = (position) => {
     return (
       <div className="nav-bar-content" style={{ width: position }}>
@@ -18,6 +14,7 @@ export function RootCmp() {
       </div>
     );
   };
+
   const renderSeperator = (separatorProps, isDragging) => {
     const className = `separator ${isDragging ? "dragging" : ""}`;
     return <div className={className} {...separatorProps} />;
@@ -36,15 +33,10 @@ export function RootCmp() {
             />
           ))}
         </Routes>
-        {/* <button
-                          className="toggle-button"
-                          onClick={() => setShowSidePopUp((prev) => !prev)}
-                        >
-                          Toggle SidePopUp
-                        </button> */}
       </main>
     );
   };
+
   const renderSidePopUp = (separatorPropsRight, positionRight) => {
     return (
       showSidePopUp && (
@@ -59,8 +51,6 @@ export function RootCmp() {
   };
 
   const renderContentArea = () => {
-    //main + optional side pop up
-
     return (
       <div className="content-area">
         <Resizable axis="x" initial={0} min={0} reverse={true}>
@@ -80,9 +70,6 @@ export function RootCmp() {
 
   return (
     <div className="page-container">
-      <Routes>
-        <Route element={<SignInPage />} path="/signin" />
-      </Routes>
       <div className="main-content">
         <Resizable axis="x" initial={250} min={50}>
           {({ position, separatorProps, isDragging }) => (
@@ -96,5 +83,31 @@ export function RootCmp() {
       </div>
       <AppFooter className="app-footer" />
     </div>
+  );
+};
+
+export function RootCmp() {
+  const [showSidePopUp, setShowSidePopUp] = useState(false);
+
+  return (
+    <Routes>
+      <Route
+        path="/*"
+        element={
+          <PageContainer
+            showSidePopUp={showSidePopUp}
+            setShowSidePopUp={setShowSidePopUp}
+          />
+        }
+      />
+      {authRoutes.map((route) => (
+        <Route
+          key={route.path}
+          exact={true}
+          element={route.component}
+          path={route.path}
+        />
+      ))}
+    </Routes>
   );
 }

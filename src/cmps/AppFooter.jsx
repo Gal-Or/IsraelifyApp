@@ -3,9 +3,10 @@ import { useLocation } from "react-router-dom";
 
 export function AppFooter() {
   //show footer only if it's not the in the sign pages , use react hook
-  const isSignPage = useLocation().pathname.includes("sign");
+  const isSignPage = useLocation();
 
-  if (isSignPage) return null;
+  if (isSignPage.pathname === "/signin" || isSignPage.pathname === "/signup")
+    return null;
 
   return (
     <footer className="app-footer">
