@@ -566,7 +566,7 @@ const genres = [
     name: "punk",
     photo:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKAnm-vrY4WR7J1NbiOa5qpbKViGJbCuwMxRMG0-k7LIB3euPI&s",
-    color: "rgb(203, 215, 242)",
+    color: "rgb(150, 20, 20)",
   },
   {
     name: "punk-rock",

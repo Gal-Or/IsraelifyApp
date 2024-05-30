@@ -4,12 +4,15 @@ import { SongResults } from "./SongResults";
 import { StationResults } from "./StationResults";
 import { ArtistResults } from "./ArtistResults";
 import { TopResult } from "./TopResult";
+import { Loader } from "./Loader";
 
 export function SearchResults({ songResults, stationResults, artistResults }) {
   const currentSong = useSelector((state) => state.playerModule.currentSong);
   const isPlaying = useSelector((state) => state.playerModule.isPlaying);
   const { viewType } = useParams();
+  const { query } = useParams();
 
+  if (!songResults && !stationResults && !artistResults) return <Loader />;
   return (
     <>
       {viewType === "all" && (

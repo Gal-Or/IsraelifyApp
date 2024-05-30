@@ -12,7 +12,7 @@ import { SearchResults } from "../cmps/SearchResults.jsx";
 import { FilterBar } from "../cmps/FilterBar.jsx";
 
 export function SearchPage() {
-  var params = useParams();
+  const params = useParams();
   const navigate = useNavigate();
   const [viewType, setViewType] = useState(params.viewType || "all"); // Default to "all"
   const [songResults, setResults] = useState(null);
@@ -25,12 +25,7 @@ export function SearchPage() {
       ? params.query.split("+").join(" ")
       : "";
 
-    if (params.viewType) {
-      setViewType(params.viewType);
-    } else {
-      setViewType("all");
-    }
-
+    setViewType(params.viewType || "all");
     getYoutubeResults(formattedQuery);
     getStationResults(formattedQuery);
     getArtistResults(formattedQuery);
@@ -42,16 +37,18 @@ export function SearchPage() {
       navigate(`/search/${params.query}/${viewType}`);
       if (!params.query) navigate(`/search`);
     }
-  }, [viewType]);
+  }, [viewType, params.query]);
 
   async function getYoutubeResults(query) {
     var res = await youtubeService.query(query);
     setResults(res);
   }
+
   async function getStationResults(query) {
     var res = await stationService.findStationWithQuery(query);
     setStationResults(res);
   }
+
   async function getArtistResults(query) {
     var res = await spotifyService.getArtistResults(query);
     setArtistResults(res);
@@ -67,7 +64,7 @@ export function SearchPage() {
           <>
             <FilterBar />
             <SearchResults
-              songResults={songResults ? songResults : []}
+              songResults={songResults || []}
               stationResults={stationResults}
               artistResults={artistResults}
             />
