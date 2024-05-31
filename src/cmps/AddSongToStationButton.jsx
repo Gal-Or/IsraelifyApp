@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { ReactSVG } from "react-svg";
+import { CustomTooltip } from "./CustomTooltip";
 
 import tickIcon from "../assets/icons/tickIcon.svg";
 import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
@@ -19,11 +20,7 @@ export function AddSongToStationButton({ song }) {
   const [buttonState, setButtonState] = useState(ADD_TO_LIKED_SONGS);
 
   useEffect(() => {
-    console.log("Current song changed in AddSongToStationButton:", currentSong);
-    checkSongExistInAnyStations();
-  }, [currentSong]);
-  useEffect(() => {
-    console.log("buttonState changed in AddSongToStationButton:", buttonState);
+    console.log("buttonState :", buttonState);
   }, [buttonState]);
 
   async function checkSongExistInAnyStations() {
@@ -65,13 +62,29 @@ export function AddSongToStationButton({ song }) {
     }
   }
 
+  function getTooltipText(buttonState) {
+    switch (buttonState) {
+      case ADD_TO_LIKED_SONGS:
+        return "Add to Liked Songs";
+        break;
+      case ADD_TO_STATION:
+        return "Add to Station";
+        break;
+      case EXIST_IN_STATION:
+        return "Remove from Station";
+        break;
+    }
+  }
+
   return (
-    <button
-      className="add-to-playlist"
-      onClick={() => onAddToStation("liked-songs")}
-    >
-      {renderButtonStateSwitch(buttonState)}
-    </button>
+    <CustomTooltip title={getTooltipText(buttonState)}>
+      <button
+        className="add-to-playlist"
+        onClick={() => onAddToStation("liked-songs")}
+      >
+        {renderButtonStateSwitch(buttonState)}
+      </button>
+    </CustomTooltip>
   );
 }
 

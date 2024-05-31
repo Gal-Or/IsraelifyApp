@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { ReactSVG } from "react-svg";
 
 import { YouTubePlayer } from "./YouTubePlayer";
+import { CustomTooltip } from "./CustomTooltip";
 
 import { setIsPlaying } from "../store/player.actions";
 
@@ -26,22 +27,30 @@ export function Player() {
   return (
     <div className="player">
       <div className="player-controls">
-        <button className="next-prev">
-          <ReactSVG src={PrevSongIcon} />
-        </button>
-        {isPlaying ? (
-          <button onClick={onPause}>
-            <ReactSVG src={pauseIcon} />{" "}
+        <CustomTooltip title="Previous">
+          <button className="next-prev">
+            <ReactSVG src={PrevSongIcon} />
           </button>
-        ) : (
-          <button onClick={onPlay} className="play-btn">
-            {" "}
-            <ReactSVG src={playIcon} />{" "}
+        </CustomTooltip>
+        <CustomTooltip title="Play">
+          <div>
+            {isPlaying ? (
+              <button onClick={onPause}>
+                <ReactSVG src={pauseIcon} />{" "}
+              </button>
+            ) : (
+              <button onClick={onPlay} className="play-btn">
+                {" "}
+                <ReactSVG src={playIcon} />{" "}
+              </button>
+            )}
+          </div>
+        </CustomTooltip>
+        <CustomTooltip title="Next">
+          <button className="next-prev">
+            <ReactSVG src={NextSongIcon} />
           </button>
-        )}
-        <button className="next-prev">
-          <ReactSVG src={NextSongIcon} />
-        </button>
+        </CustomTooltip>
       </div>
       <YouTubePlayer />
     </div>

@@ -1,14 +1,35 @@
 .player-actions {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(50px, 1fr));
+  gap: 1em;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  //align all items to the center of thier cell
   justify-content: center;
-  align-self: center;
   align-items: center;
-  gap: em(15px);
 
+  button {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      svg {
+        fill: $logo-clr;
+        height: 18px;
+        width: 18px;
+      }
+    }
+  }
   svg {
     fill: $sec-font-clr;
-    height: em(16px);
-    width: em(16px);
+    height: 16px;
+    width: 16px;
     cursor: pointer;
   }
 }

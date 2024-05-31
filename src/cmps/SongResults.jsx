@@ -16,6 +16,8 @@ import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
 import { utilService } from "../services/util.service";
 import { ContextMenu } from "./ContextMenu";
 import { Loader } from "./Loader";
+import { CustomTooltip } from "./CustomTooltip";
+import { AddSongToStationButton } from "./AddSongToStationButton";
 
 const options = [
   {
@@ -132,28 +134,20 @@ export function SongResults({ songResults, onAddSongToStation }) {
             <small>{song.artist}</small>
           </div>
           <div className="song-actions">
-            {currentStation.songs.find(
-              (stationSong) => stationSong.id === song.id
-            ) ? (
-              <ReactSVG
-                src={tickIcon}
-                onClick={() => {
-                  console.log("song already in station");
-                }}
-                className="added"
-              />
-            ) : (
-              <ReactSVG src={addIcon} onClick={() => onAddToPlaylist(song)} />
-            )}
+            <AddSongToStationButton song={song} />
             <span className="duration">
               {song.duration === 0
                 ? "live"
                 : utilService.formatTime(song.duration)}
             </span>
-            <ReactSVG
-              src={DotsIcon}
-              onClick={(event) => handleContextMenu(event, song)}
-            />
+            <CustomTooltip title={`More options for ${song.name}`}>
+              <div>
+                <ReactSVG
+                  src={DotsIcon}
+                  onClick={(event) => handleContextMenu(event, song)}
+                />
+              </div>
+            </CustomTooltip>
           </div>
         </article>
       ))}

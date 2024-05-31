@@ -13,6 +13,8 @@ import deleteIcon from "../assets/icons/delete.svg";
 import editIcon from "../assets/icons/pencil.svg";
 import addIcon from "../assets/icons/AddToQueue.svg";
 
+import { CustomTooltip } from "./CustomTooltip";
+
 export function StationActions({
   station,
   setIsCompact,
@@ -54,17 +56,19 @@ export function StationActions({
       <button className="play-btn">
         <ReactSVG src={playIcon} />
       </button>
-      <div className="more-options">
-        <Dropdown
-          options={moreOptions}
-          onSelect={handleMoreSelect}
-          toggle={<ReactSVG src={DotsIcon} />}
-          toggleTick={false}
-          closeOnSelect={true}
-          showSelected={false}
-          key={station._id + "more"}
-        />
-      </div>
+      <CustomTooltip title={`More options for ${station.name}`}>
+        <div className="more-options">
+          <Dropdown
+            options={moreOptions}
+            onSelect={handleMoreSelect}
+            toggle={<ReactSVG src={DotsIcon} />}
+            toggleTick={false}
+            closeOnSelect={true}
+            showSelected={false}
+            key={station._id + "more"}
+          />
+        </div>
+      </CustomTooltip>
       <div className="change-view">
         <Dropdown
           options={viewOptions}

@@ -5,7 +5,8 @@ import { useSpacebarPlayPause } from "../customHooks/useSpacebarPlayPause";
 import speaker from "../assets/icons/speaker.svg";
 import speakerMute from "../assets/icons/speakerMute.svg";
 import Slider from "@mui/material/Slider";
-
+import expandIcon from "../assets/icons/ExpendIcon.svg";
+import { CustomTooltip } from "./CustomTooltip";
 export function PlayerActions() {
   const youtubePlayer = useSelector(
     (state) => state.playerModule.youtubePlayer
@@ -50,11 +51,15 @@ export function PlayerActions() {
 
   return (
     <div className="player-actions">
-      {volume === 0 ? (
-        <ReactSVG src={speakerMute} onClick={() => onToggleSpeaker()} />
-      ) : (
-        <ReactSVG src={speaker} onClick={() => onToggleSpeaker()} />
-      )}
+      <CustomTooltip title={volume === 0 ? "Unmute" : "Mute"}>
+        <div>
+          {volume === 0 ? (
+            <ReactSVG src={speakerMute} onClick={() => onToggleSpeaker()} />
+          ) : (
+            <ReactSVG src={speaker} onClick={() => onToggleSpeaker()} />
+          )}
+        </div>
+      </CustomTooltip>
       <div className="volume-bar">
         <Slider
           value={volume}
@@ -69,12 +74,17 @@ export function PlayerActions() {
           }}
         />
       </div>
-      <button
-        onClick={handleFullScreen}
-        className="ytp-fullscreen-button ytp-button"
+      <CustomTooltip
+        title={isFullScreen ? "Exit Fullscreen" : "Fullscreen"}
+        arrow
       >
-        Full Screen
-      </button>
+        <button
+          onClick={handleFullScreen}
+          className="ytp-fullscreen-button ytp-button"
+        >
+          <ReactSVG src={expandIcon} />
+        </button>
+      </CustomTooltip>
     </div>
   );
 }

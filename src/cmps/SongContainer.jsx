@@ -11,6 +11,9 @@ import { ContextMenu } from "./ContextMenu";
 import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
 import addIcon from "../assets/icons/AddToQueue.svg";
 import deleteIcon from "../assets/icons/delete.svg";
+import { AddSongToStationButton } from "./AddSongToStationButton";
+
+import { CustomTooltip } from "./CustomTooltip";
 const options = [
   {
     label: "Add to playlist ",
@@ -136,7 +139,12 @@ export function SongContainer({
         <span>{utilService.formatDate(song.addedAt)}</span>
       </div>
       <div className="song-duration">
+        <AddSongToStationButton song={song} />
+
         <span>{utilService.formatTime(song.duration)}</span>
+        <CustomTooltip title={`More options for ${song.name}`}>
+          <span>...</span>
+        </CustomTooltip>
       </div>
       {contextMenu && (
         <ContextMenu
