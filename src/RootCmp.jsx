@@ -39,7 +39,7 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
 
   const renderSidePopUp = (separatorPropsRight, positionRight) => {
     return (
-      showSidePopUp && (
+      true && (
         <>
           <div className="separator" {...separatorPropsRight} />
           <div className="side-pop-up" style={{ width: positionRight }}>

@@ -4,6 +4,11 @@ import { ReactSVG } from "react-svg";
 import { Dropdown } from "./DropDownMenu";
 
 import { removeStation } from "../store/station.actions";
+import {
+  addSongsToQueueTop,
+  addSongsToQueueBottom,
+  playFirstSong,
+} from "../store/player.actions";
 import playIcon from "../assets/icons/playIcon.svg";
 import pauseIcon from "../assets/icons/pauseIcon.svg";
 import DotsIcon from "../assets/icons/Ellipses.svg";
@@ -44,14 +49,22 @@ export function StationActions({
         openModal(); // Call openModal here
         break;
       case "add to queue":
-        console.log("add to queue");
+        addSongsToQueueBottom(station.songs); // Add station's songs to the bottom of the queue
         break;
     }
   };
 
+  const handlePlayClick = () => {
+    // Play the first song and add remaining songs to the top of the queue
+    addSongsToQueueTop(station.songs.slice(1));
+
+    // Play the first song
+    playFirstSong(station.songs[0]);
+  };
+
   return (
     <div className="station-actions">
-      <button className="play-btn">
+      <button className="play-btn" onClick={handlePlayClick}>
         <ReactSVG src={playIcon} />
       </button>
       <div className="more-options">

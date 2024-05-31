@@ -2,16 +2,20 @@ import React, { useState, useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { useSelector } from "react-redux";
 import { ReactSVG } from "react-svg";
-import playIcon from "../assets/icons/playIcon.svg";
-import pauseIcon from "../assets/icons/pauseIcon.svg";
-import { setCurrentSong, setIsPlaying } from "../store/player.actions";
+import {
+  setCurrentSong,
+  setIsPlaying,
+  addToQueue,
+} from "../store/player.actions";
 import { SongDetails } from "./SongDetails";
 import { utilService } from "../services/util.service";
 import { ContextMenu } from "./ContextMenu";
 import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
 import addIcon from "../assets/icons/AddToQueue.svg";
 import deleteIcon from "../assets/icons/delete.svg";
-const options = [
+import playIcon from "../assets/icons/playIcon.svg";
+import pauseIcon from "../assets/icons/pauseIcon.svg";
+const options = (song) => [
   {
     label: "Add to playlist ",
     value: "open add to playlist modal",
@@ -22,7 +26,7 @@ const options = [
     label: "Add to queue",
     value: "add to queue",
     icon: <ReactSVG src={addIcon} />,
-    onClick: () => console.log("Add to queue"),
+    onClick: () => addToQueue(song),
   },
   {
     label: "Remove",
@@ -84,6 +88,7 @@ export function SongContainer({
   });
 
   drag(drop(ref));
+
   function onPlaySong(song) {
     if (currentSong.id === song.id) {
       setIsPlaying(!isPlaying);
@@ -97,7 +102,7 @@ export function SongContainer({
     event.preventDefault();
     setContextMenu({
       position: { x: event.clientX, y: event.clientY },
-      options,
+      options: options(song), // Pass the song to options
     });
   };
 
