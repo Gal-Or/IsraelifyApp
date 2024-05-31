@@ -6,59 +6,90 @@ import { CustomTooltip } from "./CustomTooltip";
 import tickIcon from "../assets/icons/tickIcon.svg";
 import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
 
-const ADD_TO_LIKED_SONGS = "ADD_TO_LIKED_SONGS";
-const ADD_TO_STATION = "ADD_TO_STATION";
-const EXIST_IN_STATION = "EXIST_IN_STATION";
+const ADD_TO_LIKED_SONGS = "ADD_TO_LIKED_SONGS"; // initial state - if the song not exist in any station add it to liked songs
+const ADD_TO_STATION = "ADD_TO_STATION"; // secondary state - if the song  exist in any station -> open "add to station" menu(modal)
 
-import { addSongToStation } from "../store/station.actions";
+
+import { addSongToStation, updateStation } from "../store/station.actions";
 import { stationService } from "../services/station.service";
+import { StationsMenu } from "./StationsMenu";
+
 export function AddSongToStationButton({ song }) {
-  const currentSong = song
-    ? song
-    : useSelector((state) => state.playerModule.currentSong);
+
   const stations = useSelector((state) => state.stationModule.stations);
   const [buttonState, setButtonState] = useState(ADD_TO_LIKED_SONGS);
+  const [stationsMenuOpen, setStationsMenuOpen] = useState(false);
 
   useEffect(() => {
-    console.log("buttonState :", buttonState);
-  }, [buttonState]);
+    console.log("Current song changed in AddSongToStationButton:", song);
+    checkSongExistInAnyStations();
+  }, [song, stationsMenuOpen]);
+
 
   async function checkSongExistInAnyStations() {
     if (!stations) return;
     if (stations.length === 0) return;
-    const existInStations = await stationService.checkIfSongInExistInAnyStation(
-      currentSong
-    );
-    console.log("=======> existInStations:", existInStations);
-    if (existInStations !== null) {
-      console.log("existInStations is null-station not found");
+    try {
+
+      const existInStations = await stationService.checkIfSongInExistInAnyStation(
+        song
+      );
+
+      if (existInStations) {
+        setButtonState(ADD_TO_STATION);
+      } else {
+        setButtonState(ADD_TO_LIKED_SONGS);
+      }
+
+
+    } catch (err) {
+      console.log('Error in checkSongExistInAnyStations:', err);
     }
-    if (existInStations) {
-      setButtonState(EXIST_IN_STATION);
-    } else {
-      setButtonState(ADD_TO_STATION);
-    }
+
+
     return;
   }
 
-  function onAddToStation(stationId) {
-    console.log("Adding song to station:", stationId);
-    //update the button state when clicling the button
-    if (buttonState === EXIST_IN_STATION) setButtonState(ADD_TO_STATION);
-    else setButtonState(EXIST_IN_STATION);
+  function handleClick() {
 
-    addSongToStation(song, stationId);
+    switch (buttonState) {
+
+      case ADD_TO_LIKED_SONGS:
+        setButtonState(ADD_TO_STATION)
+        addSongToLikedSongs();
+        console.log("Adding song to liked songs");
+        break;
+
+      case ADD_TO_STATION:
+        setStationsMenuOpen(true);
+        console.log("open modal ");
+        break;
+
+    }
+
+
+  }
+  async function addSongToLikedSongs() {
+    try {
+
+      console.log("Adding song to liked songs");
+
+      const savedStation = await stationService.addSongToStation({ ...song, addedAt: Date.now() }, "liked-songs")
+      // update store
+      updateStation(savedStation);
+
+    } catch (err) {
+      console.log('Error in addSongToLikedSongs:', err);
+    }
   }
 
   function renderButtonStateSwitch(buttonState) {
     switch (buttonState) {
       case ADD_TO_LIKED_SONGS:
-      case ADD_TO_STATION:
         return <ReactSVG src={addToPlaylistIcon} />;
-        break;
-      case EXIST_IN_STATION:
+
+      case ADD_TO_STATION:
         return <ReactSVG src={tickIcon} />;
-        break;
     }
   }
 
@@ -66,25 +97,28 @@ export function AddSongToStationButton({ song }) {
     switch (buttonState) {
       case ADD_TO_LIKED_SONGS:
         return "Add to Liked Songs";
-        break;
       case ADD_TO_STATION:
         return "Add to Station";
-        break;
-      case EXIST_IN_STATION:
-        return "Remove from Station";
-        break;
     }
   }
 
+
+  function closeModal() {
+    setStationsMenuOpen(false);
+  }
+
   return (
-    <CustomTooltip title={getTooltipText(buttonState)}>
-      <button
-        className="add-to-playlist"
-        onClick={() => onAddToStation("liked-songs")}
-      >
-        {renderButtonStateSwitch(buttonState)}
-      </button>
-    </CustomTooltip>
+    <>
+      <CustomTooltip title={getTooltipText(buttonState)}>
+        <button
+          className="add-to-playlist"
+          onClick={() => handleClick()}
+        >
+          {renderButtonStateSwitch(buttonState)}
+        </button>
+      </CustomTooltip>
+      {stationsMenuOpen && <StationsMenu song={song} closeModal={closeModal} />}
+    </>
   );
 }
 

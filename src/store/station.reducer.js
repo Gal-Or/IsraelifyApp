@@ -4,6 +4,7 @@ export const ADD_SONG_TO_STATION = "ADD_SONG_TO_STATION";
 export const ADD_STATION = "ADD_STATION";
 export const SET_CURRENT_STATION = "SET_CURRENT_STATION";
 export const UPDATE_STATION = "UPDATE_STATION";
+export const UPDATE_STATIONS = "UPDATE_STATIONS";
 
 const initialState = {
   stations: [],
@@ -53,13 +54,13 @@ export function stationReducer(state = initialState, action) {
         currentStation:
           state.currentStation && state.currentStation._id === action.stationId
             ? state.currentStation.songs.find(
-                (stationSong) => stationSong.id === action.song.id
-              )
+              (stationSong) => stationSong.id === action.song.id
+            )
               ? state.currentStation
               : {
-                  ...state.currentStation,
-                  songs: [...state.currentStation.songs, action.song],
-                }
+                ...state.currentStation,
+                songs: [...state.currentStation.songs, action.song],
+              }
             : state.currentStation,
         // ? {
         //     ...state.currentStation,
@@ -87,10 +88,16 @@ export function stationReducer(state = initialState, action) {
         }),
         currentStation:
           state.currentStation &&
-          state.currentStation._id === action.station._id
+            state.currentStation._id === action.station._id
             ? { ...state.currentStation, ...action.station }
             : state.currentStation,
       };
+      break;
+    case UPDATE_STATIONS:
+      newState = {
+        ...state,
+        stations: action.updatedStations
+      }
       break;
 
     default:

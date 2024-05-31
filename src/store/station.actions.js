@@ -6,6 +6,9 @@ import { REMOVE_STATION, ADD_STATION } from "./station.reducer";
 import { ADD_SONG_TO_STATION } from "./station.reducer";
 import { SET_CURRENT_STATION } from "./station.reducer";
 import { UPDATE_STATION } from "./station.reducer";
+import { UPDATE_STATIONS } from "./station.reducer";
+
+
 export async function loadStations() {
   try {
     //const { filterBy } = store.getState().stationModule;
@@ -73,4 +76,15 @@ export async function updateStation(station) {
   } catch (err) {
     console.log("Cannot update station", err);
   }
+}
+
+export async function updateStations(updatedStations) {
+  try {
+
+    await stationService.saveAll(updatedStations);
+    store.dispatch({ type: UPDATE_STATIONS, updatedStations });
+    console.log('updatedStations:', updatedStations);
+
+  } catch (err) { console.log('Error in updateStationsSongs:', err); }
+
 }
