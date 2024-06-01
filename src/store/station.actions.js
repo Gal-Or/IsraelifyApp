@@ -8,7 +8,6 @@ import { SET_CURRENT_STATION } from "./station.reducer";
 import { UPDATE_STATION } from "./station.reducer";
 import { UPDATE_STATIONS } from "./station.reducer";
 
-
 export async function loadStations() {
   try {
     //const { filterBy } = store.getState().stationModule;
@@ -80,11 +79,17 @@ export async function updateStation(station) {
 
 export async function updateStations(updatedStations) {
   try {
+    updatedStations.forEach(async (station) => {
+      //wait 1 sec
+      setTimeout(() => {
+        console.log("waiting 1 sec");
+      }, 2000);
 
-    await stationService.saveAll(updatedStations);
-    store.dispatch({ type: UPDATE_STATIONS, updatedStations });
-    console.log('updatedStations:', updatedStations);
-
-  } catch (err) { console.log('Error in updateStationsSongs:', err); }
-
+      console.log("station from for each in updateStations:", station);
+      await stationService.save(station);
+      store.dispatch({ type: UPDATE_STATION, station });
+    });
+  } catch (err) {
+    console.log("Error in updateStationsSongs:", err);
+  }
 }
