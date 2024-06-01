@@ -93,11 +93,21 @@ export function stationReducer(state = initialState, action) {
             : state.currentStation,
       };
       break;
-    case UPDATE_STATIONS:
+   case UPDATE_STATIONS:
       newState = {
         ...state,
-        stations: action.updatedStations
-      }
+        stations: action.updatedStations,
+        currentStation:
+          state.currentStation &&
+          action.updatedStations.find(
+            (station) => station._id === state.currentStation._id
+          )
+            ? action.updatedStations.find(
+                (station) => station._id === state.currentStation._id
+              )
+            : state.currentStation,
+      };
+
       break;
 
     default:
