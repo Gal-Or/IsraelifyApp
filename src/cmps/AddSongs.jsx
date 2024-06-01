@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { youtubeService } from "../services/youtube.service.js";
 import { ReactSVG } from "react-svg";
 import search from "../assets/icons/search.svg";
 
-import { SongResults } from "./SongResults.jsx";
+import { SongResultsInStation } from "./SongResultsInStation";
 
-export function AddSongs({ onAddSongToStation }) {
+export function AddSongs({ onAddSongToStation, station }) {
   const [songResults, setResults] = useState(null);
+  const searchOffset = useRef(1);
 
   async function getYoutubeResults(queryTxt) {
     var res = await youtubeService.query(queryTxt);
@@ -17,6 +18,11 @@ export function AddSongs({ onAddSongToStation }) {
   function onInputChange(ev) {
     let { value } = ev.target;
     getYoutubeResults(value);
+  }
+  function removeResult(song) {
+    setResults((prevResults) => {
+      return prevResults.filter((result) => result.id !== song.id);
+    });
   }
 
   return (
@@ -36,9 +42,11 @@ export function AddSongs({ onAddSongToStation }) {
           />
         </div>
         {songResults && (
-          <SongResults
+          <SongResultsInStation
             songResults={songResults}
             onAddSongToStation={onAddSongToStation}
+            station={station}
+            removeResult={removeResult}
           />
         )}
       </div>
