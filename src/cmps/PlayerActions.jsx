@@ -3,11 +3,12 @@ import { useRef, useState } from "react";
 import { ReactSVG } from "react-svg";
 import { useSpacebarPlayPause } from "../customHooks/useSpacebarPlayPause";
 import speaker from "../assets/icons/speaker.svg";
+import queueIcon from "../assets/icons/queueIcon.svg";
 import speakerMute from "../assets/icons/speakerMute.svg";
 import Slider from "@mui/material/Slider";
 import expandIcon from "../assets/icons/ExpendIcon.svg";
 import { CustomTooltip } from "./CustomTooltip";
-export function PlayerActions() {
+export function PlayerActions({ setShowSidePopUp, showSidePopUp }) {
   const youtubePlayer = useSelector(
     (state) => state.playerModule.youtubePlayer
   );
@@ -51,6 +52,14 @@ export function PlayerActions() {
 
   return (
     <div className="player-actions">
+      <CustomTooltip title="open-queue">
+        <div>
+          <ReactSVG
+            src={queueIcon}
+            onClick={() => setShowSidePopUp(!showSidePopUp)}
+          />
+        </div>
+      </CustomTooltip>
       <CustomTooltip title={volume === 0 ? "Unmute" : "Mute"}>
         <div>
           {volume === 0 ? (

@@ -53,7 +53,7 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
   const renderContentArea = () => {
     return (
       <div className="content-area">
-        <Resizable axis="x" initial={0} min={0} reverse={true}>
+        <Resizable axis="x" initial={400} min={200} ma={600} reverse={true}>
           {({
             position: positionRight,
             separatorProps: separatorPropsRight,
@@ -81,7 +81,11 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
           )}
         </Resizable>
       </div>
-      <AppFooter className="app-footer" />
+      <AppFooter
+        className="app-footer"
+        setShowSidePopUp={setShowSidePopUp}
+        showSidePopUp={showSidePopUp}
+      />
     </div>
   );
 };
