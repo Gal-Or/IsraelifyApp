@@ -5,13 +5,14 @@ import { loadStations, removeStation } from "../store/station.actions";
 
 import { StationPreview } from "./StationPreview";
 import { NavLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-export function StationList({ width, isCompact }) {
+export function StationList({ width, isCompact, randomize = false }) {
   //const [stations, setStations] = useState([])
   const stations = useSelector(
     (storeState) => storeState.stationModule.stations
   );
+  const [shuffledStations, setShuffledStations] = useState([]);
 
   const containerRef = useRef(null);
   useEffect(() => {
@@ -19,7 +20,9 @@ export function StationList({ width, isCompact }) {
       const firstChild = containerRef.current.firstElementChild;
       const firstChildHeight = firstChild.offsetHeight;
 
-      if (containerRef.current.parentElement.className !== "library-container") {
+      if (
+        containerRef.current.parentElement.className !== "library-container"
+      ) {
         containerRef.current.style.maxHeight = `${firstChildHeight}px`;
         console.log("firstChildHeight:", firstChildHeight);
       }
@@ -33,20 +36,32 @@ export function StationList({ width, isCompact }) {
   useEffect(() => {
     loadStations();
   }, []);
+  useEffect(() => {
+    if (!randomize) {
+      setShuffledStations(stations);
+      return;
+    }
+    setShuffledStations([...stations].sort(() => Math.random() - 0.5));
+  }, [stations]);
   function onDeleteStation(ev, stationId) {
     ev.stopPropagation();
     removeStation(stationId);
   }
 
   return (
-    <section className={`station-list ${isCompact ? " compact" : ""}`} ref={containerRef} >
-      {stations?.map((station, index) => (
-
+    <section
+      className={`station-list ${isCompact ? " compact" : ""}`}
+      ref={containerRef}
+    >
+      {shuffledStations?.map((station, index) => (
         <article key={index}>
           <NavLink key={index} to={`/station/${station._id}`}>
-            <StationPreview station={station} width={width} isCompact={isCompact} />
+            <StationPreview
+              station={station}
+              width={width}
+              isCompact={isCompact}
+            />
           </NavLink>
-
 
           {/* <button
             className="delete-btn"
@@ -56,8 +71,7 @@ export function StationList({ width, isCompact }) {
             Delete
           </button> */}
         </article>
-      ))
-      }
-    </section >
+      ))}
+    </section>
   );
 }

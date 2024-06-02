@@ -414,6 +414,807 @@
         }
       ],
       "_id": "RV1b3"
+    },
+
+    {
+      "name": "Indie Rock",
+      "type": "playlist",
+      "tags": ["indie", "rock"],
+      "backgroundColor": "rgb(230.123, 150.234, 89.321)",
+      "createdBy": {
+        "_id": "u107",
+        "fullname": "Emma Watson",
+        "imgUrl": "http://example-photo3/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "sBzrzS1Ag_g",
+          "artist": "Tame Impala",
+          "img": "https://i.ytimg.com/vi/sBzrzS1Ag_g/default.jpg",
+          "name": "The Less I Know The Better",
+          "tags": [],
+          "duration": 216,
+          "url": "https://www.youtube.com/watch?v=sBzrzS1Ag_g",
+          "stationIds": ["Ind1eR"]
+        },
+        {
+          "id": "ktvTqknDobU",
+          "artist": "Imagine Dragons",
+          "img": "https://i.ytimg.com/vi/ktvTqknDobU/default.jpg",
+          "name": "Radioactive",
+          "tags": [],
+          "duration": 204,
+          "url": "https://www.youtube.com/watch?v=ktvTqknDobU",
+          "stationIds": ["Ind1eR"]
+        },
+        {
+          "id": "bpOSxM0rNPM",
+          "artist": "Arctic Monkeys",
+          "img": "https://i.ytimg.com/vi/bpOSxM0rNPM/default.jpg",
+          "name": "Do I Wanna Know?",
+          "tags": [],
+          "duration": 272,
+          "url": "https://www.youtube.com/watch?v=bpOSxM0rNPM",
+          "stationIds": ["Ind1eR"]
+        }
+      ],
+      "_id": "Ind1eR"
+    },
+    {
+      "name": "Classical Symphony",
+      "type": "playlist",
+      "tags": ["classical", "symphony"],
+      "backgroundColor": "rgb(255.234, 199.123, 172.321)",
+      "createdBy": {
+        "_id": "u108",
+        "fullname": "Ludwig Beethoven",
+        "imgUrl": "http://example-photo4/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "QxHkLdQy5f0",
+          "artist": "London Symphony Orchestra",
+          "img": "https://i.ytimg.com/vi/QxHkLdQy5f0/default.jpg",
+          "name": "Beethoven - Symphony No.9",
+          "tags": [],
+          "duration": 4132,
+          "url": "https://www.youtube.com/watch?v=QxHkLdQy5f0",
+          "stationIds": ["Cl4ssSym"]
+        },
+        {
+          "id": "JTc1mDieQI8",
+          "artist": "Berlin Philharmonic",
+          "img": "https://i.ytimg.com/vi/JTc1mDieQI8/default.jpg",
+          "name": "Mozart - Symphony No.40",
+          "tags": [],
+          "duration": 2405,
+          "url": "https://www.youtube.com/watch?v=JTc1mDieQI8",
+          "stationIds": ["Cl4ssSym"]
+        },
+        {
+          "id": "dSGJgXWzKog",
+          "artist": "Tchaikovsky",
+          "img": "https://i.ytimg.com/vi/dSGJgXWzKog/default.jpg",
+          "name": "Tchaikovsky - Swan Lake",
+          "tags": [],
+          "duration": 4492,
+          "url": "https://www.youtube.com/watch?v=dSGJgXWzKog",
+          "stationIds": ["Cl4ssSym"]
+        }
+      ],
+      "_id": "Cl4ssSym"
+    },
+    {
+      "name": "Electronic Vibes",
+      "type": "playlist",
+      "tags": ["electronic"],
+      "backgroundColor": "rgb(135.234, 240.123, 189.321)",
+      "createdBy": {
+        "_id": "u109",
+        "fullname": "David Guetta",
+        "imgUrl": "http://example-photo5/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "FGBhQbmPwH8",
+          "artist": "Daft Punk",
+          "img": "https://i.ytimg.com/vi/FGBhQbmPwH8/default.jpg",
+          "name": "One More Time",
+          "tags": [],
+          "duration": 325,
+          "url": "https://www.youtube.com/watch?v=FGBhQbmPwH8",
+          "stationIds": ["ElecVib"]
+        },
+        {
+          "id": "ebXbLfLACGM",
+          "artist": "Calvin Harris",
+          "img": "https://i.ytimg.com/vi/ebXbLfLACGM/default.jpg",
+          "name": "Summer",
+          "tags": [],
+          "duration": 238,
+          "url": "https://www.youtube.com/watch?v=ebXbLfLACGM",
+          "stationIds": ["ElecVib"]
+        },
+        {
+          "id": "IcrbM1l_BoI",
+          "artist": "Avicii",
+          "img": "https://i.ytimg.com/vi/IcrbM1l_BoI/default.jpg",
+          "name": "Wake Me Up",
+          "tags": [],
+          "duration": 276,
+          "url": "https://www.youtube.com/watch?v=IcrbM1l_BoI",
+          "stationIds": ["ElecVib"]
+        }
+      ],
+      "_id": "ElecVib"
+    },
+    {
+      "name": "Blues Legends",
+      "type": "playlist",
+      "tags": ["blues"],
+      "backgroundColor": "rgb(75.234, 123.321, 220.123)",
+      "createdBy": {
+        "_id": "u110",
+        "fullname": "B.B. King",
+        "imgUrl": "http://example-photo6/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "4fk2prKnYnI",
+          "artist": "B.B. King",
+          "img": "https://i.ytimg.com/vi/4fk2prKnYnI/default.jpg",
+          "name": "The Thrill Is Gone",
+          "tags": [],
+          "duration": 293,
+          "url": "https://www.youtube.com/watch?v=4fk2prKnYnI",
+          "stationIds": ["Blu3Leg"]
+        },
+        {
+          "id": "w5IOou6qN1o",
+          "artist": "Muddy Waters",
+          "img": "https://i.ytimg.com/vi/w5IOou6qN1o/default.jpg",
+          "name": "Mannish Boy",
+          "tags": [],
+          "duration": 323,
+          "url": "https://www.youtube.com/watch?v=w5IOou6qN1o",
+          "stationIds": ["Blu3Leg"]
+        },
+        {
+          "id": "EOs0qeiJyIg",
+          "artist": "Eric Clapton",
+          "img": "https://i.ytimg.com/vi/EOs0qeiJyIg/default.jpg",
+          "name": "Layla",
+          "tags": [],
+          "duration": 429,
+          "url": "https://www.youtube.com/watch?v=EOs0qeiJyIg",
+          "stationIds": ["Blu3Leg"]
+        }
+      ],
+      "_id": "Blu3Leg"
+    },
+    {
+      "name": "Funk Classics",
+      "type": "playlist",
+      "tags": ["funk"],
+      "backgroundColor": "rgb(150.123, 200.321, 100.234)",
+      "createdBy": {
+        "_id": "u111",
+        "fullname": "James Brown",
+        "imgUrl": "http://example-photo7/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "QE5D2hJhacU",
+          "artist": "James Brown",
+          "img": "https://i.ytimg.com/vi/QE5D2hJhacU/default.jpg",
+          "name": "Get Up Offa That Thing",
+          "tags": [],
+          "duration": 398,
+          "url": "https://www.youtube.com/watch?v=QE5D2hJhacU",
+          "stationIds": ["FunkCl4ss"]
+        },
+        {
+          "id": "Gs069dndIYk",
+          "artist": "Earth, Wind & Fire",
+          "img": "https://i.ytimg.com/vi/Gs069dndIYk/default.jpg",
+          "name": "September",
+          "tags": [],
+          "duration": 215,
+          "url": "https://www.youtube.com/watch?v=Gs069dndIYk",
+          "stationIds": ["FunkCl4ss"]
+        },
+        {
+          "id": "0CFuCYNx-1g",
+          "artist": "Stevie Wonder",
+          "img": "https://i.ytimg.com/vi/0CFuCYNx-1g/default.jpg",
+          "name": "Superstition",
+          "tags": [],
+          "duration": 292,
+          "url": "https://www.youtube.com/watch?v=0CFuCYNx-1g",
+          "stationIds": ["FunkCl4ss"]
+        }
+      ],
+      "_id": "FunkCl4ss"
+    },
+    {
+      "name": "Latin Beats",
+      "type": "playlist",
+      "tags": ["latin"],
+      "backgroundColor": "rgb(255.153, 85.235, 95.321)",
+      "createdBy": {
+        "_id": "u112",
+        "fullname": "Carlos Santana",
+        "imgUrl": "http://example-photo8/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "kJQP7kiw5Fk",
+          "artist": "Luis Fonsi",
+          "img": "https://i.ytimg.com/vi/kJQP7kiw5Fk/default.jpg",
+          "name": "Despacito",
+          "tags": [],
+          "duration": 282,
+          "url": "https://www.youtube.com/watch?v=kJQP7kiw5Fk",
+          "stationIds": ["LatBts"]
+        },
+        {
+          "id": "wnJ6LuUFpMo",
+          "artist": "J Balvin",
+          "img": "https://i.ytimg.com/vi/wnJ6LuUFpMo/default.jpg",
+          "name": "Mi Gente",
+          "tags": [],
+          "duration": 190,
+          "url": "https://www.youtube.com/watch?v=wnJ6LuUFpMo",
+          "stationIds": ["LatBts"]
+        },
+        {
+          "id": "DUT5rEU6pqM",
+          "artist": "Shakira",
+          "img": "https://i.ytimg.com/vi/DUT5rEU6pqM/default.jpg",
+          "name": "Hips Don't Lie",
+          "tags": [],
+          "duration": 217,
+          "url": "https://www.youtube.com/watch?v=DUT5rEU6pqM",
+          "stationIds": ["LatBts"]
+        }
+      ],
+      "_id": "LatBts"
+    },
+    {
+      "name": "Hip Hop Classics",
+      "type": "playlist",
+      "tags": ["hip hop"],
+      "backgroundColor": "rgb(100.123, 85.234, 150.321)",
+      "createdBy": {
+        "_id": "u113",
+        "fullname": "Jay-Z",
+        "imgUrl": "http://example-photo9/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "vk6014HuxcE",
+          "artist": "Jay-Z",
+          "img": "https://i.ytimg.com/vi/vk6014HuxcE/default.jpg",
+          "name": "Empire State of Mind",
+          "tags": [],
+          "duration": 274,
+          "url": "https://www.youtube.com/watch?v=vk6014HuxcE",
+          "stationIds": ["HHCls"]
+        },
+        {
+          "id": "PsO6ZnUZI0g",
+          "artist": "Kanye West",
+          "img": "https://i.ytimg.com/vi/PsO6ZnUZI0g/default.jpg",
+          "name": "Stronger",
+          "tags": [],
+          "duration": 311,
+          "url": "https://www.youtube.com/watch?v=PsO6ZnUZI0g",
+          "stationIds": ["HHCls"]
+        },
+        {
+          "id": "phaJXp_zMYM",
+          "artist": "Notorious B.I.G.",
+          "img": "https://i.ytimg.com/vi/phaJXp_zMYM/default.jpg",
+          "name": "Big Poppa",
+          "tags": [],
+          "duration": 264,
+          "url": "https://www.youtube.com/watch?v=phaJXp_zMYM",
+          "stationIds": ["HHCls"]
+        }
+      ],
+      "_id": "HHCls"
+    },
+    {
+      "name": "R&B Grooves",
+      "type": "playlist",
+      "tags": ["r&b"],
+      "backgroundColor": "rgb(150.234, 100.123, 200.321)",
+      "createdBy": {
+        "_id": "u114",
+        "fullname": "Beyoncé",
+        "imgUrl": "http://example-photo10/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "ViwtNLUqkMY",
+          "artist": "Beyoncé",
+          "img": "https://i.ytimg.com/vi/ViwtNLUqkMY/default.jpg",
+          "name": "Crazy In Love",
+          "tags": [],
+          "duration": 235,
+          "url": "https://www.youtube.com/watch?v=ViwtNLUqkMY",
+          "stationIds": ["RnBGro"]
+        },
+        {
+          "id": "ZbZSe6N_BXs",
+          "artist": "Pharrell Williams",
+          "img": "https://i.ytimg.com/vi/ZbZSe6N_BXs/default.jpg",
+          "name": "Happy",
+          "tags": [],
+          "duration": 233,
+          "url": "https://www.youtube.com/watch?v=ZbZSe6N_BXs",
+          "stationIds": ["RnBGro"]
+        },
+        {
+          "id": "GxBSyx85Kp8",
+          "artist": "Usher",
+          "img": "https://i.ytimg.com/vi/GxBSyx85Kp8/default.jpg",
+          "name": "Yeah!",
+          "tags": [],
+          "duration": 250,
+          "url": "https://www.youtube.com/watch?v=GxBSyx85Kp8",
+          "stationIds": ["RnBGro"]
+        }
+      ],
+      "_id": "RnBGro"
+    },
+    {
+      "name": "Alternative Rock",
+      "type": "playlist",
+      "tags": ["alternative", "rock"],
+      "backgroundColor": "rgb(175.123, 50.234, 100.321)",
+      "createdBy": {
+        "_id": "u115",
+        "fullname": "Thom Yorke",
+        "imgUrl": "http://example-photo11/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "XFkzRNyygfk",
+          "artist": "Radiohead",
+          "img": "https://i.ytimg.com/vi/XFkzRNyygfk/default.jpg",
+          "name": "Creep",
+          "tags": [],
+          "duration": 238,
+          "url": "https://www.youtube.com/watch?v=XFkzRNyygfk",
+          "stationIds": ["AltRk"]
+        },
+        {
+          "id": "hTWKbfoikeg",
+          "artist": "Nirvana",
+          "img": "https://i.ytimg.com/vi/hTWKbfoikeg/default.jpg",
+          "name": "Smells Like Teen Spirit",
+          "tags": [],
+          "duration": 300,
+          "url": "https://www.youtube.com/watch?v=hTWKbfoikeg",
+          "stationIds": ["AltRk"]
+        },
+        {
+          "id": "vjVkXlxsO8Q",
+          "artist": "Linkin Park",
+          "img": "https://i.ytimg.com/vi/vjVkXlxsO8Q/default.jpg",
+          "name": "In the End",
+          "tags": [],
+          "duration": 216,
+          "url": "https://www.youtube.com/watch?v=vjVkXlxsO8Q",
+          "stationIds": ["AltRk"]
+        }
+      ],
+      "_id": "AltRk"
+    },
+    {
+      "name": "Country Favorites",
+      "type": "playlist",
+      "tags": ["country"],
+      "backgroundColor": "rgb(245.453, 203.755, 138.068)",
+      "createdBy": {
+        "_id": "u116",
+        "fullname": "Blake Shelton",
+        "imgUrl": "http://example-photo12/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "ZEWGyyLiqY4",
+          "artist": "Blake Shelton",
+          "img": "https://i.ytimg.com/vi/ZEWGyyLiqY4/default.jpg",
+          "name": "God's Country",
+          "tags": [],
+          "duration": 196,
+          "url": "https://www.youtube.com/watch?v=ZEWGyyLiqY4",
+          "stationIds": ["CntryFav"]
+        },
+        {
+          "id": "rItv9i6c7AY",
+          "artist": "Luke Combs",
+          "img": "https://i.ytimg.com/vi/rItv9i6c7AY/default.jpg",
+          "name": "Beautiful Crazy",
+          "tags": [],
+          "duration": 199,
+          "url": "https://www.youtube.com/watch?v=pLlNBWG2pOM",
+          "stationIds": ["CntryFav"]
+        },
+        {
+          "id": "L3wKzyIN1yk",
+          "artist": "Johnny Cash",
+          "img": "https://i.ytimg.com/vi/L3wKzyIN1yk/default.jpg",
+          "name": "Hurt",
+          "tags": [],
+          "duration": 215,
+          "url": "https://www.youtube.com/watch?v=L3wKzyIN1yk",
+          "stationIds": ["CntryFav"]
+        }
+      ],
+      "_id": "CntryFav"
+    },
+    {
+      "name": "Pop Hits",
+      "type": "playlist",
+      "tags": ["pop"],
+      "backgroundColor": "rgb(253.565, 206.027, 6.308)",
+      "createdBy": {
+        "_id": "u117",
+        "fullname": "Taylor Swift",
+        "imgUrl": "http://example-photo13/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "3tmd-ClpJxA",
+          "artist": "Taylor Swift",
+          "img": "https://i.ytimg.com/vi/3tmd-ClpJxA/default.jpg",
+          "name": "Shake It Off",
+          "tags": [],
+          "duration": 242,
+          "url": "https://www.youtube.com/watch?v=3tmd-ClpJxA",
+          "stationIds": ["PopHts"]
+        },
+        {
+          "id": "YQHsXMglC9A",
+          "artist": "Adele",
+          "img": "https://i.ytimg.com/vi/YQHsXMglC9A/default.jpg",
+          "name": "Hello",
+          "tags": [],
+          "duration": 360,
+          "url": "https://www.youtube.com/watch?v=YQHsXMglC9A",
+          "stationIds": ["PopHts"]
+        },
+        {
+          "id": "kXYiU_JCYtU",
+          "artist": "Linkin Park",
+          "img": "https://i.ytimg.com/vi/kXYiU_JCYtU/default.jpg",
+          "name": "Numb",
+          "tags": [],
+          "duration": 216,
+          "url": "https://www.youtube.com/watch?v=kXYiU_JCYtU",
+          "stationIds": ["PopHts"]
+        }
+      ],
+      "_id": "PopHts"
+    },
+    {
+      "name": "Soul Classics",
+      "type": "playlist",
+      "tags": ["soul"],
+      "backgroundColor": "rgb(129.407, 61.359, 71.140)",
+      "createdBy": {
+        "_id": "u118",
+        "fullname": "Aretha Franklin",
+        "imgUrl": "http://example-photo14/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "A134hShx_gw",
+          "artist": "Aretha Franklin",
+          "img": "https://i.ytimg.com/vi/A134hShx_gw/default.jpg",
+          "name": "Respect",
+          "tags": [],
+          "duration": 149,
+          "url": "https://www.youtube.com/watch?v=A134hShx_gw",
+          "stationIds": ["SoulCls"]
+        },
+        {
+          "id": "fJ9rUzIMcZQ",
+          "artist": "Marvin Gaye",
+          "img": "https://i.ytimg.com/vi/fJ9rUzIMcZQ/default.jpg",
+          "name": "Let's Get It On",
+          "tags": [],
+          "duration": 302,
+          "url": "https://www.youtube.com/watch?v=fJ9rUzIMcZQ",
+          "stationIds": ["SoulCls"]
+        },
+        {
+          "id": "1bGOgY1CmiU",
+          "artist": "Stevie Wonder",
+          "img": "https://i.ytimg.com/vi/1bGOgY1CmiU/default.jpg",
+          "name": "I Just Called To Say I Love You",
+          "tags": [],
+          "duration": 278,
+          "url": "https://www.youtube.com/watch?v=1bGOgY1CmiU",
+          "stationIds": ["SoulCls"]
+        }
+      ],
+      "_id": "SoulCls"
+    },
+    {
+      "name": "Rock Legends",
+      "type": "playlist",
+      "tags": ["rock"],
+      "backgroundColor": "rgb(155.967, 31.734, 14.437)",
+      "createdBy": {
+        "_id": "u119",
+        "fullname": "Freddie Mercury",
+        "imgUrl": "http://example-photo15/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "fJ9rUzIMcZQ",
+          "artist": "Queen",
+          "img": "https://i.ytimg.com/vi/fJ9rUzIMcZQ/default.jpg",
+          "name": "Bohemian Rhapsody",
+          "tags": [],
+          "duration": 354,
+          "url": "https://www.youtube.com/watch?v=fJ9rUzIMcZQ",
+          "stationIds": ["RockLgnd"]
+        },
+        {
+          "id": "3YxaaGgTQYM",
+          "artist": "Green Day",
+          "img": "https://i.ytimg.com/vi/3YxaaGgTQYM/default.jpg",
+          "name": "Boulevard Of Broken Dreams",
+          "tags": [],
+          "duration": 273,
+          "url": "https://www.youtube.com/watch?v=3YxaaGgTQYM",
+          "stationIds": ["RockLgnd"]
+        },
+        {
+          "id": "u9Dg-g7t2l4",
+          "artist": "Metallica",
+          "img": "https://i.ytimg.com/vi/u9Dg-g7t2l4/default.jpg",
+          "name": "Enter Sandman",
+          "tags": [],
+          "duration": 331,
+          "url": "https://www.youtube.com/watch?v=u9Dg-g7t2l4",
+          "stationIds": ["RockLgnd"]
+        }
+      ],
+      "_id": "RockLgnd"
+    },
+    {
+      "name": "Jazz Classics",
+      "type": "playlist",
+      "tags": ["jazz"],
+      "backgroundColor": "rgb(85.453, 231.755, 208.068)",
+      "createdBy": {
+        "_id": "u120",
+        "fullname": "Miles Davis",
+        "imgUrl": "http://example-photo16/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "ylXk1LBvIqU",
+          "artist": "Miles Davis",
+          "img": "https://i.ytimg.com/vi/ylXk1LBvIqU/default.jpg",
+          "name": "So What",
+          "tags": [],
+          "duration": 566,
+          "url": "https://www.youtube.com/watch?v=ylXk1LBvIqU",
+          "stationIds": ["JazzCls"]
+        },
+        {
+          "id": "vmDDOFXSgAs",
+          "artist": "John Coltrane",
+          "img": "https://i.ytimg.com/vi/vmDDOFXSgAs/default.jpg",
+          "name": "A Love Supreme",
+          "tags": [],
+          "duration": 470,
+          "url": "https://www.youtube.com/watch?v=vmDDOFXSgAs",
+          "stationIds": ["JazzCls"]
+        },
+        {
+          "id": "kvA6fjGsR04",
+          "artist": "Duke Ellington",
+          "img": "https://i.ytimg.com/vi/kvA6fjGsR04/default.jpg",
+          "name": "Take The 'A' Train",
+          "tags": [],
+          "duration": 187,
+          "url": "https://www.youtube.com/watch?v=kvA6fjGsR04",
+          "stationIds": ["JazzCls"]
+        }
+      ],
+      "_id": "JazzCls"
+    },
+    {
+      "name": "Electronic Essentials",
+      "type": "playlist",
+      "tags": ["electronic"],
+      "backgroundColor": "rgb(245.453, 150.755, 178.068)",
+      "createdBy": {
+        "_id": "u121",
+        "fullname": "Calvin Harris",
+        "imgUrl": "http://example-photo17/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "5NV6Rdv1a3I",
+          "artist": "Daft Punk",
+          "img": "https://i.ytimg.com/vi/5NV6Rdv1a3I/default.jpg",
+          "name": "Get Lucky",
+          "tags": [],
+          "duration": 248,
+          "url": "https://www.youtube.com/watch?v=5NV6Rdv1a3I",
+          "stationIds": ["ElecEss"]
+        },
+        {
+          "id": "tKi9Z-f6qX4",
+          "artist": "Deadmau5",
+          "img": "https://i.ytimg.com/vi/tKi9Z-f6qX4/default.jpg",
+          "name": "Strobe",
+          "tags": [],
+          "duration": 631,
+          "url": "https://www.youtube.com/watch?v=tKi9Z-f6qX4",
+          "stationIds": ["ElecEss"]
+        },
+        {
+          "id": "gCYcHz2k5x0",
+          "artist": "Zedd",
+          "img": "https://i.ytimg.com/vi/gCYcHz2k5x0/default.jpg",
+          "name": "Clarity",
+          "tags": [],
+          "duration": 272,
+          "url": "https://www.youtube.com/watch?v=gCYcHz2k5x0",
+          "stationIds": ["ElecEss"]
+        }
+      ],
+      "_id": "ElecEss"
+    },
+    {
+      "name": "Israeli Pop",
+      "type": "playlist",
+      "tags": ["israeli", "pop"],
+      "backgroundColor": "rgb(255.199, 150.255, 100.178)",
+      "createdBy": {
+        "_id": "u122",
+        "fullname": "Noa Kirel",
+        "imgUrl": "http://example-photo18/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "oQbh5Kvet04",
+          "artist": "Noa Kirel",
+          "img": "https://i.ytimg.com/vi/oQbh5Kvet04/default.jpg",
+          "name": "Million Dollar",
+          "tags": [],
+          "duration": 200,
+          "url": "https://www.youtube.com/watch?v=oQbh5Kvet04",
+          "stationIds": ["IsrPop"]
+        },
+        {
+          "id": "NpDAFKqeUDw",
+          "artist": "Static and Ben El",
+          "img": "https://i.ytimg.com/vi/NpDAFKqeUDw/default.jpg",
+          "name": "Zero Effort",
+          "tags": [],
+          "duration": 216,
+          "url": "https://www.youtube.com/watch?v=NpDAFKqeUDw",
+          "stationIds": ["IsrPop"]
+        }
+      ],
+      "_id": "IsrPop"
+    },
+    {
+      "name": "Israeli Rock",
+      "type": "playlist",
+      "tags": ["israeli", "rock"],
+      "backgroundColor": "rgb(150.255, 100.178, 200.199)",
+      "createdBy": {
+        "_id": "u123",
+        "fullname": "Aviv Geffen",
+        "imgUrl": "http://example-photo19/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "TeJQz1Bco84",
+          "artist": "Aviv Geffen",
+          "img": "https://i.ytimg.com/vi/TeJQz1Bco84/default.jpg",
+          "name": "Or Yareach",
+          "tags": [],
+          "duration": 258,
+          "url": "https://www.youtube.com/watch?v=TeJQz1Bco84",
+          "stationIds": ["IsrRck"]
+        },
+        {
+          "id": "0y0gaLiyiak",
+          "artist": "Mashina",
+          "img": "https://i.ytimg.com/vi/0y0gaLiyiak/default.jpg",
+          "name": "Night Train to Cairo",
+          "tags": [],
+          "duration": 222,
+          "url": "https://www.youtube.com/watch?v=0y0gaLiyiak",
+          "stationIds": ["IsrRck"]
+        },
+        {
+          "id": "eWYvErtwmzk",
+          "artist": "Teapacks",
+          "img": "https://i.ytimg.com/vi/eWYvErtwmzk/default.jpg",
+          "name": "perah ha shunot",
+          "tags": [],
+          "duration": 210,
+          "url": "https://www.youtube.com/watch?v=eWYvErtwmzk",
+          "stationIds": ["IsrRck"]
+        }
+      ],
+      "_id": "IsrRck"
+    },
+    {
+      "name": "Israeli Hip Hop",
+      "type": "playlist",
+      "tags": ["israeli", "hip hop"],
+      "backgroundColor": "rgb(100.199, 150.255, 100.178)",
+      "createdBy": {
+        "_id": "u124",
+        "fullname": "Tuna",
+        "imgUrl": "http://example-photo20/"
+      },
+      "likedByUsers": [],
+      "songs": [
+        {
+          "id": "upnBxPFcLY8",
+          "artist": "Tuna",
+          "img": "https://i.ytimg.com/vi/upnBxPFcLY8/default.jpg",
+          "name": "BaParallel",
+          "tags": [],
+          "duration": 235,
+          "url": "https://www.youtube.com/watch?v=upnBxPFcLY8",
+          "stationIds": ["IsrHH"]
+        },
+        {
+          "id": "Maf6BaEhCzY",
+          "artist": "Nechi Nech",
+          "img": "https://i.ytimg.com/vi/Maf6BaEhCzY/default.jpg",
+          "name": "Hummus Metamtem",
+          "tags": [],
+          "duration": 218,
+          "url": "https://www.youtube.com/watch?v=Maf6BaEhCzY",
+          "stationIds": ["IsrHH"]
+        },
+        {
+          "id": "R76bLycvIs8",
+          "artist": "Eden Derso",
+          "img": "https://i.ytimg.com/vi/R76bLycvIs8/default.jpg",
+          "name": "Elohim Sel Hahetziot",
+          "tags": [],
+          "duration": 202,
+          "url": "https://www.youtube.com/watch?v=R76bLycvIs8",
+          "stationIds": ["IsrHH"]
+        }
+      ],
+      "_id": "IsrHH"
     }
   ]
 }
