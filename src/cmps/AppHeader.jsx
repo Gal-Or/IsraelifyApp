@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { ReactSVG } from "react-svg";
+import { debounce } from "lodash";
 
 import rightArrow from "../assets/icons/right_arrow.svg";
 import leftArrow from "../assets/icons/left_arrow.svg";
@@ -13,16 +14,25 @@ export function AppHeader() {
   const [currentQuery, setCurrentQuery] = useState(
     params.query ? formatQuery(params.query) : ""
   );
+
   function formatQuery(query) {
     return query.split("+").join(" ");
   }
+
+  const debouncedNavigate = useCallback(
+    debounce((value) => {
+      navigate(`/search/${value}`);
+    }, 300), // Adjust the debounce delay as needed
+    []
+  );
+
   function onInputChange(ev) {
     let { value } = ev.target;
     setCurrentQuery(value);
 
     value = formatQuery(value);
 
-    navigate(`/search/${value}`);
+    debouncedNavigate(value);
   }
 
   return (

@@ -22,6 +22,18 @@
         overflow: hidden;
         text-overflow: ellipsis;
       }
+      .play-btn {
+        position: absolute;
+        bottom: 20%;
+        right: 5%;
+        width: 0;
+        height: 0;
+        opacity: 0;
+        background-color: #007bff;
+        border: none;
+        border-radius: 50%;
+        z-index: 2;
+      }
 
       .artist-img {
         position: relative;
@@ -42,18 +54,6 @@
           height: 100%;
           border-radius: 5%;
           object-fit: cover;
-        }
-
-        .play-btn {
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          width: 0;
-          height: 0;
-          opacity: 0;
-          background-color: #007bff;
-          border: none;
-          border-radius: 50%;
         }
       }
 
