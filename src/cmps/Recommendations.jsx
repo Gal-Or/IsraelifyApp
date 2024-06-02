@@ -4,12 +4,16 @@ export function Recommendations() {
   return (
 
     <div className="recommendations-container">
-      <MiniPreview />
-      <MiniPreview />
-      <MiniPreview />
-      <MiniPreview />
-      <MiniPreview />
-      <MiniPreview />
+      <div className="content">
+        <MiniPreview />
+        <MiniPreview />
+        <MiniPreview />
+        <MiniPreview />
+        <MiniPreview />
+        <MiniPreview />
+        <MiniPreview />
+        <MiniPreview />
+      </div>
 
     </div>
 
