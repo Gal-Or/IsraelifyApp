@@ -1,0 +1,21 @@
+.add-to-playlist {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+
+  &.active {
+    svg {
+      fill: #007bff;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
