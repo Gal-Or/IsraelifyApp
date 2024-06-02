@@ -51,22 +51,18 @@ export function StationsMenu({ song, closeModal }) {
 
         return station;
       });
+      closeModal();
 
       for (const station of updatedStations) {
-        console.log("x");
         await updateStation(station);
       }
-      //   //update each station
-      //   updatedStations.forEach((station) => {
-      //     setTimeout(() => {
-      //       console.log("waiting 1 sec");
-      //     }, 1000);
-      //     updateStation(station);
-      //   });
+      //  //update each station
+      // updatedStations.forEach(async (station) => {
+      //   await updateStation(station);
+      // });
     } catch (err) {
       console.log("Error in updateStationsSongs:", err);
     }
-    closeModal();
   }
 
   return (

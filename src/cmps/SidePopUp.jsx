@@ -1,7 +1,9 @@
+import { QueueMenu } from "./QueueMenu";
+
 export function SidePopUp() {
   return (
     <section className="side-pop-up">
-      <h1>SidePopUp</h1>
+      <QueueMenu />
     </section>
   );
 }
