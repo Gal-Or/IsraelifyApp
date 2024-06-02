@@ -12,7 +12,9 @@ import { utilService } from "./util.service";
 export const spotifyService = {
   getArtistResults,
   getSongsByGenre,
+  getSongBySearch,
   updateGenreSongsCache,
+  updateSearchResultsCache,
 };
 
 // Function to generate a cache key based on the search query
@@ -121,6 +123,58 @@ function cleanArtistsData(artists) {
   });
 }
 
+async function getSongBySearch(query) {
+  if (!query || query.length < 1) return [];
+  try {
+    // Check if results are available in the cache
+    const cachedResults = getFromCache(query, `spotify_song_search_${query}`);
+    if (cachedResults) {
+      return cachedResults;
+    }
+
+    const token = await getSpotifyToken();
+    const url = `https://api.spotify.com/v1/search`;
+    const params = {
+      q: query,
+      type: "track",
+      limit: 10,
+    };
+    const response = await axios.get(url, {
+      params,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    console.log("response.data.tracks.items", response.data.tracks.items);
+    var songs = cleanSongsData(response.data.tracks.items);
+
+    // Save results to cache
+    saveToCache(query, songs, `spotify_song_search_${query}`);
+    songs = songs.map((song, idx) => {
+      return { ...song, id: `track${idx}` };
+    });
+    return songs;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
+}
+
+// Function to clean up the song data
+function cleanSongsData(songs) {
+  return songs.map((song) => {
+    return {
+      id: song.id,
+      name: song.name,
+      artists: song.artists,
+      img: song.album.images[0].url,
+      album: song.album.name,
+      tags: [],
+      duration: song.duration_ms,
+    };
+  });
+}
+
 async function getSongsByGenre(genre) {
   if (!genre) return [];
   try {
@@ -169,4 +223,16 @@ function updateGenreSongsCache(genre, updatedSong) {
   );
 
   saveToCache(genre, updatedSongs, `spotify_genre_songs_${genre}`);
+}
+
+//function to update song in cache
+function updateSearchResultsCache(query, updatedSong) {
+  const cachedResults = getFromCache(query, `spotify_song_search_${query}`);
+  if (!cachedResults) return;
+
+  const updatedSongs = cachedResults.map((song, idx) =>
+    song.name === updatedSong.name ? updatedSong : song
+  );
+
+  saveToCache(query, updatedSongs, `spotify_song_search_${query}`);
 }

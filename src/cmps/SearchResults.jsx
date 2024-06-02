@@ -6,7 +6,12 @@ import { ArtistResults } from "./ArtistResults";
 import { TopResult } from "./TopResult";
 import { Loader } from "./Loader";
 
-export function SearchResults({ songResults, stationResults, artistResults }) {
+export function SearchResults({
+  songResults,
+  stationResults,
+  artistResults,
+  updateResults,
+}) {
   const currentSong = useSelector((state) => state.playerModule.currentSong);
   const isPlaying = useSelector((state) => state.playerModule.isPlaying);
   const { viewType } = useParams();
@@ -19,15 +24,21 @@ export function SearchResults({ songResults, stationResults, artistResults }) {
         <section className="search-results">
           <ArtistResults artistResults={artistResults} />
           {songResults && songResults.length > 0 && (
-            <TopResult song={songResults[0]} />
+            <TopResult song={songResults[0]} updateResults={updateResults} />
           )}
-          <SongResults songResults={songResults} />
+          <SongResults
+            songResults={songResults}
+            updateResults={updateResults}
+          />
           <StationResults stationResults={stationResults} />
         </section>
       )}
       {viewType === "songs" && (
         <section className="songs-view">
-          <SongResults songResults={songResults} />
+          <SongResults
+            songResults={songResults}
+            updateResults={updateResults}
+          />
         </section>
       )}
       {viewType === "stations" && (

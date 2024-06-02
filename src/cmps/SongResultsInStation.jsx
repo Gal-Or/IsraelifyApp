@@ -6,6 +6,8 @@ import { ReactSVG } from "react-svg";
 import { addSongToStation } from "../store/station.actions";
 import { setCurrentSong, setIsPlaying } from "../store/player.actions";
 
+import { spotifyService } from "../services/spotify.service";
+import { youtubeService } from "../services/youtube.service";
 import playIcon from "../assets/icons/playIcon.svg";
 import pauseIcon from "../assets/icons/pauseIcon.svg";
 import addIcon from "../assets/icons/plusWithBorderIcon.svg";
@@ -39,6 +41,7 @@ export function SongResultsInStation({
   songResults,
   removeResult,
   onAddSongToStation,
+  updateResults,
 }) {
   const params = useParams();
   const [showAll, setShowAll] = useState(false);
@@ -63,9 +66,6 @@ export function SongResultsInStation({
   async function onAddToPlaylist(song, stationId = "liked-songs") {
     if (!song) return;
     song.addedAt = Date.now();
-    song.stationIds = params.stationId
-      ? [...song.stationIds, params.stationId]
-      : [...song.stationIds, stationId];
     setCurrentStation((prevStation) => ({
       ...prevStation,
       songs: [...prevStation.songs, song],
@@ -76,14 +76,31 @@ export function SongResultsInStation({
     removeResult(song);
   }
 
-  function onPlaySong(song) {
-    if (currentSong.id === song.id) {
+  async function onPlaySong(song) {
+    var songToPlay = song;
+    console.log("songToPlay from station page", songToPlay);
+    //if song id contains "track" or its length is 22
+    if (song.id.includes("track") || song.id.length === 22) {
+      // Fetch YouTube URL for the song
+      const searchStr = `${song.name} ${song.artists
+        .map((artist) => artist.name)
+        .join(" ")}`;
+      const results = await youtubeService.query(searchStr, 1);
+      if (results.length > 0) {
+        songToPlay.id = results[0].id;
+        spotifyService.updateSearchResultsCache(
+          `${params.query}-${song.name}`,
+          songToPlay
+        );
+      }
+    }
+    if (currentSong.id === songToPlay.id) {
       setIsPlaying(!isPlaying);
       return;
     }
-    setCurrentSong(song);
+    setCurrentSong(songToPlay);
     setIsPlaying(true);
-    setLastActiveSong(song);
+    setLastActiveSong(songToPlay);
   }
 
   const handleContextMenu = (event, song) => {

@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ReactSVG } from "react-svg";
 
+import { youtubeService } from "../services/youtube.service";
+import { spotifyService } from "../services/spotify.service";
 import { addSongToStation } from "../store/station.actions";
 import { setCurrentSong, setIsPlaying } from "../store/player.actions";
 
@@ -13,6 +15,7 @@ import tickIcon from "../assets/icons/tickIcon.svg";
 import DotsIcon from "../assets/icons/Ellipses.svg";
 import deleteIcon from "../assets/icons/delete.svg";
 import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
+import addToQueueIcon from "../assets/icons/AddToQueue.svg";
 import { utilService } from "../services/util.service";
 import { ContextMenu } from "./ContextMenu";
 import { Loader } from "./Loader";
@@ -29,18 +32,16 @@ const options = [
   {
     label: "Add to queue",
     value: "add to queue",
-    icon: <ReactSVG src={addIcon} />,
+    icon: <ReactSVG src={addToQueueIcon} />,
     onClick: () => console.log("Add to queue"),
-  },
-  {
-    label: "Remove",
-    value: "remove",
-    icon: <ReactSVG src={deleteIcon} />,
-    onClick: () => console.log("Remove"),
   },
 ];
 
-export function SongResults({ songResults, onAddSongToStation }) {
+export function SongResults({
+  songResults,
+  onAddSongToStation,
+  updateResults,
+}) {
   const params = useParams();
   const [showAll, setShowAll] = useState(false);
   const [contextMenu, setContextMenu] = useState(null);
@@ -49,7 +50,6 @@ export function SongResults({ songResults, onAddSongToStation }) {
   const stations = useSelector((state) => state.stationModule.stations);
   const [currentStation, setCurrentStation] = useState({ songs: [] });
   const [lastActiveSong, setLastActiveSong] = useState(null);
-  const contextMenuRef = useRef(null);
 
   useEffect(() => {
     let station;
@@ -59,7 +59,7 @@ export function SongResults({ songResults, onAddSongToStation }) {
       station = stations.find((station) => station._id === "liked-songs");
     }
     if (station) setCurrentStation(station);
-  }, [params]);
+  }, [params, stations]);
 
   async function onAddToPlaylist(song, stationId = "liked-songs") {
     if (!song) return;
@@ -80,18 +80,33 @@ export function SongResults({ songResults, onAddSongToStation }) {
     if (onAddSongToStation) onAddSongToStation(song);
   }
 
-  function onPlaySong(song) {
-    if (currentSong.id === song.id) {
+  async function onPlaySong(song) {
+    var songToPlay = song;
+
+    if (song.id.includes("track") || song.id.length === 22) {
+      const searchStr = `${song.name} ${song.artists
+        .map((artist) => artist.name)
+        .join(" ")}`;
+      const results = await youtubeService.query(searchStr, 1);
+      if (results.length > 0) {
+        songToPlay.id = results[0].id;
+        spotifyService.updateSearchResultsCache(params.query, songToPlay);
+      }
+    }
+
+    if (currentSong.id === songToPlay.id) {
       setIsPlaying(!isPlaying);
       return;
     }
-    setCurrentSong(song);
+    setCurrentSong(songToPlay);
     setIsPlaying(true);
-    setLastActiveSong(song);
+    setLastActiveSong(songToPlay);
+    updateResults(songToPlay);
   }
 
-  const handleContextMenu = (event, song) => {
+  const handleContextMenu = (event) => {
     event.preventDefault();
+    console.log("event", event);
     setContextMenu({
       position: { x: event.clientX, y: event.clientY },
       options,
@@ -113,11 +128,11 @@ export function SongResults({ songResults, onAddSongToStation }) {
       </div>
 
       {displayedSongs.map((song) => (
-        <article
+        <li
           key={song.id}
           className={`song-result ${lastActiveSong === song ? "active" : ""}`}
           onClick={() => setLastActiveSong(song)}
-          onContextMenu={(event) => handleContextMenu(event, song)}
+          onContextMenu={handleContextMenu}
         >
           <div className="song-img">
             <img src={song.img} alt="song-thumbnail" />
@@ -131,7 +146,7 @@ export function SongResults({ songResults, onAddSongToStation }) {
           </div>
           <div className="song-info">
             <p>{song.name}</p>
-            <small>{song.artist}</small>
+            <small>{song.artists[0].name}</small>
           </div>
           <div className="song-actions">
             <AddSongToStationButton song={song} />
@@ -149,11 +164,10 @@ export function SongResults({ songResults, onAddSongToStation }) {
               </div>
             </CustomTooltip>
           </div>
-        </article>
+        </li>
       ))}
       {contextMenu && (
         <ContextMenu
-          ref={contextMenuRef}
           position={contextMenu.position}
           options={contextMenu.options}
           onClose={handleCloseContextMenu}

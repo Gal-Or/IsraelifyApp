@@ -24,6 +24,7 @@ export const stationService = {
   getStationDuration,
   //updateSongInStations,
   checkIfSongInExistInAnyStation,
+  updateSongId, //(params.stationId, song.id, songToPlay.id);
 };
 
 _createStations();
@@ -161,13 +162,16 @@ async function editStationInfo(station) {
 function getStationDuration(songs) {
   let duration = 0;
   songs.forEach((song) => {
-    duration += song.duration;
+    //if song duration/60 is bigger then 50 minutes it means that the time is in milliseconds
+    if (song.duration / 60 > 50) {
+      duration += song.duration / 60000;
+    } else duration += song.duration;
   });
   const minutes = Math.floor(duration / 60);
-  const seconds = duration % 60;
+  const seconds = Math.floor(duration % 60);
   return `${minutes} min ${seconds < 10 ? "0" + seconds : seconds} sec`;
 }
-// 
+//
 // async function updateSongInStations(checkedStations, song) {
 
 //   try {
@@ -192,6 +196,17 @@ function getStationDuration(songs) {
 //   }
 
 // }
+
+async function updateSongId(stationId, songId, newSongId) {
+  const station = await getById(stationId);
+  const songIdx = station.songs.findIndex((song) => song.id === songId);
+  if (songIdx === -1) return;
+
+  const song = station.songs[songIdx];
+  song.id = newSongId;
+
+  return await save(station);
+}
 
 function _createStations() {
   var stations = utilService.loadFromStorage(STORAGE_KEY);

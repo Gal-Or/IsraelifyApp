@@ -5,6 +5,7 @@ import { ReactSVG } from "react-svg";
 import playIcon from "../assets/icons/playIcon.svg";
 import pauseIcon from "../assets/icons/pauseIcon.svg";
 import { setCurrentSong, setIsPlaying } from "../store/player.actions";
+import { youtubeService } from "../services/youtube.service";
 import { SongDetails } from "./SongDetails";
 import { utilService } from "../services/util.service";
 import { ContextMenu } from "./ContextMenu";
@@ -14,6 +15,8 @@ import deleteIcon from "../assets/icons/delete.svg";
 import { AddSongToStationButton } from "./AddSongToStationButton";
 
 import { CustomTooltip } from "./CustomTooltip";
+import { stationService } from "../services/station.service";
+import { useParams } from "react-router";
 const options = [
   {
     label: "Add to playlist ",
@@ -44,6 +47,7 @@ export function SongContainer({
   isCompact,
 }) {
   const [contextMenu, setContextMenu] = useState(null);
+  const params = useParams();
   const ref = useRef(null);
   const isPlaying = useSelector((state) => state.playerModule.isPlaying);
   const currentSong = useSelector((state) => state.playerModule.currentSong);
@@ -87,7 +91,20 @@ export function SongContainer({
   });
 
   drag(drop(ref));
-  function onPlaySong(song) {
+  async function onPlaySong(song) {
+    var songToPlay = song;
+
+    //if song id contains "track" or its length is 22
+    if (song.id.includes("track") || song.id.length === 22) {
+      const searchStr = `${song.name} ${song.artists
+        .map((artist) => artist.name)
+        .join(" ")}`;
+      const results = await youtubeService.query(searchStr, 1);
+      if (results.length > 0) {
+        songToPlay.id = results[0].id;
+        stationService.updateSongId(params.stationId, song.id, songToPlay.id);
+      }
+    }
     if (currentSong.id === song.id) {
       setIsPlaying(!isPlaying);
       return;
@@ -133,18 +150,13 @@ export function SongContainer({
       </div>
       <SongDetails song={song} isCompact={isCompact} />
       <div className="song-album">
-        <span>album</span>
+        <span>{song.album?.name || "Single"}</span>
       </div>
       <div className="song-date-added">
         <span>{utilService.formatDate(song.addedAt)}</span>
       </div>
       <div className="song-duration">
-        <AddSongToStationButton song={song} />
-
         <span>{utilService.formatTime(song.duration)}</span>
-        <CustomTooltip title={`More options for ${song.name}`}>
-          <span>...</span>
-        </CustomTooltip>
       </div>
       {contextMenu && (
         <ContextMenu

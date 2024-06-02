@@ -15,7 +15,9 @@ export function SongDetails({ song, children, isCompact }) {
 
       <div className="song-info">
         <p>{(song && song.name) || "Song Name"}</p>
-        {!isCompact && <small>{(song && song.artist) || "Artist"}</small>}
+        {!isCompact && (
+          <small>{song.artists ? song.artists[0].name : song.artist}</small>
+        )}
       </div>
     </div>
   );
