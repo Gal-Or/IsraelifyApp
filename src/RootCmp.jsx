@@ -23,16 +23,18 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
   const renderMainContainer = () => {
     return (
       <main className="main-container">
-        <Routes>
-          {routes.map((route) => (
-            <Route
-              key={route.path}
-              exact={true}
-              element={route.component}
-              path={route.path}
-            />
-          ))}
-        </Routes>
+        <div className="main-container-bg">
+          <Routes>
+            {routes.map((route) => (
+              <Route
+                key={route.path}
+                exact={true}
+                element={route.component}
+                path={route.path}
+              />
+            ))}
+          </Routes>
+        </div>
       </main>
     );
   };

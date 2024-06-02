@@ -23,7 +23,7 @@ export function StationPage() {
   useEffect(() => {
     loadStation();
     return () => {
-      const mainElement = document.querySelector(".main-container");
+      const mainElement = document.querySelector(".main-container-bg");
       if (!mainElement) return;
       mainElement.style.backgroundImage = "none";
     };
@@ -68,7 +68,7 @@ export function StationPage() {
   }
 
   function setMainElementStyle(backgroundColor) {
-    const mainElement = document.querySelector(".main-container");
+    const mainElement = document.querySelector(".main-container-bg");
     if (!mainElement || !backgroundColor) return;
     mainElement.style.backgroundImage = `linear-gradient(to bottom, ${backgroundColor} 0%,rgba(18,18,18,0.1) 65%)`;
   }
