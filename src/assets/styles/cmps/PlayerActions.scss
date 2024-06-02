@@ -11,5 +11,19 @@
       border: none;
       background-color: transparent;
     }
+    .active {
+      svg {
+        fill: $logo-clr;
+      }
+    }
+    &:hover {
+      .volume-bar-thumb {
+        width: rem(15px);
+        height: rem(15px);
+      }
+      .volume-bar-track {
+        color: $logo-clr;
+      }
+    }
   }
 }

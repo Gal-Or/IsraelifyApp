@@ -1,12 +1,33 @@
-import React, { useState } from "react";
-import { Routes, Route, Navigate } from "react-router";
+import React, { useState, useEffect, useCallback } from "react";
+import { Routes, Route } from "react-router";
 import Resizable from "react-resizable-layout";
 import { SidePopUp } from "./cmps/SidePopUp";
 import { AppFooter } from "./cmps/AppFooter";
 import { NavBar } from "./cmps/NavBar";
 import routes, { authRoutes } from "./routes";
+import { useSelector } from "react-redux";
 
 const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
+  const currentStation = useSelector(
+    (state) => state.stationModule.currentStation
+  );
+
+  const handleResize = useCallback(() => {
+    const mainContainer = document.querySelector(".main-container");
+    if (mainContainer) {
+      const width = mainContainer.offsetWidth;
+
+      const dynamicFontSize = `${width / 10}px`; // Adjust the divisor as needed
+      mainContainer.style.setProperty("--dynamic-font-size", dynamicFontSize);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, [currentStation, handleResize]);
+
   const renderNavBar = (position) => {
     return (
       <div className="nav-bar-content" style={{ width: position }}>
@@ -55,7 +76,14 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
   const renderContentArea = () => {
     return (
       <div className="content-area">
-        <Resizable axis="x" initial={400} min={200} ma={600} reverse={true}>
+        <Resizable
+          axis="x"
+          initial={400}
+          min={200}
+          ma={600}
+          reverse={true}
+          onResizeEnd={handleResize}
+        >
           {({
             position: positionRight,
             separatorProps: separatorPropsRight,
@@ -73,7 +101,13 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
   return (
     <div className="page-container">
       <div className="main-content">
-        <Resizable axis="x" initial={250} min={50}>
+        <Resizable
+          axis="x"
+          initial={250}
+          min={50}
+          onResize={handleResize}
+          onResizeEnd={handleResize}
+        >
           {({ position, separatorProps, isDragging }) => (
             <>
               {renderNavBar(position)}

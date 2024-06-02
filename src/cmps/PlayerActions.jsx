@@ -53,7 +53,7 @@ export function PlayerActions({ setShowSidePopUp, showSidePopUp }) {
   return (
     <div className="player-actions">
       <CustomTooltip title="open-queue">
-        <div>
+        <div className={`${showSidePopUp ? "active" : ""}`}>
           <ReactSVG
             src={queueIcon}
             onClick={() => setShowSidePopUp(!showSidePopUp)}

@@ -10,49 +10,6 @@ export function StationHeader({ station, onSetStation, openModal }) {
   const stationNameRef = useRef(null);
   const stationImgRef = useRef(null);
 
-  const adjustFontSize = () => {
-    const headerWidth = stationHeaderRef.current.offsetWidth;
-    const imgWidth =
-      stationImgRef.current.offsetWidth || stationImgRef.current.width;
-    const stationNameElement = stationNameRef.current;
-
-    const getTextWidth = (fontSize) => {
-      const span = document.createElement("span");
-      span.style.fontSize = `${fontSize}px`;
-      span.style.visibility = "hidden";
-      span.style.position = "absolute";
-      span.textContent = station.name || "New Playlist";
-      document.body.appendChild(span);
-      const width = span.offsetWidth;
-      document.body.removeChild(span);
-      return width;
-    };
-
-    let low = 10;
-    let high = 100;
-    let optimalFontSize = parseFloat(
-      window.getComputedStyle(stationNameElement).fontSize
-    );
-
-    while (low <= high) {
-      const mid = Math.floor((low + high) / 2);
-      if (getTextWidth(mid) + imgWidth + 100 <= headerWidth) {
-        optimalFontSize = mid;
-        low = mid + 1;
-      } else {
-        high = mid - 1;
-      }
-    }
-
-    stationNameElement.style.fontSize = `${optimalFontSize}px`;
-  };
-
-  useEffect(() => {
-    adjustFontSize();
-    window.addEventListener("resize", adjustFontSize);
-    return () => window.removeEventListener("resize", adjustFontSize);
-  }, [station]);
-
   return (
     <div className="station-header" ref={stationHeaderRef}>
       <div className="station-header-grid" onClick={openModal}>

@@ -66,6 +66,17 @@
       .station-creator {
         font-size: 1em;
       }
+
+      .station-name {
+        font-size: var(--dynamic-font-size, 2em); // Use a custom property
+        font-family: "CircularSpotifyTextBold";
+        font-weight: 700;
+        display: inline;
+        text-wrap: nowrap;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
   }
 }
@@ -140,7 +151,7 @@
           align-self: start;
         }
         .station-name {
-          font-size: 3em;
+          font-size: var(--dynamic-font-size, 2em); // Use a custom property
           font-family: "CircularSpotifyTextBold";
           font-weight: 700;
           display: inline;
