@@ -9,13 +9,11 @@ import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
 const ADD_TO_LIKED_SONGS = "ADD_TO_LIKED_SONGS"; // initial state - if the song not exist in any station add it to liked songs
 const ADD_TO_STATION = "ADD_TO_STATION"; // secondary state - if the song  exist in any station -> open "add to station" menu(modal)
 
-
 import { addSongToStation, updateStation } from "../store/station.actions";
 import { stationService } from "../services/station.service";
 import { StationsMenu } from "./StationsMenu";
 
 export function AddSongToStationButton({ song }) {
-
   const stations = useSelector((state) => state.stationModule.stations);
   const [buttonState, setButtonState] = useState(ADD_TO_LIKED_SONGS);
   const [stationsMenuOpen, setStationsMenuOpen] = useState(false);
@@ -25,37 +23,29 @@ export function AddSongToStationButton({ song }) {
     checkSongExistInAnyStations();
   }, [song, stationsMenuOpen]);
 
-
   async function checkSongExistInAnyStations() {
     if (!stations) return;
     if (stations.length === 0) return;
     try {
-
-      const existInStations = await stationService.checkIfSongInExistInAnyStation(
-        song
-      );
+      const existInStations =
+        await stationService.checkIfSongInExistInAnyStation(song);
 
       if (existInStations) {
         setButtonState(ADD_TO_STATION);
       } else {
         setButtonState(ADD_TO_LIKED_SONGS);
       }
-
-
     } catch (err) {
-      console.log('Error in checkSongExistInAnyStations:', err);
+      console.log("Error in checkSongExistInAnyStations:", err);
     }
-
 
     return;
   }
 
   function handleClick() {
-
     switch (buttonState) {
-
       case ADD_TO_LIKED_SONGS:
-        setButtonState(ADD_TO_STATION)
+        setButtonState(ADD_TO_STATION);
         addSongToLikedSongs();
         console.log("Adding song to liked songs");
         break;
@@ -64,22 +54,20 @@ export function AddSongToStationButton({ song }) {
         setStationsMenuOpen(true);
         console.log("open modal ");
         break;
-
     }
-
-
   }
   async function addSongToLikedSongs() {
     try {
-
       console.log("Adding song to liked songs");
 
-      const savedStation = await stationService.addSongToStation({ ...song, addedAt: Date.now() }, "liked-songs")
+      const savedStation = await stationService.addSongToStation(
+        { ...song, addedAt: Date.now() },
+        "liked-songs"
+      );
       // update store
       updateStation(savedStation);
-
     } catch (err) {
-      console.log('Error in addSongToLikedSongs:', err);
+      console.log("Error in addSongToLikedSongs:", err);
     }
   }
 
@@ -102,7 +90,6 @@ export function AddSongToStationButton({ song }) {
     }
   }
 
-
   function closeModal() {
     setStationsMenuOpen(false);
   }
@@ -111,7 +98,9 @@ export function AddSongToStationButton({ song }) {
     <>
       <CustomTooltip title={getTooltipText(buttonState)}>
         <button
-          className="add-to-playlist"
+          className={`add-to-playlist ${
+            buttonState === "ADD_TO_STATION" ? "active" : ""
+          }`}
           onClick={() => handleClick()}
         >
           {renderButtonStateSwitch(buttonState)}
