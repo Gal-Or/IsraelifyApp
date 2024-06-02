@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Routes, Route } from "react-router";
-import Resizable from "react-resizable-layout";
+import { useResizable } from "react-resizable-layout";
 import { SidePopUp } from "./cmps/SidePopUp";
 import { AppFooter } from "./cmps/AppFooter";
 import { NavBar } from "./cmps/NavBar";
@@ -12,7 +12,7 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
     (state) => state.stationModule.currentStation
   );
 
-  const handleResize = useCallback(() => {
+  const handleResize = useCallback((position) => {
     const mainContainer = document.querySelector(".main-container");
     if (mainContainer) {
       const width = mainContainer.offsetWidth;
@@ -23,9 +23,9 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("resize", () => handleResize(0));
+    handleResize(0);
+    return () => window.removeEventListener("resize", () => handleResize(0));
   }, [currentStation, handleResize]);
 
   const renderNavBar = (position) => {
@@ -61,6 +61,9 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
   };
 
   const renderSidePopUp = (separatorPropsRight, positionRight) => {
+    useEffect(() => {
+      handleResize(positionRight);
+    }, [showSidePopUp, handleResize]);
     return (
       showSidePopUp && (
         <>
@@ -74,48 +77,43 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
   };
 
   const renderContentArea = () => {
+    const { position: positionRight, separatorProps: separatorPropsRight } =
+      useResizable({
+        axis: "x",
+        initial: 400,
+        min: 200,
+        max: 600,
+        reverse: true,
+      });
+
+    useEffect(() => {
+      handleResize(positionRight);
+    }, [positionRight, handleResize]);
+
     return (
       <div className="content-area">
-        <Resizable
-          axis="x"
-          initial={400}
-          min={200}
-          ma={600}
-          reverse={true}
-          onResizeEnd={handleResize}
-        >
-          {({
-            position: positionRight,
-            separatorProps: separatorPropsRight,
-          }) => (
-            <>
-              {renderMainContainer()}
-              {renderSidePopUp(separatorPropsRight, positionRight)}
-            </>
-          )}
-        </Resizable>
+        {renderMainContainer()}
+        {renderSidePopUp(separatorPropsRight, positionRight)}
       </div>
     );
   };
 
+  const { position, separatorProps, isDragging } = useResizable({
+    axis: "x",
+    initial: 250,
+    min: 50,
+  });
+
+  useEffect(() => {
+    handleResize(position);
+  }, [position, handleResize]);
+
   return (
     <div className="page-container">
       <div className="main-content">
-        <Resizable
-          axis="x"
-          initial={250}
-          min={50}
-          onResize={handleResize}
-          onResizeEnd={handleResize}
-        >
-          {({ position, separatorProps, isDragging }) => (
-            <>
-              {renderNavBar(position)}
-              {renderSeperator(separatorProps, isDragging)}
-              {renderContentArea()}
-            </>
-          )}
-        </Resizable>
+        {renderNavBar(position)}
+        {renderSeperator(separatorProps, isDragging)}
+        {renderContentArea()}
       </div>
       <AppFooter
         className="app-footer"
