@@ -11,10 +11,22 @@ export const SET_YOUTUBE_PLAYER = "SET_YOUTUBE_PLAYER";
 export const SET_IS_PLAYING = "SET_IS_PLAYING";
 
 export async function playFirstSong(song) {
+  var songToPlay = song;
+  //if song contains "track" or its length is 22
+  if (song.id.includes("track") || song.id.length === 22) {
+    // Fetch YouTube URL for the song
+    const searchStr = `${song.name} ${song.artists
+      .map((artist) => artist.name)
+      .join(" ")}`;
+    const results = await youtubeService.query(searchStr, 1);
+    if (results.length > 0) {
+      songToPlay.id = results[0].id;
+    }
+  }
   try {
     store.dispatch({
       type: SET_CURRENT_SONG,
-      song: song,
+      song: songToPlay,
     });
     store.dispatch({
       type: SET_IS_PLAYING,

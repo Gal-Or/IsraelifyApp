@@ -54,7 +54,7 @@ export function StationActions({
     }
   };
 
-  const handlePlayClick = () => {
+  const handlePlayClick = async () => {
     // Play the first song and add remaining songs to the top of the queue
     addSongsToQueueTop(station.songs.slice(1));
 
