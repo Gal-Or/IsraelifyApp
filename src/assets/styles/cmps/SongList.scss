@@ -21,6 +21,7 @@
     .song-album,
     .song-date-added,
     .song-duration {
+      color: $sec-font-clr;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;

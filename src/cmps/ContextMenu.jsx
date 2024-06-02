@@ -1,6 +1,11 @@
 import React, { useEffect, useRef } from "react";
 
-export function ContextMenu({ position, options, onClose }) {
+export function ContextMenu({
+  position,
+  containerRect = null,
+  options,
+  onClose,
+}) {
   const contextMenuRef = useRef(null);
 
   const setPosition = (menu) => {
@@ -9,16 +14,19 @@ export function ContextMenu({ position, options, onClose }) {
       const { offsetWidth, offsetHeight } = menu;
       let { x, y } = position;
 
-      const rightOverflow = x + offsetWidth > innerWidth;
-      const bottomOverflow = y + offsetHeight > innerHeight;
+      const containerWidth = containerRect ? containerRect.width : innerWidth;
+      const containerHeight = containerRect
+        ? containerRect.height
+        : innerHeight;
 
-      if (rightOverflow && bottomOverflow) {
-        x = x - offsetWidth;
-        y = y - offsetHeight;
-      } else if (rightOverflow) {
-        x = x - offsetWidth;
-      } else if (bottomOverflow) {
-        y = y - offsetHeight;
+      const rightOverflow = x + offsetWidth > containerWidth;
+      const bottomOverflow = y + offsetHeight > containerHeight;
+
+      if (rightOverflow) {
+        x = containerWidth - offsetWidth;
+      }
+      if (bottomOverflow) {
+        y = containerHeight - offsetHeight;
       }
 
       menu.style.left = `${x}px`;

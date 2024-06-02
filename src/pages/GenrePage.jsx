@@ -17,11 +17,11 @@ import addIcon from "../assets/icons/AddToQueue.svg";
 import deleteIcon from "../assets/icons/delete.svg";
 import compactIcon from "../assets/icons/Compact.svg";
 import listIcon from "../assets/icons/listIcon.svg";
+import DotsIcon from "../assets/icons/Ellipses.svg";
 import { Dropdown } from "../cmps/DropDownMenu";
-import elipsesIcon from "../assets/icons/Ellipses.svg";
 import { AppHeader } from "../cmps/AppHeader";
 import { genresService } from "../services/genres.service";
-
+import { CustomTooltip } from "../cmps/CustomTooltip";
 export function GenrePage() {
   const [genreSongs, setGenreSongs] = useState(null);
   const [genreStations, setGenreStations] = useState([]);
@@ -99,7 +99,7 @@ export function GenrePage() {
   function setMainElementStyle(backgroundColor) {
     const mainElement = document.querySelector(".main-container-bg");
     if (!mainElement || !backgroundColor) return;
-    mainElement.style.backgroundImage = `linear-gradient(to bottom, ${backgroundColor} 0%,rgba(18,18,18,0.1) 65%)`;
+    mainElement.style.backgroundImage = `linear-gradient(to bottom, ${backgroundColor} 0%,rgba(18,18,18,0.1) 40%)`;
   }
 
   if (!genreSongs) {
@@ -138,30 +138,39 @@ export function GenrePage() {
           <button className="play-btn">
             <ReactSVG src={playIcon} />
           </button>
-          <div className="more-options">
-            <Dropdown
-              options={[
-                {
-                  label: "Add to Playlist",
-                  value: "add to playlist",
-                  icon: addToPlaylistIcon,
-                },
-                { label: "Add to Queue", value: "add to queue", icon: addIcon },
-                { label: "Delete", value: "delete", icon: deleteIcon },
-              ]}
-              onSelect={(option) => console.log(option)}
-              toggle={<ReactSVG src={elipsesIcon} />}
-              toggleTick={false}
-              closeOnSelect={true}
-              showSelected={false}
-              key={params.genreId + "more"}
-            />
-          </div>
+          <CustomTooltip title={`More options `}>
+            <div className="more-options">
+              <Dropdown
+                options={[
+                  {
+                    label: "Add to Playlist",
+                    value: "add to playlist",
+                    icon: addToPlaylistIcon,
+                  },
+                  {
+                    label: "Add to Queue",
+                    value: "add to queue",
+                    icon: addIcon,
+                  },
+                  { label: "Delete", value: "delete", icon: deleteIcon },
+                ]}
+                onSelect={(option) => {
+                  console.log(option);
+                }}
+                toggle={<ReactSVG src={DotsIcon} />}
+                toggleTick={false}
+                closeOnSelect={true}
+                showSelected={false}
+                key={genreSongs[0].id + "more"}
+              />
+            </div>
+          </CustomTooltip>
           <div className="change-view">
             <Dropdown
               options={viewOptions}
               onSelect={handleViewSelect}
               headline="View as"
+              key={genreSongs[0].id + "view"}
               toggleTick={true}
             />
           </div>
