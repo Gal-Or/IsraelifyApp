@@ -18,7 +18,7 @@ import compactIcon from "../assets/icons/compact.svg";
 
 
 
-export function Library({ width, setWidth }) {
+export function Library({ width }) {
 
   const [isCompact, setIsCompact] = useState(false);
   const [isOpen, setIsOpen] = useState(true);
@@ -39,13 +39,26 @@ export function Library({ width, setWidth }) {
     navigate(`station/${id}`);
   }
 
+  function handleClickLibrary() {
+    let nav = document.querySelector(".nav-bar-content")
+    if (isOpen) {
+      nav.classList.add("narrow-nav-bar");
+      nav.style.width = "80px";
+    } else {
+      nav.classList.remove("narrow-nav-bar");
+      nav.style.width = "250px";
+    }
+    setIsOpen(!isOpen);
+
+  }
+
   return (
     <section className="library-container">
       <section className="library-header">
         <div className="icon-lable-div">
           <ReactSVG
             src={isOpen ? LibraryOpen : LibraryClose}
-            onClick={() => setIsOpen(!isOpen)} />
+            onClick={() => { handleClickLibrary() }} />
           <span className="nav-page">Your Library</span>
         </div>
 
@@ -70,7 +83,9 @@ export function Library({ width, setWidth }) {
         </div>
       </section>
 
-      <StationList width={width} isCompact={isCompact} />
+      <div className="list-container">
+        <StationList width={width} isCompact={isCompact} />
+      </div>
     </section >
   );
 }

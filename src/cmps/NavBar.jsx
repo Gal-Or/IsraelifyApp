@@ -20,6 +20,10 @@ export function NavBar() {
     console.log("width", width);
   }
 
+  function setWidth(width) {
+    width = width;
+  }
+
   return (
     <section className="nav-bar" ref={ref}>
       <NavOptions />

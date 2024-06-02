@@ -18,130 +18,202 @@
   }
 
   //all the children of the nav-bar border-radius
-  > * {
+  >* {
     border-radius: em(8px);
     background-color: $sec-bg-clr;
   }
 }
 
 @include for-normal-layout {
-  .nav-bar {
-    svg {
-      height: em(16px);
-      width: em(16px);
-      fill: $sec-font-clr;
-    }
+  .nav-bar-content {
+    .nav-bar {
+      &>* {
+        padding: em(8px) em(8px);
+      }
 
-    span {
-      color: $sec-font-clr;
-    }
-
-    .icon-lable-div {
-      display: flex;
-      grid-template-columns: 1fr 1fr;
-      gap: em(10px);
-      text-decoration: none;
-    }
-
-    .icon-lable-div:hover {
-      span {
-        color: white;
-        transition: color 300ms linear;
+      .icon-lable-div {
+        padding: em(4px) em(12px);
+        justify-content: start;
       }
 
       svg {
-        fill: white;
-        transition: fill 300ms linear;
+        height: em(20px);
+        width: em(20px);
+        fill: $sec-font-clr;
       }
-    }
 
-    .nav-options {
-      display: flex;
-      justify-content: start;
-      flex-direction: column;
-      gap: em(15px);
-      min-height: em(70px);
-      padding: em(20px) em(20px) em(20px) em(5px);
+      span {
+        color: $sec-font-clr;
+      }
 
-      .clicked {
-        color: white;
+      .icon-lable-div {
+        display: flex;
+        grid-template-columns: 1fr 1fr;
+        gap: em(10px);
+        text-decoration: none;
+      }
+
+      .icon-lable-div:hover {
+        span {
+          color: white;
+          transition: color 300ms linear;
+        }
 
         svg {
           fill: white;
+          transition: fill 300ms linear;
         }
       }
-    }
 
-    .library-container {
-      padding: 10px;
-      width: 100%;
-      height: 100%;
-      padding: em(10px);
-      overflow: hidden;
+      .nav-options {
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+        gap: em(15px);
 
-      overflow-y: scroll;
-
-      .play-btn {
-        display: none;
-      }
-
-      .library-header {
-        display: grid;
-        grid-template-columns: auto auto;
-        gap: em(10px);
-        background-color: $sec-bg-clr;
-        border-radius: em(8px);
-        margin-bottom: em(10px);
-
-        .icon-lable-div {
-          grid-column: 1;
-        }
-
-        .library-header-right {
-          display: flex;
-          justify-content: end;
-          gap: em(10px);
-          grid-column: 2;
-          grid-row: 1;
+        .clicked {
+          color: white;
 
           svg {
-            height: em(12px);
-            width: em(12px);
-            fill: $sec-font-clr;
+            fill: white;
+          }
+        }
+      }
+
+      .library-container {
+
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        .play-btn {
+          display: none;
+        }
+
+        .library-header {
+          display: grid;
+          grid-template-columns: auto auto;
+          gap: em(10px);
+          background-color: $sec-bg-clr;
+          border-radius: em(8px);
+          margin-bottom: em(10px);
+
+          .icon-lable-div {
+            grid-column: 1;
           }
 
-          button {
-            background-color: transparent;
-            cursor: pointer;
-            border-radius: 50%;
-            border: none;
-            aspect-ratio: 1/1;
-          }
-
-          button:hover {
-            background-color: rgba(53, 51, 51, 0.363);
-            transition: background-color 150ms linear;
+          .library-header-right {
+            display: flex;
+            justify-content: end;
+            gap: em(10px);
+            grid-column: 2;
+            grid-row: 1;
 
             svg {
-              fill: white;
-              transition: fill 150ms linear;
+              height: em(12px);
+              width: em(12px);
+              fill: $sec-font-clr;
+            }
+
+            button {
+              background-color: transparent;
+              cursor: pointer;
+              border-radius: 50%;
+              border: none;
+              aspect-ratio: 1/1;
+            }
+
+            button:hover {
+              background-color: rgba(53, 51, 51, 0.363);
+              transition: background-color 150ms linear;
+
+              svg {
+                fill: white;
+                transition: fill 150ms linear;
+              }
             }
           }
         }
+
+        .list-container {
+          overflow-y: scroll;
+          height: 100%;
+
+
+          .station-list {}
+
+
+
+        }
+
+
+
+        ::-webkit-scrollbar-button {
+          display: none;
+        }
+
+        ::-webkit-scrollbar-button {
+          display: none;
+        }
+
+        .list-container::-webkit-scrollbar {
+          background-color: transparent;
+          scrollbar-width: thin;
+        }
+
+        .list-container:hover::-webkit-scrollbar-thumb {
+          background: #555;
+        }
+
       }
     }
+  }
 
-    ::-webkit-scrollbar-button {
-      display: none;
-    }
+  .narrow-nav-bar {
 
-    .library-container::-webkit-scrollbar {
-      background-color: transparent;
-      scrollbar-width: thin;
-    }
+    .nav-bar {
+      min-width: em(44px);
 
-    .library-container:hover::-webkit-scrollbar-thumb {
-      background: #555;
+      span,
+      button {
+        display: none;
+      }
+
+      .nav-options {}
+
+      .library-container {
+
+        .library-header {
+          display: flex;
+          // justify-content: center;
+          margin-top: em(10px);
+          gap: unset;
+
+          .icon-lable-div {
+            justify-content: center;
+          }
+
+          //   svg {
+          //     height: em(20px);
+          //     width: em(20px);
+          //     fill: $sec-font-clr;
+          //   }
+          // }
+
+          // span,
+          // button {
+          //   display: none;
+          // }
+        }
+
+        .station-list {
+          .station-preview {
+            display: flex;
+            justify-content: center;
+            margin-left: em(4px);
+          }
+        }
+      }
     }
   }
 }
