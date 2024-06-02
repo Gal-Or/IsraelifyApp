@@ -99,8 +99,8 @@
       justify-content: space-between;
 
       .station-header-img {
-        width: 15vw;
-        height: 15vw;
+        width: var(--dynamic-image-size, 15vw); // Use a custom property
+        height: var(--dynamic-image-size, 15vw); // Use a custom property
         border-radius: 2.5%;
         overflow: hidden;
 

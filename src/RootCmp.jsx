@@ -17,8 +17,10 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
     if (mainContainer) {
       const width = mainContainer.offsetWidth;
 
-      const dynamicFontSize = `${width / 10}px`; // Adjust the divisor as needed
+      const dynamicFontSize = `${width / 15}px`; // Adjust the divisor as needed
+      const dynamicImageSize = `${width / 5}px`; // Adjust the divisor as needed
       mainContainer.style.setProperty("--dynamic-font-size", dynamicFontSize);
+      mainContainer.style.setProperty("--dynamic-image-size", dynamicImageSize);
     }
   }, []);
 
