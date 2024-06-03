@@ -6,38 +6,43 @@ import appleIcon from "../assets/icons/apple.svg";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import { useState, useContext } from "react";
-import { UserContext } from '../RootCmp.jsx'
-
-
-
+import { UserContext } from "../RootCmp.jsx";
 
 export function SignInForm() {
-
-  const navigate = useNavigate()
-  const [loggedinUser, setLoggedinUser] = useContext(UserContext)
-  const [credentials, setCredentials] = useState({ username: '', password: '' })
+  const navigate = useNavigate();
+  const [loggedinUser, setLoggedinUser] = useContext(UserContext);
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: "",
+  });
 
   function handleGuestClick() {
-    setLoggedinUser({ username: 'guest', fullname: 'guest', imgUrl: 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png' })
+    setLoggedinUser({
+      username: "guest",
+      fullname: "guest",
+      imgUrl:
+        "https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-1024.png",
+    });
   }
-
 
   async function handleSubmit(ev) {
     ev.preventDefault();
     try {
-      const user = await userService.login(credentials)
-      setLoggedinUser(user)
-      navigate('/')
+      const user = await userService.login(credentials);
+      setLoggedinUser(user);
+      navigate("/");
     } catch (err) {
-      console.log('err:', err)
+      console.log("err:", err);
     }
   }
 
   function handleChange(ev) {
-    let { value, name: field, type } = ev.target
-    value = type === 'number' ? +value : value
-    setCredentials(prevCredentials => ({ ...prevCredentials, [field]: value }))
-
+    let { value, name: field, type } = ev.target;
+    value = type === "number" ? +value : value;
+    setCredentials((prevCredentials) => ({
+      ...prevCredentials,
+      [field]: value,
+    }));
   }
 
   return (
@@ -57,7 +62,14 @@ export function SignInForm() {
           Continue with Apple
         </button>
         <NavLink to="/">
-          <button className="social-button guest" onClick={() => { handleGuestClick() }} >Continue as guest</button>
+          <button
+            className="social-button guest"
+            onClick={() => {
+              handleGuestClick();
+            }}
+          >
+            Continue as guest
+          </button>
         </NavLink>
       </div>
       <hr />
@@ -103,7 +115,7 @@ export function SignInForm() {
       <hr />
       <div className="sign-up">
         <p>Don't have an account?</p>
-        <NavLink to={'/signup'}>Subscribe to Spotify</NavLink>
+        <NavLink to={"/signup"}>Subscribe to Spotify</NavLink>
       </div>
     </div>
   );
