@@ -24,10 +24,10 @@ export function Recommendations() {
 
   function loadGenres() {
     const genres = genresService.query();
+    var shuffledGenres = genres.sort(() => Math.random() - 0.5);
     // Slice 8 random genres
-    genres.sort(() => Math.random() - 0.5);
-    genres.splice(8);
-    setGenres(genres);
+    shuffledGenres = shuffledGenres.slice(0, 8);
+    setGenres(shuffledGenres);
   }
 
   return (
