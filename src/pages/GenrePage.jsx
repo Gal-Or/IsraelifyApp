@@ -10,7 +10,12 @@ import pencil from "../assets/icons/pencil.svg";
 import clockIcon from "../assets/icons/clock.svg";
 import playIcon from "../assets/icons/playIcon.svg";
 import pauseIcon from "../assets/icons/pauseIcon.svg";
-import { setCurrentSong, setIsPlaying } from "../store/player.actions";
+import {
+  addSongsToQueueTop,
+  playFirstSong,
+  setIsPlaying,
+  setCurrentSong,
+} from "../store/player.actions";
 import { utilService } from "../services/util.service";
 import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
 import addIcon from "../assets/icons/AddToQueue.svg";
@@ -22,6 +27,7 @@ import { Dropdown } from "../cmps/DropDownMenu";
 import { AppHeader } from "../cmps/AppHeader";
 import { genresService } from "../services/genres.service";
 import { CustomTooltip } from "../cmps/CustomTooltip";
+
 export function GenrePage() {
   const [genreSongs, setGenreSongs] = useState(null);
   const [genreStations, setGenreStations] = useState([]);
@@ -58,7 +64,7 @@ export function GenrePage() {
   const onPlaySong = async (song) => {
     var songToPlay = song;
 
-    //if song id contains "track" or its length is 22
+    // If song id contains "track" or its length is 22
     if (song.id.includes("track") || song.id.length === 22) {
       // Fetch YouTube URL for the song
       const searchStr = `${song.name} ${song.artists
@@ -88,6 +94,19 @@ export function GenrePage() {
     });
   };
 
+  const handlePlayClick = () => {
+    if (isPlaying) {
+      setIsPlaying(false);
+    } else {
+      if (genreSongs && genreSongs.length > 0) {
+        // Add remaining songs to the queue top
+        addSongsToQueueTop(genreSongs.slice(1));
+        // Play the first song
+        playFirstSong(genreSongs[0]);
+      }
+    }
+  };
+
   const viewOptions = [
     { label: "List", value: false, icon: listIcon },
     { label: "Compact", value: true, icon: compactIcon },
@@ -96,6 +115,7 @@ export function GenrePage() {
   const handleViewSelect = (option) => {
     setIsCompact(option.value);
   };
+
   function setMainElementStyle(backgroundColor) {
     const mainElement = document.querySelector(".main-container-bg");
     if (!mainElement || !backgroundColor) return;
@@ -135,8 +155,8 @@ export function GenrePage() {
           </div>
         </div>
         <div className="station-actions">
-          <button className="play-btn">
-            <ReactSVG src={playIcon} />
+          <button className="play-btn" onClick={handlePlayClick}>
+            <ReactSVG src={isPlaying ? pauseIcon : playIcon} />
           </button>
           <CustomTooltip title={`More options `}>
             <div className="more-options">

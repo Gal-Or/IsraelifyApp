@@ -1,4 +1,5 @@
-import React from "react";
+import { useSelector } from "react-redux";
+
 import { useNavigate } from "react-router";
 import { ReactSVG } from "react-svg";
 import { Dropdown } from "./DropDownMenu";
@@ -7,6 +8,7 @@ import {
   addSongsToQueueTop,
   addSongsToQueueBottom,
   playFirstSong,
+  setIsPlaying,
 } from "../store/player.actions";
 import { removeStation } from "../store/station.actions";
 import playIcon from "../assets/icons/playIcon.svg";
@@ -27,6 +29,11 @@ export function StationActions({
   openModal,
 }) {
   const navigate = useNavigate();
+  const currentSong = useSelector((state) => state.playerModule.currentSong);
+  const isPlaying = useSelector((state) => state.playerModule.isPlaying);
+  const youtubePlayer = useSelector(
+    (state) => state.playerModule.youtubePlayer
+  );
   const viewOptions = [
     { label: "List", value: false, icon: listIcon },
     { label: "Compact", value: true, icon: compactIcon },
@@ -61,12 +68,23 @@ export function StationActions({
 
     // Play the first song
     playFirstSong(station.songs[0]);
+    if (isPlaying) {
+      youtubePlayer.pauseVideo();
+      setIsPlaying(false);
+    }
   };
 
   return (
     <div className="station-actions">
       <button className="play-btn" onClick={handlePlayClick}>
-        <ReactSVG src={playIcon} />
+        <ReactSVG
+          src={
+            station.songs.some((song) => song.id === currentSong.id) &&
+            isPlaying
+              ? pauseIcon
+              : playIcon
+          }
+        />
       </button>
       <CustomTooltip title={`More options for ${station.name}`}>
         <div className="more-options">
