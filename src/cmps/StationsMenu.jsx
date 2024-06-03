@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { updateStation } from "../store/station.actions";
-import Checkbox from "@mui/material/Checkbox";
+import * as RadixCheckbox from "@radix-ui/react-checkbox";
+import { ReactSVG } from "react-svg";
+import checkIcon from "../assets/icons/tickIcon.svg";
 
 export function StationsMenu({ song, closeModal, position }) {
   const stations = useSelector(
@@ -99,28 +101,40 @@ export function StationsMenu({ song, closeModal, position }) {
         <input type="text" placeholder="Find a playlist" />
       </div>
       <div className="new-playlist">+ New playlist</div>
+      <hr />
       <div className="optional-stations-list-container">
         {stations?.map((station) => (
           <div key={station._id} className="station-item">
-            <Checkbox
-              checked={
-                !!checkedStations.find(
-                  (checkedStation) => checkedStation._id === station._id
-                )
-              }
-              onChange={(e) => {
-                if (e.target.checked) {
-                  setCheckedStations([...checkedStations, station]);
-                } else {
-                  setCheckedStations(
-                    checkedStations.filter(
-                      (checkedStation) => checkedStation._id !== station._id
-                    )
-                  );
-                }
-              }}
+            <img
+              src={station.img ? station.img : station.songs[0].img}
+              alt=""
             />
             <span>{station.name}</span>
+            <div className="checkbox">
+              <RadixCheckbox.Root
+                className="CheckboxRoot"
+                checked={
+                  !!checkedStations.find(
+                    (checkedStation) => checkedStation._id === station._id
+                  )
+                }
+                onCheckedChange={(checked) => {
+                  if (checked) {
+                    setCheckedStations([...checkedStations, station]);
+                  } else {
+                    setCheckedStations(
+                      checkedStations.filter(
+                        (checkedStation) => checkedStation._id !== station._id
+                      )
+                    );
+                  }
+                }}
+              >
+                <RadixCheckbox.Indicator className="CheckboxIndicator">
+                  <ReactSVG src={checkIcon} />
+                </RadixCheckbox.Indicator>
+              </RadixCheckbox.Root>
+            </div>
           </div>
         ))}
       </div>
