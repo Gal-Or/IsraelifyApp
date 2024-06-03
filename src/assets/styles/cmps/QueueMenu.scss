@@ -1,9 +1,13 @@
 .queue-menu {
   padding: 20px;
   color: #fff;
-  max-width: 400px;
+  max-width: 350px;
   font-family: Arial, sans-serif;
-  overflow-y: auto;
+  .next-up {
+    overflow-y: auto;
+    max-height: em(1000px);
+    width: em(350px);
+  }
 
   h2 {
     font-size: 18px;
