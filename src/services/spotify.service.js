@@ -12,7 +12,10 @@ import { utilService } from "./util.service";
 export const spotifyService = {
   getArtistResults,
   getSongsByGenre,
+  getSongBySearch,
   updateGenreSongsCache,
+  updateSearchResultsCache,
+  getSongRecommendations,
 };
 
 // Function to generate a cache key based on the search query
@@ -121,6 +124,57 @@ function cleanArtistsData(artists) {
   });
 }
 
+async function getSongBySearch(query) {
+  if (!query || query.length < 1) return [];
+  try {
+    // Check if results are available in the cache
+    const cachedResults = getFromCache(query, `spotify_song_search_${query}`);
+    if (cachedResults) {
+      return cachedResults;
+    }
+
+    const token = await getSpotifyToken();
+    const url = `https://api.spotify.com/v1/search`;
+    const params = {
+      q: query,
+      type: "track",
+      limit: 10,
+    };
+    const response = await axios.get(url, {
+      params,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    var songs = cleanSongsData(response.data.tracks.items);
+
+    // Save results to cache
+    saveToCache(query, songs, `spotify_song_search_${query}`);
+    songs = songs.map((song, idx) => {
+      return { ...song, id: `track${idx}-${utilService.makeId()}` };
+    });
+    return songs;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
+}
+
+// Function to clean up the song data
+function cleanSongsData(songs) {
+  return songs.map((song) => {
+    return {
+      id: song.id,
+      name: song.name,
+      artists: song.artists,
+      img: song.album.images[0].url,
+      album: song.album.name,
+      tags: [],
+      duration: song.duration_ms,
+    };
+  });
+}
+
 async function getSongsByGenre(genre) {
   if (!genre) return [];
   try {
@@ -169,4 +223,83 @@ function updateGenreSongsCache(genre, updatedSong) {
   );
 
   saveToCache(genre, updatedSongs, `spotify_genre_songs_${genre}`);
+}
+
+//function to update song in cache
+function updateSearchResultsCache(query, updatedSong) {
+  const cachedResults = getFromCache(query, `spotify_song_search_${query}`);
+  if (!cachedResults) return;
+
+  const updatedSongs = cachedResults.map((song, idx) =>
+    song.name === updatedSong.name ? updatedSong : song
+  );
+
+  saveToCache(query, updatedSongs, `spotify_song_search_${query}`);
+}
+
+async function getSongRecommendations(song) {
+  const apiKey = "API_KEY_HERE"; //process.env.REACT_APP_OPENAI_API_KEY;
+  const url = "https://api.openai.com/v1/completions";
+  const songText =
+    `${song.name}` +
+    " " +
+    `${
+      song.artists
+        ? song.artists.map((artist) => artist.name).join(" ")
+        : song.artist.name
+    }`;
+
+  const requestBody = {
+    model: "gpt-3.5-turbo-instruct",
+    prompt: `Generate 20 song recommendations based on the song and artists: "${songText}"\n\ respond songs in this format - "Song1 Name" \n "Song1 Artist" \n "Song2 Name" \n "Song2 Artist" \n etc...`,
+    temperature: 1,
+    max_tokens: 512,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+  };
+
+  try {
+    const response = await axios.post(url, requestBody, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+    });
+    console.log("response", response);
+
+    const recommendations = response.data.choices[0].text;
+    //for each 2 lines create a song object
+    var songs = recommendations.split("\n").reduce((acc, line, idx) => {
+      if (idx % 2 === 0) {
+        acc.push({ name: line, artist: recommendations[idx + 1] });
+      }
+      return acc;
+    }, []);
+    //check format is correct
+    songs = songs.filter((song) => song.name && song.artist);
+
+    //search for each song in spotify and create a song object
+    songs = await Promise.all(
+      songs.map(async (song) => {
+        const spotifySongs = await getSongBySearch(
+          `${song.name} ${song.artist}`
+        );
+        if (spotifySongs.length === 0) return null;
+        console.log("spotifySongs", spotifySongs);
+        return spotifySongs[0];
+      })
+    );
+
+    return songs
+      .map((song, idx) => {
+        return { ...song, addedAt: Date.now() };
+      })
+      .slice(0, 20);
+
+    // Return the first 20 songs
+  } catch (error) {
+    console.error("Error fetching recommendations:", error);
+    return [];
+  }
 }
