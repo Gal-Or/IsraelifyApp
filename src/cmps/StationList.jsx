@@ -6,6 +6,7 @@ import { loadStations, removeStation } from "../store/station.actions";
 import { StationPreview } from "./StationPreview";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Loader } from "./Loader";
 
 export function StationList({ width, isCompact, randomize = false }) {
   //const [stations, setStations] = useState([])
@@ -20,22 +21,23 @@ export function StationList({ width, isCompact, randomize = false }) {
       const firstChild = containerRef.current.firstElementChild;
       const firstChildHeight = firstChild.offsetHeight;
 
-      if (
-        containerRef.current.parentElement.className !== "library-container"
-      ) {
+      if (containerRef.current.parentElement.className !== "library-container") {
         containerRef.current.style.maxHeight = `${firstChildHeight}px`;
         console.log("firstChildHeight:", firstChildHeight);
       }
     }
     return () => {
-      if (containerRef.current !== null)
+      if (containerRef.current !== null) {
+        console.log("->>>>containerRef.current:", containerRef.current);
         containerRef.current.style.maxHeight = "unset";
+      }
     };
-  }, [stations]);
+  }, [shuffledStations]);
 
   useEffect(() => {
     loadStations();
   }, []);
+
   useEffect(() => {
     if (!randomize) {
       setShuffledStations(stations);
@@ -43,11 +45,14 @@ export function StationList({ width, isCompact, randomize = false }) {
     }
     setShuffledStations([...stations].sort(() => Math.random() - 0.5));
   }, [stations]);
+
+
   function onDeleteStation(ev, stationId) {
     ev.stopPropagation();
     removeStation(stationId);
   }
 
+  if (shuffledStations.length === 0) return <Loader />;
   return (
     <section
       className={`station-list ${isCompact ? " compact" : ""}`}
