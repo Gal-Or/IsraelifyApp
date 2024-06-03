@@ -89,7 +89,6 @@ async function query(searchStr, maxResults = 10) {
 async function cleanUpResults(results) {
   var cleanResults = results.map((result) => createResultObj(result));
   cleanResults = await getDurations(cleanResults);
-  cleanResults.stationIds = await stationService.getStationIds();
   return cleanResults;
 }
 

@@ -12,7 +12,8 @@ export function GenreList() {
     loadGenres();
   }, []);
   async function loadGenres() {
-    const genres = await genresService.query();
+    const genres = genresService.query();
+    console.log("genres:", genres);
     utilService.shuffle(genres);
     setGenres(genres);
   }

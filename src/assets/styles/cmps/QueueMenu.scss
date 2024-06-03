@@ -1,0 +1,88 @@
+.queue-menu {
+  padding: 20px;
+  color: #fff;
+  max-width: 350px;
+  font-family: Arial, sans-serif;
+  .next-up {
+    overflow-y: auto;
+    max-height: em(1000px);
+    width: em(350px);
+  }
+
+  h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .now-playing,
+  .next-up {
+    margin-bottom: 20px;
+  }
+
+  .song-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+
+    h4 {
+      font-size: 12px;
+      margin: 0;
+    }
+
+    p {
+      font-size: 14px;
+      color: #b3b3b3;
+      margin: 0;
+    }
+
+    .current-song {
+      color: #1db954;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    .song-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+
+      img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        border-radius: 5px;
+      }
+
+      .song-details {
+        display: flex;
+        flex-direction: column;
+
+        h4 {
+          font-size: 16px;
+          margin: 0;
+        }
+
+        p {
+          font-size: 14px;
+          color: #b3b3b3;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

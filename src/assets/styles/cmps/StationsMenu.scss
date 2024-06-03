@@ -1,0 +1,159 @@
+.stations-menu-container {
+  position: absolute;
+  background: #242424;
+  box-shadow: 0 16px 24px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  z-index: 1000;
+  width: 292px; /* Fixed width */
+  max-height: 490px; /* Maximum height */
+  overflow-y: auto;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 0; /* Remove default padding */
+
+  header {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 16px;
+    border-bottom: 1px solid #282828;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background: #3a3a3a;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin: 16px;
+
+    input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #ccc;
+      margin-left: 8px;
+      width: 100%;
+      font-size: 14px;
+    }
+  }
+
+  .new-playlist {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background: #242424;
+    margin: 0 16px;
+    cursor: pointer;
+    color: $logo-clr;
+
+    &:hover {
+      background: #333333;
+    }
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #282828;
+    margin: 0 16px;
+  }
+
+  .optional-stations-list-container {
+    overflow-y: auto;
+
+    .station-item {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      border-radius: 4px;
+      background: transparent; /* Transparent background initially */
+      margin: 0 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover {
+        background: #333333; /* Slightly darker on hover */
+      }
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+      }
+
+      span {
+        margin-left: 12px;
+        flex-grow: 1;
+        color: #fff; /* White for text */
+        font-size: 14px;
+      }
+
+      .checkbox {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .CheckboxRoot {
+        width: 16px;
+        height: 16px;
+        background-color: transparent;
+        border: 2px solid #b3b3b3; /* Light grey border */
+        border-radius: 50%;
+        display: flex;
+
+        justify-content: end;
+
+        &[data-state="checked"] {
+          border-color: transparent; /* Transparent border when checked */
+        }
+      }
+
+      .CheckboxIndicator {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff; /* White for the checkmark */
+
+        svg {
+          width: 16px;
+          height: 16px;
+          fill: $logo-clr;
+          z-index: 2;
+        }
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    border-top: 1px solid #282828;
+
+    .done,
+    .cancel {
+      color: $sec-font-clr;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      color: $sec-font-clr;
+
+      /* Reset button styles */
+      appearance: none;
+
+      border: none;
+      margin: 0;
+      padding: 0;
+      background: none;
+
+      &:hover {
+        scale: 1.1;
+        color: #fff;
+      }
+    }
+  }
+}

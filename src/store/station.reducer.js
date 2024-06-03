@@ -53,13 +53,13 @@ export function stationReducer(state = initialState, action) {
         currentStation:
           state.currentStation && state.currentStation._id === action.stationId
             ? state.currentStation.songs.find(
-                (stationSong) => stationSong.id === action.song.id
-              )
+              (stationSong) => stationSong.id === action.song.id
+            )
               ? state.currentStation
               : {
-                  ...state.currentStation,
-                  songs: [...state.currentStation.songs, action.song],
-                }
+                ...state.currentStation,
+                songs: [...state.currentStation.songs, action.song],
+              }
             : state.currentStation,
         // ? {
         //     ...state.currentStation,
@@ -67,13 +67,9 @@ export function stationReducer(state = initialState, action) {
         //   }
         // : state.currentStation,
       };
-
-      console.log("New state:", newState);
-
       break;
     case SET_CURRENT_STATION:
       newState = { ...state, currentStation: action.station };
-      console.log("SET_CURRENT_STATION-New state:", newState);
       break;
 
     case UPDATE_STATION:
@@ -87,12 +83,11 @@ export function stationReducer(state = initialState, action) {
         }),
         currentStation:
           state.currentStation &&
-          state.currentStation._id === action.station._id
+            state.currentStation._id === action.station._id
             ? { ...state.currentStation, ...action.station }
             : state.currentStation,
       };
       break;
-
     default:
   }
   return newState;

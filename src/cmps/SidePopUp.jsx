@@ -1,9 +1,12 @@
+import { DragAndDropContext } from "./DragAndDropContext";
 import { QueueMenu } from "./QueueMenu";
 
 export function SidePopUp() {
   return (
-    <section className="side-pop-up">
-      <QueueMenu />
-    </section>
+    <DragAndDropContext>
+      <section className="side-pop-up">
+        <QueueMenu />
+      </section>
+    </DragAndDropContext>
   );
 }

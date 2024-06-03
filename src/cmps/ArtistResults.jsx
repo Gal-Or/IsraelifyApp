@@ -28,14 +28,14 @@ export function ArtistResults({ artistResults }) {
           artistResults.slice(0, visibleCount).map((artist) => (
             <article key={artist.id} className="artist-card">
               <div className="artist-card-container">
+                <button
+                  className="play-btn"
+                  onClick={() => console.log(artist)}
+                >
+                  <ReactSVG src={playIcon} />
+                </button>
                 <div className="artist-img">
                   <img src={artist.imgUrl} alt={artist.name} />
-                  <button
-                    className="play-btn"
-                    onClick={() => console.log(artist)}
-                  >
-                    <ReactSVG src={playIcon} />
-                  </button>
                 </div>
                 <div className="artist-info">
                   <p>{artist.name}</p>

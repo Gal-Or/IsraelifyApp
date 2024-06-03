@@ -1,60 +1,90 @@
 .song-results {
-  position: relative;
   width: 100%;
   max-height: 30vh;
-
   display: grid;
   grid-template-columns: 1fr;
-
   gap: 0px;
+
   .song-header {
     h1 {
-      margin-top: 0;
-      margin-bottom: 0;
+      margin: 0;
     }
   }
 
   .song-result {
     flex: 2;
     display: grid;
-    grid-template-columns: 8% 63% 25%; /* Adjusted grid-template-columns */
+    grid-template-columns: 8fr 63fr 25fr;
     grid-template-rows: 1fr;
     border-radius: 5px;
-    gap: 15px;
     max-height: em(60px);
     padding-left: em(16px);
     width: 100%;
     align-items: center;
-    overflow: hidden;
+
+    &:hover {
+      background-color: #242424;
+
+      .song-info small {
+        color: #fff;
+      }
+
+      .song-actions svg {
+        fill: $sec-font-clr;
+        cursor: pointer;
+      }
+
+      .song-img .play-btn {
+        display: flex;
+      }
+    }
+
+    &.active {
+      background-color: #656465;
+
+      .song-info small {
+        color: #fff;
+      }
+
+      .song-actions svg {
+        cursor: pointer;
+      }
+
+      .song-img .play-btn {
+        display: flex;
+      }
+    }
+
     .song-img {
-      position: relative; // Ensure positioning context for absolute positioning of play button
+      position: relative;
       width: em(40px);
       height: em(40px);
       border-radius: em(5px);
-      overflow: hidden; // Ensure the play button doesn't overflow the image wrapper
+      margin-right: em(5px);
+      aspect-ratio: 1/1;
+      overflow: hidden;
+
       img {
         width: 100%;
         height: 100%;
         border-radius: em(5px);
+        object-fit: cover;
       }
+
       .play-btn {
         border: none;
-        position: absolute; // Position the play button absolutely within the image wrapper
-        top: 0; // Align play button to the top of the image
-        left: 0; // Align play button to the left of the image
-        width: 100%; // Make the play button same width as the image
-        height: 100%; // Make the play button same height as the image
-        background-color: rgba(
-          0,
-          0,
-          0,
-          0.5
-        ); // Transparent black background color
-        display: none; // Ensure the play button content aligns properly
-        justify-content: center; // Center play button content horizontally
-        align-items: center; // Center play button content vertically
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+
         svg {
-          fill: white; // White color for the play icon
+          fill: white;
           width: em(20px);
           height: em(20px);
         }
@@ -68,25 +98,20 @@
       justify-content: space-evenly;
       color: $sec-font-clr;
       padding: 5px;
+
       svg {
-        fill: $sec-bg-clr;
+        fill: transparent;
         transition: transform 0.2s;
 
         &:active {
           transform: scale(1.1);
         }
+
         &:hover {
           transform: scale(0.9);
         }
       }
-      .added {
-        svg {
-          fill: $logo-clr;
-          &:hover {
-            fill: $logo-clr;
-          }
-        }
-      }
+
       .duration {
         font-size: 0.875rem;
         display: block;
@@ -94,6 +119,7 @@
         align-self: center;
       }
     }
+
     .song-info {
       display: flex;
       flex-direction: column;
@@ -101,20 +127,21 @@
       align-items: start;
       gap: 2px;
       overflow: hidden;
+
       p {
         font-size: 1rem;
-        font-weight: bold;
         font-weight: 400;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        width: 90%; /* Adjust the width as needed */
+        width: 90%;
 
         &:hover {
           text-decoration: underline;
           cursor: pointer;
         }
       }
+
       small {
         font-size: 0.875rem;
         font-weight: bold;
@@ -124,52 +151,6 @@
           text-decoration: underline;
           cursor: pointer;
         }
-      }
-    }
-
-    &:hover {
-      .song-info {
-        small {
-          color: #fff;
-        }
-      }
-
-      .song-actions {
-        svg {
-          fill: $sec-font-clr;
-          cursor: pointer;
-        }
-      }
-      background-color: #242424;
-      .song-img {
-        .play-btn {
-          display: flex;
-        }
-      }
-    }
-  }
-}
-
-.song-result.active {
-  .song-actions {
-    svg {
-      fill: $sec-font-clr;
-      cursor: pointer;
-    }
-    .added {
-      svg {
-        fill: $logo-clr;
-        &:hover {
-          fill: $logo-clr;
-        }
-      }
-    }
-  }
-  background-color: #656465;
-  .song-details {
-    .song-img {
-      .play-btn {
-        display: flex;
       }
     }
   }

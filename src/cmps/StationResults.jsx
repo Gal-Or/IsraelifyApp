@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { ReactSVG } from "react-svg";
 import tempStationImg from "../assets/imgs/logo-Blue3D.png";
 import playIcon from "../assets/icons/playIcon.svg";
 import { useVisibleCount } from "../customHooks/useVisibleCount";
 import { Loader } from "./Loader";
+import { LayoutContext } from "../RootCmp";
 
 export function StationResults({ stationResults }) {
   // Use the custom hook to get the container ref, visible count, and update function
@@ -13,18 +14,21 @@ export function StationResults({ stationResults }) {
     16
   );
 
+  // Get the layout context to set the layout state
+  const [Layout, setLayout] = useContext(LayoutContext);
+
   // Recalculate the visible count when stationResults change
   useEffect(() => {
     updateVisibleCount();
-  }, [stationResults, updateVisibleCount]);
+  }, [stationResults, updateVisibleCount, Layout]);
 
   // Show loading message if stationResults are not available
   if (!stationResults) return <Loader />;
 
   return (
-    <section className="station-results">
+    <section className="station-results" ref={containerRef}>
       <h1>Stations</h1>
-      <div className="station-results-container" ref={containerRef}>
+      <div className="station-results-container">
         {stationResults &&
           // Only show the number of items that fit in the visible count
           stationResults.slice(0, visibleCount).map((station, index) => (

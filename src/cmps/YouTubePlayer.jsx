@@ -9,9 +9,13 @@ import {
   addSongsToQueueBottom,
 } from "../store/player.actions";
 import { utilService } from "../services/util.service";
+import { youtubeService } from "../services/youtube.service";
+import { stationService } from "../services/station.service";
 import { TimeBar } from "./TimeBar";
+import { useParams } from "react-router";
 
 export function YouTubePlayer() {
+  const params = useParams();
   const intervalRef = useRef(null);
   const playerRef = useRef(null); // Use a ref to store the player instance
   const youtubePlayer = useSelector(
@@ -29,7 +33,6 @@ export function YouTubePlayer() {
   };
 
   const onNext = useCallback(() => {
-    console.log("next", queue);
     if (queue.length > 0) {
       const nextSong = queue[0];
       setCurrentSong(nextSong);
@@ -155,13 +158,27 @@ export function YouTubePlayer() {
 
   useEffect(() => {
     if (playerRef.current && currentSong) {
-      playerRef.current.loadVideoById(currentSong.id);
-      setDuration(playerRef.current.getDuration());
+      checkYoutubeId(currentSong);
     }
   }, [currentSong]);
 
+  async function checkYoutubeId(song) {
+    var songToPlay = song;
+    if (song.id.includes("track") || song.id.length === 22) {
+      const searchStr = `${song.name} ${song.artists
+        .map((artist) => artist.name)
+        .join(" ")}`;
+      const results = await youtubeService.query(searchStr, 1);
+      if (results.length > 0) {
+        songToPlay.id = results[0].id;
+        stationService.updateSongId(params.stationId, song.id, songToPlay.id);
+      }
+    }
+    playerRef.current.loadVideoById(currentSong.id);
+    setDuration(playerRef.current.getDuration());
+  }
   function handleFullScreenChange() {
-    console.log("full screen change");
+    //TODO: to check by bar
   }
 
   function handleTimeBarChange(newPercentage) {

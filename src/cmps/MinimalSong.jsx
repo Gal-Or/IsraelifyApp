@@ -37,7 +37,7 @@ export function MinimalSong() {
       </div>
       <div className="song-info">
         <p>{song.name}</p>
-        <small>{song.artist}</small>
+        <small>{song.artists ? song.artists[0].name : song.artist}</small>
       </div>
       <AddSongToStationButton song={song} />
       {/* <button className="add-to-playlist" onClick={onAddToPlaylist}>

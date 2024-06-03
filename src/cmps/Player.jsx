@@ -1,20 +1,20 @@
-import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { ReactSVG } from "react-svg";
+
+import { YouTubePlayer } from "./YouTubePlayer";
+import { CustomTooltip } from "./CustomTooltip";
+
 import {
   setIsPlaying,
   setCurrentSong,
   removeFromQueue,
   setQueue,
 } from "../store/player.actions";
-import { YouTubePlayer } from "./YouTubePlayer";
 import { utilService } from "../services/util.service";
-
 import playIcon from "../assets/icons/playIcon.svg";
 import pauseIcon from "../assets/icons/pauseIcon.svg";
 import NextSongIcon from "../assets/icons/NextSongIcon.svg";
 import PrevSongIcon from "../assets/icons/LastSongIcon.svg";
-
 export function Player() {
   const youtubePlayer = useSelector(
     (state) => state.playerModule.youtubePlayer
@@ -23,20 +23,14 @@ export function Player() {
   const queue = useSelector((state) => state.playerModule.queue);
   const currentSong = useSelector((state) => state.playerModule.currentSong);
 
-  useEffect(() => {
-    if (queue) console.log("queue", queue);
-  }, [queue]);
-
   function onPlay() {
     youtubePlayer.playVideo();
     setIsPlaying(true);
   }
-
   function onPause() {
     youtubePlayer.pauseVideo();
     setIsPlaying(false);
   }
-
   function onNext() {
     if (queue.length > 0) {
       const nextSong = queue[0];
@@ -58,9 +52,7 @@ export function Player() {
   }
   function onShuffle() {
     // Shuffle the queue
-    console.log("111queue", queue);
     const shuffledQueue = shuffleQueue(queue);
-    console.log("shuffledQueue", shuffledQueue);
     setQueue(shuffledQueue);
   }
 
@@ -79,26 +71,30 @@ export function Player() {
   return (
     <div className="player">
       <div className="player-controls">
-        <button className="next-prev" onClick={onPrev}>
-          <ReactSVG src={PrevSongIcon} />
-        </button>
-        {isPlaying ? (
-          <button onClick={onPause}>
-            <ReactSVG src={pauseIcon} />{" "}
+        <CustomTooltip title="Previous">
+          <button className="next-prev" onClick={onPrev}>
+            <ReactSVG src={PrevSongIcon} />
           </button>
-        ) : (
-          <button onClick={onPlay} className="play-btn">
-            {" "}
-            <ReactSVG src={playIcon} />{" "}
+        </CustomTooltip>
+        <CustomTooltip title="Play">
+          <div>
+            {isPlaying ? (
+              <button onClick={onPause}>
+                <ReactSVG src={pauseIcon} />{" "}
+              </button>
+            ) : (
+              <button onClick={onPlay} className="play-btn">
+                {" "}
+                <ReactSVG src={playIcon} />{" "}
+              </button>
+            )}
+          </div>
+        </CustomTooltip>
+        <CustomTooltip title="Next">
+          <button className="next-prev" onClick={onNext}>
+            <ReactSVG src={NextSongIcon} />
           </button>
-        )}
-        <button className="next-prev" onClick={onNext}>
-          <ReactSVG src={NextSongIcon} />
-        </button>
-
-        <button className="shuffle" onClick={onShuffle}>
-          Shuffle
-        </button>
+        </CustomTooltip>
       </div>
       <YouTubePlayer />
     </div>

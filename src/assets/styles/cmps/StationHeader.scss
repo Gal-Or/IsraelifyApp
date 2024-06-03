@@ -66,6 +66,17 @@
       .station-creator {
         font-size: 1em;
       }
+
+      .station-name {
+        font-size: var(--dynamic-font-size, 2em); // Use a custom property
+        font-family: "CircularSpotifyTextBold";
+        font-weight: 700;
+        display: inline;
+        text-wrap: nowrap;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
   }
 }
@@ -88,8 +99,8 @@
       justify-content: space-between;
 
       .station-header-img {
-        width: 15vw;
-        height: 15vw;
+        width: var(--dynamic-image-size, 15vw); // Use a custom property
+        height: var(--dynamic-image-size, 15vw); // Use a custom property
         border-radius: 2.5%;
         overflow: hidden;
 
@@ -140,7 +151,7 @@
           align-self: start;
         }
         .station-name {
-          font-size: 3em;
+          font-size: var(--dynamic-font-size, 2em); // Use a custom property
           font-family: "CircularSpotifyTextBold";
           font-weight: 700;
           display: inline;

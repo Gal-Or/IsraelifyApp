@@ -1,7 +1,7 @@
 import { FullPlayer } from "./FullPlayer";
 import { useLocation } from "react-router-dom";
 
-export function AppFooter() {
+export function AppFooter({ setShowSidePopUp, showSidePopUp }) {
   //show footer only if it's not the in the sign pages , use react hook
   const isSignPage = useLocation();
 
@@ -10,7 +10,10 @@ export function AppFooter() {
 
   return (
     <footer className="app-footer">
-      <FullPlayer />
+      <FullPlayer
+        setShowSidePopUp={setShowSidePopUp}
+        showSidePopUp={showSidePopUp}
+      />
     </footer>
   );
 }

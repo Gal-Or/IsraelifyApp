@@ -10,17 +10,23 @@ import pencil from "../assets/icons/pencil.svg";
 import clockIcon from "../assets/icons/clock.svg";
 import playIcon from "../assets/icons/playIcon.svg";
 import pauseIcon from "../assets/icons/pauseIcon.svg";
-import { setCurrentSong, setIsPlaying } from "../store/player.actions";
+import {
+  addSongsToQueueTop,
+  playFirstSong,
+  setIsPlaying,
+  setCurrentSong,
+} from "../store/player.actions";
 import { utilService } from "../services/util.service";
 import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
 import addIcon from "../assets/icons/AddToQueue.svg";
 import deleteIcon from "../assets/icons/delete.svg";
 import compactIcon from "../assets/icons/Compact.svg";
 import listIcon from "../assets/icons/listIcon.svg";
+import DotsIcon from "../assets/icons/Ellipses.svg";
 import { Dropdown } from "../cmps/DropDownMenu";
-import elipsesIcon from "../assets/icons/Ellipses.svg";
 import { AppHeader } from "../cmps/AppHeader";
 import { genresService } from "../services/genres.service";
+import { CustomTooltip } from "../cmps/CustomTooltip";
 
 export function GenrePage() {
   const [genreSongs, setGenreSongs] = useState(null);
@@ -39,7 +45,7 @@ export function GenrePage() {
       stations.filter((station) => station.tags.includes(params.genreId))
     );
     return () => {
-      const mainElement = document.querySelector(".main-container");
+      const mainElement = document.querySelector(".main-container-bg");
       if (!mainElement) return;
       mainElement.style.backgroundImage = "none";
     };
@@ -58,7 +64,7 @@ export function GenrePage() {
   const onPlaySong = async (song) => {
     var songToPlay = song;
 
-    //if song id contains "track" or its length is 22
+    // If song id contains "track" or its length is 22
     if (song.id.includes("track") || song.id.length === 22) {
       // Fetch YouTube URL for the song
       const searchStr = `${song.name} ${song.artists
@@ -88,6 +94,19 @@ export function GenrePage() {
     });
   };
 
+  const handlePlayClick = () => {
+    if (isPlaying) {
+      setIsPlaying(false);
+    } else {
+      if (genreSongs && genreSongs.length > 0) {
+        // Add remaining songs to the queue top
+        addSongsToQueueTop(genreSongs.slice(1));
+        // Play the first song
+        playFirstSong(genreSongs[0]);
+      }
+    }
+  };
+
   const viewOptions = [
     { label: "List", value: false, icon: listIcon },
     { label: "Compact", value: true, icon: compactIcon },
@@ -96,10 +115,11 @@ export function GenrePage() {
   const handleViewSelect = (option) => {
     setIsCompact(option.value);
   };
+
   function setMainElementStyle(backgroundColor) {
-    const mainElement = document.querySelector(".main-container");
+    const mainElement = document.querySelector(".main-container-bg");
     if (!mainElement || !backgroundColor) return;
-    mainElement.style.backgroundImage = `linear-gradient(to bottom, ${backgroundColor} 0%,rgba(18,18,18,0.1) 65%)`;
+    mainElement.style.backgroundImage = `linear-gradient(to bottom, ${backgroundColor} 0%,rgba(18,18,18,0.1) 40%)`;
   }
 
   if (!genreSongs) {
@@ -135,33 +155,42 @@ export function GenrePage() {
           </div>
         </div>
         <div className="station-actions">
-          <button className="play-btn">
-            <ReactSVG src={playIcon} />
+          <button className="play-btn" onClick={handlePlayClick}>
+            <ReactSVG src={isPlaying ? pauseIcon : playIcon} />
           </button>
-          <div className="more-options">
-            <Dropdown
-              options={[
-                {
-                  label: "Add to Playlist",
-                  value: "add to playlist",
-                  icon: addToPlaylistIcon,
-                },
-                { label: "Add to Queue", value: "add to queue", icon: addIcon },
-                { label: "Delete", value: "delete", icon: deleteIcon },
-              ]}
-              onSelect={(option) => console.log(option)}
-              toggle={<ReactSVG src={elipsesIcon} />}
-              toggleTick={false}
-              closeOnSelect={true}
-              showSelected={false}
-              key={params.genreId + "more"}
-            />
-          </div>
+          <CustomTooltip title={`More options `}>
+            <div className="more-options">
+              <Dropdown
+                options={[
+                  {
+                    label: "Add to Playlist",
+                    value: "add to playlist",
+                    icon: addToPlaylistIcon,
+                  },
+                  {
+                    label: "Add to Queue",
+                    value: "add to queue",
+                    icon: addIcon,
+                  },
+                  { label: "Delete", value: "delete", icon: deleteIcon },
+                ]}
+                onSelect={(option) => {
+                  console.log(option);
+                }}
+                toggle={<ReactSVG src={DotsIcon} />}
+                toggleTick={false}
+                closeOnSelect={true}
+                showSelected={false}
+                key={genreSongs[0].id + "more"}
+              />
+            </div>
+          </CustomTooltip>
           <div className="change-view">
             <Dropdown
               options={viewOptions}
               onSelect={handleViewSelect}
               headline="View as"
+              key={genreSongs[0].id + "view"}
               toggleTick={true}
             />
           </div>

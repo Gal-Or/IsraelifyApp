@@ -1,35 +1,32 @@
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-
 import { stationService } from "../services/station.service.js";
-
 import { AppHeader } from "../cmps/AppHeader.jsx";
 import { StationHeader } from "../cmps/StationHeader.jsx";
 import { StationContent } from "../cmps/StationContent.jsx";
 import { AddSongs } from "../cmps/AddSongs.jsx";
 import { setCurrentStation, updateStation } from "../store/station.actions.js";
-import { StationEditModal } from "../cmps/StationEditModal"; // Import the modal here
+import { StationEditModal } from "../cmps/StationEditModal";
 import { Loader } from "../cmps/Loader.jsx";
 
 export function StationPage() {
   const params = useParams();
-  const [isModalOpen, setIsModalOpen] = useState(false); // Modal state here
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const currentStation = useSelector(
     (state) => state.stationModule.currentStation
   );
 
   useEffect(() => {
+    setIsLoading(true);
     loadStation();
     return () => {
-      const mainElement = document.querySelector(".main-container");
+      const mainElement = document.querySelector(".main-container-bg");
       if (!mainElement) return;
       mainElement.style.backgroundImage = "none";
     };
   }, [params.stationId]);
-
-  useEffect(() => {}, [currentStation]);
 
   async function onSetStation(fieldsToUpdate) {
     const updatedStation = { ...currentStation, ...fieldsToUpdate };
@@ -43,6 +40,9 @@ export function StationPage() {
       setMainElementStyle(station.backgroundColor);
     } catch (err) {
       console.log("Error in loadStation:", err);
+    } finally {
+      // Ensure the loader shows for at least 1 second
+      setTimeout(() => setIsLoading(false), 1);
     }
   }
 
@@ -68,15 +68,16 @@ export function StationPage() {
   }
 
   function setMainElementStyle(backgroundColor) {
-    const mainElement = document.querySelector(".main-container");
+    const mainElement = document.querySelector(".main-container-bg");
     if (!mainElement || !backgroundColor) return;
-    mainElement.style.backgroundImage = `linear-gradient(to bottom, ${backgroundColor} 0%,rgba(18,18,18,0.1) 65%)`;
+    mainElement.style.backgroundImage = `linear-gradient(to bottom, ${backgroundColor} 0%,rgba(18,18,18,0.1) 60%)`;
   }
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  if (!currentStation) return <Loader />;
+  if (isLoading) return <Loader />;
+
   return (
     <div className="station-page-container">
       <AppHeader />

@@ -1,14 +1,29 @@
-.player-actions {
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  align-items: center;
-  gap: em(15px);
-
-  svg {
-    fill: $sec-font-clr;
-    height: em(16px);
-    width: em(16px);
-    cursor: pointer;
+@include for-normal-layout {
+  .player-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    border-radius: 0 0 0.5em 0.5em;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+    button {
+      border: none;
+      background-color: transparent;
+    }
+    .active {
+      svg {
+        fill: $logo-clr;
+      }
+    }
+    &:hover {
+      .volume-bar-thumb {
+        width: rem(15px);
+        height: rem(15px);
+      }
+      .volume-bar-track {
+        color: $logo-clr;
+      }
+    }
   }
 }

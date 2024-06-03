@@ -6,6 +6,7 @@ export const REMOVE_FROM_QUEUE = "REMOVE_FROM_QUEUE";
 export const SET_QUEUE = "SET_QUEUE";
 export const ADD_SONGS_TO_QUEUE_TOP = "ADD_SONGS_TO_QUEUE_TOP";
 export const ADD_SONGS_TO_QUEUE_BOTTOM = "ADD_SONGS_TO_QUEUE_BOTTOM";
+
 const initialState = {
   currentSong: {
     duration: 0,
@@ -15,9 +16,10 @@ const initialState = {
     artist: "ModjoOfficial",
   },
   youtubePlayer: null,
+  queue: [],
   isPlaying: false,
-  queue: [], // Add queue to initial state
 };
+
 export function playerReducer(state = initialState, action) {
   var newState = state;
   switch (action.type) {
@@ -49,7 +51,6 @@ export function playerReducer(state = initialState, action) {
     case ADD_SONGS_TO_QUEUE_BOTTOM:
       newState = { ...state, queue: [...state.queue, ...action.songs] };
       break;
-
     default:
   }
   return newState;

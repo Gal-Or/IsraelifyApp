@@ -26,7 +26,7 @@ export function SearchPage() {
       : "";
 
     setViewType(params.viewType || "all");
-    getYoutubeResults(formattedQuery);
+    getSpotifySongResults(formattedQuery);
     getStationResults(formattedQuery);
     getArtistResults(formattedQuery);
   }, [params.query, params.viewType]);
@@ -39,8 +39,8 @@ export function SearchPage() {
     }
   }, [viewType, params.query]);
 
-  async function getYoutubeResults(query) {
-    var res = await youtubeService.query(query);
+  async function getSpotifySongResults(query) {
+    var res = await spotifyService.getSongBySearch(query);
     setResults(res);
   }
 
@@ -53,7 +53,14 @@ export function SearchPage() {
     var res = await spotifyService.getArtistResults(query);
     setArtistResults(res);
   }
-
+  function updateSongResults(song) {
+    setResults((prevResults) => {
+      return prevResults.map((result) => {
+        if (result.id === song.id) return song;
+        return result;
+      });
+    });
+  }
   return (
     <section className="search-page">
       <AppHeader />
@@ -67,6 +74,7 @@ export function SearchPage() {
               songResults={songResults || []}
               stationResults={stationResults}
               artistResults={artistResults}
+              updateResults={updateSongResults}
             />
           </>
         )}

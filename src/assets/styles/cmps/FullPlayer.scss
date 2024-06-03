@@ -1,9 +1,6 @@
 .full-player {
   display: flex;
   width: 100%;
-  .player-actions {
-    display: none;
-  }
 }
 
 @include for-normal-layout {
@@ -24,7 +21,6 @@
       max-height: inherit;
     }
     .player-actions {
-      display: flex;
       grid-column: 3;
       max-height: inherit;
     }
