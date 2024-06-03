@@ -1,14 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import { updateStation } from "../store/station.actions";
+import { addStation, updateStation } from "../store/station.actions";
 import * as RadixCheckbox from "@radix-ui/react-checkbox";
 import { ReactSVG } from "react-svg";
 import checkIcon from "../assets/icons/tickIcon.svg";
+import { stationService } from "../services/station.service";
+import { useNavigate } from "react-router";
 
 export function StationsMenu({ song, closeModal, position }) {
   const stations = useSelector(
     (storeState) => storeState.stationModule.stations
   );
+  const navigate = useNavigate();
   const [checkedStations, setCheckedStations] = useState([]);
   const menuRef = useRef(null);
 
@@ -93,6 +96,13 @@ export function StationsMenu({ song, closeModal, position }) {
       menu.style.top = `${y}px`;
     }
   };
+  async function onNewPlaylist() {
+    var newStation = stationService.createDefaultStation();
+    newStation.songs = [song];
+    const id = await addStation(newStation);
+    closeModal();
+    navigate(`station/${id}`);
+  }
 
   return (
     <section ref={menuRef} className="stations-menu-container">
@@ -100,11 +110,14 @@ export function StationsMenu({ song, closeModal, position }) {
       <div className="search-bar">
         <input type="text" placeholder="Find a playlist" />
       </div>
-      <div className="new-playlist">+ New playlist</div>
+      <div className="new-playlist" onClick={onNewPlaylist}>
+        + New Playlist
+      </div>
       <hr />
       <div className="optional-stations-list-container">
         {stations?.map((station) => (
           <div key={station._id} className="station-item">
+            {console.log(station)}
             <img
               src={station.img ? station.img : station.songs[0].img}
               alt=""
