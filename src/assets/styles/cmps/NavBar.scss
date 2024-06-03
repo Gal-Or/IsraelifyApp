@@ -133,6 +133,30 @@
               }
             }
           }
+
+          .library-view-options {
+            grid-row: 2;
+            grid-column: 2;
+
+            .dropdown-toggle {
+              justify-content: end;
+
+
+            }
+
+            .dropdown-menu-container {
+              .dropdown-menu {
+                font-size: em(14px);
+
+                .dropdown-icon {
+                  svg {
+                    height: em(14px);
+                    width: em(14px);
+                  }
+                }
+              }
+            }
+          }
         }
 
         .list-container {
@@ -191,17 +215,6 @@
             justify-content: center;
           }
 
-          //   svg {
-          //     height: em(20px);
-          //     width: em(20px);
-          //     fill: $sec-font-clr;
-          //   }
-          // }
-
-          // span,
-          // button {
-          //   display: none;
-          // }
         }
 
         .station-list {
