@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useCallback } from "react";
+
+import React, { useState, useEffect, useCallback, createContext } from "react";
+import { Navigate } from "react-router-dom";
 import { Routes, Route } from "react-router";
 import { useResizable } from "react-resizable-layout";
 import { SidePopUp } from "./cmps/SidePopUp";
@@ -6,6 +8,7 @@ import { AppFooter } from "./cmps/AppFooter";
 import { NavBar } from "./cmps/NavBar";
 import routes, { authRoutes } from "./routes";
 import { useSelector } from "react-redux";
+import { userService } from "./services/user-local.service";
 
 const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
   const currentStation = useSelector(
@@ -126,28 +129,35 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
   );
 };
 
+export const UserContext = createContext();
+
+
 export function RootCmp() {
   const [showSidePopUp, setShowSidePopUp] = useState(false);
+  const [loggedinUser, setLoggedinUser] = useState(userService.getLoggedinUser())
+
+  useEffect(() => {
+    if (!loggedinUser) {
+      //navigate to login
+    }
+  }, []);
 
   return (
-    <Routes>
-      <Route
-        path="/*"
-        element={
-          <PageContainer
-            showSidePopUp={showSidePopUp}
-            setShowSidePopUp={setShowSidePopUp}
-          />
-        }
-      />
-      {authRoutes.map((route) => (
+    <UserContext.Provider value={[loggedinUser, setLoggedinUser]}>
+      <Routes>
         <Route
-          key={route.path}
-          exact={true}
-          element={route.component}
-          path={route.path}
+          path="/*"
+          element={!loggedinUser ? <Navigate to={authRoutes[0].path} replace /> : <PageContainer showSidePopUp={showSidePopUp} setShowSidePopUp={setShowSidePopUp} />}
         />
-      ))}
-    </Routes>
+        {authRoutes.map((route) => (
+          <Route
+            key={route.path}
+            exact={true}
+            element={route.component}
+            path={route.path}
+          />
+        ))}
+      </Routes>
+    </UserContext.Provider>
   );
 }

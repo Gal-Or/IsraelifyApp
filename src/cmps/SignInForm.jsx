@@ -5,7 +5,18 @@ import googleIcon from "../assets/icons/google.svg";
 import appleIcon from "../assets/icons/apple.svg";
 import { NavLink } from "react-router-dom";
 
+import { useContext } from "react";
+import { UserContext } from '../RootCmp.jsx'
+
+
 export function SignInForm() {
+
+  const [loggedinUser, setLoggedinUser] = useContext(UserContext)
+
+  function handleGuestClick() {
+    setLoggedinUser({ username: 'guest', fullname: 'guest', imgUrl: 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png' })
+  }
+
   return (
     <div className="sign-in-form">
       <h1>Connecting to Spotify</h1>
@@ -23,7 +34,7 @@ export function SignInForm() {
           Continue with Apple
         </button>
         <NavLink to="/">
-          <button className="social-button guest">Continue as guest</button>
+          <button className="social-button guest" onClick={() => { handleGuestClick() }} >Continue as guest</button>
         </NavLink>
       </div>
       <form>
