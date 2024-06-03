@@ -1,19 +1,18 @@
 .mini-preview {
+  display: flex;
+  align-items: center;
+  border-radius: em(3px);
+  background-color: #28282890;
 
-    display: flex;
-    align-items: center;
-    border-radius: em(3px);
-    background-color: #28282890;
+  img {
+    width: em(42px);
+    height: em(42px);
+    aspect-ratio: 1/1;
+    border-radius: em(3px) 0 0 em(3px);
+  }
 
-
-    img {
-        width: em(42px);
-        height: em(42px);
-        border-radius: em(3px) 0 0 em(3px);
-    }
-
-    span {
-        width: 100%;
-        padding-left: em(5px);
-    }
+  span {
+    width: 100%;
+    padding-left: em(5px);
+  }
 }
