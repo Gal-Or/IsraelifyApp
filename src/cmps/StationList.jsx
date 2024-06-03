@@ -1,17 +1,24 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useContext } from "react";
 
 import { stationService } from "../services/station.service";
 import { loadStations, removeStation } from "../store/station.actions";
 
 import { useVisibleCount } from "../customHooks/useVisibleCount";
 
+import { LayoutContext } from "../RootCmp";
 
 import { StationPreview } from "./StationPreview";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Loader } from "./Loader";
 
-export function StationList({ width, isCompact, randomize = false, KeepInOneRow = false }) {
+export function StationList({
+  width,
+  isCompact,
+  randomize = false,
+  KeepInOneRow = false,
+}) {
+  const [layout, setLayout] = useContext(LayoutContext);
   const stations = useSelector(
     (storeState) => storeState.stationModule.stations
   );
@@ -25,19 +32,14 @@ export function StationList({ width, isCompact, randomize = false, KeepInOneRow 
 
   // Recalculate the visible count when artistResults change
   useEffect(() => {
-
-    if (KeepInOneRow)
-      updateVisibleCount();
-
-  }, [shuffledStations, updateVisibleCount]);
-
+    if (KeepInOneRow) updateVisibleCount();
+  }, [shuffledStations, updateVisibleCount, layout]);
 
   useEffect(() => {
     loadStations();
   }, []);
 
   useEffect(() => {
-
     if (!randomize) {
       setShuffledStations(stations);
       return;
@@ -45,7 +47,6 @@ export function StationList({ width, isCompact, randomize = false, KeepInOneRow 
     console.log("shuffling");
     setShuffledStations([...stations].sort(() => Math.random() - 0.5));
   }, [stations]);
-
 
   function onDeleteStation(ev, stationId) {
     ev.stopPropagation();
