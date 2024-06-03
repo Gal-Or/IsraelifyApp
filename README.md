@@ -1,6 +1,6 @@
 # IsraelifyApp
 
-![WhatsApp Image 2024-03-26 at 22 08 13](https://github.com/Gal-Or/IsraelifyApp/assets/7868565/1d0e9429-e8fa-43db-8e26-58f1d2454238)
+<img src="https://github.com/Gal-Or/IsraelifyApp/assets/7868565/1d0e9429-e8fa-43db-8e26-58f1d2454238" alt="IsraelifyApp" width="400">
 
 
 IsraelifyApp is the final project of the Fullstack Development course at Coding Academy. This project aims to replicate the core features of Spotify, tailored specifically for Israeli music enthusiasts. 
