@@ -1,6 +1,6 @@
 .stations-menu-container {
   position: absolute;
-  background: #121212; /* Dark background */
+  background: #242424;
   box-shadow: 0 16px 24px rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   z-index: 1000;
@@ -22,7 +22,7 @@
   .search-bar {
     display: flex;
     align-items: center;
-    background: #242424;
+    background: #3a3a3a;
     padding: 8px 12px;
     border-radius: 4px;
     margin: 16px;
@@ -60,7 +60,6 @@
   }
 
   .optional-stations-list-container {
-    padding: 0 16px;
     overflow-y: auto;
 
     .station-item {
@@ -69,7 +68,7 @@
       padding: 8px;
       border-radius: 4px;
       background: transparent; /* Transparent background initially */
-      margin-bottom: 8px;
+      margin: 0 16px;
       cursor: pointer;
       transition: background 0.3s;
 
@@ -134,16 +133,26 @@
     padding: 16px;
     border-top: 1px solid #282828;
 
-    button {
-      background: #242424;
+    .done,
+    .cancel {
+      color: $sec-font-clr;
       border: none;
       padding: 8px 16px;
       border-radius: 4px;
       cursor: pointer;
-      color: #fff;
+      color: $sec-font-clr;
+
+      /* Reset button styles */
+      appearance: none;
+
+      border: none;
+      margin: 0;
+      padding: 0;
+      background: none;
 
       &:hover {
-        background: #333333;
+        scale: 1.1;
+        color: #fff;
       }
     }
   }

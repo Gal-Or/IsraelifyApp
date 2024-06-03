@@ -1,4 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  useContext,
+  useCallback,
+} from "react";
 import { useSelector } from "react-redux";
 import { addStation, updateStation } from "../store/station.actions";
 import * as RadixCheckbox from "@radix-ui/react-checkbox";
@@ -6,13 +12,19 @@ import { ReactSVG } from "react-svg";
 import checkIcon from "../assets/icons/tickIcon.svg";
 import { stationService } from "../services/station.service";
 import { useNavigate } from "react-router";
+import { debounce } from "lodash";
 import logoBlue3D from "../assets/imgs/logo-Blue3D.png";
+
+import { UserContext } from "../RootCmp.jsx";
+
 export function StationsMenu({ song, closeModal, position }) {
   const stations = useSelector(
     (storeState) => storeState.stationModule.stations
   );
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const navigate = useNavigate();
   const [checkedStations, setCheckedStations] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const menuRef = useRef(null);
 
   useEffect(() => {
@@ -92,23 +104,42 @@ export function StationsMenu({ song, closeModal, position }) {
         y = containerHeight - offsetHeight;
       }
 
-      menu.style.left = `${x}px`;
-      menu.style.top = `${y}px`;
+      menu.style.left = `${x - 25}px`;
+      menu.style.top = `${y - 100}px`;
     }
   };
+
   async function onNewPlaylist() {
-    var newStation = stationService.createDefaultStation();
+    var newStation = stationService.createDefaultStation(loggedInUser);
     newStation.songs = [song];
     const id = await addStation(newStation);
-    navigate(`station/${id}`);
+    navigate(`/station/${id}`);
     closeModal();
   }
+
+  const handleInputChange = (event) => {
+    setSearchTerm(event.target.value);
+    debouncedHandleChange(event.target.value);
+  };
+
+  const debouncedHandleChange = useCallback(
+    debounce((value) => {
+      const char = value.slice(-1);
+      console.log(char);
+    }, 300),
+    []
+  );
 
   return (
     <section ref={menuRef} className="stations-menu-container">
       <header>Add to playlist</header>
       <div className="search-bar">
-        <input type="text" placeholder="Find a playlist" />
+        <input
+          type="text"
+          placeholder="Find a playlist"
+          value={searchTerm}
+          onChange={handleInputChange}
+        />
       </div>
       <div className="new-playlist" onClick={onNewPlaylist}>
         + New Playlist
@@ -117,7 +148,6 @@ export function StationsMenu({ song, closeModal, position }) {
       <div className="optional-stations-list-container">
         {stations?.map((station) => (
           <div key={station._id} className="station-item">
-            {console.log(station)}
             <img
               src={
                 station.img
@@ -158,8 +188,12 @@ export function StationsMenu({ song, closeModal, position }) {
         ))}
       </div>
       <div className="actions">
-        <button onClick={updateStationsSongs}>Save</button>
-        <button onClick={closeModal}>Cancel</button>
+        <button className="done" onClick={updateStationsSongs}>
+          Done
+        </button>
+        <button className="cancel" onClick={closeModal}>
+          Cancel
+        </button>
       </div>
     </section>
   );

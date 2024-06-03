@@ -36,7 +36,7 @@ export function StationHeader({ station, onSetStation, openModal }) {
           </span>
           <div className="station-info">
             <div className="station-creator">
-              <img src={station.createdBy.img || tempStationImg} alt="" />
+              <img src={station.createdBy.imgUrl} alt="creator-img" />
               <span>{station.createdBy.fullname}</span>
             </div>
             <div className="station-stats">
