@@ -21,6 +21,7 @@ export function StationsMenu({ song, closeModal, position }) {
   const stations = useSelector(
     (storeState) => storeState.stationModule.stations
   );
+  const [stationsToShow, setStationsToShow] = useState([]);
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const navigate = useNavigate();
   const [checkedStations, setCheckedStations] = useState([]);
@@ -29,6 +30,7 @@ export function StationsMenu({ song, closeModal, position }) {
 
   useEffect(() => {
     filterStationsBySong();
+    setStationsToShow(stations);
   }, [stations]);
 
   useEffect(() => {
@@ -124,11 +126,15 @@ export function StationsMenu({ song, closeModal, position }) {
 
   const debouncedHandleChange = useCallback(
     debounce((value) => {
-      const char = value.slice(-1);
-      console.log(char);
+      searchStations(value);
     }, 300),
     []
   );
+
+  async function searchStations(value) {
+    const stations = await stationService.findStationWithQuery(value);
+    setStationsToShow(stations);
+  }
 
   return (
     <section ref={menuRef} className="stations-menu-container">
@@ -146,7 +152,7 @@ export function StationsMenu({ song, closeModal, position }) {
       </div>
       <hr />
       <div className="optional-stations-list-container">
-        {stations?.map((station) => (
+        {stationsToShow?.map((station) => (
           <div key={station._id} className="station-item">
             <img
               src={
