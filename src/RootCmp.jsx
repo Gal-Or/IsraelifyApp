@@ -105,8 +105,8 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
 
   const { position, separatorProps, isDragging } = useResizable({
     axis: "x",
-    initial: 250,
-    min: 50,
+    initial: 360,
+    min: 300,
   });
 
   useEffect(() => {

@@ -46,7 +46,7 @@ export function Library({ width }) {
       nav.style.width = "80px";
     } else {
       nav.classList.remove("narrow-nav-bar");
-      nav.style.width = "250px";
+      nav.style.width = "360px";
     }
     setIsOpen(!isOpen);
 
