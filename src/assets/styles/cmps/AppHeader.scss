@@ -31,7 +31,19 @@
 
   .profile-btn {
     margin-left: auto;
+    border: solid em(1px) white;
 
+    img {
+      width: em(38px);
+      height: em(38px);
+    }
+  }
+
+  .profile-btn:hover {
+    img {
+      width: em(39px);
+      height: em(39px);
+    }
   }
 
   .input-wrapper {
