@@ -6,7 +6,6 @@ import { REMOVE_STATION, ADD_STATION } from "./station.reducer";
 import { ADD_SONG_TO_STATION } from "./station.reducer";
 import { SET_CURRENT_STATION } from "./station.reducer";
 import { UPDATE_STATION } from "./station.reducer";
-import { UPDATE_STATIONS } from "./station.reducer";
 
 export async function loadStations() {
   try {
@@ -77,19 +76,4 @@ export async function updateStation(station) {
   }
 }
 
-export async function updateStations(updatedStations) {
-  try {
-    updatedStations.forEach(async (station) => {
-      //wait 1 sec
-      setTimeout(() => {
-        console.log("waiting 1 sec");
-      }, 2000);
 
-      console.log("station from for each in updateStations:", station);
-      await stationService.save(station);
-      store.dispatch({ type: UPDATE_STATION, station });
-    });
-  } catch (err) {
-    console.log("Error in updateStationsSongs:", err);
-  }
-}

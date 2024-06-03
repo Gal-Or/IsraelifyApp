@@ -145,7 +145,6 @@ async function getSongBySearch(query) {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log("response.data.tracks.items", response.data.tracks.items);
     var songs = cleanSongsData(response.data.tracks.items);
 
     // Save results to cache

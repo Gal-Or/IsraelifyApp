@@ -52,9 +52,7 @@ export function Player() {
   }
   function onShuffle() {
     // Shuffle the queue
-    console.log("111queue", queue);
     const shuffledQueue = shuffleQueue(queue);
-    console.log("shuffledQueue", shuffledQueue);
     setQueue(shuffledQueue);
   }
 

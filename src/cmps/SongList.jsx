@@ -34,7 +34,6 @@ export function SongList({ station, isCompact }) {
 
   // Sync the songs state with the station prop
   useEffect(() => {
-    console.log("isCompact", isCompact);
     setSongs(station.songs || []);
   }, [station.songs, isCompact]);
 
@@ -56,9 +55,8 @@ export function SongList({ station, isCompact }) {
           key={song.id}
           index={index}
           song={song}
-          className={`song-container ${
-            song.id === lastActiveSong?.id ? "active" : ""
-          }`}
+          className={`song-container ${song.id === lastActiveSong?.id ? "active" : ""
+            }`}
           moveSong={moveSong}
           station={station}
           isCompact={isCompact}

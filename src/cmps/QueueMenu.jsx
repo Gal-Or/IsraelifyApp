@@ -8,10 +8,6 @@ export function QueueMenu() {
   const queue = useSelector((state) => state.playerModule.queue);
   const currentSong = useSelector((state) => state.playerModule.currentSong);
 
-  useEffect(() => {
-    if (queue) console.log("queue", queue);
-  }, [queue]);
-
   const moveSong = useCallback(
     (dragIndex, hoverIndex) => {
       const dragSong = queue[dragIndex];

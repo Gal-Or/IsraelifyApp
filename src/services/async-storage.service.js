@@ -31,7 +31,6 @@ function post(entityType, newEntity) {
 }
 
 function put(entityType, updatedEntity) {
-    console.log('updatedEntity:', updatedEntity);
     updatedEntity = JSON.parse(JSON.stringify(updatedEntity))
     return query(entityType).then(entities => {
         const idx = entities.findIndex(entity => entity._id === updatedEntity._id)
@@ -52,14 +51,12 @@ function remove(entityType, entityId) {
 }
 
 function saveAll(entityType, entities) {
-    console.log('entities:', entities);
     localStorage.setItem(entityType, JSON.stringify(entities))
 }
 
 // Private functions
 
 function _save(entityType, entities) {
-    console.log('entities:', entities);
     localStorage.setItem(entityType, JSON.stringify(entities))
 }
 

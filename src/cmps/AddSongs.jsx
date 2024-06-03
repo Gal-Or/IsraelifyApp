@@ -12,7 +12,6 @@ export function AddSongs({ onAddSongToStation, station }) {
 
   async function getSpotifySongResults(queryTxt) {
     var res = await spotifyService.getSongBySearch(queryTxt);
-    console.log("res:", res);
     setResults(res);
   }
 

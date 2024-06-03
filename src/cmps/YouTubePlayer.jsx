@@ -33,7 +33,6 @@ export function YouTubePlayer() {
   };
 
   const onNext = useCallback(() => {
-    console.log("next", queue);
     if (queue.length > 0) {
       const nextSong = queue[0];
       setCurrentSong(nextSong);
@@ -179,7 +178,7 @@ export function YouTubePlayer() {
     setDuration(playerRef.current.getDuration());
   }
   function handleFullScreenChange() {
-    console.log("full screen change");
+    //TODO: to check by bar
   }
 
   function handleTimeBarChange(newPercentage) {

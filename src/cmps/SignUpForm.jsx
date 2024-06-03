@@ -36,8 +36,6 @@ export function SignUpForm() {
     let { value, name: field, type } = ev.target
     value = type === 'number' ? +value : value
     setUserToSignup(prevUser => ({ ...prevUser, [field]: value }))
-
-    console.log('userToSignup:', userToSignup)
   }
 
   return (

@@ -41,7 +41,6 @@ export function SearchPage() {
 
   async function getSpotifySongResults(query) {
     var res = await spotifyService.getSongBySearch(query);
-    console.log("res", res);
     setResults(res);
   }
 

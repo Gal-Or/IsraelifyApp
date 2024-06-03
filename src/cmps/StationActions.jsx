@@ -52,7 +52,6 @@ export function StationActions({
         break;
       case "add to queue":
         addSongsToQueueBottom(station.songs);
-        console.log("add to queue");
         break;
     }
   };

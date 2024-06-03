@@ -17,7 +17,7 @@ export function NavBar() {
   });
 
   function onResize() {
-    console.log("width", width);
+    //resize
   }
 
   function setWidth(width) {

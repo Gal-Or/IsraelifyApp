@@ -23,7 +23,6 @@ export function StationList({ width, isCompact, randomize = false }) {
 
       if (containerRef.current.parentElement.className !== "library-container") {
         containerRef.current.style.maxHeight = `${firstChildHeight}px`;
-        // console.log("firstChildHeight:", firstChildHeight);
       }
     }
     return () => {

@@ -21,7 +21,6 @@ export function AddSongToStationButton({ song, containerRect }) {
   const buttonRef = useRef(null);
 
   useEffect(() => {
-    console.log("Current song changed in AddSongToStationButton:", song);
     checkSongExistInAnyStations();
   }, [song, stationsMenuOpen]);
 
@@ -49,22 +48,18 @@ export function AddSongToStationButton({ song, containerRect }) {
       case ADD_TO_LIKED_SONGS:
         setButtonState(ADD_TO_STATION);
         addSongToLikedSongs();
-        console.log("Adding song to liked songs");
         break;
 
       case ADD_TO_STATION:
         const buttonRect = buttonRef.current.getBoundingClientRect();
         setMenuPosition({ x: buttonRect.left, y: buttonRect.bottom });
         setStationsMenuOpen(true);
-        console.log("open modal ");
         break;
     }
   }
 
   async function addSongToLikedSongs() {
     try {
-      console.log("Adding song to liked songs");
-
       const savedStation = await stationService.addSongToStation(
         { ...song, addedAt: Date.now() },
         "liked-songs"
@@ -103,9 +98,8 @@ export function AddSongToStationButton({ song, containerRect }) {
       <CustomTooltip title={getTooltipText(buttonState)}>
         <button
           ref={buttonRef}
-          className={`add-to-playlist ${
-            buttonState === "ADD_TO_STATION" ? "active" : ""
-          }`}
+          className={`add-to-playlist ${buttonState === "ADD_TO_STATION" ? "active" : ""
+            }`}
           onClick={(e) => handleClick(e)}
         >
           {renderButtonStateSwitch(buttonState)}
