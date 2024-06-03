@@ -70,7 +70,7 @@ export function StationPage() {
   function setMainElementStyle(backgroundColor) {
     const mainElement = document.querySelector(".main-container-bg");
     if (!mainElement || !backgroundColor) return;
-    mainElement.style.backgroundImage = `linear-gradient(to bottom, ${backgroundColor} 0%,rgba(18,18,18,0.1) 60%)`;
+    mainElement.style.backgroundImage = `linear-gradient(to bottom, ${backgroundColor} 0%,rgba(18,18,18,0.1) 350px)`;
   }
 
   const openModal = () => setIsModalOpen(true);

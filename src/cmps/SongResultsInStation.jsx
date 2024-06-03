@@ -132,17 +132,19 @@ export function SongResultsInStation({
           onClick={() => setLastActiveSong(song)}
           onContextMenu={(event) => handleContextMenu(event, song)}
         >
-          <div className="song-img">
-            <img src={song.img} alt="song-thumbnail" />
-            <button onClick={() => onPlaySong(song)} className="play-btn">
-              <ReactSVG
-                src={
-                  isPlaying && currentSong.id === song.id ? pauseIcon : playIcon
-                }
-              />
-            </button>
-          </div>
           <div className="song-info">
+            <div className="song-img">
+              <img src={song.img} alt="song-thumbnail" />
+              <button onClick={() => onPlaySong(song)} className="play-btn">
+                <ReactSVG
+                  src={
+                    isPlaying && currentSong.id === song.id
+                      ? pauseIcon
+                      : playIcon
+                  }
+                />
+              </button>
+            </div>
             <p>{song.name}</p>
             <small>{song.artist}</small>
           </div>

@@ -1,10 +1,34 @@
-$search-icon-size: 24px;
+$search-icon-size: 16px;
 $placeholder-color: #9e9e9e;
 .add-songs {
   display: flex;
   flex-direction: column;
-  max-width: 600px;
   padding: 0.625em;
+  width: 100%;
+  .song-result {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .song-info {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+
+      .song-details {
+        display: flex;
+        flex-direction: column;
+        h3 {
+          color: #fff;
+          font-size: 16px;
+          margin-bottom: 5px;
+        }
+        p {
+          color: #9e9e9e;
+          font-size: 14px;
+        }
+      }
+    }
+  }
 
   .search-container {
     display: flex;
@@ -13,6 +37,7 @@ $placeholder-color: #9e9e9e;
     border-radius: 4px;
     padding: 10px;
     margin-top: 20px;
+    max-width: 400px;
 
     svg {
       width: $search-icon-size;
@@ -26,7 +51,6 @@ $placeholder-color: #9e9e9e;
       border: none;
       background: none;
       color: #fff; // Adjust if your text color is different
-      font-size: 16px;
       padding: 5px 0;
 
       &::placeholder {
@@ -47,7 +71,7 @@ $placeholder-color: #9e9e9e;
   .song-actions {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
     .add-to-playlist {
       background-color: transparent;

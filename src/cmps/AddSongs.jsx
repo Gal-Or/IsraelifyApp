@@ -36,7 +36,7 @@ export function AddSongs({ onAddSongToStation, station }) {
   return (
     <>
       <div className="add-songs">
-        <h1>Let's find something for your playlist</h1>
+        <span>Let's find something for your playlist</span>
 
         <div className="search-container">
           <ReactSVG src={search} />
