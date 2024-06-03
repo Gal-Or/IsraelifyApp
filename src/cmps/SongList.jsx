@@ -60,6 +60,7 @@ export function SongList({ station, isCompact }) {
             song.id === lastActiveSong?.id ? "active" : ""
           }`}
           moveSong={moveSong}
+          station={station}
           isCompact={isCompact}
         />
       ))}

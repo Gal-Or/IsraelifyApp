@@ -1,23 +1,35 @@
+import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
 import { updateStation } from "../store/station.actions";
-
 import Checkbox from "@mui/material/Checkbox";
 
-export function StationsMenu({ song, closeModal }) {
+export function StationsMenu({ song, closeModal, position }) {
   const stations = useSelector(
     (storeState) => storeState.stationModule.stations
   );
-  //search station
-  //create station
-  //add song to stations - checkbox (add/remove song)
-
   const [checkedStations, setCheckedStations] = useState([]);
+  const menuRef = useRef(null);
 
   useEffect(() => {
-    console.log("stations changed:", stations);
     filterStationsBySong();
   }, [stations]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        closeModal();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [closeModal]);
+
+  useEffect(() => {
+    setPosition(menuRef.current);
+  }, [position]);
 
   async function filterStationsBySong() {
     const stationsWithSong = stations?.filter((station) => {
@@ -28,10 +40,7 @@ export function StationsMenu({ song, closeModal }) {
 
   async function updateStationsSongs() {
     try {
-      console.log("stations:->>>>>>>>>>>>>>>>>", stations);
-
       const updatedStations = stations.map((station) => {
-        // if station is checked and song is not in station add it , else if station is not checked remove song from station
         if (
           checkedStations.find(
             (checkedStation) => checkedStation._id === station._id
@@ -48,60 +57,76 @@ export function StationsMenu({ song, closeModal }) {
             (stationSong) => stationSong.id !== song.id
           );
         }
-
         return station;
       });
       closeModal();
-
       for (const station of updatedStations) {
         await updateStation(station);
       }
-      //  //update each station
-      // updatedStations.forEach(async (station) => {
-      //   await updateStation(station);
-      // });
     } catch (err) {
-      console.log("Error in updateStationsSongs:", err);
+      console.error("Error in updateStationsSongs:", err);
     }
   }
 
+  const setPosition = (menu) => {
+    if (menu) {
+      const { innerWidth, innerHeight } = window;
+      const { offsetWidth, offsetHeight } = menu;
+      let { x, y } = position;
+
+      const containerWidth = innerWidth;
+      const containerHeight = innerHeight;
+
+      const rightOverflow = x + offsetWidth > containerWidth;
+      const bottomOverflow = y + offsetHeight > containerHeight;
+
+      if (rightOverflow) {
+        x = containerWidth - offsetWidth;
+      }
+      if (bottomOverflow) {
+        y = containerHeight - offsetHeight;
+      }
+
+      menu.style.left = `${x}px`;
+      menu.style.top = `${y}px`;
+    }
+  };
+
   return (
-    <section className="stations-menu-container">
-      <header>add to station</header>
-      <div>search station</div>
-      <div>create station</div>
+    <section ref={menuRef} className="stations-menu-container">
+      <header>Add to playlist</header>
+      <div className="search-bar">
+        <input type="text" placeholder="Find a playlist" />
+      </div>
+      <div className="new-playlist">+ New playlist</div>
       <div className="optional-stations-list-container">
-        {stations?.map((station) => {
-          return (
-            <div key={station._id} className="station-item">
-              <Checkbox
-                checked={
-                  checkedStations.find(
-                    (checkedStation) => checkedStation._id === station._id
-                  )
-                    ? true
-                    : false
+        {stations?.map((station) => (
+          <div key={station._id} className="station-item">
+            <Checkbox
+              checked={
+                !!checkedStations.find(
+                  (checkedStation) => checkedStation._id === station._id
+                )
+              }
+              onChange={(e) => {
+                if (e.target.checked) {
+                  setCheckedStations([...checkedStations, station]);
+                } else {
+                  setCheckedStations(
+                    checkedStations.filter(
+                      (checkedStation) => checkedStation._id !== station._id
+                    )
+                  );
                 }
-                onChange={(e) => {
-                  if (e.target.checked) {
-                    setCheckedStations([...checkedStations, station]);
-                  } else {
-                    setCheckedStations(
-                      checkedStations.filter(
-                        (checkedStation) => checkedStation._id !== station._id
-                      )
-                    );
-                  }
-                }}
-              />
-              <span>{station.name}</span>
-            </div>
-          );
-        })}
+              }}
+            />
+            <span>{station.name}</span>
+          </div>
+        ))}
       </div>
       <div className="actions">
-        <button onClick={() => updateStationsSongs()}>Save</button>
-        <button onClick={() => closeModal()}>Cancel</button>
+        <button onClick={updateStationsSongs}>Save</button>
+        <button onClick={closeModal}>Cancel</button>
       </div>
     </section>
   );

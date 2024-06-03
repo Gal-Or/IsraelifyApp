@@ -43,6 +43,7 @@ export function SongResults({
   const params = useParams();
   const [showAll, setShowAll] = useState(false);
   const [contextMenu, setContextMenu] = useState(null);
+  const [stationMenu, setStationMenu] = useState(null);
   const [currentStation, setCurrentStation] = useState({ songs: [] });
   const [lastActiveSong, setLastActiveSong] = useState(null);
   const songResultsRef = useRef(null);
@@ -114,7 +115,7 @@ export function SongResults({
     const rect = songResultsRef.current.getBoundingClientRect();
 
     setContextMenu({
-      position: { x: clientX - rect.left, y: clientY - rect.top },
+      position: { x: clientX, y: clientY },
       containerRect: rect,
       options: options.map((option) => ({
         ...option,
@@ -146,7 +147,11 @@ export function SongResults({
           <li
             key={song.id}
             className={`song-result ${lastActiveSong === song ? "active" : ""}`}
-            onClick={() => setLastActiveSong(song)}
+            onClick={() => {
+              const rect = songResultsRef.current.getBoundingClientRect();
+              setStationMenu({ rect });
+              setLastActiveSong(song);
+            }}
             onContextMenu={(event) => handleContextMenu(event, song)}
           >
             <div className="song-img">
@@ -166,7 +171,10 @@ export function SongResults({
               <small>{song.artists[0].name}</small>
             </div>
             <div className="song-actions">
-              <AddSongToStationButton song={song} />
+              <AddSongToStationButton
+                song={song}
+                containerRect={stationMenu?.rect}
+              />
               <span className="duration">
                 {song.duration === 0
                   ? "live"
@@ -187,7 +195,6 @@ export function SongResults({
       {contextMenu && (
         <ContextMenu
           position={contextMenu.position}
-          containerRect={contextMenu.containerRect}
           options={contextMenu.options}
           onClose={handleCloseContextMenu}
         />

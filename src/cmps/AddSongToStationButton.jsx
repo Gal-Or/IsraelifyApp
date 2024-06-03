@@ -1,22 +1,24 @@
 import { useSelector } from "react-redux";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ReactSVG } from "react-svg";
 import { CustomTooltip } from "./CustomTooltip";
 
 import tickIcon from "../assets/icons/tickIcon.svg";
 import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
 
-const ADD_TO_LIKED_SONGS = "ADD_TO_LIKED_SONGS"; // initial state - if the song not exist in any station add it to liked songs
-const ADD_TO_STATION = "ADD_TO_STATION"; // secondary state - if the song  exist in any station -> open "add to station" menu(modal)
+const ADD_TO_LIKED_SONGS = "ADD_TO_LIKED_SONGS";
+const ADD_TO_STATION = "ADD_TO_STATION";
 
 import { addSongToStation, updateStation } from "../store/station.actions";
 import { stationService } from "../services/station.service";
 import { StationsMenu } from "./StationsMenu";
 
-export function AddSongToStationButton({ song }) {
+export function AddSongToStationButton({ song, containerRect }) {
   const stations = useSelector((state) => state.stationModule.stations);
   const [buttonState, setButtonState] = useState(ADD_TO_LIKED_SONGS);
   const [stationsMenuOpen, setStationsMenuOpen] = useState(false);
+  const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
+  const buttonRef = useRef(null);
 
   useEffect(() => {
     console.log("Current song changed in AddSongToStationButton:", song);
@@ -42,7 +44,7 @@ export function AddSongToStationButton({ song }) {
     return;
   }
 
-  function handleClick() {
+  function handleClick(event) {
     switch (buttonState) {
       case ADD_TO_LIKED_SONGS:
         setButtonState(ADD_TO_STATION);
@@ -51,11 +53,14 @@ export function AddSongToStationButton({ song }) {
         break;
 
       case ADD_TO_STATION:
+        const buttonRect = buttonRef.current.getBoundingClientRect();
+        setMenuPosition({ x: buttonRect.left, y: buttonRect.bottom });
         setStationsMenuOpen(true);
         console.log("open modal ");
         break;
     }
   }
+
   async function addSongToLikedSongs() {
     try {
       console.log("Adding song to liked songs");
@@ -64,7 +69,6 @@ export function AddSongToStationButton({ song }) {
         { ...song, addedAt: Date.now() },
         "liked-songs"
       );
-      // update store
       updateStation(savedStation);
     } catch (err) {
       console.log("Error in addSongToLikedSongs:", err);
@@ -98,24 +102,23 @@ export function AddSongToStationButton({ song }) {
     <>
       <CustomTooltip title={getTooltipText(buttonState)}>
         <button
+          ref={buttonRef}
           className={`add-to-playlist ${
             buttonState === "ADD_TO_STATION" ? "active" : ""
           }`}
-          onClick={() => handleClick()}
+          onClick={(e) => handleClick(e)}
         >
           {renderButtonStateSwitch(buttonState)}
         </button>
       </CustomTooltip>
-      {stationsMenuOpen && <StationsMenu song={song} closeModal={closeModal} />}
+      {stationsMenuOpen && (
+        <StationsMenu
+          song={song}
+          closeModal={closeModal}
+          position={menuPosition}
+          containerRect={containerRect ? containerRect : null}
+        />
+      )}
     </>
   );
 }
-
-/* <button className="add-to-playlist" onClick={onAddToPlaylist}>
-        {likedSongs &&
-        likedSongs.find((likedSong) => likedSong.id === song.id) ? (
-          <ReactSVG src={tickIcon} className="liked-icon" />
-        ) : (
-          <ReactSVG src={addToPlaylistIcon} />
-        )}
-      </button> */

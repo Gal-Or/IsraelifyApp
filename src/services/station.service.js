@@ -1,9 +1,7 @@
 import { storageService } from "./async-storage.service";
 import { utilService } from "./util.service";
-import { uploadService } from "../services/upload.service";
 import demo_stations from "../assets/data/stations.json";
-
-import tunmbnail from "../assets/imgs/likedSongs.jpeg";
+import thumbnail from "../assets/imgs/likedSongs.jpeg";
 
 const STORAGE_KEY = "stationsDB";
 let stationsCount = 1;
@@ -22,9 +20,8 @@ export const stationService = {
   editStationInfo,
   updateSongOrder,
   getStationDuration,
-  //updateSongInStations,
   checkIfSongInExistInAnyStation,
-  updateSongId, //(params.stationId, song.id, songToPlay.id);
+  updateSongId,
 };
 
 _createStations();
@@ -32,16 +29,17 @@ _createStations();
 async function query(filterBy) {
   let stations = await storageService.query(STORAGE_KEY);
   if (filterBy) {
-    stations = filterEmails(stations, filterBy);
+    stations = filterStations(stations, filterBy);
   }
   return stations;
 }
 
 async function save(stationToSave) {
-  console.log("to save:", stationToSave);
-  if (stationToSave._id)
+  if (stationToSave._id) {
     return await storageService.put(STORAGE_KEY, stationToSave);
-  else return await storageService.post(STORAGE_KEY, stationToSave);
+  } else {
+    return await storageService.post(STORAGE_KEY, stationToSave);
+  }
 }
 
 async function saveAll(updatedStations) {
@@ -59,19 +57,17 @@ async function getById(id) {
 function getDefaultFilter() {
   return {};
 }
+
 async function addSongToStation(song, stationId) {
   if (stationId === 0) {
-    //add to first station
     const stations = await query();
     stationId = stations[0]._id;
   }
   const station = await getById(stationId);
-  //if song already in station
-  if (station.songs.find((stationSong) => stationSong.id === song.id)) {
+  if (station.songs.find((stationSong) => stationSong.name === song.name)) {
     return;
   }
   song.order = station.songs.length + 1;
-
   station.songs.push(song);
   return await save(station);
 }
@@ -80,7 +76,7 @@ async function findStationWithQuery(query) {
   const result = await storageService.query(STORAGE_KEY);
   if (!query || query.length < 1) return result;
   const stations = result;
-  var filteredStations = stations.filter((station) => {
+  let filteredStations = stations.filter((station) => {
     return (
       station.name.toLowerCase().includes(query.toLowerCase()) ||
       station.createdBy.fullname.toLowerCase().includes(query.toLowerCase()) ||
@@ -89,22 +85,15 @@ async function findStationWithQuery(query) {
       )
     );
   });
-
-  // If filteredStations is less than 6, fill the rest with random stations
   filteredStations = fillWithRandomStations(filteredStations, stations, 10);
-
   return filteredStations;
 }
 
 function fillWithRandomStations(filteredStations, allStations, minLength) {
   if (filteredStations.length >= minLength) return filteredStations;
-
-  // Get stations that are not in the filteredStations
   const remainingStations = allStations.filter(
     (station) => !filteredStations.includes(station)
   );
-
-  // Shuffle the remainingStations array
   for (let i = remainingStations.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [remainingStations[i], remainingStations[j]] = [
@@ -112,12 +101,9 @@ function fillWithRandomStations(filteredStations, allStations, minLength) {
       remainingStations[i],
     ];
   }
-
-  // Add random stations to fill up the filteredStations to the specified minLength
   while (filteredStations.length < minLength && remainingStations.length > 0) {
     filteredStations.push(remainingStations.pop());
   }
-
   return filteredStations;
 }
 
@@ -139,16 +125,14 @@ function createDefaultStation() {
 }
 
 async function getStationIds(song) {
-  //get all station ids  with the song id as array
   const stations = await query();
-  const stationsWithSong = stations.filter((station) => {
-    return station.songs.some((song) => song.id === song.id);
-  });
+  const stationsWithSong = stations.filter((station) =>
+    station.songs.some((stationSong) => stationSong.id === song.id)
+  );
   return stationsWithSong;
 }
 
 async function editStationInfo(station) {
-  console.log("in editStationInfo :", station);
   let newStation = await getById(station._id);
   newStation = {
     ...newStation,
@@ -162,79 +146,64 @@ async function editStationInfo(station) {
 function getStationDuration(songs) {
   let duration = 0;
   songs.forEach((song) => {
-    //if song duration/60 is bigger then 50 minutes it means that the time is in milliseconds
     if (song.duration / 60 > 50) {
-      duration += song.duration / 60000;
-    } else duration += song.duration;
+      duration += song.duration / 1000;
+    } else {
+      duration += song.duration;
+    }
   });
   const minutes = Math.floor(duration / 60);
   const seconds = Math.floor(duration % 60);
   return `${minutes} min ${seconds < 10 ? "0" + seconds : seconds} sec`;
 }
-//
-// async function updateSongInStations(checkedStations, song) {
 
-//   try {
-//     const stations = await query();
-//     const updatedStations = stations.map((station) => {
-//       if (checkedStations.find((checkedStation) => checkedStation._id === station._id)) {
-//         if (!station.songs.find((stationSong) => stationSong.id === song.id)) {
-//           song.order = station.songs.length + 1;
-//           station.songs.push(song);
-//         }
-//       } else {
-//         station.songs = station.songs.filter((stationSong) => stationSong.id !== song.id);
-//       }
-//       save(station);
-//       return station;
-//     });
-
-//     return updatedStations;
-
-//   } catch (err) {
-//     console.log('Error in updateSongInStations:', err);
-//   }
-
-// }
-
-async function updateSongId(stationId, songId, newSongId) {
+async function updateSongId(stationId = "liked-songs", songId, newSongId) {
   const station = await getById(stationId);
   const songIdx = station.songs.findIndex((song) => song.id === songId);
-  if (songIdx === -1) return;
-
-  const song = station.songs[songIdx];
-  song.id = newSongId;
-
-  return await save(station);
+  if (songIdx === -1) {
+    const stations = await query();
+    const stationWithSong = stations.find((station) =>
+      station.songs.find((stationSong) => stationSong.id === songId)
+    );
+    if (!stationWithSong) return;
+    const songIdx = stationWithSong.songs.findIndex(
+      (song) => song.id === songId
+    );
+    if (songIdx === -1) return;
+    const song = stationWithSong.songs.splice(songIdx, 1)[0];
+    song.id = newSongId;
+    stationWithSong.songs.push(song);
+    return await save(stationWithSong);
+  } else {
+    const song = station.songs[songIdx];
+    song.id = newSongId;
+    return await save(station);
+  }
 }
 
 function _createStations() {
-  var stations = utilService.loadFromStorage(STORAGE_KEY);
+  let stations = utilService.loadFromStorage(STORAGE_KEY);
   const demoDataCount = 1;
 
   if (!stations || !stations.length) {
     stations = [];
-    for (var i = 0; i < demoDataCount; i++) stations.push(_createStation());
+    for (let i = 0; i < demoDataCount; i++) stations.push(_createStation());
   }
 
   if (stations.length < 10) {
-    console.log("Adding demo stations", demo_stations);
-    //add more stations from ../assets/data/stations.json
     demo_stations.demo_stations.forEach((station) => {
-      //add number to each song that will indicate the station play order and randomize "addedAt"
       station.songs.forEach((song, idx) => {
         song.order = idx + 1;
         song.addedAt = Date.now() - Math.floor(Math.random() * 1000000000);
       });
       if (!stations.find((s) => s._id === station._id)) stations.push(station);
-      else console.log("station already exists");
     });
   }
 
   utilService.saveToStorage(STORAGE_KEY, stations);
-
   return stations;
 }
+
 async function updateSongOrder(stationId, songId, newOrder) {
   const station = await getById(stationId);
   const songIdx = station.songs.findIndex((song) => song.id === songId);
@@ -243,7 +212,6 @@ async function updateSongOrder(stationId, songId, newOrder) {
   const song = station.songs.splice(songIdx, 1)[0];
   station.songs.splice(newOrder, 0, song);
 
-  // Update song order numbers
   station.songs.forEach((song, index) => {
     song.order = index + 1;
   });
@@ -253,12 +221,11 @@ async function updateSongOrder(stationId, songId, newOrder) {
 
 async function checkIfSongInExistInAnyStation(song) {
   const stations = await query();
-  const res = stations.some((station) =>
-    station.songs.find((stationSong) => stationSong.id === song.id)
+  return stations.some((station) =>
+    station.songs.find((stationSong) => stationSong.name === song.name)
   );
-  console.log("checkIfSongInExistInAnyStation", res);
-  return res;
 }
+
 function _createStation() {
   return {
     _id: "liked-songs",
@@ -272,7 +239,7 @@ function _createStation() {
       imgUrl: "http://some-photo/",
     },
     likedByUsers: ["{minimal-user}", "{minimal-user}"],
-    img: tunmbnail,
+    img: thumbnail,
     songs: [],
   };
 }
