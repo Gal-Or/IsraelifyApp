@@ -135,7 +135,8 @@ export function SongResults({
   const displayedSongs = showAll ? songResults : songResults.slice(0, 4);
 
   if (!currentStation) return <Loader />;
-  if (!songResults || !songResults.length) return <Loader />;
+  if (!songResults || !songResults.length)
+    return <div className="no-results">No results found</div>;
 
   return (
     <section className="song-results" ref={songResultsRef}>

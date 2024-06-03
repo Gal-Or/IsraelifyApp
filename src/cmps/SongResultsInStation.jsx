@@ -117,7 +117,7 @@ export function SongResultsInStation({
 
   const displayedSongs = songResults;
   if (!currentStation) return <Loader />;
-  if (!songResults || !songResults.length) return <Loader />;
+  if (!songResults || !songResults.length) return <div>No songs found</div>;
 
   return (
     <section className="song-results">
