@@ -35,9 +35,6 @@ export function AddSongs({ onAddSongToStation, station }) {
 
   return (
     <>
-      <div className="add-songs-header-line">
-        <hr />
-      </div>
       <div className="add-songs">
         <h1>Let's find something for your playlist</h1>
 

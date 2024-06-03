@@ -50,6 +50,9 @@
   overflow-y: auto;
   border-radius: 8px;
   background-color: $sec-bg-clr;
+  .maiin-container-bg {
+    transition: background-image 2s ease;
+  }
 
   &::-webkit-scrollbar {
     background-color: transparent;
