@@ -6,7 +6,7 @@ import { ReactSVG } from "react-svg";
 import checkIcon from "../assets/icons/tickIcon.svg";
 import { stationService } from "../services/station.service";
 import { useNavigate } from "react-router";
-
+import logoBlue3D from "../assets/imgs/logo-Blue3D.png";
 export function StationsMenu({ song, closeModal, position }) {
   const stations = useSelector(
     (storeState) => storeState.stationModule.stations
@@ -100,8 +100,8 @@ export function StationsMenu({ song, closeModal, position }) {
     var newStation = stationService.createDefaultStation();
     newStation.songs = [song];
     const id = await addStation(newStation);
-    closeModal();
     navigate(`station/${id}`);
+    closeModal();
   }
 
   return (
@@ -119,7 +119,13 @@ export function StationsMenu({ song, closeModal, position }) {
           <div key={station._id} className="station-item">
             {console.log(station)}
             <img
-              src={station.img ? station.img : station.songs[0].img}
+              src={
+                station.img
+                  ? station.img
+                  : station.songs[0]?.img
+                  ? station.songs[0].img
+                  : logoBlue3D
+              }
               alt=""
             />
             <span>{station.name}</span>
