@@ -29,7 +29,14 @@ export function QueueMenu() {
       <div className="now-playing">
         <h3>Now Playing</h3>
         <div className="song-details">
-          <img src={currentSong.img} alt={currentSong.name} />
+          <img
+            src={
+              currentSong.img
+                ? currentSong.img
+                : currentSong.album.images[0].url
+            }
+            alt={currentSong.name}
+          />
           <div>
             <h4 className="current-song">{currentSong.name}</h4>
             <p>

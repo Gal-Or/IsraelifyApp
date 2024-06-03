@@ -43,7 +43,10 @@ export default function QueueSongItem({ song, index, moveSong }) {
       style={{ opacity: isDragging ? 0.5 : 1 }}
       className="song-item"
     >
-      <img src={song.img} alt={song.name} />
+      <img
+        src={song.img ? song.img : song.album.images[0].url}
+        alt={song.name}
+      />
       <div className="song-details">
         <h4>{song.name}</h4>
         <p>{song.artists ? song.artists[0].name : song.artist}</p>
