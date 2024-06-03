@@ -8,6 +8,9 @@ export function Recommendations() {
 
   useEffect(() => {
     loadGenres();
+    return () => {
+      removeMainElementStyle({ display: "none" });
+    };
   }, []);
 
   function setMainElementStyle(backgroundColor) {
@@ -16,7 +19,13 @@ export function Recommendations() {
     mainElement.style.backgroundImage = `linear-gradient(to bottom, ${backgroundColor} 0%, rgba(18, 18, 18, 0.1) 40%)`;
   }
 
-  function removeMainElementStyle() {
+  function removeMainElementStyle({ display }) {
+    if (display === "none") {
+      const mainElement = document.querySelector(".main-container-bg");
+      if (!mainElement) return;
+      mainElement.style.backgroundImage = "none";
+      return;
+    }
     const mainElement = document.querySelector(".main-container-bg");
     if (!mainElement) return;
     mainElement.style.backgroundImage = `linear-gradient(to bottom,  rgba(18, 18, 200, 0.1) 0%,  rgba(18, 18, 18, 0.1) 40%)`;
