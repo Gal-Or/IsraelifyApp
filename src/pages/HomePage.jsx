@@ -6,6 +6,10 @@ import { Catalog } from "../cmps/Catalog.jsx";
 import { stationService } from "../services/station.service.js";
 
 export function HomePage() {
+
+
+
+
   return (
     <section className="home-page">
       <AppHeader />
