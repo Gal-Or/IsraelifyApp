@@ -55,12 +55,12 @@ export function SignUpForm() {
           />
         </div>
         <div className="input-group">
-          <label htmlFor="login-username">Full Name</label>
+          <label htmlFor="login-fullname">Full Name</label>
           <input
             name="fullname"
             value={userToSignup.fullname}
             type="text"
-            id="login-username"
+            id="login-fullname"
             placeholder="Full Name"
             onChange={handleChange}
           />
