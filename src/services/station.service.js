@@ -2,6 +2,7 @@ import { storageService } from "./async-storage.service";
 import { utilService } from "./util.service";
 import demo_stations from "../assets/data/stations.json";
 import thumbnail from "../assets/imgs/likedSongs.jpeg";
+import { spotifyService } from "./spotify.service";
 
 const STORAGE_KEY = "stationsDB";
 let stationsCount = 1;
@@ -107,21 +108,36 @@ function fillWithRandomStations(filteredStations, allStations, minLength) {
   return filteredStations;
 }
 
-function createDefaultStation() {
+function createDefaultStation(loggedInUser) {
   stationsCount++;
-  return {
-    name: `New Playlist ${stationsCount}`,
-    type: "playlist",
-    tags: [],
-    backgroundColor: utilService.randomColor(),
-    createdBy: {
-      _id: "u101",
-      fullname: "Puki Ben David",
-      imgUrl: "http://some-photo/",
-    },
-    likedByUsers: [],
-    songs: [],
-  };
+  if (loggedInUser) {
+    return {
+      name: `New Playlist ${stationsCount}`,
+      type: "playlist",
+      tags: [],
+      backgroundColor: utilService.randomColor(),
+      createdBy: {
+        _id: loggedInUser._id,
+        fullname: loggedInUser.fullname,
+        imgUrl: loggedInUser.imgUrl,
+      },
+      likedByUsers: [],
+      songs: [],
+    };
+  } else
+    return {
+      name: `New Playlist ${stationsCount}`,
+      type: "playlist",
+      tags: [],
+      backgroundColor: utilService.randomColor(),
+      createdBy: {
+        _id: "u101",
+        fullname: "Puki Ben David",
+        imgUrl: "http://some-photo/",
+      },
+      likedByUsers: [],
+      songs: [],
+    };
 }
 
 async function getStationIds(song) {
@@ -181,7 +197,7 @@ async function updateSongId(stationId = "liked-songs", songId, newSongId) {
   }
 }
 
-function _createStations() {
+async function _createStations() {
   let stations = utilService.loadFromStorage(STORAGE_KEY);
   const demoDataCount = 1;
 
@@ -191,13 +207,19 @@ function _createStations() {
   }
 
   if (stations.length < 10) {
-    demo_stations.demo_stations.forEach((station) => {
-      station.songs.forEach((song, idx) => {
+    for (const station of demo_stations.demo_stations) {
+      for (const [idx, song] of station.songs.entries()) {
+        // search for spotify song and get its album image
+        const spotifySongs = await spotifyService.getSongBySearch(song.name);
+        if (spotifySongs && spotifySongs.length > 0) {
+          song.img = spotifySongs[0].img;
+        }
         song.order = idx + 1;
         song.addedAt = Date.now() - Math.floor(Math.random() * 1000000000);
-      });
+      }
+      station.createdBy.imgUrl = `https://i.pravatar.cc/150?u=${station.createdBy._id}`;
       if (!stations.find((s) => s._id === station._id)) stations.push(station);
-    });
+    }
   }
 
   utilService.saveToStorage(STORAGE_KEY, stations);
