@@ -1,16 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useSelector } from "react-redux";
+import { setQueue } from "../store/player.actions";
+import { useDrop } from "react-dnd";
+import QueueSongItem from "./QueueSongItem"; // Separate component for each song in the queue
 
 export function QueueMenu() {
   const queue = useSelector((state) => state.playerModule.queue);
   const currentSong = useSelector((state) => state.playerModule.currentSong);
+
   useEffect(() => {
     if (queue) console.log("queue", queue);
   }, [queue]);
 
+  const moveSong = useCallback(
+    (dragIndex, hoverIndex) => {
+      const dragSong = queue[dragIndex];
+      const newQueue = [...queue];
+      newQueue.splice(dragIndex, 1);
+      newQueue.splice(hoverIndex, 0, dragSong);
+
+      setQueue(newQueue);
+    },
+    [queue]
+  );
+
+  const [, drop] = useDrop({ accept: "QUEUE_SONG" });
+
   if (!queue) return <div>Loading...</div>;
   return (
-    <div className="queue-menu">
+    <div className="queue-menu" ref={drop}>
       <h2>Queue</h2>
       <div className="now-playing">
         <h3>Now Playing</h3>
@@ -18,7 +36,11 @@ export function QueueMenu() {
           <img src={currentSong.img} alt={currentSong.name} />
           <div>
             <h4 className="current-song">{currentSong.name}</h4>
-            <p>{currentSong.artist}</p>
+            <p>
+              {currentSong.artists
+                ? currentSong.artists[0].name
+                : currentSong.artist}
+            </p>
           </div>
         </div>
       </div>
@@ -26,13 +48,12 @@ export function QueueMenu() {
         <h3>Next Up</h3>
         <ul>
           {queue.map((song, index) => (
-            <li key={song.id + index} className="song-item">
-              <img src={song.img} alt={song.name} />
-              <div className="song-details">
-                <h4>{song.name}</h4>
-                <p>{song.artist}</p>
-              </div>
-            </li>
+            <QueueSongItem
+              key={song.id + index}
+              index={index}
+              song={song}
+              moveSong={moveSong}
+            />
           ))}
         </ul>
       </div>
