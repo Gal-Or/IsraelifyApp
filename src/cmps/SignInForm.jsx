@@ -29,6 +29,11 @@ export function SignInForm() {
     ev.preventDefault();
     try {
       const user = await userService.login(credentials);
+      if (!user) {
+        // show error message
+        prompt("Invalid username or password");
+        return;
+      }
       setLoggedinUser(user);
       navigate("/");
     } catch (err) {
