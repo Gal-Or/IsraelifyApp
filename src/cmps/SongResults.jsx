@@ -39,9 +39,9 @@ export function SongResults({
   songResults,
   onAddSongToStation,
   updateResults,
+  fullList: fulllist,
 }) {
   const params = useParams();
-  const [showAll, setShowAll] = useState(false);
   const [contextMenu, setContextMenu] = useState(null);
   const [stationMenu, setStationMenu] = useState(null);
   const [currentStation, setCurrentStation] = useState({ songs: [] });
@@ -51,6 +51,12 @@ export function SongResults({
   const isPlaying = useSelector((state) => state.playerModule.isPlaying);
   const currentSong = useSelector((state) => state.playerModule.currentSong);
   const stations = useSelector((state) => state.stationModule.stations);
+
+  const [displayedSongs, setDisplayedSongs] = useState(songResults);
+
+  useEffect(() => {
+    setDisplayedSongs(fulllist ? songResults : songResults.slice(0, 4));
+  }, [fulllist, songResults]);
 
   useEffect(() => {
     let station = params.stationId
@@ -131,8 +137,6 @@ export function SongResults({
   const handleCloseContextMenu = () => {
     setContextMenu(null);
   };
-
-  const displayedSongs = showAll ? songResults : songResults.slice(0, 4);
 
   if (!currentStation) return <Loader />;
   if (!songResults || !songResults.length)

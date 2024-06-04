@@ -12,7 +12,7 @@ const initialState = {
     duration: 0,
     id: "mMfxI3r_LyA",
     img: "https://i.ytimg.com/vi/mMfxI3r_LyA/hqdefault.jpg",
-    name: "Modjo - Lady (Hear Me Tonight) (Official Video)",
+    name: "Lady (Hear Me Tonight)",
     artist: "ModjoOfficial",
   },
   youtubePlayer: null,

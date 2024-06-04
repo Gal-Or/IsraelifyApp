@@ -34,21 +34,22 @@ export function SearchResults({
         </section>
       )}
       {viewType === "songs" && (
-        <section className="songs-view">
+        <section className="songs-view" fullList={true}>
           <SongResults
             songResults={songResults}
             updateResults={updateResults}
+            fullList={true}
           />
         </section>
       )}
       {viewType === "stations" && (
         <section className="stations-view">
-          <StationResults stationResults={stationResults} />
+          <StationResults stationResults={stationResults} fullList={true} />
         </section>
       )}
       {viewType === "artists" && (
         <section className="artists-view">
-          <ArtistResults artistResults={artistResults} />
+          <ArtistResults artistResults={artistResults} fullList={true} />
         </section>
       )}
     </>
