@@ -54,48 +54,45 @@ export function StationEditModal({ station, closeModal, onSetStation }) {
   return (
     <div className="modal-overlay">
       <div className="station-edit-modal" ref={modalRef}>
-        <button className="close-btn" onClick={closeModal}>
-          &times;
-        </button>
         <h1>Edit details</h1>
-        <div className="img-uploader">
-          <label>
-            {isLoading ? (
-              <div className="loading-indicator">Loading...</div>
-            ) : (
-              <img
-                src={
-                  stationToEdit.img ? stationToEdit.img : station.songs[0].img
-                }
-                alt="Station"
+        <div className="main-info">
+          <div className="img-uploader">
+            <label>
+              {isLoading ? (
+                <div className="loading-indicator">Loading...</div>
+              ) : (
+                <img
+                  src={
+                    stationToEdit.img ? stationToEdit.img : station.songs[0].img
+                  }
+                  alt="Station"
+                />
+              )}
+              <input
+                accept="image/.jpg, image/.jpeg, image/.png"
+                type="file"
+                name="img"
+                onChange={handleChange}
               />
-            )}
+            </label>
+          </div>
+          <div className="form-fields">
             <input
-              accept="image/.jpg, image/.jpeg, image/.png"
-              type="file"
-              name="img"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Station Name"
+              value={stationToEdit.name}
               onChange={handleChange}
             />
-          </label>
-        </div>
-        <div className="form-fields">
-          <label htmlFor="name">Station Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Station Name"
-            value={stationToEdit.name}
-            onChange={handleChange}
-          />
-          <label htmlFor="description">Description:</label>
-          <textarea
-            id="description"
-            name="description"
-            placeholder="Description"
-            value={stationToEdit.description}
-            onChange={handleChange}
-          ></textarea>
+            <textarea
+              id="description"
+              name="description"
+              placeholder="Add an optional description"
+              value={stationToEdit.description}
+              onChange={handleChange}
+            ></textarea>
+          </div>
         </div>
         <div className="actions">
           <button type="submit" onClick={onSubmit}>
