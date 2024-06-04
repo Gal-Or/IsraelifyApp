@@ -103,11 +103,11 @@ export function StationsMenu({ song, closeModal, position }) {
         x = containerWidth - offsetWidth;
       }
       if (bottomOverflow) {
-        y = containerHeight - offsetHeight;
+        y = containerHeight - offsetHeight - 370;
       }
 
       menu.style.left = `${x}px`;
-      menu.style.top = `${y - 100}px`;
+      menu.style.top = `${y}px`;
     }
   };
 
