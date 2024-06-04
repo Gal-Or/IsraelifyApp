@@ -26,7 +26,7 @@ export function StationList({
 
   // Use the custom hook to get the container ref, visible count, and update function
   const [containerRef, visibleCount, updateVisibleCount] = useVisibleCount(
-    150,
+    200,
     16
   );
 
@@ -36,8 +36,10 @@ export function StationList({
   }, [shuffledStations, updateVisibleCount, layout]);
 
   useEffect(() => {
-    loadStations();
-  }, [stations]);
+    if (!stations || stations.length === 0) {
+      loadStations();
+    }
+  }, [stations.length]);
 
   useEffect(() => {
     if (!randomize) {
