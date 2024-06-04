@@ -51,8 +51,9 @@ export function StationActions({
   const handleMoreSelect = async (option) => {
     switch (option.value) {
       case "delete":
-        await removeStation(station._id);
         navigate("/");
+        await removeStation({ stationId: station._id });
+
         break;
       case "edit":
         openModal(); // Call openModal here

@@ -17,16 +17,15 @@ export function stationReducer(state = initialState, action) {
       newState = { ...state, stations: action.stations };
       break;
     case REMOVE_STATION:
+      console.log("Station removed", action, state);
       newState = {
         ...state,
         stations: state.stations.filter(
           (station) => station._id !== action.stationId
         ),
-        currentStation:
-          state.currentStation && state.currentStation._id === action.stationId
-            ? null
-            : state.currentStation,
+        currentStation: null,
       };
+      console.log("newState", newState);
       break;
     case ADD_STATION:
       newState = { ...state, stations: [...state.stations, action.newStation] };
@@ -53,13 +52,13 @@ export function stationReducer(state = initialState, action) {
         currentStation:
           state.currentStation && state.currentStation._id === action.stationId
             ? state.currentStation.songs.find(
-              (stationSong) => stationSong.id === action.song.id
-            )
+                (stationSong) => stationSong.id === action.song.id
+              )
               ? state.currentStation
               : {
-                ...state.currentStation,
-                songs: [...state.currentStation.songs, action.song],
-              }
+                  ...state.currentStation,
+                  songs: [...state.currentStation.songs, action.song],
+                }
             : state.currentStation,
         // ? {
         //     ...state.currentStation,
@@ -83,7 +82,7 @@ export function stationReducer(state = initialState, action) {
         }),
         currentStation:
           state.currentStation &&
-            state.currentStation._id === action.station._id
+          state.currentStation._id === action.station._id
             ? { ...state.currentStation, ...action.station }
             : state.currentStation,
       };

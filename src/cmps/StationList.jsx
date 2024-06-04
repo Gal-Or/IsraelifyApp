@@ -37,7 +37,7 @@ export function StationList({
 
   useEffect(() => {
     loadStations();
-  }, []);
+  }, [stations]);
 
   useEffect(() => {
     if (!randomize) {

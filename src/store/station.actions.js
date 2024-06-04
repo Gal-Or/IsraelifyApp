@@ -20,7 +20,7 @@ export async function loadStations() {
   }
 }
 
-export async function removeStation(stationId) {
+export async function removeStation({ stationId }) {
   try {
     await stationService.remove(stationId);
     store.dispatch({
@@ -75,5 +75,3 @@ export async function updateStation(station) {
     console.log("Cannot update station", err);
   }
 }
-
-
