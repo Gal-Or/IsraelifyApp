@@ -106,7 +106,7 @@ export function StationsMenu({ song, closeModal, position }) {
         y = containerHeight - offsetHeight;
       }
 
-      menu.style.left = `${x - 25}px`;
+      menu.style.left = `${x}px`;
       menu.style.top = `${y - 100}px`;
     }
   };
