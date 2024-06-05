@@ -7,7 +7,7 @@ import { Loader } from "./Loader";
 export function ArtistResults({ artistResults, fullList }) {
   // Use the custom hook to get the container ref, visible count, and update function
   const [containerRef, visibleCount, updateVisibleCount] = useVisibleCount(
-    150,
+    140,
     16
   );
 
