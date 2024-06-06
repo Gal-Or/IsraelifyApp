@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { stationService } from "../services/station.service";
 import { uploadService } from "../services/upload.service";
+import tempStationImg from "../assets/imgs/logo-Blue3D.png";
 
 export function StationEditModal({ station, closeModal, onSetStation }) {
   const [stationToEdit, setStationToEdit] = useState(station);
@@ -62,9 +63,7 @@ export function StationEditModal({ station, closeModal, onSetStation }) {
                 <div className="loading-indicator">Loading...</div>
               ) : (
                 <img
-                  src={
-                    stationToEdit.img ? stationToEdit.img : station.songs[0].img
-                  }
+                  src={stationToEdit.img ? stationToEdit.img : tempStationImg}
                   alt="Station"
                 />
               )}
