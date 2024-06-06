@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router";
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Dropdown } from "./DropDownMenu";
-
 
 import { stationService } from "../services/station.service";
 
@@ -16,13 +15,13 @@ import rightArrow from "../assets/icons/full_right_arrow.svg";
 import listIcon from "../assets/icons/list.svg";
 import compactIcon from "../assets/icons/compact.svg";
 
-
+import { UserContext } from "../RootCmp";
 
 export function Library({ width }) {
-
   const [isCompact, setIsCompact] = useState(false);
   const [isOpen, setIsOpen] = useState(true);
   const navigate = useNavigate();
+  const [loggedInUser] = useContext(UserContext);
 
   const viewOptions = [
     { label: "List", value: false, icon: listIcon },
@@ -34,13 +33,13 @@ export function Library({ width }) {
   };
 
   async function onCreateStation() {
-    var newStation = stationService.createDefaultStation();
+    var newStation = stationService.createDefaultStation(loggedInUser);
     const id = await addStation(newStation);
     navigate(`station/${id}`);
   }
 
   function handleClickLibrary() {
-    let nav = document.querySelector(".nav-bar-content")
+    let nav = document.querySelector(".nav-bar-content");
     if (isOpen) {
       nav.classList.add("narrow-nav-bar");
       nav.style.width = "80px";
@@ -49,7 +48,6 @@ export function Library({ width }) {
       nav.style.width = "360px";
     }
     setIsOpen(!isOpen);
-
   }
 
   return (
@@ -58,7 +56,10 @@ export function Library({ width }) {
         <div className="icon-lable-div">
           <ReactSVG
             src={isOpen ? LibraryOpen : LibraryClose}
-            onClick={() => { handleClickLibrary() }} />
+            onClick={() => {
+              handleClickLibrary();
+            }}
+          />
           <span className="nav-page">Your Library</span>
         </div>
 
@@ -86,6 +87,6 @@ export function Library({ width }) {
       <div className="list-container">
         <StationList width={width} isCompact={isCompact} />
       </div>
-    </section >
+    </section>
   );
 }
