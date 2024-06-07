@@ -8,6 +8,7 @@ import clockIcon from "../assets/icons/clock.svg";
 export function SongList({ station, isCompact }) {
   const [songs, setSongs] = useState(station.songs || []);
   const [lastActiveSong, setLastActiveSong] = useState(null);
+
   const moveSong = useCallback(
     async (dragIndex, hoverIndex) => {
       const dragSong = songs[dragIndex];
@@ -32,7 +33,6 @@ export function SongList({ station, isCompact }) {
 
   const [, drop] = useDrop({ accept: "SONG" });
 
-  // Sync the songs state with the station prop
   useEffect(() => {
     setSongs(station.songs || []);
   }, [station.songs, isCompact]);
@@ -55,8 +55,9 @@ export function SongList({ station, isCompact }) {
           key={song.id}
           index={index}
           song={song}
-          className={`song-container ${song.id === lastActiveSong?.id ? "active" : ""
-            }`}
+          className={`song-container ${
+            song.id === lastActiveSong?.id ? "active" : ""
+          }`}
           moveSong={moveSong}
           station={station}
           isCompact={isCompact}
