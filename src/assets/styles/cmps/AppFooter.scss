@@ -3,10 +3,10 @@
   color: $sec-font-clr;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: max-content;
-  max-height: 72px;
+  align-items: start;
+  max-height: em(70px);
+  height: 100%;
   width: 100%;
 
-  margin: em(10px);
+  margin: 0;
 }
