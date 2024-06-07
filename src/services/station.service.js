@@ -205,7 +205,7 @@ async function updateSongId(stationId = "liked-songs", songId, newSongId) {
 async function _createStations() {
   let stations = utilService.loadFromStorage(STORAGE_KEY);
   const demoDataCount = 1;
-  stations = [];
+  stations = stations || [];
   // if (!stations || !stations.length) {
 
   //   for (let i = 0; i < demoDataCount; i++) stations.push(_createStation());
