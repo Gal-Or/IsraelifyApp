@@ -2,11 +2,13 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  .app-header {
-    background-color: $sec-bg-clr;
-    padding: em(10px);
-    .input-wrapper {
-      display: flex;
+  .app-header-container {
+    .app-header {
+      background-color: $sec-bg-clr;
+      padding: em(10px);
+      .input-wrapper {
+        display: flex;
+      }
     }
   }
 
@@ -21,5 +23,7 @@
     z-index: 1;
     top: em(50px);
     background-color: $sec-bg-clr;
+    width: 100%;
+    margin: 0;
   }
 }

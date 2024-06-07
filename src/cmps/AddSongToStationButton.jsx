@@ -19,10 +19,11 @@ export function AddSongToStationButton({ song, containerRect }) {
   const [stationsMenuOpen, setStationsMenuOpen] = useState(false);
   const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
   const buttonRef = useRef(null);
+  const currentSong = useSelector((state) => state.playerModule.currentSong);
 
   useEffect(() => {
     checkSongExistInAnyStations();
-  }, [song, stationsMenuOpen]);
+  }, [song, stationsMenuOpen, currentSong]);
 
   async function checkSongExistInAnyStations() {
     if (!stations) return;
@@ -98,8 +99,9 @@ export function AddSongToStationButton({ song, containerRect }) {
       <CustomTooltip title={getTooltipText(buttonState)}>
         <button
           ref={buttonRef}
-          className={`add-to-playlist ${buttonState === "ADD_TO_STATION" ? "active" : ""
-            }`}
+          className={`add-to-playlist ${
+            buttonState === "ADD_TO_STATION" ? "active" : ""
+          }`}
           onClick={(e) => handleClick(e)}
         >
           {renderButtonStateSwitch(buttonState)}

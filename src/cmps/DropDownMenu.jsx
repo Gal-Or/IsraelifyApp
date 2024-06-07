@@ -16,6 +16,7 @@ export function Dropdown({
 }) {
   const [isOpen, setIsOpen] = useState(false); // State to manage dropdown open/closed state.
   const [selectedOption, setSelectedOption] = useState(options[0]); // State to manage the selected option.
+  const [dropdownPosition, setDropdownPosition] = useState("right"); // State to manage dropdown position.
   const dropdownRef = useRef(null); // Reference to the dropdown element to detect clicks outside.
 
   // Toggle the dropdown's open/closed state.
@@ -45,6 +46,23 @@ export function Dropdown({
     };
   }, []);
 
+  // Calculate dropdown position based on overflow.
+  useEffect(() => {
+    if (isOpen) {
+      const dropdownRect = dropdownRef.current.getBoundingClientRect();
+      const container = document.querySelector(".main-container-bg");
+      const containerRect = container.getBoundingClientRect();
+
+      if (dropdownRect.right > containerRect.right) {
+        setDropdownPosition("left");
+      } else if (dropdownRect.left - 150 < containerRect.left) {
+        setDropdownPosition("right");
+      } else {
+        setDropdownPosition("left");
+      }
+    }
+  }, [isOpen]);
+
   return (
     <div className={`dropdown ${className}`} ref={dropdownRef}>
       <button className="dropdown-toggle" onClick={handleToggle}>
@@ -58,7 +76,7 @@ export function Dropdown({
         )}
       </button>
       {isOpen && (
-        <div className="dropdown-menu-container">
+        <div className={`dropdown-menu-container ${dropdownPosition}`}>
           {headline && <h3>{headline}</h3>}
           <ul className="dropdown-menu">
             {options.map((option) => (

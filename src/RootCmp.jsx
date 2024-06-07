@@ -155,13 +155,13 @@ export function RootCmp() {
           <Route
             path="/*"
             element={
-              !loggedinUser ? (
-                <Navigate to={authRoutes[0].path} replace />
-              ) : (
+              loggedinUser ? (
                 <PageContainer
                   showSidePopUp={showSidePopUp}
                   setShowSidePopUp={setShowSidePopUp}
                 />
+              ) : (
+                <Navigate to="/signin" />
               )
             }
           />

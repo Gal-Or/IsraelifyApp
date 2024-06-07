@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import { stationService } from "../services/station.service.js";
@@ -17,6 +17,7 @@ export function StationPage() {
   const currentStation = useSelector(
     (state) => state.stationModule.currentStation
   );
+  const stationHeaderRef = useRef(null);
 
   useEffect(() => {
     setIsLoading(true);
@@ -80,12 +81,19 @@ export function StationPage() {
 
   return (
     <div className="station-page-container">
-      <AppHeader />
+      <AppHeader
+        stationHeaderRef={stationHeaderRef}
+        backgroundColor={
+          currentStation ? currentStation.backgroundColor : "transparent"
+        }
+        station={currentStation}
+      />
       <section className="station-page">
         <StationHeader
           station={currentStation}
           onSetStation={onSetStation}
           openModal={openModal}
+          ref={stationHeaderRef}
         />
         <StationContent station={currentStation} openModal={openModal} />
         <AddSongs onAddSongToStation={onAddSongToStation} />
