@@ -42,8 +42,6 @@ async function save(stationToSave) {
   }
 }
 
-
-
 async function remove(id) {
   return await storageService.remove(STORAGE_KEY, id);
 }
@@ -218,7 +216,7 @@ async function _createStations() {
       if (!stations.find((s) => s._id === station._id)) stations.push(station);
     }
   }
-
+  stations[0].img = thumbnail;
   utilService.saveToStorage(STORAGE_KEY, stations);
   return stations;
 }

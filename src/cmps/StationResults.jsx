@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { ReactSVG } from "react-svg";
 import tempStationImg from "../assets/imgs/logo-Blue3D.png";
-import playIcon from "../assets/icons/playIcon.svg";
+import playIcon from "../assets/icons/PlayIcon.svg";
 import { useVisibleCount } from "../customHooks/useVisibleCount";
 import { Loader } from "./Loader";
 import { LayoutContext } from "../RootCmp";

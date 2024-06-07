@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import { ReactSVG } from "react-svg";
 import { setCurrentSong, setIsPlaying } from "../store/player.actions";
-import playIcon from "../assets/icons/playIcon.svg";
-import pauseIcon from "../assets/icons/pauseIcon.svg";
+import playIcon from "../assets/icons/PlayIcon.svg";
+import pauseIcon from "../assets/icons/PauseIcon.svg";
 import { youtubeService } from "../services/youtube.service";
 import { spotifyService } from "../services/spotify.service";
 import { useParams } from "react-router";

@@ -11,13 +11,13 @@ import {
   setIsPlaying,
 } from "../store/player.actions";
 import { removeStation } from "../store/station.actions";
-import playIcon from "../assets/icons/playIcon.svg";
-import pauseIcon from "../assets/icons/pauseIcon.svg";
+import playIcon from "../assets/icons/PlayIcon.svg";
+import pauseIcon from "../assets/icons/PauseIcon.svg";
 import DotsIcon from "../assets/icons/Ellipses.svg";
-import listIcon from "../assets/icons/list.svg";
-import compactIcon from "../assets/icons/compact.svg";
-import deleteIcon from "../assets/icons/delete.svg";
-import editIcon from "../assets/icons/pencil.svg";
+import listIcon from "../assets/icons/List.svg";
+import compactIcon from "../assets/icons/Compact.svg";
+import deleteIcon from "../assets/icons/Delete.svg";
+import editIcon from "../assets/icons/Pencil.svg";
 import addIcon from "../assets/icons/AddToQueue.svg";
 
 import { CustomTooltip } from "./CustomTooltip";

@@ -8,8 +8,8 @@ import { spotifyService } from "../services/spotify.service";
 import { addSongToStation } from "../store/station.actions";
 import { setCurrentSong, setIsPlaying } from "../store/player.actions";
 
-import playIcon from "../assets/icons/playIcon.svg";
-import pauseIcon from "../assets/icons/pauseIcon.svg";
+import playIcon from "../assets/icons/PlayIcon.svg";
+import pauseIcon from "../assets/icons/PauseIcon.svg";
 import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
 import addToQueueIcon from "../assets/icons/AddToQueue.svg";
 import DotsIcon from "../assets/icons/Ellipses.svg";

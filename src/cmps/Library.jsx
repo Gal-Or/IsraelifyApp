@@ -12,8 +12,8 @@ import LibraryClose from "../assets/icons/LibraryClose.svg";
 import LibraryOpen from "../assets/icons/LibraryOpen.svg";
 import plus from "../assets/icons/plus.svg";
 import rightArrow from "../assets/icons/full_right_arrow.svg";
-import listIcon from "../assets/icons/list.svg";
-import compactIcon from "../assets/icons/compact.svg";
+import listIcon from "../assets/icons/List.svg";
+import compactIcon from "../assets/icons/Compact.svg";
 
 import { UserContext } from "../RootCmp";
 

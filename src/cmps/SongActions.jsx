@@ -3,8 +3,8 @@ import { ReactSVG } from "react-svg";
 
 import { setCurrentSong, setIsPlaying } from "../store/player.actions";
 
-import playIcon from "../assets/icons/playIcon.svg";
-import pauseIcon from "../assets/icons/pauseIcon.svg";
+import playIcon from "../assets/icons/PlayIcon.svg";
+import pauseIcon from "../assets/icons/PauseIcon.svg";
 
 export function SongActions({ song }) {
   const currentSong = useSelector((state) => state.playerModule.currentSong);

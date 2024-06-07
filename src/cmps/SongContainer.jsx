@@ -3,11 +3,11 @@ import { useDrag, useDrop } from "react-dnd";
 import { useSelector } from "react-redux";
 import { ReactSVG } from "react-svg";
 import { useParams } from "react-router";
-import playIcon from "../assets/icons/playIcon.svg";
-import pauseIcon from "../assets/icons/pauseIcon.svg";
+import playIcon from "../assets/icons/PlayIcon.svg";
+import pauseIcon from "../assets/icons/PauseIcon.svg";
 import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
 import addIcon from "../assets/icons/AddToQueue.svg";
-import deleteIcon from "../assets/icons/delete.svg";
+import deleteIcon from "../assets/icons/Delete.svg";
 import {
   setCurrentSong,
   setIsPlaying,

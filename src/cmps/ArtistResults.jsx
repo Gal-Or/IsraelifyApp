@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { ReactSVG } from "react-svg";
-import playIcon from "../assets/icons/playIcon.svg";
+import playIcon from "../assets/icons/PlayIcon.svg";
 import { useVisibleCount } from "../customHooks/useVisibleCount";
 import { Loader } from "./Loader";
 

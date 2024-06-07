@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { ReactSVG } from "react-svg";
 import { useSpacebarPlayPause } from "../customHooks/useSpacebarPlayPause";
 import speaker from "../assets/icons/speaker.svg";
-import queueIcon from "../assets/icons/queueIcon.svg";
+import queueIcon from "../assets/icons/QueueIcon.svg";
 import speakerMute from "../assets/icons/speakerMute.svg";
 import Slider from "@mui/material/Slider";
 import expandIcon from "../assets/icons/ExpendIcon.svg";

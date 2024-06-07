@@ -1,5 +1,5 @@
 import { ReactSVG } from "react-svg";
-import playIcon from "../assets/icons/playIcon.svg";
+import playIcon from "../assets/icons/PlayIcon.svg";
 
 export function MiniPreview({ genre }) {
   return (

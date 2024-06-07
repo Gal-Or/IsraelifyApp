@@ -11,8 +11,8 @@ import {
   setQueue,
 } from "../store/player.actions";
 import { utilService } from "../services/util.service";
-import playIcon from "../assets/icons/playIcon.svg";
-import pauseIcon from "../assets/icons/pauseIcon.svg";
+import playIcon from "../assets/icons/PlayIcon.svg";
+import pauseIcon from "../assets/icons/PauseIcon.svg";
 import NextSongIcon from "../assets/icons/NextSongIcon.svg";
 import PrevSongIcon from "../assets/icons/LastSongIcon.svg";
 export function Player() {

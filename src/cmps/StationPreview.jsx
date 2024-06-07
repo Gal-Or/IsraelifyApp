@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ReactSVG } from "react-svg";
 
 import tempStationImg from "../assets/imgs/logo-Blue3D.png";
-import playIcon from "../assets/icons/playIcon.svg";
+import playIcon from "../assets/icons/PlayIcon.svg";
 
 export function StationPreview({ station, width, isCompact }) {
   var imgSrc = station.img

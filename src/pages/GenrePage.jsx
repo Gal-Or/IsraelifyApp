@@ -8,8 +8,8 @@ import { ReactSVG } from "react-svg";
 import tempStationImg from "../assets/imgs/logo-Blue3D.png";
 import pencil from "../assets/icons/Pencil.svg";
 import clockIcon from "../assets/icons/clock.svg";
-import playIcon from "../assets/icons/playIcon.svg";
-import pauseIcon from "../assets/icons/pauseIcon.svg";
+import playIcon from "../assets/icons/PlayIcon.svg";
+import pauseIcon from "../assets/icons/PauseIcon.svg";
 import {
   addSongsToQueueTop,
   playFirstSong,
@@ -19,9 +19,9 @@ import {
 import { utilService } from "../services/util.service";
 import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
 import addIcon from "../assets/icons/AddToQueue.svg";
-import deleteIcon from "../assets/icons/delete.svg";
+import deleteIcon from "../assets/icons/Delete.svg";
 import compactIcon from "../assets/icons/Compact.svg";
-import listIcon from "../assets/icons/listIcon.svg";
+import listIcon from "../assets/icons/List.svg";
 import DotsIcon from "../assets/icons/Ellipses.svg";
 import { Dropdown } from "../cmps/DropDownMenu";
 import { AppHeader } from "../cmps/AppHeader";

@@ -8,10 +8,10 @@ import { setCurrentSong, setIsPlaying } from "../store/player.actions";
 
 import { spotifyService } from "../services/spotify.service";
 import { youtubeService } from "../services/youtube.service";
-import playIcon from "../assets/icons/playIcon.svg";
-import pauseIcon from "../assets/icons/pauseIcon.svg";
+import playIcon from "../assets/icons/PlayIcon.svg";
+import pauseIcon from "../assets/icons/PauseIcon.svg";
 import addIcon from "../assets/icons/plusWithBorderIcon.svg";
-import deleteIcon from "../assets/icons/delete.svg";
+import deleteIcon from "../assets/icons/Delete.svg";
 import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
 import { ContextMenu } from "./ContextMenu";
 import { Loader } from "./Loader";

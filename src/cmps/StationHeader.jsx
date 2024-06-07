@@ -2,7 +2,7 @@ import React, { useRef, forwardRef } from "react";
 import { ReactSVG } from "react-svg";
 import { StationEditModal } from "./StationEditModal";
 import tempStationImg from "../assets/imgs/logo-Blue3D.png";
-import pencil from "../assets/icons/pencil.svg";
+import pencil from "../assets/icons/Pencil.svg";
 import { stationService } from "../services/station.service";
 
 export const StationHeader = forwardRef(

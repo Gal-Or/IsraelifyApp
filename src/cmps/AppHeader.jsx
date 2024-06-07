@@ -12,9 +12,9 @@ import {
   setIsPlaying,
 } from "../store/player.actions";
 
-import playIcon from "../assets/icons/playIcon.svg";
+import playIcon from "../assets/icons/PlayIcon.svg";
 import clockIcon from "../assets/icons/clock.svg";
-import pauseIcon from "../assets/icons/pauseIcon.svg";
+import pauseIcon from "../assets/icons/PauseIcon.svg";
 import rightArrow from "../assets/icons/right_arrow.svg";
 import leftArrow from "../assets/icons/left_arrow.svg";
 import search from "../assets/icons/search.svg";
