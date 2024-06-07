@@ -1,183 +1,101 @@
-.app-header-container {
-  z-index: 3;
-  position: sticky;
-  top: 0;
-
+.app-header {
+  height: em(50px);
   display: flex;
-  flex-direction: column;
-  .app-header {
-    padding: em(5px);
-    padding-right: em(15px);
-    padding-left: em(5px);
+  justify-content: start;
+  align-items: center;
+  gap: em(5px);
+  z-index: 2;
+  top: 0;
+  position: sticky;
+  // margin: em(15px) 0 em(15px) 0;
 
-    height: em(50px);
-    display: flex;
+  button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+
+    * {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    svg {
+      width: em(13px);
+      height: em(13px);
+      fill: rgba(255, 255, 255, 0.8);
+      margin: em(10px);
+    }
+  }
+
+  .profile-btn {
+    margin-left: auto;
+    border: solid em(1px) white;
+
+    img {
+      width: em(38px);
+      height: em(38px);
+    }
+  }
+
+  .profile-btn:hover {
+    img {
+      width: em(39px);
+      height: em(39px);
+    }
+  }
+
+  .input-wrapper {
+    display: none;
+    background-color: $input-bg-clr;
     justify-content: start;
     align-items: center;
-    gap: em(5px);
-    z-index: 3;
-    width: 100%;
-    height: 100%;
+    border-radius: em(50px);
+    height: em(48px);
+    padding: em(6px) em(15px);
+    width: em(300px);
 
-    // margin: em(15px) 0 em(15px) 0;
+    &:focus-within {
+      border: em(2px) solid white;
 
-    .play-btn {
-      width: em(60px);
-      height: em(60px);
-      background-color: $logo-clr; /* Use the logo color for the play button */
-      border: none;
-      border-radius: 500px;
-
-      svg {
-        width: em(25px);
-        height: em(25px);
-
-        fill: black;
-      }
-    }
-    .login-btn {
-      margin-left: auto;
-      width: em(60px);
-      height: em(60px);
-      background-color: white;
-      color: $sec-bg-clr;
-      font-family: "CircularSpotifyTextBold";
-      width: 10%;
-      border-radius: em(50px);
-      svg {
-        width: em(25px);
-        height: em(25px);
-      }
       &:hover {
-        box-shadow: 0 0 em(10px) rgba(0, 0, 0, 0.5);
-        scale: 1.07;
-      }
-    }
-    button {
-      background-color: rgba(0, 0, 0, 0.5);
-      border: none;
-      cursor: pointer;
-      border-radius: 50%;
-
-      * {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      svg {
-        width: em(13px);
-        height: em(13px);
-        fill: rgba(255, 255, 255, 0.8);
-        margin: em(10px);
-      }
-    }
-
-    .profile-btn {
-      margin-left: auto;
-      border: solid em(1px) white;
-
-      img {
-        width: em(38px);
-        height: em(38px);
-      }
-    }
-
-    .profile-btn:hover {
-      img {
-        width: em(39px);
-        height: em(39px);
-      }
-    }
-
-    .input-wrapper {
-      display: none;
-      background-color: $input-bg-clr;
-      justify-content: start;
-      align-items: center;
-      border-radius: em(50px);
-      height: em(48px);
-      padding: em(6px) em(15px);
-      width: em(300px);
-
-      &:focus-within {
         border: em(2px) solid white;
-
-        &:hover {
-          border: em(2px) solid white;
-        }
-
-        svg {
-          fill: white;
-        }
       }
 
-      &:hover {
-        background-color: $input-hover-bg-clr;
-        border: em(1px) solid;
-        border-color: $input-hover-border-clr;
-      }
-
-      &:target {
-        border: em(3px) solid;
-        border-color: $input-hover-border-clr;
-      }
-
-      // this effects the div inside the svg div
-      div {
-        display: flex;
-        align-items: center;
-      }
-
-      input {
-        background-color: transparent;
-        margin-left: em(10px);
-        width: 100%;
-        box-sizing: border-box;
-        color: white;
+      svg {
+        fill: white;
       }
     }
 
-    // I don't know what the img is related to..
-    img {
-      width: rem(75px);
+    &:hover {
+      background-color: $input-hover-bg-clr;
+      border: em(1px) solid;
+      border-color: $input-hover-border-clr;
     }
-  }
 
-  li {
-    list-style-type: none;
-  }
-  .song-header {
-    grid-template-columns: 1fr 40% 8fr 8fr 8fr;
-    align-items: center;
-    padding: em(10px);
-    gap: em(19px);
-    color: $sec-font-clr;
-    font-size: em(12px);
-    font-weight: bold;
-    padding-bottom: em(10px);
-    background-color: $sec-bg-clr;
-    display: grid;
-    .song-duration {
+    &:target {
+      border: em(3px) solid;
+      border-color: $input-hover-border-clr;
+    }
+
+    // this effects the div inside the svg div
+    div {
       display: flex;
-      justify-content: end;
-      margin-right: 10px;
-    }
-    svg {
-      width: em(16px);
-      height: em(16px);
-      fill: #888;
+      align-items: center;
     }
 
-    .song-order,
-    .song-date-added,
-    .song-duration {
-      text-align: left;
+    input {
+      background-color: transparent;
+      margin-left: em(10px);
+      width: 100%;
+      box-sizing: border-box;
+      color: white;
     }
   }
-}
-// Compare this snippet from src/assets/styles/cmps/SongList.scss:
 
-.song-header {
-  display: none;
+  // I don't know what the img is related to..
+  img {
+    width: rem(75px);
+  }
 }

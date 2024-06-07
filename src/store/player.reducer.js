@@ -9,16 +9,11 @@ export const ADD_SONGS_TO_QUEUE_BOTTOM = "ADD_SONGS_TO_QUEUE_BOTTOM";
 
 const initialState = {
   currentSong: {
-    id: "ZkXG3ZrXlbc",
-    artist: "Drake",
-    img: "https://i.scdn.co/image/ab67616d0000b273a0ac23f4b446a7264e67bf0e",
-    name: "DRAKE - FAMILY MATTERS",
-    tags: [],
-    duration: 458,
-    url: "https://www.youtube.com/watch?v=ZkXG3ZrXlbc",
-    stationIds: ["T3qSs"],
-    order: 1,
-    addedAt: 1717682537505,
+    duration: 0,
+    id: "mMfxI3r_LyA",
+    img: "https://i.ytimg.com/vi/mMfxI3r_LyA/hqdefault.jpg",
+    name: "Lady (Hear Me Tonight)",
+    artist: "ModjoOfficial",
   },
   youtubePlayer: null,
   queue: [],

@@ -1,444 +1,6 @@
 {
   "demo_stations": [
     {
-      "_id": "liked-songs",
-      "name": "Liked Songs",
-      "type": "playlist",
-      "tags": ["liked"],
-      "backgroundColor": "#d8bfd8",
-      "createdBy": {
-        "_id": "u101",
-        "fullname": "Bar and Gal",
-        "imgUrl": "https://i.pravatar.cc/150?u=u101"
-      },
-      "likedByUsers": ["{minimal-user}", "{minimal-user}"],
-      "img": "/src/assets/imgs/likedSongs.jpeg",
-      "songs": [
-        {
-          "id": "577z4YosBrUYhZXUPMdzwX",
-          "name": "DSN",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3tlXnStJ1fFhdScmQeLpuG"
-              },
-              "href": "https://api.spotify.com/v1/artists/3tlXnStJ1fFhdScmQeLpuG",
-              "id": "3tlXnStJ1fFhdScmQeLpuG",
-              "name": "Brent Faiyaz",
-              "type": "artist",
-              "uri": "spotify:artist:3tlXnStJ1fFhdScmQeLpuG"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27329817841736626faa006f237",
-          "album": "DSeweN - Single",
-          "tags": [],
-          "duration": 338700,
-          "addedAt": 1717097032073,
-          "order": 1
-        },
-        {
-          "id": "1OKkG3vxEuBBwLw1gCqdNW",
-          "name": "Dsco",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/5NtMqQLCzdVvL7F8vFp3zM"
-              },
-              "href": "https://api.spotify.com/v1/artists/5NtMqQLCzdVvL7F8vFp3zM",
-              "id": "5NtMqQLCzdVvL7F8vFp3zM",
-              "name": "Sweet Trip",
-              "type": "artist",
-              "uri": "spotify:artist:5NtMqQLCzdVvL7F8vFp3zM"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2732aa34d5906e01231eff70f82",
-          "album": "Velocity: Design: Comfort.",
-          "tags": [],
-          "duration": 191133,
-          "addedAt": 1716815401577,
-          "order": 2
-        },
-        {
-          "id": "68QiEkaHAOFfsN5Wc1x2sD",
-          "name": "Mr. Mr.3700",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3NYhVzA0Uvqnx2uNq1F6oe"
-              },
-              "href": "https://api.spotify.com/v1/artists/3NYhVzA0Uvqnx2uNq1F6oe",
-              "id": "3NYhVzA0Uvqnx2uNq1F6oe",
-              "name": "Dsteez",
-              "type": "artist",
-              "uri": "spotify:artist:3NYhVzA0Uvqnx2uNq1F6oe"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27305ff85eb6698852f852aa7f0",
-          "album": "Boss Mode",
-          "tags": [],
-          "duration": 152032,
-          "addedAt": 1717375497377,
-          "order": 3
-        },
-        {
-          "id": "31JoCS9r2IzGp13ENm3Cvd",
-          "name": "DSM-V",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6FfjnGXMhxSsJTuGLWBDth"
-              },
-              "href": "https://api.spotify.com/v1/artists/6FfjnGXMhxSsJTuGLWBDth",
-              "id": "6FfjnGXMhxSsJTuGLWBDth",
-              "name": "HEALTH",
-              "type": "artist",
-              "uri": "spotify:artist:6FfjnGXMhxSsJTuGLWBDth"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273bef783d554e7e1c4b1486ac3",
-          "album": "RAT WARS",
-          "tags": [],
-          "duration": 263706,
-          "addedAt": 1717155781775,
-          "order": 4
-        },
-        {
-          "id": "24g7Wa2aTohgmuJVP4Gxia",
-          "name": "Dschinghis Khan",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1g1nVvle9qO9AWIUWYvPAP"
-              },
-              "href": "https://api.spotify.com/v1/artists/1g1nVvle9qO9AWIUWYvPAP",
-              "id": "1g1nVvle9qO9AWIUWYvPAP",
-              "name": "Dschinghis Khan",
-              "type": "artist",
-              "uri": "spotify:artist:1g1nVvle9qO9AWIUWYvPAP"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27387781996775435b9b6b75206",
-          "album": "Moskau - Das Neue Best Of Album",
-          "tags": [],
-          "duration": 184200,
-          "addedAt": 1716771399998,
-          "order": 5
-        },
-        {
-          "id": "0Y1zie8GX9FOVJvnMMTS86",
-          "name": "DSCF",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7kZTWx6cRLc0TSRPq1XBMP"
-              },
-              "href": "https://api.spotify.com/v1/artists/7kZTWx6cRLc0TSRPq1XBMP",
-              "id": "7kZTWx6cRLc0TSRPq1XBMP",
-              "name": "DECO*27",
-              "type": "artist",
-              "uri": "spotify:artist:7kZTWx6cRLc0TSRPq1XBMP"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27353df6ca4428a5e515f8f0a90",
-          "album": "GHOST",
-          "tags": [],
-          "duration": 270000,
-          "addedAt": 1717495192776,
-          "order": 6
-        },
-        {
-          "id": "track0",
-          "name": "Still D.R.E.",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6DPYiyq5kWVQS4RGwxzPC7"
-              },
-              "href": "https://api.spotify.com/v1/artists/6DPYiyq5kWVQS4RGwxzPC7",
-              "id": "6DPYiyq5kWVQS4RGwxzPC7",
-              "name": "Dr. Dre",
-              "type": "artist",
-              "uri": "spotify:artist:6DPYiyq5kWVQS4RGwxzPC7"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7hJcb9fa4alzcOq3EaNPoG"
-              },
-              "href": "https://api.spotify.com/v1/artists/7hJcb9fa4alzcOq3EaNPoG",
-              "id": "7hJcb9fa4alzcOq3EaNPoG",
-              "name": "Snoop Dogg",
-              "type": "artist",
-              "uri": "spotify:artist:7hJcb9fa4alzcOq3EaNPoG"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2739b19c107109de740bad72df5",
-          "album": "2001",
-          "tags": [],
-          "duration": 270586,
-          "addedAt": 1716906199733,
-          "order": 7
-        },
-        {
-          "id": "track2",
-          "name": "California Gurls",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6jJ0s89eD6GaHleKKya26X"
-              },
-              "href": "https://api.spotify.com/v1/artists/6jJ0s89eD6GaHleKKya26X",
-              "id": "6jJ0s89eD6GaHleKKya26X",
-              "name": "Katy Perry",
-              "type": "artist",
-              "uri": "spotify:artist:6jJ0s89eD6GaHleKKya26X"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7hJcb9fa4alzcOq3EaNPoG"
-              },
-              "href": "https://api.spotify.com/v1/artists/7hJcb9fa4alzcOq3EaNPoG",
-              "id": "7hJcb9fa4alzcOq3EaNPoG",
-              "name": "Snoop Dogg",
-              "type": "artist",
-              "uri": "spotify:artist:7hJcb9fa4alzcOq3EaNPoG"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273d20c38f295039520d688a888",
-          "album": "Teenage Dream",
-          "tags": [],
-          "duration": 234653,
-          "addedAt": 1717491415215,
-          "order": 8
-        },
-        {
-          "id": "track4",
-          "name": "The Next Episode",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6DPYiyq5kWVQS4RGwxzPC7"
-              },
-              "href": "https://api.spotify.com/v1/artists/6DPYiyq5kWVQS4RGwxzPC7",
-              "id": "6DPYiyq5kWVQS4RGwxzPC7",
-              "name": "Dr. Dre",
-              "type": "artist",
-              "uri": "spotify:artist:6DPYiyq5kWVQS4RGwxzPC7"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7hJcb9fa4alzcOq3EaNPoG"
-              },
-              "href": "https://api.spotify.com/v1/artists/7hJcb9fa4alzcOq3EaNPoG",
-              "id": "7hJcb9fa4alzcOq3EaNPoG",
-              "name": "Snoop Dogg",
-              "type": "artist",
-              "uri": "spotify:artist:7hJcb9fa4alzcOq3EaNPoG"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2739b19c107109de740bad72df5",
-          "album": "2001",
-          "tags": [],
-          "duration": 161506,
-          "addedAt": 1717073512688,
-          "order": 9
-        },
-        {
-          "id": "track6",
-          "name": "Nuthin' But A \"G\" Thang",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6DPYiyq5kWVQS4RGwxzPC7"
-              },
-              "href": "https://api.spotify.com/v1/artists/6DPYiyq5kWVQS4RGwxzPC7",
-              "id": "6DPYiyq5kWVQS4RGwxzPC7",
-              "name": "Dr. Dre",
-              "type": "artist",
-              "uri": "spotify:artist:6DPYiyq5kWVQS4RGwxzPC7"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7hJcb9fa4alzcOq3EaNPoG"
-              },
-              "href": "https://api.spotify.com/v1/artists/7hJcb9fa4alzcOq3EaNPoG",
-              "id": "7hJcb9fa4alzcOq3EaNPoG",
-              "name": "Snoop Dogg",
-              "type": "artist",
-              "uri": "spotify:artist:7hJcb9fa4alzcOq3EaNPoG"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2739710731c9d7baec635f1bab1",
-          "album": "The Chronic",
-          "tags": [],
-          "duration": 237573,
-          "addedAt": 1717521083684,
-          "order": 10
-        },
-        {
-          "id": "track5",
-          "name": "Affirmation Song",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/34ZLdDJVv5clP7Ask1zjoP"
-              },
-              "href": "https://api.spotify.com/v1/artists/34ZLdDJVv5clP7Ask1zjoP",
-              "id": "34ZLdDJVv5clP7Ask1zjoP",
-              "name": "Doggyland",
-              "type": "artist",
-              "uri": "spotify:artist:34ZLdDJVv5clP7Ask1zjoP"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7hJcb9fa4alzcOq3EaNPoG"
-              },
-              "href": "https://api.spotify.com/v1/artists/7hJcb9fa4alzcOq3EaNPoG",
-              "id": "7hJcb9fa4alzcOq3EaNPoG",
-              "name": "Snoop Dogg",
-              "type": "artist",
-              "uri": "spotify:artist:7hJcb9fa4alzcOq3EaNPoG"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273923879eafa1446718fa50ec6",
-          "album": "Kids Hits, Vol. 1",
-          "tags": [],
-          "duration": 126688,
-          "addedAt": 1717106048273,
-          "order": 11
-        },
-        {
-          "id": "track1",
-          "name": "Cecilia",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/4Z5swVp8qC7FbtzOkNaChH"
-              },
-              "href": "https://api.spotify.com/v1/artists/4Z5swVp8qC7FbtzOkNaChH",
-              "id": "4Z5swVp8qC7FbtzOkNaChH",
-              "name": "Noah Jacob",
-              "type": "artist",
-              "uri": "spotify:artist:4Z5swVp8qC7FbtzOkNaChH"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2735ad8b2ebbdebce3ed78a5470",
-          "album": "Cecilia",
-          "tags": [],
-          "duration": 127250,
-          "addedAt": 1716997235189,
-          "order": 13
-        },
-        {
-          "id": "track3",
-          "name": "פנתרה",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1wak0ZG1LUrZPYx8RDTQoD"
-              },
-              "href": "https://api.spotify.com/v1/artists/1wak0ZG1LUrZPYx8RDTQoD",
-              "id": "1wak0ZG1LUrZPYx8RDTQoD",
-              "name": "נועה קירל",
-              "type": "artist",
-              "uri": "spotify:artist:1wak0ZG1LUrZPYx8RDTQoD"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27383c4d7d5ae01da1278eb6774",
-          "album": "פנתרה",
-          "tags": [],
-          "duration": 173602,
-          "addedAt": 1717667358822,
-          "order": 16
-        },
-        {
-          "id": "track8",
-          "name": "גושפנקא",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/2YHuWGXNWLmpBTKo1rQ3me"
-              },
-              "href": "https://api.spotify.com/v1/artists/2YHuWGXNWLmpBTKo1rQ3me",
-              "id": "2YHuWGXNWLmpBTKo1rQ3me",
-              "name": "איזי",
-              "type": "artist",
-              "uri": "spotify:artist:2YHuWGXNWLmpBTKo1rQ3me"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1wak0ZG1LUrZPYx8RDTQoD"
-              },
-              "href": "https://api.spotify.com/v1/artists/1wak0ZG1LUrZPYx8RDTQoD",
-              "id": "1wak0ZG1LUrZPYx8RDTQoD",
-              "name": "נועה קירל",
-              "type": "artist",
-              "uri": "spotify:artist:1wak0ZG1LUrZPYx8RDTQoD"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273a071e38237f2e6db5a20e47d",
-          "album": "אייקון",
-          "tags": [],
-          "duration": 153874,
-          "addedAt": 1717010809052,
-          "order": 19
-        },
-        {
-          "id": "track7",
-          "name": "מיליון דולר",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1wak0ZG1LUrZPYx8RDTQoD"
-              },
-              "href": "https://api.spotify.com/v1/artists/1wak0ZG1LUrZPYx8RDTQoD",
-              "id": "1wak0ZG1LUrZPYx8RDTQoD",
-              "name": "נועה קירל",
-              "type": "artist",
-              "uri": "spotify:artist:1wak0ZG1LUrZPYx8RDTQoD"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/46KxKVpK7XNqlkdi5oiMxE"
-              },
-              "href": "https://api.spotify.com/v1/artists/46KxKVpK7XNqlkdi5oiMxE",
-              "id": "46KxKVpK7XNqlkdi5oiMxE",
-              "name": "שחר סאול",
-              "type": "artist",
-              "uri": "spotify:artist:46KxKVpK7XNqlkdi5oiMxE"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2733eeaa6ec8758e3dcc1e51404",
-          "album": "מיליון דולר",
-          "tags": [],
-          "duration": 173400,
-          "addedAt": 1717404905105,
-          "order": 20
-        },
-        {
-          "id": "track9",
-          "name": "Noah Fence",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/0cmSXx965Hnm6fP42oW6vY"
-              },
-              "href": "https://api.spotify.com/v1/artists/0cmSXx965Hnm6fP42oW6vY",
-              "id": "0cmSXx965Hnm6fP42oW6vY",
-              "name": "Origami Angel",
-              "type": "artist",
-              "uri": "spotify:artist:0cmSXx965Hnm6fP42oW6vY"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273cb52ad10ec66268e5dca73f1",
-          "album": "GAMI GANG",
-          "tags": [],
-          "duration": 194812,
-          "addedAt": 1717212087992,
-          "order": 21
-        }
-      ]
-    },
-    {
       "name": "Hip Hop Legends",
       "type": "playlist",
       "tags": ["hip hop"],
@@ -446,175 +8,49 @@
       "createdBy": {
         "_id": "u101",
         "fullname": "Puki Ben David",
-        "imgUrl": "https://i.pravatar.cc/150?u=u101"
+        "imgUrl": "http://some-photo/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "ZkXG3ZrXlbc",
           "artist": "Drake",
-          "img": "https://i.scdn.co/image/ab67616d0000b273a0ac23f4b446a7264e67bf0e",
+          "img": "https://i.ytimg.com/vi/ZkXG3ZrXlbc/default.jpg",
           "name": "DRAKE - FAMILY MATTERS",
           "tags": [],
           "duration": 458,
           "url": "https://www.youtube.com/watch?v=ZkXG3ZrXlbc",
-          "stationIds": ["T3qSs"],
-          "order": 1,
-          "addedAt": 1717682537505
-        },
-        {
-          "id": "28hYUZMufDg",
-          "artist": "DaBaby",
-          "img": "https://i.scdn.co/image/ab67616d0000b273f2b94b2fda4f08836d6371ba",
-          "name": "DaBaby - BOP on Broadway (Hip Hop Musical)",
-          "tags": [],
-          "duration": 184,
-          "url": "https://www.youtube.com/watch?v=28hYUZMufDg",
-          "stationIds": ["T3qSs"],
-          "order": 2,
-          "addedAt": 1717347022009
-        },
-        {
-          "id": "eXvBjCO19QY",
-          "artist": "2PacVEVO",
-          "img": "https://i.scdn.co/image/ab67616d0000b273d81a092eb373ded457d94eec",
-          "name": "2Pac - Changes ft. Talent",
-          "tags": [],
-          "duration": 271,
-          "url": "https://www.youtube.com/watch?v=eXvBjCO19QY",
-          "stationIds": ["T3qSs"],
-          "order": 3,
-          "addedAt": 1716829372851
-        },
-        {
-          "id": "7bgIcSp0Nd3qfHqwxQplzW",
-          "name": "Mirage - for Assassin's Creed Mirage",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/5Pwc4xIPtQLFEnJriah9YJ"
-              },
-              "href": "https://api.spotify.com/v1/artists/5Pwc4xIPtQLFEnJriah9YJ",
-              "id": "5Pwc4xIPtQLFEnJriah9YJ",
-              "name": "OneRepublic",
-              "type": "artist",
-              "uri": "spotify:artist:5Pwc4xIPtQLFEnJriah9YJ"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/5ct8AlcDgWMp4O25vbcjpC"
-              },
-              "href": "https://api.spotify.com/v1/artists/5ct8AlcDgWMp4O25vbcjpC",
-              "id": "5ct8AlcDgWMp4O25vbcjpC",
-              "name": "Assassin's Creed",
-              "type": "artist",
-              "uri": "spotify:artist:5ct8AlcDgWMp4O25vbcjpC"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/2NM1t8dMvgeu9Lfl06574g"
-              },
-              "href": "https://api.spotify.com/v1/artists/2NM1t8dMvgeu9Lfl06574g",
-              "id": "2NM1t8dMvgeu9Lfl06574g",
-              "name": "Mishaal Tamer",
-              "type": "artist",
-              "uri": "spotify:artist:2NM1t8dMvgeu9Lfl06574g"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2737122616760b7271c27e0ef11",
-          "album": "Mirage (for Assassin's Creed Mirage)",
-          "tags": [],
-          "duration": 133183,
-          "addedAt": 1717018761563,
-          "order": 4
-        },
-        {
-          "id": "23WI5V2eD4EyGKxSl7Pyeq",
-          "name": "Andas En Mi Cabeza",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/5NS0854TqZQVoRmJKSWtFZ"
-              },
-              "href": "https://api.spotify.com/v1/artists/5NS0854TqZQVoRmJKSWtFZ",
-              "id": "5NS0854TqZQVoRmJKSWtFZ",
-              "name": "Chino & Nacho",
-              "type": "artist",
-              "uri": "spotify:artist:5NS0854TqZQVoRmJKSWtFZ"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/4VMYDCV2IEDYJArk749S6m"
-              },
-              "href": "https://api.spotify.com/v1/artists/4VMYDCV2IEDYJArk749S6m",
-              "id": "4VMYDCV2IEDYJArk749S6m",
-              "name": "Daddy Yankee",
-              "type": "artist",
-              "uri": "spotify:artist:4VMYDCV2IEDYJArk749S6m"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2736df5cc472d61a635abab06cf",
-          "album": "Andas En Mi Cabeza",
-          "tags": [],
-          "duration": 247493,
-          "addedAt": 1716786428655,
-          "order": 5
-        },
-        {
-          "id": "track2",
-          "name": "3 Nights",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6USv9qhCn6zfxlBQIYJ9qs"
-              },
-              "href": "https://api.spotify.com/v1/artists/6USv9qhCn6zfxlBQIYJ9qs",
-              "id": "6USv9qhCn6zfxlBQIYJ9qs",
-              "name": "Dominic Fike",
-              "type": "artist",
-              "uri": "spotify:artist:6USv9qhCn6zfxlBQIYJ9qs"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2734a42166d927b3acce345c5c0",
-          "album": "Don't Forget About Me, Demos",
-          "tags": [],
-          "duration": 177666,
-          "addedAt": 1717494624737,
-          "order": 6
-        },
-        {
-          "id": "track5",
-          "name": "3:15 (Breathe)",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1z7b1Pr1rSlvWRzsW3HOrS"
-              },
-              "href": "https://api.spotify.com/v1/artists/1z7b1Pr1rSlvWRzsW3HOrS",
-              "id": "1z7b1Pr1rSlvWRzsW3HOrS",
-              "name": "Russ",
-              "type": "artist",
-              "uri": "spotify:artist:1z7b1Pr1rSlvWRzsW3HOrS"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27347912996054fec2a1ef78035",
-          "album": "3:15 (Breathe)",
-          "tags": [],
-          "duration": 184000,
-          "addedAt": 1717694522810,
-          "order": 7
+          "stationIds": ["T3qSs"]
         },
         {
           "id": "_CL6n0FJZpk",
           "artist": "DrDreVEVO",
-          "img": "https://i.scdn.co/image/ab67616d0000b27313a0734e13ddfc1ebb9c9d81",
+          "img": "https://i.ytimg.com/vi/_CL6n0FJZpk/default.jpg",
           "name": "Dr. Dre - Still D.R.E. ft. Snoop Dogg",
           "tags": [],
           "duration": 291,
           "url": "https://www.youtube.com/watch?v=_CL6n0FJZpk",
-          "stationIds": ["T3qSs"],
-          "order": 8,
-          "addedAt": 1716984540454
+          "stationIds": ["T3qSs"]
+        },
+        {
+          "id": "28hYUZMufDg",
+          "artist": "DaBaby",
+          "img": "https://i.ytimg.com/vi/28hYUZMufDg/default.jpg",
+          "name": "DaBaby - BOP on Broadway (Hip Hop Musical)",
+          "tags": [],
+          "duration": 184,
+          "url": "https://www.youtube.com/watch?v=28hYUZMufDg",
+          "stationIds": ["T3qSs"]
+        },
+        {
+          "id": "eXvBjCO19QY",
+          "artist": "2PacVEVO",
+          "img": "https://i.ytimg.com/vi/eXvBjCO19QY/default.jpg",
+          "name": "2Pac - Changes ft. Talent",
+          "tags": [],
+          "duration": 271,
+          "url": "https://www.youtube.com/watch?v=eXvBjCO19QY",
+          "stationIds": ["T3qSs"]
         }
       ],
       "_id": "T3qSs"
@@ -627,209 +63,39 @@
       "createdBy": {
         "_id": "u101",
         "fullname": "Puki Ben David",
-        "imgUrl": "https://i.pravatar.cc/150?u=u101"
+        "imgUrl": "http://some-photo/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "5NPBIwQyPWE",
           "artist": "AvrilLavigneVEVO",
-          "img": "https://i.scdn.co/image/ab67616d0000b273f7ec724fbf97a30869d06240",
+          "img": "https://i.ytimg.com/vi/5NPBIwQyPWE/default.jpg",
           "name": "Avril Lavigne - Complicated (Official Video)",
           "tags": [],
           "duration": 254,
           "url": "https://www.youtube.com/watch?v=5NPBIwQyPWE",
-          "stationIds": ["9VMYo"],
-          "order": 1,
-          "addedAt": 1716977539589
+          "stationIds": ["9VMYo"]
         },
         {
           "id": "a9cyG_yfh1k",
           "artist": "Dua Lipa",
-          "img": "https://i.scdn.co/image/ab67616d0000b273c01fb32d3c89474b4c5d17fd",
+          "img": "https://i.ytimg.com/vi/a9cyG_yfh1k/default.jpg",
           "name": "Dua Lipa - Illusion (Official Music Video)",
           "tags": [],
           "duration": 187,
           "url": "https://www.youtube.com/watch?v=a9cyG_yfh1k",
-          "stationIds": ["9VMYo"],
-          "order": 2,
-          "addedAt": 1717079503868
+          "stationIds": ["9VMYo"]
         },
         {
           "id": "t4H_Zoh7G5A",
           "artist": "JenniferLopezVEVO",
-          "img": "https://i.scdn.co/image/ab67616d0000b27386d8876a04e4d32f372ab314",
+          "img": "https://i.ytimg.com/vi/t4H_Zoh7G5A/default.jpg",
           "name": "Jennifer Lopez - On The Floor ft. Pitbull",
           "tags": [],
           "duration": 267,
           "url": "https://www.youtube.com/watch?v=t4H_Zoh7G5A",
-          "stationIds": ["9VMYo"],
-          "order": 3,
-          "addedAt": 1717516088277
-        },
-        {
-          "id": "2uqYupMHANxnwgeiXTZXzd",
-          "name": "Austin (Boots Stop Workin')",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7Ez6lTtSMjMf2YSYpukP1I"
-              },
-              "href": "https://api.spotify.com/v1/artists/7Ez6lTtSMjMf2YSYpukP1I",
-              "id": "7Ez6lTtSMjMf2YSYpukP1I",
-              "name": "Dasha",
-              "type": "artist",
-              "uri": "spotify:artist:7Ez6lTtSMjMf2YSYpukP1I"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2734ccf88b66e04cfd247f287eb",
-          "album": "What Happens Now?",
-          "tags": [],
-          "duration": 171782,
-          "addedAt": 1716756609324,
-          "order": 4
-        },
-        {
-          "id": "track1",
-          "name": "Jonny",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/5szilpXHcwOqnyKLqGco5j"
-              },
-              "href": "https://api.spotify.com/v1/artists/5szilpXHcwOqnyKLqGco5j",
-              "id": "5szilpXHcwOqnyKLqGco5j",
-              "name": "Faye Webster",
-              "type": "artist",
-              "uri": "spotify:artist:5szilpXHcwOqnyKLqGco5j"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273ac4ebd092fa2cf210e4c8023",
-          "album": "Atlanta Millionaires Club",
-          "tags": [],
-          "duration": 226506,
-          "addedAt": 1717046999335,
-          "order": 5
-        },
-        {
-          "id": "track2",
-          "name": "Night Shift",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/4MoAOfV4ROWofLG3a3hhBN"
-              },
-              "href": "https://api.spotify.com/v1/artists/4MoAOfV4ROWofLG3a3hhBN",
-              "id": "4MoAOfV4ROWofLG3a3hhBN",
-              "name": "Jon Pardi",
-              "type": "artist",
-              "uri": "spotify:artist:4MoAOfV4ROWofLG3a3hhBN"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27314d09c1ad67f2028764ee0f4",
-          "album": "California Sunrise",
-          "tags": [],
-          "duration": 172253,
-          "addedAt": 1716795008268,
-          "order": 6
-        },
-        {
-          "id": "track0",
-          "name": "Teenage Dream",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6jJ0s89eD6GaHleKKya26X"
-              },
-              "href": "https://api.spotify.com/v1/artists/6jJ0s89eD6GaHleKKya26X",
-              "id": "6jJ0s89eD6GaHleKKya26X",
-              "name": "Katy Perry",
-              "type": "artist",
-              "uri": "spotify:artist:6jJ0s89eD6GaHleKKya26X"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273d20c38f295039520d688a888",
-          "album": "Teenage Dream",
-          "tags": [],
-          "duration": 227741,
-          "addedAt": 1717275835422,
-          "order": 7
-        },
-        {
-          "id": "track7",
-          "name": "Dark Horse",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6jJ0s89eD6GaHleKKya26X"
-              },
-              "href": "https://api.spotify.com/v1/artists/6jJ0s89eD6GaHleKKya26X",
-              "id": "6jJ0s89eD6GaHleKKya26X",
-              "name": "Katy Perry",
-              "type": "artist",
-              "uri": "spotify:artist:6jJ0s89eD6GaHleKKya26X"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/5gCRApTajqwbnHHPbr2Fpi"
-              },
-              "href": "https://api.spotify.com/v1/artists/5gCRApTajqwbnHHPbr2Fpi",
-              "id": "5gCRApTajqwbnHHPbr2Fpi",
-              "name": "Juicy J",
-              "type": "artist",
-              "uri": "spotify:artist:5gCRApTajqwbnHHPbr2Fpi"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2731e9a057052d59004caf47e22",
-          "album": "PRISM",
-          "tags": [],
-          "duration": 215672,
-          "addedAt": 1716900121466,
-          "order": 8
-        },
-        {
-          "id": "track3",
-          "name": "Firework",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6jJ0s89eD6GaHleKKya26X"
-              },
-              "href": "https://api.spotify.com/v1/artists/6jJ0s89eD6GaHleKKya26X",
-              "id": "6jJ0s89eD6GaHleKKya26X",
-              "name": "Katy Perry",
-              "type": "artist",
-              "uri": "spotify:artist:6jJ0s89eD6GaHleKKya26X"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273d20c38f295039520d688a888",
-          "album": "Teenage Dream",
-          "tags": [],
-          "duration": 227893,
-          "addedAt": 1717236142227,
-          "order": 9
-        },
-        {
-          "id": "track5",
-          "name": "Locked out of Heaven",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/0du5cEVh5yTK9QJze8zA0C"
-              },
-              "href": "https://api.spotify.com/v1/artists/0du5cEVh5yTK9QJze8zA0C",
-              "id": "0du5cEVh5yTK9QJze8zA0C",
-              "name": "Bruno Mars",
-              "type": "artist",
-              "uri": "spotify:artist:0du5cEVh5yTK9QJze8zA0C"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273926f43e7cce571e62720fd46",
-          "album": "Unorthodox Jukebox",
-          "tags": [],
-          "duration": 233478,
-          "addedAt": 1717256728967,
-          "order": 12
+          "stationIds": ["9VMYo"]
         }
       ],
       "_id": "9VMYo"
@@ -842,45 +108,39 @@
       "createdBy": {
         "_id": "u101",
         "fullname": "Puki Ben David",
-        "imgUrl": "https://i.pravatar.cc/150?u=u101"
+        "imgUrl": "http://some-photo/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "L_XJ_s5IsQc",
           "artist": "GroundUP Music NYC",
-          "img": "https://i.scdn.co/image/ab67616d0000b273a29d1ada28cf3d9d5fe1972d",
+          "img": "https://i.ytimg.com/vi/L_XJ_s5IsQc/default.jpg",
           "name": "Snarky Puppy - Lingus (We Like It Here)",
           "tags": [],
           "duration": 644,
           "url": "https://www.youtube.com/watch?v=L_XJ_s5IsQc",
-          "stationIds": ["cR4sr"],
-          "order": 1,
-          "addedAt": 1717321589695
+          "stationIds": ["cR4sr"]
         },
         {
           "id": "GS2Y_CkaXP0",
           "artist": "RobertGlasperVEVO",
-          "img": "https://i.scdn.co/image/ab67616d0000b27332df9cf1aac1b6bcd9c9360a",
+          "img": "https://i.ytimg.com/vi/GS2Y_CkaXP0/default.jpg",
           "name": "Robert Glasper - So Beautiful (Live At Capitol Studios) (Official Video)",
           "tags": [],
           "duration": 436,
           "url": "https://www.youtube.com/watch?v=GS2Y_CkaXP0",
-          "stationIds": ["cR4sr"],
-          "order": 2,
-          "addedAt": 1717264563565
+          "stationIds": ["cR4sr"]
         },
         {
           "id": "v5757BToo0M",
           "artist": "RobertGlasperVEVO",
-          "img": "https://i.scdn.co/image/ab67616d0000b273a9e228505c2e63c1319db244",
+          "img": "https://i.ytimg.com/vi/v5757BToo0M/default.jpg",
           "name": "Robert Glasper - Shine ft. D Smoke & Tiffany Gouché (Official Music Video)",
           "tags": [],
           "duration": 275,
           "url": "https://www.youtube.com/watch?v=v5757BToo0M",
-          "stationIds": ["cR4sr"],
-          "order": 3,
-          "addedAt": 1717169538475
+          "stationIds": ["cR4sr"]
         }
       ],
       "_id": "cR4sr"
@@ -893,509 +153,39 @@
       "createdBy": {
         "_id": "u101",
         "fullname": "Puki Ben David",
-        "imgUrl": "https://i.pravatar.cc/150?u=u101"
+        "imgUrl": "http://some-photo/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "bEeaS6fuUoA",
           "artist": "BillWithersVEVO",
-          "img": "https://i.scdn.co/image/ab67616d0000b2735ade9b4d547203c9061fc340",
+          "img": "https://i.ytimg.com/vi/bEeaS6fuUoA/default.jpg",
           "name": "Bill Withers - Lovely Day (Official Audio)",
           "tags": [],
           "duration": 256,
           "url": "https://www.youtube.com/watch?v=bEeaS6fuUoA",
-          "stationIds": ["Hx9W5"],
-          "order": 1,
-          "addedAt": 1717098292951
+          "stationIds": ["Hx9W5"]
         },
         {
           "id": "mHONNcZbwDY",
           "artist": "LionelRichieVEVO",
-          "img": "https://i.scdn.co/image/ab67616d0000b2737ebe4ccb79ca0dc76356b9bb",
+          "img": "https://i.ytimg.com/vi/mHONNcZbwDY/default.jpg",
           "name": "Lionel Richie - Hello (Official Music Video)",
           "tags": [],
           "duration": 327,
           "url": "https://www.youtube.com/watch?v=mHONNcZbwDY",
-          "stationIds": ["Hx9W5"],
-          "order": 2,
-          "addedAt": 1716920675226
+          "stationIds": ["Hx9W5"]
         },
         {
           "id": "ZHwVBirqD2s",
           "artist": "EltonJohnVEVO",
-          "img": "https://i.scdn.co/image/ab67616d0000b273eb11e2abccdca41f39ad3b89",
+          "img": "https://i.ytimg.com/vi/ZHwVBirqD2s/default.jpg",
           "name": "Elton John - I'm Still Standing",
           "tags": [],
           "duration": 183,
           "url": "https://www.youtube.com/watch?v=ZHwVBirqD2s",
-          "stationIds": ["Hx9W5"],
-          "order": 3,
-          "addedAt": 1717362420249
-        },
-        {
-          "id": "4Dvkj6JhhA12EX05fT7y2e",
-          "name": "As It Was",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6KImCVD70vtIoJWnq6nGn3"
-              },
-              "href": "https://api.spotify.com/v1/artists/6KImCVD70vtIoJWnq6nGn3",
-              "id": "6KImCVD70vtIoJWnq6nGn3",
-              "name": "Harry Styles",
-              "type": "artist",
-              "uri": "spotify:artist:6KImCVD70vtIoJWnq6nGn3"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2732e8ed79e177ff6011076f5f0",
-          "album": "Harry's House",
-          "tags": [],
-          "duration": 167303,
-          "addedAt": 1717594454135,
-          "order": 4
-        },
-        {
-          "id": "4luohviQijMNU3yWu8xUMr",
-          "name": "Beat Of Your Heart",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/2WBJQGf1bT1kxuoqziH5g4"
-              },
-              "href": "https://api.spotify.com/v1/artists/2WBJQGf1bT1kxuoqziH5g4",
-              "id": "2WBJQGf1bT1kxuoqziH5g4",
-              "name": "Purple Disco Machine",
-              "type": "artist",
-              "uri": "spotify:artist:2WBJQGf1bT1kxuoqziH5g4"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/28y5ZcfpdZAfeEE5ftCfUg"
-              },
-              "href": "https://api.spotify.com/v1/artists/28y5ZcfpdZAfeEE5ftCfUg",
-              "id": "28y5ZcfpdZAfeEE5ftCfUg",
-              "name": "ÁSDÍS",
-              "type": "artist",
-              "uri": "spotify:artist:28y5ZcfpdZAfeEE5ftCfUg"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2732c92892d440678ff32715a83",
-          "album": "Beat Of Your Heart",
-          "tags": [],
-          "duration": 209186,
-          "addedAt": 1717673155423,
-          "order": 5
-        },
-        {
-          "id": "0LZy30mVmxqUpdQmaXKXBd",
-          "name": "ADIVINO",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7iK8PXO48WeuP03g8YR51W"
-              },
-              "href": "https://api.spotify.com/v1/artists/7iK8PXO48WeuP03g8YR51W",
-              "id": "7iK8PXO48WeuP03g8YR51W",
-              "name": "Myke Towers",
-              "type": "artist",
-              "uri": "spotify:artist:7iK8PXO48WeuP03g8YR51W"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/4q3ewBCX7sLwd24euuV69X"
-              },
-              "href": "https://api.spotify.com/v1/artists/4q3ewBCX7sLwd24euuV69X",
-              "id": "4q3ewBCX7sLwd24euuV69X",
-              "name": "Bad Bunny",
-              "type": "artist",
-              "uri": "spotify:artist:4q3ewBCX7sLwd24euuV69X"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273b41f34aa51be675c5cfd3d94",
-          "album": "ADIVINO",
-          "tags": [],
-          "duration": 278644,
-          "addedAt": 1717494709533,
-          "order": 6
-        },
-        {
-          "id": "30QR0ndUdiiMQMA9g1PGCm",
-          "name": "...And to Those I Love, Thanks for Sticking Around",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1VPmR4DJC1PlOtd0IADAO0"
-              },
-              "href": "https://api.spotify.com/v1/artists/1VPmR4DJC1PlOtd0IADAO0",
-              "id": "1VPmR4DJC1PlOtd0IADAO0",
-              "name": "$uicideboy$",
-              "type": "artist",
-              "uri": "spotify:artist:1VPmR4DJC1PlOtd0IADAO0"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273e2bab14ce82f78a4160376a1",
-          "album": "Stop Staring At the Shadows",
-          "tags": [],
-          "duration": 168489,
-          "addedAt": 1717632797635,
-          "order": 7
-        },
-        {
-          "id": "06J2aXANJm3WdtoAz4XTaG",
-          "name": "Addict",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6ty1HyJReuPdMWdoZAIB4I"
-              },
-              "href": "https://api.spotify.com/v1/artists/6ty1HyJReuPdMWdoZAIB4I",
-              "id": "6ty1HyJReuPdMWdoZAIB4I",
-              "name": "Silva Hound",
-              "type": "artist",
-              "uri": "spotify:artist:6ty1HyJReuPdMWdoZAIB4I"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7Gz9xqvzDYD8G3LnlolOdZ"
-              },
-              "href": "https://api.spotify.com/v1/artists/7Gz9xqvzDYD8G3LnlolOdZ",
-              "id": "7Gz9xqvzDYD8G3LnlolOdZ",
-              "name": "Michael Kovach",
-              "type": "artist",
-              "uri": "spotify:artist:7Gz9xqvzDYD8G3LnlolOdZ"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/73z7IaMZWklUITS2qrtXzW"
-              },
-              "href": "https://api.spotify.com/v1/artists/73z7IaMZWklUITS2qrtXzW",
-              "id": "73z7IaMZWklUITS2qrtXzW",
-              "name": "Chi-Chi",
-              "type": "artist",
-              "uri": "spotify:artist:73z7IaMZWklUITS2qrtXzW"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273f346b18f4d46481fed5c4c8e",
-          "album": "Addict (Remixed)",
-          "tags": [],
-          "duration": 245620,
-          "addedAt": 1717701758655,
-          "order": 8
-        },
-        {
-          "id": "3jjujdWJ72nww5eGnfs2E7",
-          "name": "Adore You",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6KImCVD70vtIoJWnq6nGn3"
-              },
-              "href": "https://api.spotify.com/v1/artists/6KImCVD70vtIoJWnq6nGn3",
-              "id": "6KImCVD70vtIoJWnq6nGn3",
-              "name": "Harry Styles",
-              "type": "artist",
-              "uri": "spotify:artist:6KImCVD70vtIoJWnq6nGn3"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27377fdcfda6535601aff081b6a",
-          "album": "Fine Line",
-          "tags": [],
-          "duration": 207133,
-          "addedAt": 1717451719533,
-          "order": 9
-        },
-        {
-          "id": "3Ofmpyhv5UAQ70mENzB277",
-          "name": "Astronaut In The Ocean",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1uU7g3DNSbsu0QjSEqZtEd"
-              },
-              "href": "https://api.spotify.com/v1/artists/1uU7g3DNSbsu0QjSEqZtEd",
-              "id": "1uU7g3DNSbsu0QjSEqZtEd",
-              "name": "Masked Wolf",
-              "type": "artist",
-              "uri": "spotify:artist:1uU7g3DNSbsu0QjSEqZtEd"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27397fdd7cf1b14d78c6a7fb17f",
-          "album": "Astronaut In The Ocean",
-          "tags": [],
-          "duration": 132780,
-          "addedAt": 1717538649678,
-          "order": 10
-        },
-        {
-          "id": "7G6l2FtQyRhQgYgut2I6i8",
-          "name": "As Good As I Once Was",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/2bA6fzP0lMAQ4kz6CF61w8"
-              },
-              "href": "https://api.spotify.com/v1/artists/2bA6fzP0lMAQ4kz6CF61w8",
-              "id": "2bA6fzP0lMAQ4kz6CF61w8",
-              "name": "Toby Keith",
-              "type": "artist",
-              "uri": "spotify:artist:2bA6fzP0lMAQ4kz6CF61w8"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273608370238c487e505e961d15",
-          "album": "Honkytonk University",
-          "tags": [],
-          "duration": 227840,
-          "addedAt": 1716785114718,
-          "order": 11
-        },
-        {
-          "id": "4MXhiYIRDMGAuvZc5IFTwC",
-          "name": "ASTROTHUNDER",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/0Y5tJX1MQlPlqiwlOH1tJY"
-              },
-              "href": "https://api.spotify.com/v1/artists/0Y5tJX1MQlPlqiwlOH1tJY",
-              "id": "0Y5tJX1MQlPlqiwlOH1tJY",
-              "name": "Travis Scott",
-              "type": "artist",
-              "uri": "spotify:artist:0Y5tJX1MQlPlqiwlOH1tJY"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273072e9faef2ef7b6db63834a3",
-          "album": "ASTROWORLD",
-          "tags": [],
-          "duration": 142969,
-          "addedAt": 1716841970343,
-          "order": 12
-        },
-        {
-          "id": "5W7xC99N2Zzfh69r7I7zWK",
-          "name": "Aston Martin Music",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1sBkRIssrMs1AbVkOJbc7a"
-              },
-              "href": "https://api.spotify.com/v1/artists/1sBkRIssrMs1AbVkOJbc7a",
-              "id": "1sBkRIssrMs1AbVkOJbc7a",
-              "name": "Rick Ross",
-              "type": "artist",
-              "uri": "spotify:artist:1sBkRIssrMs1AbVkOJbc7a"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
-              },
-              "href": "https://api.spotify.com/v1/artists/3TVXtAsR1Inumwj472S9r4",
-              "id": "3TVXtAsR1Inumwj472S9r4",
-              "name": "Drake",
-              "type": "artist",
-              "uri": "spotify:artist:3TVXtAsR1Inumwj472S9r4"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3YJMzGjAm245zwJooY7PEj"
-              },
-              "href": "https://api.spotify.com/v1/artists/3YJMzGjAm245zwJooY7PEj",
-              "id": "3YJMzGjAm245zwJooY7PEj",
-              "name": "Chrisette Michele",
-              "type": "artist",
-              "uri": "spotify:artist:3YJMzGjAm245zwJooY7PEj"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2730fbb5046ac2211a4aab5ecfa",
-          "album": "Teflon Don",
-          "tags": [],
-          "duration": 270626,
-          "addedAt": 1717246089574,
-          "order": 13
-        },
-        {
-          "id": "6X5WZbJzXtk6aO03HlxuZ9",
-          "name": "Así Lo Quiso Dios",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/0XeEobZplHxzM9QzFQWLiR"
-              },
-              "href": "https://api.spotify.com/v1/artists/0XeEobZplHxzM9QzFQWLiR",
-              "id": "0XeEobZplHxzM9QzFQWLiR",
-              "name": "Eslabon Armado",
-              "type": "artist",
-              "uri": "spotify:artist:0XeEobZplHxzM9QzFQWLiR"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/0pePYDrJGk8gqMRbXrLJC8"
-              },
-              "href": "https://api.spotify.com/v1/artists/0pePYDrJGk8gqMRbXrLJC8",
-              "id": "0pePYDrJGk8gqMRbXrLJC8",
-              "name": "Luis R Conriquez",
-              "type": "artist",
-              "uri": "spotify:artist:0pePYDrJGk8gqMRbXrLJC8"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273dfddf1cb31b85a6d28b7d91f",
-          "album": "DESVELADO",
-          "tags": [],
-          "duration": 205299,
-          "addedAt": 1717186475440,
-          "order": 14
-        },
-        {
-          "id": "14e46mURUUwB3i2vTe1gFz",
-          "name": "Astrovan",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/69tiO1fG8VWduDl3ji2qhI"
-              },
-              "href": "https://api.spotify.com/v1/artists/69tiO1fG8VWduDl3ji2qhI",
-              "id": "69tiO1fG8VWduDl3ji2qhI",
-              "name": "Mt. Joy",
-              "type": "artist",
-              "uri": "spotify:artist:69tiO1fG8VWduDl3ji2qhI"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273b6cbea9ad146a2e67cb0a4e3",
-          "album": "Mt. Joy",
-          "tags": [],
-          "duration": 186133,
-          "addedAt": 1717332328422,
-          "order": 15
-        },
-        {
-          "id": "54sEjr0FU2YTPbEliJ1YPh",
-          "name": "ASTRO",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/65FHTCI8EmW94W0TdWb8ja"
-              },
-              "href": "https://api.spotify.com/v1/artists/65FHTCI8EmW94W0TdWb8ja",
-              "id": "65FHTCI8EmW94W0TdWb8ja",
-              "name": "Slowboy",
-              "type": "artist",
-              "uri": "spotify:artist:65FHTCI8EmW94W0TdWb8ja"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6K9KevAu0cpln7xOsM3Wkm"
-              },
-              "href": "https://api.spotify.com/v1/artists/6K9KevAu0cpln7xOsM3Wkm",
-              "id": "6K9KevAu0cpln7xOsM3Wkm",
-              "name": "IVOXYGEN",
-              "type": "artist",
-              "uri": "spotify:artist:6K9KevAu0cpln7xOsM3Wkm"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7yzEddrxGDljtj9TmeCfte"
-              },
-              "href": "https://api.spotify.com/v1/artists/7yzEddrxGDljtj9TmeCfte",
-              "id": "7yzEddrxGDljtj9TmeCfte",
-              "name": "zaichkou888",
-              "type": "artist",
-              "uri": "spotify:artist:7yzEddrxGDljtj9TmeCfte"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273170645a888e5ae66a547f09a",
-          "album": "ASTRO",
-          "tags": [],
-          "duration": 144138,
-          "addedAt": 1717105324741,
-          "order": 16
-        },
-        {
-          "id": "6ekaMb0cvG4htzjLIjiv8N",
-          "name": "Ear cleaning, ear massage, switch tester..",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6UkObpPPS3CyL5c75nSbC9"
-              },
-              "href": "https://api.spotify.com/v1/artists/6UkObpPPS3CyL5c75nSbC9",
-              "id": "6UkObpPPS3CyL5c75nSbC9",
-              "name": "SassysoundsASMR",
-              "type": "artist",
-              "uri": "spotify:artist:6UkObpPPS3CyL5c75nSbC9"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273a1a0789bfddb1549d338667c",
-          "album": "Tingly trigger assortment for sleep",
-          "tags": [],
-          "duration": 780613,
-          "addedAt": 1716912054806,
-          "order": 17
-        },
-        {
-          "id": "track1",
-          "name": "Lovely Day",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1ThoqLcyIYvZn7iWbj8fsj"
-              },
-              "href": "https://api.spotify.com/v1/artists/1ThoqLcyIYvZn7iWbj8fsj",
-              "id": "1ThoqLcyIYvZn7iWbj8fsj",
-              "name": "Bill Withers",
-              "type": "artist",
-              "uri": "spotify:artist:1ThoqLcyIYvZn7iWbj8fsj"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2735ade9b4d547203c9061fc340",
-          "album": "Menagerie",
-          "tags": [],
-          "duration": 254560,
-          "addedAt": 1716963263376,
-          "order": 18
-        },
-        {
-          "id": "track4",
-          "name": "Lovely Darling",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/22wbnEMDvgVIAGdFeek6ET"
-              },
-              "href": "https://api.spotify.com/v1/artists/22wbnEMDvgVIAGdFeek6ET",
-              "id": "22wbnEMDvgVIAGdFeek6ET",
-              "name": "Benson Boone",
-              "type": "artist",
-              "uri": "spotify:artist:22wbnEMDvgVIAGdFeek6ET"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2738d0632f1ef157bfbd118a59f",
-          "album": "Hits & Hits",
-          "tags": [],
-          "duration": 172517,
-          "addedAt": 1717228578923,
-          "order": 19
-        },
-        {
-          "id": "track3",
-          "name": "Lovely",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3tlXnStJ1fFhdScmQeLpuG"
-              },
-              "href": "https://api.spotify.com/v1/artists/3tlXnStJ1fFhdScmQeLpuG",
-              "id": "3tlXnStJ1fFhdScmQeLpuG",
-              "name": "Brent Faiyaz",
-              "type": "artist",
-              "uri": "spotify:artist:3tlXnStJ1fFhdScmQeLpuG"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273ffdfaa62697d9b0609f9b0c2",
-          "album": "A.M. Paradox",
-          "tags": [],
-          "duration": 291098,
-          "addedAt": 1717306654643,
-          "order": 20
+          "stationIds": ["Hx9W5"]
         }
       ],
       "_id": "Hx9W5"
@@ -1408,45 +198,39 @@
       "createdBy": {
         "_id": "u102",
         "fullname": "Jane Smith",
-        "imgUrl": "https://i.pravatar.cc/150?u=u102"
+        "imgUrl": "http://another-photo/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "X-yIEMduRXk",
           "artist": "Adele",
-          "img": "https://i.scdn.co/image/ab67616d0000b273c6b577e4c4a6d326354a89f7",
+          "img": "https://i.ytimg.com/vi/X-yIEMduRXk/default.jpg",
           "name": "Adele - Easy On Me (Official Video)",
           "tags": [],
           "duration": 224,
           "url": "https://www.youtube.com/watch?v=X-yIEMduRXk",
-          "stationIds": ["NxY4s"],
-          "order": 1,
-          "addedAt": 1716802004151
+          "stationIds": ["NxY4s"]
         },
         {
           "id": "HeOpRzcqKrE",
           "artist": "EdSheeranVEVO",
-          "img": "https://i.scdn.co/image/ab67616d0000b273ef24c3fdbf856340d55cfeb2",
+          "img": "https://i.ytimg.com/vi/HeOpRzcqKrE/default.jpg",
           "name": "Ed Sheeran - Bad Habits [Official Video]",
           "tags": [],
           "duration": 251,
           "url": "https://www.youtube.com/watch?v=HeOpRzcqKrE",
-          "stationIds": ["NxY4s"],
-          "order": 2,
-          "addedAt": 1717637320500
+          "stationIds": ["NxY4s"]
         },
         {
           "id": "xx5xVc_68NE",
           "artist": "SamSmithVEVO",
-          "img": "https://i.scdn.co/image/ab67616d0000b2730d1f3930676c34a23dbf5c46",
+          "img": "https://i.ytimg.com/vi/xx5xVc_68NE/default.jpg",
           "name": "Sam Smith - Diamonds (Official Music Video)",
           "tags": [],
           "duration": 230,
           "url": "https://www.youtube.com/watch?v=xx5xVc_68NE",
-          "stationIds": ["NxY4s"],
-          "order": 3,
-          "addedAt": 1716915909200
+          "stationIds": ["NxY4s"]
         }
       ],
       "_id": "NxY4s"
@@ -1459,143 +243,39 @@
       "createdBy": {
         "_id": "u103",
         "fullname": "John Doe",
-        "imgUrl": "https://i.pravatar.cc/150?u=u103"
+        "imgUrl": "http://example-photo/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "N_qF-",
           "artist": "Guns N' Roses",
-          "img": "https://i.scdn.co/image/ab67616d0000b27321ebf49b3292c3f0f575f0f5",
+          "img": "https://i.ytimg.com/vi/1w7OgIMMRc4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAltVU4BcPPrrIW6tFmu_gvvrKyM",
           "name": "Sweet Child O' Mine",
           "tags": [],
           "duration": 356,
           "url": "https://www.youtube.com/watch?v=N9GqZlyCMdU",
-          "stationIds": ["RxS3a"],
-          "order": 1,
-          "addedAt": 1717629732565
+          "stationIds": ["RxS3a"]
         },
         {
           "id": "fJ9rUzIMcZQ",
           "artist": "Queen Official",
-          "img": "https://i.scdn.co/image/ab67616d0000b2735a7602f0e508660b2ba40f8c",
+          "img": "https://i.ytimg.com/vi/fJ9rUzIMcZQ/default.jpg",
           "name": "Bohemian Rhapsody",
           "tags": [],
           "duration": 354,
           "url": "https://www.youtube.com/watch?v=fJ9rUzIMcZQ",
-          "stationIds": ["RxS3a"],
-          "order": 2,
-          "addedAt": 1717074945086
+          "stationIds": ["RxS3a"]
         },
         {
           "id": "kXYiU_JCYtU",
           "artist": "Linkin Park",
-          "img": "https://i.scdn.co/image/ab67616d0000b2735f1f51d14e8bea89484ecd1b",
+          "img": "https://i.ytimg.com/vi/kXYiU_JCYtU/default.jpg",
           "name": "Numb",
           "tags": [],
           "duration": 216,
           "url": "https://www.youtube.com/watch?v=kXYiU_JCYtU",
-          "stationIds": ["RxS3a"],
-          "order": 3,
-          "addedAt": 1717606400579
-        },
-        {
-          "id": "3gdewACMIVMEWVbyb8O9sY",
-          "name": "Rocket Man (I Think It's Going To Be A Long, Long Time)",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3PhoLpVuITZKcymswpck5b"
-              },
-              "href": "https://api.spotify.com/v1/artists/3PhoLpVuITZKcymswpck5b",
-              "id": "3PhoLpVuITZKcymswpck5b",
-              "name": "Elton John",
-              "type": "artist",
-              "uri": "spotify:artist:3PhoLpVuITZKcymswpck5b"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2733009007708ab5134936a58b3",
-          "album": "Honky Chateau",
-          "tags": [],
-          "duration": 281613,
-          "addedAt": 1716772181408,
-          "order": 4
-        },
-        {
-          "id": "track1",
-          "name": "Princess Diana (with Nicki Minaj)",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3LZZPxNDGDFVSIPqf4JuEf"
-              },
-              "href": "https://api.spotify.com/v1/artists/3LZZPxNDGDFVSIPqf4JuEf",
-              "id": "3LZZPxNDGDFVSIPqf4JuEf",
-              "name": "Ice Spice",
-              "type": "artist",
-              "uri": "spotify:artist:3LZZPxNDGDFVSIPqf4JuEf"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/0hCNtLu0JehylgoiP8L4Gh"
-              },
-              "href": "https://api.spotify.com/v1/artists/0hCNtLu0JehylgoiP8L4Gh",
-              "id": "0hCNtLu0JehylgoiP8L4Gh",
-              "name": "Nicki Minaj",
-              "type": "artist",
-              "uri": "spotify:artist:0hCNtLu0JehylgoiP8L4Gh"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2735dd17b2860b2a79d9dda8ec3",
-          "album": "Princess Diana (with Nicki Minaj)",
-          "tags": [],
-          "duration": 172125,
-          "addedAt": 1717637499028,
-          "order": 5
-        },
-        {
-          "id": "track4",
-          "name": "Princess Cuts My Wrist",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/395BAMokcNaqWcCl8uU1ky"
-              },
-              "href": "https://api.spotify.com/v1/artists/395BAMokcNaqWcCl8uU1ky",
-              "id": "395BAMokcNaqWcCl8uU1ky",
-              "name": "Sickboyrari",
-              "type": "artist",
-              "uri": "spotify:artist:395BAMokcNaqWcCl8uU1ky"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2737e0c3b102e6e5c055df25433",
-          "album": "City Of Doves",
-          "tags": [],
-          "duration": 193000,
-          "addedAt": 1717014321698,
-          "order": 6
-        },
-        {
-          "id": "track5",
-          "name": "Raspberry Beret",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/5a2EaR3hamoenG9rDuVn8j"
-              },
-              "href": "https://api.spotify.com/v1/artists/5a2EaR3hamoenG9rDuVn8j",
-              "id": "5a2EaR3hamoenG9rDuVn8j",
-              "name": "Prince",
-              "type": "artist",
-              "uri": "spotify:artist:5a2EaR3hamoenG9rDuVn8j"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273cc6495584fb0e2261ee95868",
-          "album": "Around The World In A Day",
-          "tags": [],
-          "duration": 215173,
-          "addedAt": 1717464093274,
-          "order": 7
+          "stationIds": ["RxS3a"]
         }
       ],
       "_id": "RxS3a"
@@ -1608,45 +288,39 @@
       "createdBy": {
         "_id": "u104",
         "fullname": "Alice Cooper",
-        "imgUrl": "https://i.pravatar.cc/150?u=u104"
+        "imgUrl": "http://photo-example/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "1vrEljMfXYo",
           "artist": "John Denver",
-          "img": "https://i.scdn.co/image/ab67616d0000b27334fb2b0117a542d515dc78d6",
+          "img": "https://i.ytimg.com/vi/1vrEljMfXYo/default.jpg",
           "name": "Take Me Home, Country Roads",
           "tags": [],
           "duration": 216,
           "url": "https://www.youtube.com/watch?v=1vrEljMfXYo",
-          "stationIds": ["xY3sR"],
-          "order": 1,
-          "addedAt": 1716839754980
+          "stationIds": ["xY3sR"]
         },
         {
           "id": "pqdaskhEa0I",
           "artist": "Tim McGraw",
-          "img": "https://i.scdn.co/image/ab67616d0000b2734e3efb30c7b2e3ac54bf75ba",
+          "img": "https://i.ytimg.com/vi/pqdaskhEa0I/default.jpg",
           "name": "Humble And Kind",
           "tags": [],
           "duration": 248,
           "url": "https://www.youtube.com/watch?v=pqdaskhEa0I",
-          "stationIds": ["xY3sR"],
-          "order": 2,
-          "addedAt": 1717227644272
+          "stationIds": ["xY3sR"]
         },
         {
           "id": "kQ8xqyoZXCc",
           "artist": "Dolly Parton",
-          "img": "https://i.scdn.co/image/ab67616d0000b27326399936751b54c7e9782324",
+          "img": "https://i.ytimg.com/vi/Ixrje2rXLMA/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDZ2pKYeR7sqgFCo01x5jn7K8IBPg",
           "name": "Jolene",
           "tags": [],
           "duration": 155,
           "url": "https://www.youtube.com/watch?v=Ixrje2rXLMA",
-          "stationIds": ["xY3sR"],
-          "order": 3,
-          "addedAt": 1716833157413
+          "stationIds": ["xY3sR"]
         }
       ],
       "_id": "xY3sR"
@@ -1659,163 +333,39 @@
       "createdBy": {
         "_id": "u105",
         "fullname": "Sam Johnson",
-        "imgUrl": "https://i.pravatar.cc/150?u=u105"
+        "imgUrl": "http://photo-sample/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "PT2_F-1esPk",
           "artist": "The Chainsmokers",
-          "img": "https://i.scdn.co/image/ab67616d0000b2737baaa8cb53b689654262a52d",
+          "img": "https://i.ytimg.com/vi/PT2_F-1esPk/default.jpg",
           "name": "Closer ft. Halsey",
           "tags": [],
           "duration": 244,
           "url": "https://www.youtube.com/watch?v=PT2_F-1esPk",
-          "stationIds": ["EDmP"],
-          "order": 1,
-          "addedAt": 1716925168764
+          "stationIds": ["EDmP"]
         },
         {
           "id": "a59gmGkq_pw",
           "artist": "Martin Garrix",
-          "img": "https://i.scdn.co/image/ab67616d0000b273442b53773d50e1b5369bb16c",
+          "img": "https://i.ytimg.com/vi/a59gmGkq_pw/default.jpg",
           "name": "Animals",
           "tags": [],
           "duration": 270,
           "url": "https://www.youtube.com/watch?v=a59gmGkq_pw",
-          "stationIds": ["EDmP"],
-          "order": 2,
-          "addedAt": 1717371121524
+          "stationIds": ["EDmP"]
         },
         {
           "id": "UP8yVPtW5YE",
           "artist": "Zedd",
-          "img": "https://i.scdn.co/image/ab67616d0000b273b993cba8ff7d0a8e9ee18d46",
+          "img": "https://i.ytimg.com/vi/h--P8HzYZ74/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD7353vgvHzUOYs8CoYQ2kPj6GmaA",
           "name": "Stay ft. Alessia Cara",
           "tags": [],
           "duration": 209,
           "url": "https://www.youtube.com/watch?v=UP8yVPtW5YE",
-          "stationIds": ["EDmP"],
-          "order": 3,
-          "addedAt": 1716769942766
-        },
-        {
-          "id": "track2",
-          "name": "EDM",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3MTk6MUbUmV5X0N04N56JF"
-              },
-              "href": "https://api.spotify.com/v1/artists/3MTk6MUbUmV5X0N04N56JF",
-              "id": "3MTk6MUbUmV5X0N04N56JF",
-              "name": "Carta",
-              "type": "artist",
-              "uri": "spotify:artist:3MTk6MUbUmV5X0N04N56JF"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273c8b3f1f5d3c248253f253ca3",
-          "album": "EDM",
-          "tags": [],
-          "duration": 136406,
-          "addedAt": 1716795653838,
-          "order": 4
-        },
-        {
-          "id": "track4",
-          "name": "Clandestina (feat. Emma Peters) - JVSTIN Remix",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/438DEJaM9KJdqbBUPnVYB0"
-              },
-              "href": "https://api.spotify.com/v1/artists/438DEJaM9KJdqbBUPnVYB0",
-              "id": "438DEJaM9KJdqbBUPnVYB0",
-              "name": "FILV",
-              "type": "artist",
-              "uri": "spotify:artist:438DEJaM9KJdqbBUPnVYB0"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/0YFbuIzBUfAK1FqcEvxnqQ"
-              },
-              "href": "https://api.spotify.com/v1/artists/0YFbuIzBUfAK1FqcEvxnqQ",
-              "id": "0YFbuIzBUfAK1FqcEvxnqQ",
-              "name": "Edmofo",
-              "type": "artist",
-              "uri": "spotify:artist:0YFbuIzBUfAK1FqcEvxnqQ"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6lY6kOVMG0mR07JTzU33o5"
-              },
-              "href": "https://api.spotify.com/v1/artists/6lY6kOVMG0mR07JTzU33o5",
-              "id": "6lY6kOVMG0mR07JTzU33o5",
-              "name": "Emma Peters",
-              "type": "artist",
-              "uri": "spotify:artist:6lY6kOVMG0mR07JTzU33o5"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7yx9U0pCgGRvOPLjT75Rgd"
-              },
-              "href": "https://api.spotify.com/v1/artists/7yx9U0pCgGRvOPLjT75Rgd",
-              "id": "7yx9U0pCgGRvOPLjT75Rgd",
-              "name": "Jvstin",
-              "type": "artist",
-              "uri": "spotify:artist:7yx9U0pCgGRvOPLjT75Rgd"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2735f69558590bf91cd0eb860d7",
-          "album": "Clandestina (feat. Emma Peters) [JVSTIN Remix]",
-          "tags": [],
-          "duration": 145233,
-          "addedAt": 1716724091119,
-          "order": 5
-        },
-        {
-          "id": "track6",
-          "name": "Edmund Temper",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/0AkmSuTOzM2pNCIOSP8ziv"
-              },
-              "href": "https://api.spotify.com/v1/artists/0AkmSuTOzM2pNCIOSP8ziv",
-              "id": "0AkmSuTOzM2pNCIOSP8ziv",
-              "name": "Amigo the Devil",
-              "type": "artist",
-              "uri": "spotify:artist:0AkmSuTOzM2pNCIOSP8ziv"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273eb6e07ff5ccbd9fb7a887cf2",
-          "album": "Everything is Fine",
-          "tags": [],
-          "duration": 225706,
-          "addedAt": 1716972568245,
-          "order": 6
-        },
-        {
-          "id": "track8",
-          "name": "Edmonton",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3Sz7ZnJQBIHsXLUSo0OQtM"
-              },
-              "href": "https://api.spotify.com/v1/artists/3Sz7ZnJQBIHsXLUSo0OQtM",
-              "id": "3Sz7ZnJQBIHsXLUSo0OQtM",
-              "name": "Mac DeMarco",
-              "type": "artist",
-              "uri": "spotify:artist:3Sz7ZnJQBIHsXLUSo0OQtM"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2736e16f19cf21119423d8f50d9",
-          "album": "Five Easy Hot Dogs",
-          "tags": [],
-          "duration": 143426,
-          "addedAt": 1716831334209,
-          "order": 7
+          "stationIds": ["EDmP"]
         }
       ],
       "_id": "EDmP"
@@ -1828,49 +378,44 @@
       "createdBy": {
         "_id": "u106",
         "fullname": "Bob Marley",
-        "imgUrl": "https://i.pravatar.cc/150?u=u106"
+        "imgUrl": "http://example-photo2/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "IN0KkGeEURw",
           "artist": "Bob Marley",
-          "img": "https://i.scdn.co/image/ab67616d0000b2733e511ed894fc394063b34649",
+          "img": "https://i.ytimg.com/vi/IN0KkGeEURw/default.jpg",
           "name": "One Love",
           "tags": [],
           "duration": 178,
           "url": "https://www.youtube.com/watch?v=IN0KkGeEURw",
-          "stationIds": ["RV1b3"],
-          "order": 1,
-          "addedAt": 1716797857135
+          "stationIds": ["RV1b3"]
         },
         {
           "id": "6cIePqdz03A",
           "artist": "Peter Tosh",
-          "img": "https://i.scdn.co/image/ab67616d0000b273995588ad272e39bfc75016a3",
+          "img": "https://i.ytimg.com/vi/6cIePqdz03A/default.jpg",
           "name": "Legalize It",
           "tags": [],
           "duration": 274,
           "url": "https://www.youtube.com/watch?v=6cIePqdz03A",
-          "stationIds": ["RV1b3"],
-          "order": 2,
-          "addedAt": 1717661447099
+          "stationIds": ["RV1b3"]
         },
         {
           "id": "U7dBMYUyRAQ",
           "artist": "Jimmy Cliff",
-          "img": "https://i.scdn.co/image/ab67616d0000b2736033eb0ca150f7d26d897581",
+          "img": "https://i.ytimg.com/vi/U7dBMYUyRAQ/default.jpg",
           "name": "You Can Get It If You Really Want",
           "tags": [],
           "duration": 161,
           "url": "https://www.youtube.com/watch?v=U7dBMYUyRAQ",
-          "stationIds": ["RV1b3"],
-          "order": 3,
-          "addedAt": 1717537954524
+          "stationIds": ["RV1b3"]
         }
       ],
       "_id": "RV1b3"
     },
+
     {
       "name": "Indie Rock",
       "type": "playlist",
@@ -1879,183 +424,39 @@
       "createdBy": {
         "_id": "u107",
         "fullname": "Emma Watson",
-        "imgUrl": "https://i.pravatar.cc/150?u=u107"
+        "imgUrl": "http://example-photo3/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "sBzrzS1Ag_g",
           "artist": "Tame Impala",
-          "img": "https://i.scdn.co/image/ab67616d0000b2739e1cfc756886ac782e363d79",
+          "img": "https://i.ytimg.com/vi/sBzrzS1Ag_g/default.jpg",
           "name": "The Less I Know The Better",
           "tags": [],
           "duration": 216,
           "url": "https://www.youtube.com/watch?v=sBzrzS1Ag_g",
-          "stationIds": ["Ind1eR"],
-          "order": 1,
-          "addedAt": 1717310888665
+          "stationIds": ["Ind1eR"]
         },
         {
           "id": "ktvTqknDobU",
           "artist": "Imagine Dragons",
-          "img": "https://i.scdn.co/image/ab67616d0000b273b2b2747c89d2157b0b29fb6a",
+          "img": "https://i.ytimg.com/vi/ktvTqknDobU/default.jpg",
           "name": "Radioactive",
           "tags": [],
           "duration": 204,
           "url": "https://www.youtube.com/watch?v=ktvTqknDobU",
-          "stationIds": ["Ind1eR"],
-          "order": 2,
-          "addedAt": 1716844401929
+          "stationIds": ["Ind1eR"]
         },
         {
           "id": "bpOSxM0rNPM",
           "artist": "Arctic Monkeys",
-          "img": "https://i.scdn.co/image/ab67616d0000b2734ae1c4c5c45aabe565499163",
+          "img": "https://i.ytimg.com/vi/bpOSxM0rNPM/default.jpg",
           "name": "Do I Wanna Know?",
           "tags": [],
           "duration": 272,
           "url": "https://www.youtube.com/watch?v=bpOSxM0rNPM",
-          "stationIds": ["Ind1eR"],
-          "order": 3,
-          "addedAt": 1716915485758
-        },
-        {
-          "id": "track2",
-          "name": "Indie",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7aUHRSiuxjM0UuYTiRhfDn"
-              },
-              "href": "https://api.spotify.com/v1/artists/7aUHRSiuxjM0UuYTiRhfDn",
-              "id": "7aUHRSiuxjM0UuYTiRhfDn",
-              "name": "Drizzy Tae",
-              "type": "artist",
-              "uri": "spotify:artist:7aUHRSiuxjM0UuYTiRhfDn"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3RtUfiBoaEjGzA5bkaSvHo"
-              },
-              "href": "https://api.spotify.com/v1/artists/3RtUfiBoaEjGzA5bkaSvHo",
-              "id": "3RtUfiBoaEjGzA5bkaSvHo",
-              "name": "Lil Nor",
-              "type": "artist",
-              "uri": "spotify:artist:3RtUfiBoaEjGzA5bkaSvHo"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273fd992404d1e03d1ec8992299",
-          "album": "Fanboy & ChumChum",
-          "tags": [],
-          "duration": 112587,
-          "addedAt": 1717413800961,
-          "order": 4
-        },
-        {
-          "id": "track6",
-          "name": "STILL HOLY",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1sPm31qmcbk9EFoRCS8eRl"
-              },
-              "href": "https://api.spotify.com/v1/artists/1sPm31qmcbk9EFoRCS8eRl",
-              "id": "1sPm31qmcbk9EFoRCS8eRl",
-              "name": "indie tribe",
-              "type": "artist",
-              "uri": "spotify:artist:1sPm31qmcbk9EFoRCS8eRl"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/2d8NsBa8O4C6bgQatFP5V4"
-              },
-              "href": "https://api.spotify.com/v1/artists/2d8NsBa8O4C6bgQatFP5V4",
-              "id": "2d8NsBa8O4C6bgQatFP5V4",
-              "name": "nobigdyl.",
-              "type": "artist",
-              "uri": "spotify:artist:2d8NsBa8O4C6bgQatFP5V4"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/78DvQP3rczGqfgEiLfFnCD"
-              },
-              "href": "https://api.spotify.com/v1/artists/78DvQP3rczGqfgEiLfFnCD",
-              "id": "78DvQP3rczGqfgEiLfFnCD",
-              "name": "Torey D'Shaun",
-              "type": "artist",
-              "uri": "spotify:artist:78DvQP3rczGqfgEiLfFnCD"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1SZikSUx9fZ2cUFjrmM6Sy"
-              },
-              "href": "https://api.spotify.com/v1/artists/1SZikSUx9fZ2cUFjrmM6Sy",
-              "id": "1SZikSUx9fZ2cUFjrmM6Sy",
-              "name": "Mogli the Iceburg",
-              "type": "artist",
-              "uri": "spotify:artist:1SZikSUx9fZ2cUFjrmM6Sy"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/0PUc1lwaZpPJaMr0v4Gdvo"
-              },
-              "href": "https://api.spotify.com/v1/artists/0PUc1lwaZpPJaMr0v4Gdvo",
-              "id": "0PUc1lwaZpPJaMr0v4Gdvo",
-              "name": "Jon Keith",
-              "type": "artist",
-              "uri": "spotify:artist:0PUc1lwaZpPJaMr0v4Gdvo"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2737d76736b788b559d99b8c85a",
-          "album": "STILL HOLY",
-          "tags": [],
-          "duration": 177841,
-          "addedAt": 1716839472896,
-          "order": 5
-        },
-        {
-          "id": "track1",
-          "name": "Space Rocket - Initial Dream",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1uXrhF4cZsmDQZDueF9uJT"
-              },
-              "href": "https://api.spotify.com/v1/artists/1uXrhF4cZsmDQZDueF9uJT",
-              "id": "1uXrhF4cZsmDQZDueF9uJT",
-              "name": "dave rodgers",
-              "type": "artist",
-              "uri": "spotify:artist:1uXrhF4cZsmDQZDueF9uJT"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273e7e19042a188493c5b163d08",
-          "album": "Space Rocket (Initial Dream)",
-          "tags": [],
-          "duration": 284800,
-          "addedAt": 1717392184334,
-          "order": 9
-        },
-        {
-          "id": "track4",
-          "name": "Indie Rockera",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/5h04bWbwJJo8URbSzgaOFc"
-              },
-              "href": "https://api.spotify.com/v1/artists/5h04bWbwJJo8URbSzgaOFc",
-              "id": "5h04bWbwJJo8URbSzgaOFc",
-              "name": "Tobias Indigo",
-              "type": "artist",
-              "uri": "spotify:artist:5h04bWbwJJo8URbSzgaOFc"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273a3f20a9c65830bb8672675c8",
-          "album": "Indie Rockera",
-          "tags": [],
-          "duration": 221653,
-          "addedAt": 1717159130527,
-          "order": 10
+          "stationIds": ["Ind1eR"]
         }
       ],
       "_id": "Ind1eR"
@@ -2068,45 +469,39 @@
       "createdBy": {
         "_id": "u108",
         "fullname": "Ludwig Beethoven",
-        "imgUrl": "https://i.pravatar.cc/150?u=u108"
+        "imgUrl": "http://example-photo4/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "QxHkLdQy5f0",
           "artist": "London Symphony Orchestra",
-          "img": "https://i.scdn.co/image/ab67616d0000b2737dbc64cc8d05967cc583e750",
+          "img": "https://i.ytimg.com/vi/QxHkLdQy5f0/default.jpg",
           "name": "Beethoven - Symphony No.9",
           "tags": [],
           "duration": 4132,
           "url": "https://www.youtube.com/watch?v=QxHkLdQy5f0",
-          "stationIds": ["Cl4ssSym"],
-          "order": 1,
-          "addedAt": 1716743895990
+          "stationIds": ["Cl4ssSym"]
         },
         {
           "id": "JTc1mDieQI8",
           "artist": "Berlin Philharmonic",
-          "img": "https://i.scdn.co/image/ab67616d0000b27347a91b4bd4a3d9380df72aae",
+          "img": "https://i.ytimg.com/vi/JTc1mDieQI8/default.jpg",
           "name": "Mozart - Symphony No.40",
           "tags": [],
           "duration": 2405,
           "url": "https://www.youtube.com/watch?v=JTc1mDieQI8",
-          "stationIds": ["Cl4ssSym"],
-          "order": 2,
-          "addedAt": 1717312490341
+          "stationIds": ["Cl4ssSym"]
         },
         {
           "id": "dSGJgXWzKog",
           "artist": "Tchaikovsky",
-          "img": "https://i.scdn.co/image/ab67616d0000b2731d9c6602aa95abd8c5b146da",
+          "img": "https://i.ytimg.com/vi/dSGJgXWzKog/default.jpg",
           "name": "Tchaikovsky - Swan Lake",
           "tags": [],
           "duration": 4492,
           "url": "https://www.youtube.com/watch?v=dSGJgXWzKog",
-          "stationIds": ["Cl4ssSym"],
-          "order": 3,
-          "addedAt": 1717109958455
+          "stationIds": ["Cl4ssSym"]
         }
       ],
       "_id": "Cl4ssSym"
@@ -2119,253 +514,39 @@
       "createdBy": {
         "_id": "u109",
         "fullname": "David Guetta",
-        "imgUrl": "https://i.pravatar.cc/150?u=u109"
+        "imgUrl": "http://example-photo5/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "FGBhQbmPwH8",
           "artist": "Daft Punk",
-          "img": "https://i.scdn.co/image/ab67616d0000b27348905438b9c1153978d9fbf4",
+          "img": "https://i.ytimg.com/vi/FGBhQbmPwH8/default.jpg",
           "name": "One More Time",
           "tags": [],
           "duration": 325,
           "url": "https://www.youtube.com/watch?v=FGBhQbmPwH8",
-          "stationIds": ["ElecVib"],
-          "order": 1,
-          "addedAt": 1716812443175
+          "stationIds": ["ElecVib"]
         },
         {
           "id": "ebXbLfLACGM",
           "artist": "Calvin Harris",
-          "img": "https://i.scdn.co/image/ab67616d0000b273cb76604d9c5963544cf5be64",
+          "img": "https://i.ytimg.com/vi/ebXbLfLACGM/default.jpg",
           "name": "Summer",
           "tags": [],
           "duration": 238,
           "url": "https://www.youtube.com/watch?v=ebXbLfLACGM",
-          "stationIds": ["ElecVib"],
-          "order": 2,
-          "addedAt": 1717182996206
+          "stationIds": ["ElecVib"]
         },
         {
           "id": "IcrbM1l_BoI",
           "artist": "Avicii",
-          "img": "https://i.scdn.co/image/ab67616d0000b273e14f11f796cef9f9a82691a7",
+          "img": "https://i.ytimg.com/vi/IcrbM1l_BoI/default.jpg",
           "name": "Wake Me Up",
           "tags": [],
           "duration": 276,
           "url": "https://www.youtube.com/watch?v=IcrbM1l_BoI",
-          "stationIds": ["ElecVib"],
-          "order": 3,
-          "addedAt": 1716798432693
-        },
-        {
-          "id": "2ECKWYbTPpKvtnKiRiUQqC",
-          "name": "Como Si Nada",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/29b16XDtyMXDrfo2hZ69wf"
-              },
-              "href": "https://api.spotify.com/v1/artists/29b16XDtyMXDrfo2hZ69wf",
-              "id": "29b16XDtyMXDrfo2hZ69wf",
-              "name": "ADSO",
-              "type": "artist",
-              "uri": "spotify:artist:29b16XDtyMXDrfo2hZ69wf"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273ddee706e207b5f197c6f7e37",
-          "album": "Como Si Nada",
-          "tags": [],
-          "duration": 156000,
-          "addedAt": 1717613577358,
-          "order": 4
-        },
-        {
-          "id": "6xpDh0dXrkVp0Po1qrHUd8",
-          "name": "Adam's Song",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6FBDaR13swtiWwGhX1WQsP"
-              },
-              "href": "https://api.spotify.com/v1/artists/6FBDaR13swtiWwGhX1WQsP",
-              "id": "6FBDaR13swtiWwGhX1WQsP",
-              "name": "blink-182",
-              "type": "artist",
-              "uri": "spotify:artist:6FBDaR13swtiWwGhX1WQsP"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2736da502e35a7a3e48de2b0f74",
-          "album": "Enema Of The State",
-          "tags": [],
-          "duration": 249626,
-          "addedAt": 1717686312608,
-          "order": 5
-        },
-        {
-          "id": "57ZYpG5xaMC5kpimwjztr3",
-          "name": "ADSR",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/50KydUSYhBFGorhAgUcrL5"
-              },
-              "href": "https://api.spotify.com/v1/artists/50KydUSYhBFGorhAgUcrL5",
-              "id": "50KydUSYhBFGorhAgUcrL5",
-              "name": "Marie Vaunt",
-              "type": "artist",
-              "uri": "spotify:artist:50KydUSYhBFGorhAgUcrL5"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273d6c90a6aaa01df29f61c5a1d",
-          "album": "ADSR",
-          "tags": [],
-          "duration": 261617,
-          "addedAt": 1717595131425,
-          "order": 6
-        },
-        {
-          "id": "7gVVm69tdUP6FpkT8GYWwd",
-          "name": "Yo También Me Quiero",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/29b16XDtyMXDrfo2hZ69wf"
-              },
-              "href": "https://api.spotify.com/v1/artists/29b16XDtyMXDrfo2hZ69wf",
-              "id": "29b16XDtyMXDrfo2hZ69wf",
-              "name": "ADSO",
-              "type": "artist",
-              "uri": "spotify:artist:29b16XDtyMXDrfo2hZ69wf"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2737f1c4794f59aa769c9f35a1c",
-          "album": "Yo También Me Quiero",
-          "tags": [],
-          "duration": 152476,
-          "addedAt": 1716983570916,
-          "order": 7
-        },
-        {
-          "id": "6aD0Es1eyfVqpYZKJm9WkC",
-          "name": "Asshole",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3tqosLbNFNekyZyO2KJ6qd"
-              },
-              "href": "https://api.spotify.com/v1/artists/3tqosLbNFNekyZyO2KJ6qd",
-              "id": "3tqosLbNFNekyZyO2KJ6qd",
-              "name": "Mike Sherm",
-              "type": "artist",
-              "uri": "spotify:artist:3tqosLbNFNekyZyO2KJ6qd"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2735a9860cf63dc43c15e05ad48",
-          "album": "Asshole",
-          "tags": [],
-          "duration": 160713,
-          "addedAt": 1717572790706,
-          "order": 8
-        },
-        {
-          "id": "track2",
-          "name": "אמר ר' עקיבא",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/4JYPaQumooJWg8pBoorjdF"
-              },
-              "href": "https://api.spotify.com/v1/artists/4JYPaQumooJWg8pBoorjdF",
-              "id": "4JYPaQumooJWg8pBoorjdF",
-              "name": "יוסף משה כהנא",
-              "type": "artist",
-              "uri": "spotify:artist:4JYPaQumooJWg8pBoorjdF"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27322a13b392890da31d5b4f4de",
-          "album": "לחיים טיש, ל״ג בעומר",
-          "tags": [],
-          "duration": 74344,
-          "addedAt": 1717646039592,
-          "order": 9
-        },
-        {
-          "id": "track0",
-          "name": "עולם אלקטרוני",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/2RMH8nqc3YmaUEikglXlXm"
-              },
-              "href": "https://api.spotify.com/v1/artists/2RMH8nqc3YmaUEikglXlXm",
-              "id": "2RMH8nqc3YmaUEikglXlXm",
-              "name": "מוקי",
-              "type": "artist",
-              "uri": "spotify:artist:2RMH8nqc3YmaUEikglXlXm"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27303d4a614097c3308a361e103",
-          "album": "עולם אלקטרוני",
-          "tags": [],
-          "duration": 175820,
-          "addedAt": 1717291017660,
-          "order": 10
-        },
-        {
-          "id": "track3",
-          "name": "סיבת הסיבות (Triangle Remix)",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3VTm1513t2LL1mSKzzyQuj"
-              },
-              "href": "https://api.spotify.com/v1/artists/3VTm1513t2LL1mSKzzyQuj",
-              "id": "3VTm1513t2LL1mSKzzyQuj",
-              "name": "ישי ריבו",
-              "type": "artist",
-              "uri": "spotify:artist:3VTm1513t2LL1mSKzzyQuj"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/5VIY8D1hZVFHP9AUWR4iRo"
-              },
-              "href": "https://api.spotify.com/v1/artists/5VIY8D1hZVFHP9AUWR4iRo",
-              "id": "5VIY8D1hZVFHP9AUWR4iRo",
-              "name": "Triangle",
-              "type": "artist",
-              "uri": "spotify:artist:5VIY8D1hZVFHP9AUWR4iRo"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273f25e283b93fb42c9f6ddeb47",
-          "album": "סיבת הסיבות (Triangle Remix)",
-          "tags": [],
-          "duration": 180000,
-          "addedAt": 1716722681751,
-          "order": 11
-        },
-        {
-          "id": "track4",
-          "name": "אלקטרוניד",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/2PZOhUYV4F23tWlBN0VVDm"
-              },
-              "href": "https://api.spotify.com/v1/artists/2PZOhUYV4F23tWlBN0VVDm",
-              "id": "2PZOhUYV4F23tWlBN0VVDm",
-              "name": "גנצ לאוניד",
-              "type": "artist",
-              "uri": "spotify:artist:2PZOhUYV4F23tWlBN0VVDm"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273a3eb327ccefe8a7015d30707",
-          "album": "אלקטרוניד",
-          "tags": [],
-          "duration": 238181,
-          "addedAt": 1717028382576,
-          "order": 12
+          "stationIds": ["ElecVib"]
         }
       ],
       "_id": "ElecVib"
@@ -2378,141 +559,39 @@
       "createdBy": {
         "_id": "u110",
         "fullname": "B.B. King",
-        "imgUrl": "https://i.pravatar.cc/150?u=u110"
+        "imgUrl": "http://example-photo6/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "4fk2prKnYnI",
           "artist": "B.B. King",
-          "img": "https://i.scdn.co/image/ab67616d0000b2731a04649cc2ddb348a9e08f23",
+          "img": "https://i.ytimg.com/vi/4fk2prKnYnI/default.jpg",
           "name": "The Thrill Is Gone",
           "tags": [],
           "duration": 293,
           "url": "https://www.youtube.com/watch?v=4fk2prKnYnI",
-          "stationIds": ["Blu3Leg"],
-          "order": 1,
-          "addedAt": 1717012574368
+          "stationIds": ["Blu3Leg"]
         },
         {
           "id": "w5IOou6qN1o",
           "artist": "Muddy Waters",
-          "img": "https://i.scdn.co/image/ab67616d0000b273a359e57b14e2961fd4b9764c",
+          "img": "https://i.ytimg.com/vi/w5IOou6qN1o/default.jpg",
           "name": "Mannish Boy",
           "tags": [],
           "duration": 323,
           "url": "https://www.youtube.com/watch?v=w5IOou6qN1o",
-          "stationIds": ["Blu3Leg"],
-          "order": 2,
-          "addedAt": 1717517287164
+          "stationIds": ["Blu3Leg"]
         },
         {
           "id": "EOs0qeiJyIg",
           "artist": "Eric Clapton",
-          "img": "https://i.scdn.co/image/ab67616d0000b273fbcaf7402f38faac27610efc",
+          "img": "https://i.ytimg.com/vi/EOs0qeiJyIg/default.jpg",
           "name": "Layla",
           "tags": [],
           "duration": 429,
           "url": "https://www.youtube.com/watch?v=EOs0qeiJyIg",
-          "stationIds": ["Blu3Leg"],
-          "order": 3,
-          "addedAt": 1717157401605
-        },
-        {
-          "id": "track2",
-          "name": "B.B. King Freestyle (with Drake)",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/55Aa2cqylxrFIXC767Z865"
-              },
-              "href": "https://api.spotify.com/v1/artists/55Aa2cqylxrFIXC767Z865",
-              "id": "55Aa2cqylxrFIXC767Z865",
-              "name": "Lil Wayne",
-              "type": "artist",
-              "uri": "spotify:artist:55Aa2cqylxrFIXC767Z865"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
-              },
-              "href": "https://api.spotify.com/v1/artists/3TVXtAsR1Inumwj472S9r4",
-              "id": "3TVXtAsR1Inumwj472S9r4",
-              "name": "Drake",
-              "type": "artist",
-              "uri": "spotify:artist:3TVXtAsR1Inumwj472S9r4"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2737f06ef8f9489978f59ebe74a",
-          "album": "B.B. King Freestyle",
-          "tags": [],
-          "duration": 222801,
-          "addedAt": 1717058193490,
-          "order": 4
-        },
-        {
-          "id": "track7",
-          "name": "When Love Comes To Town",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/51Blml2LZPmy7TTiAg47vQ"
-              },
-              "href": "https://api.spotify.com/v1/artists/51Blml2LZPmy7TTiAg47vQ",
-              "id": "51Blml2LZPmy7TTiAg47vQ",
-              "name": "U2",
-              "type": "artist",
-              "uri": "spotify:artist:51Blml2LZPmy7TTiAg47vQ"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/5xLSa7l4IV1gsQfhAMvl0U"
-              },
-              "href": "https://api.spotify.com/v1/artists/5xLSa7l4IV1gsQfhAMvl0U",
-              "id": "5xLSa7l4IV1gsQfhAMvl0U",
-              "name": "B.B. King",
-              "type": "artist",
-              "uri": "spotify:artist:5xLSa7l4IV1gsQfhAMvl0U"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2733f4be7b80314bc44154f2e1a",
-          "album": "Rattle And Hum",
-          "tags": [],
-          "duration": 254266,
-          "addedAt": 1717404757741,
-          "order": 5
-        },
-        {
-          "id": "7MXVkk9YMctZqd1Srtv4MB",
-          "name": "Starboy",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
-              },
-              "href": "https://api.spotify.com/v1/artists/1Xyo4u8uXC1ZmMpatF05PJ",
-              "id": "1Xyo4u8uXC1ZmMpatF05PJ",
-              "name": "The Weeknd",
-              "type": "artist",
-              "uri": "spotify:artist:1Xyo4u8uXC1ZmMpatF05PJ"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/4tZwfgrHOc3mvqYlEYSvVi"
-              },
-              "href": "https://api.spotify.com/v1/artists/4tZwfgrHOc3mvqYlEYSvVi",
-              "id": "4tZwfgrHOc3mvqYlEYSvVi",
-              "name": "Daft Punk",
-              "type": "artist",
-              "uri": "spotify:artist:4tZwfgrHOc3mvqYlEYSvVi"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2734718e2b124f79258be7bc452",
-          "album": "Starboy",
-          "tags": [],
-          "duration": 230453,
-          "addedAt": 1717290880869,
-          "order": 6
+          "stationIds": ["Blu3Leg"]
         }
       ],
       "_id": "Blu3Leg"
@@ -2525,45 +604,39 @@
       "createdBy": {
         "_id": "u111",
         "fullname": "James Brown",
-        "imgUrl": "https://i.pravatar.cc/150?u=u111"
+        "imgUrl": "http://example-photo7/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "QE5D2hJhacU",
           "artist": "James Brown",
-          "img": "https://i.scdn.co/image/ab67616d0000b273cef82dc1b7fc24ffec550e9e",
+          "img": "https://i.ytimg.com/vi/QE5D2hJhacU/default.jpg",
           "name": "Get Up Offa That Thing",
           "tags": [],
           "duration": 398,
           "url": "https://www.youtube.com/watch?v=QE5D2hJhacU",
-          "stationIds": ["FunkCl4ss"],
-          "order": 1,
-          "addedAt": 1716943990543
+          "stationIds": ["FunkCl4ss"]
         },
         {
           "id": "Gs069dndIYk",
           "artist": "Earth, Wind & Fire",
-          "img": "https://i.scdn.co/image/ab67616d0000b2734dd033f4cf3a0a58059cde69",
+          "img": "https://i.ytimg.com/vi/Gs069dndIYk/default.jpg",
           "name": "September",
           "tags": [],
           "duration": 215,
           "url": "https://www.youtube.com/watch?v=Gs069dndIYk",
-          "stationIds": ["FunkCl4ss"],
-          "order": 2,
-          "addedAt": 1717182767666
+          "stationIds": ["FunkCl4ss"]
         },
         {
           "id": "0CFuCYNx-1g",
           "artist": "Stevie Wonder",
-          "img": "https://i.scdn.co/image/ab67616d0000b2739e447b59bd3e2cbefaa31d91",
+          "img": "https://i.ytimg.com/vi/0CFuCYNx-1g/default.jpg",
           "name": "Superstition",
           "tags": [],
           "duration": 292,
           "url": "https://www.youtube.com/watch?v=0CFuCYNx-1g",
-          "stationIds": ["FunkCl4ss"],
-          "order": 3,
-          "addedAt": 1717293203508
+          "stationIds": ["FunkCl4ss"]
         }
       ],
       "_id": "FunkCl4ss"
@@ -2576,277 +649,39 @@
       "createdBy": {
         "_id": "u112",
         "fullname": "Carlos Santana",
-        "imgUrl": "https://i.pravatar.cc/150?u=u112"
+        "imgUrl": "http://example-photo8/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "kJQP7kiw5Fk",
           "artist": "Luis Fonsi",
-          "img": "https://i.scdn.co/image/ab67616d0000b273ef0d4234e1a645740f77d59c",
+          "img": "https://i.ytimg.com/vi/kJQP7kiw5Fk/default.jpg",
           "name": "Despacito",
           "tags": [],
           "duration": 282,
           "url": "https://www.youtube.com/watch?v=kJQP7kiw5Fk",
-          "stationIds": ["LatBts"],
-          "order": 1,
-          "addedAt": 1717350521171
+          "stationIds": ["LatBts"]
         },
         {
           "id": "wnJ6LuUFpMo",
           "artist": "J Balvin",
-          "img": "https://i.scdn.co/image/ab67616d0000b273dc1e881b8bb3e6ca57e82fcd",
+          "img": "https://i.ytimg.com/vi/wnJ6LuUFpMo/default.jpg",
           "name": "Mi Gente",
           "tags": [],
           "duration": 190,
           "url": "https://www.youtube.com/watch?v=wnJ6LuUFpMo",
-          "stationIds": ["LatBts"],
-          "order": 2,
-          "addedAt": 1717568028611
+          "stationIds": ["LatBts"]
         },
         {
           "id": "DUT5rEU6pqM",
           "artist": "Shakira",
-          "img": "https://i.scdn.co/image/ab67616d0000b27327ddd747545c0d0cfe7595fa",
+          "img": "https://i.ytimg.com/vi/DUT5rEU6pqM/default.jpg",
           "name": "Hips Don't Lie",
           "tags": [],
           "duration": 217,
           "url": "https://www.youtube.com/watch?v=DUT5rEU6pqM",
-          "stationIds": ["LatBts"],
-          "order": 3,
-          "addedAt": 1717701089018
-        },
-        {
-          "id": "track0",
-          "name": "Latinos",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6w1XCiB8efbfnusJ2jzmvu"
-              },
-              "href": "https://api.spotify.com/v1/artists/6w1XCiB8efbfnusJ2jzmvu",
-              "id": "6w1XCiB8efbfnusJ2jzmvu",
-              "name": "Proyecto Uno",
-              "type": "artist",
-              "uri": "spotify:artist:6w1XCiB8efbfnusJ2jzmvu"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2730d65f3007ef5aeb8bf832f4e",
-          "album": "Latinos",
-          "tags": [],
-          "duration": 329440,
-          "addedAt": 1716777273012,
-          "order": 4
-        },
-        {
-          "id": "track3",
-          "name": "Latinos For Trump",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/4ZIDdZFGTgYxN7E6M1CFWK"
-              },
-              "href": "https://api.spotify.com/v1/artists/4ZIDdZFGTgYxN7E6M1CFWK",
-              "id": "4ZIDdZFGTgYxN7E6M1CFWK",
-              "name": "Trump Latinos",
-              "type": "artist",
-              "uri": "spotify:artist:4ZIDdZFGTgYxN7E6M1CFWK"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273c7d26058c7656d12e0bbf558",
-          "album": "Latinos For Trump",
-          "tags": [],
-          "duration": 129229,
-          "addedAt": 1717079182996,
-          "order": 5
-        },
-        {
-          "id": "track2",
-          "name": "Latina (Remix)",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3PAwspMN27PDm81WwXDsMf"
-              },
-              "href": "https://api.spotify.com/v1/artists/3PAwspMN27PDm81WwXDsMf",
-              "id": "3PAwspMN27PDm81WwXDsMf",
-              "name": "Reykon",
-              "type": "artist",
-              "uri": "spotify:artist:3PAwspMN27PDm81WwXDsMf"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/5LHRHt1k9lMyONurDHEdrp"
-              },
-              "href": "https://api.spotify.com/v1/artists/5LHRHt1k9lMyONurDHEdrp",
-              "id": "5LHRHt1k9lMyONurDHEdrp",
-              "name": "Tyga",
-              "type": "artist",
-              "uri": "spotify:artist:5LHRHt1k9lMyONurDHEdrp"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/4obzFoKoKRHIphyHzJ35G3"
-              },
-              "href": "https://api.spotify.com/v1/artists/4obzFoKoKRHIphyHzJ35G3",
-              "id": "4obzFoKoKRHIphyHzJ35G3",
-              "name": "Becky G",
-              "type": "artist",
-              "uri": "spotify:artist:4obzFoKoKRHIphyHzJ35G3"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1r4hJ1h58CWwUQe3MxPuau"
-              },
-              "href": "https://api.spotify.com/v1/artists/1r4hJ1h58CWwUQe3MxPuau",
-              "id": "1r4hJ1h58CWwUQe3MxPuau",
-              "name": "Maluma",
-              "type": "artist",
-              "uri": "spotify:artist:1r4hJ1h58CWwUQe3MxPuau"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273de4bc36cfe008cc1681fbb6f",
-          "album": "Latina (Remix)",
-          "tags": [],
-          "duration": 251764,
-          "addedAt": 1717396299649,
-          "order": 6
-        },
-        {
-          "id": "track9",
-          "name": "Latin X",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/46JQEm9OSTSZjr9LMDPm46"
-              },
-              "href": "https://api.spotify.com/v1/artists/46JQEm9OSTSZjr9LMDPm46",
-              "id": "46JQEm9OSTSZjr9LMDPm46",
-              "name": "King David Cruz",
-              "type": "artist",
-              "uri": "spotify:artist:46JQEm9OSTSZjr9LMDPm46"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27320e1e7d9b53ad8349fa147bb",
-          "album": "Blue Pill X Red Pill",
-          "tags": [],
-          "duration": 232515,
-          "addedAt": 1717672674113,
-          "order": 7
-        },
-        {
-          "id": "track5",
-          "name": "Latino's Go Dumb-Latina's Get Stupid",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7ChRTjarbYvaNjmAA2ODC7"
-              },
-              "href": "https://api.spotify.com/v1/artists/7ChRTjarbYvaNjmAA2ODC7",
-              "id": "7ChRTjarbYvaNjmAA2ODC7",
-              "name": "FreddyChingaz",
-              "type": "artist",
-              "uri": "spotify:artist:7ChRTjarbYvaNjmAA2ODC7"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6zf4pd1fId2mYi2y0ohAzi"
-              },
-              "href": "https://api.spotify.com/v1/artists/6zf4pd1fId2mYi2y0ohAzi",
-              "id": "6zf4pd1fId2mYi2y0ohAzi",
-              "name": "Jimmy Roses",
-              "type": "artist",
-              "uri": "spotify:artist:6zf4pd1fId2mYi2y0ohAzi"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3uDWnUybpzvlpNwy3qbOeQ"
-              },
-              "href": "https://api.spotify.com/v1/artists/3uDWnUybpzvlpNwy3qbOeQ",
-              "id": "3uDWnUybpzvlpNwy3qbOeQ",
-              "name": "Mr. Kee",
-              "type": "artist",
-              "uri": "spotify:artist:3uDWnUybpzvlpNwy3qbOeQ"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27380ec6cad2020c393acd0f5e6",
-          "album": "Thizz Latin",
-          "tags": [],
-          "duration": 200440,
-          "addedAt": 1716770409078,
-          "order": 8
-        },
-        {
-          "id": "track6",
-          "name": "Latino's Stand Up (RMX)",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/5LwKO8miPaSz4jW0jcuNFX"
-              },
-              "href": "https://api.spotify.com/v1/artists/5LwKO8miPaSz4jW0jcuNFX",
-              "id": "5LwKO8miPaSz4jW0jcuNFX",
-              "name": "Chino XL",
-              "type": "artist",
-              "uri": "spotify:artist:5LwKO8miPaSz4jW0jcuNFX"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/2LiWxiQzuD9nmWQ6NCA8Gd"
-              },
-              "href": "https://api.spotify.com/v1/artists/2LiWxiQzuD9nmWQ6NCA8Gd",
-              "id": "2LiWxiQzuD9nmWQ6NCA8Gd",
-              "name": "B-Real",
-              "type": "artist",
-              "uri": "spotify:artist:2LiWxiQzuD9nmWQ6NCA8Gd"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/4fSShZ7BGBFwLt39PkLHxm"
-              },
-              "href": "https://api.spotify.com/v1/artists/4fSShZ7BGBFwLt39PkLHxm",
-              "id": "4fSShZ7BGBFwLt39PkLHxm",
-              "name": "Thirstin Howl The 3rd",
-              "type": "artist",
-              "uri": "spotify:artist:4fSShZ7BGBFwLt39PkLHxm"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/0Pe4PWfk1dWblSMuxQbKt2"
-              },
-              "href": "https://api.spotify.com/v1/artists/0Pe4PWfk1dWblSMuxQbKt2",
-              "id": "0Pe4PWfk1dWblSMuxQbKt2",
-              "name": "Sinful",
-              "type": "artist",
-              "uri": "spotify:artist:0Pe4PWfk1dWblSMuxQbKt2"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6OxjXk1y4QXXRUJyldFIIG"
-              },
-              "href": "https://api.spotify.com/v1/artists/6OxjXk1y4QXXRUJyldFIIG",
-              "id": "6OxjXk1y4QXXRUJyldFIIG",
-              "name": "Kid Frost",
-              "type": "artist",
-              "uri": "spotify:artist:6OxjXk1y4QXXRUJyldFIIG"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/2Rf13iETx8NVJLIc5N6Ub4"
-              },
-              "href": "https://api.spotify.com/v1/artists/2Rf13iETx8NVJLIc5N6Ub4",
-              "id": "2Rf13iETx8NVJLIc5N6Ub4",
-              "name": "Sick Jacken",
-              "type": "artist",
-              "uri": "spotify:artist:2Rf13iETx8NVJLIc5N6Ub4"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27386b795cbd643765e6a8a7aca",
-          "album": "RICANstruction: The Black Rosary",
-          "tags": [],
-          "duration": 249546,
-          "addedAt": 1716744051386,
-          "order": 9
+          "stationIds": ["LatBts"]
         }
       ],
       "_id": "LatBts"
@@ -2859,241 +694,39 @@
       "createdBy": {
         "_id": "u113",
         "fullname": "Jay-Z",
-        "imgUrl": "https://i.pravatar.cc/150?u=u113"
+        "imgUrl": "http://example-photo9/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "vk6014HuxcE",
           "artist": "Jay-Z",
-          "img": "https://i.scdn.co/image/ab67616d0000b273fec1b815bb3c50a64a90fd10",
+          "img": "https://i.ytimg.com/vi/vk6014HuxcE/default.jpg",
           "name": "Empire State of Mind",
           "tags": [],
           "duration": 274,
           "url": "https://www.youtube.com/watch?v=vk6014HuxcE",
-          "stationIds": ["HHCls"],
-          "order": 1,
-          "addedAt": 1716953263715
+          "stationIds": ["HHCls"]
         },
         {
           "id": "PsO6ZnUZI0g",
           "artist": "Kanye West",
-          "img": "https://i.scdn.co/image/ab67616d0000b27326f7f19c7f0381e56156c94a",
+          "img": "https://i.ytimg.com/vi/PsO6ZnUZI0g/default.jpg",
           "name": "Stronger",
           "tags": [],
           "duration": 311,
           "url": "https://www.youtube.com/watch?v=PsO6ZnUZI0g",
-          "stationIds": ["HHCls"],
-          "order": 2,
-          "addedAt": 1717012146460
+          "stationIds": ["HHCls"]
         },
         {
           "id": "phaJXp_zMYM",
           "artist": "Notorious B.I.G.",
-          "img": "https://i.scdn.co/image/ab67616d0000b273639fea4197e676cfe9512e04",
+          "img": "https://i.ytimg.com/vi/phaJXp_zMYM/default.jpg",
           "name": "Big Poppa",
           "tags": [],
           "duration": 264,
           "url": "https://www.youtube.com/watch?v=phaJXp_zMYM",
-          "stationIds": ["HHCls"],
-          "order": 3,
-          "addedAt": 1716780398479
-        },
-        {
-          "id": "3EaJDYHA0KnX88JvDhL9oa",
-          "name": "Dark Red",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/57vWImR43h4CaDao012Ofp"
-              },
-              "href": "https://api.spotify.com/v1/artists/57vWImR43h4CaDao012Ofp",
-              "id": "57vWImR43h4CaDao012Ofp",
-              "name": "Steve Lacy",
-              "type": "artist",
-              "uri": "spotify:artist:57vWImR43h4CaDao012Ofp"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2733d2dfa42f771cd458b194979",
-          "album": "Dark Red",
-          "tags": [],
-          "duration": 173104,
-          "addedAt": 1717018811758,
-          "order": 4
-        },
-        {
-          "id": "2a1o6ZejUi8U3wzzOtCOYw",
-          "name": "Danza Kuduro",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/33ScadVnbm2X8kkUqOkC6Z"
-              },
-              "href": "https://api.spotify.com/v1/artists/33ScadVnbm2X8kkUqOkC6Z",
-              "id": "33ScadVnbm2X8kkUqOkC6Z",
-              "name": "Don Omar",
-              "type": "artist",
-              "uri": "spotify:artist:33ScadVnbm2X8kkUqOkC6Z"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/5bv5RplEOwdCvhq0EILh9E"
-              },
-              "href": "https://api.spotify.com/v1/artists/5bv5RplEOwdCvhq0EILh9E",
-              "id": "5bv5RplEOwdCvhq0EILh9E",
-              "name": "Lucenzo",
-              "type": "artist",
-              "uri": "spotify:artist:5bv5RplEOwdCvhq0EILh9E"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2734640a26eb27649006be29a94",
-          "album": "Meet The Orphans",
-          "tags": [],
-          "duration": 198773,
-          "addedAt": 1717356928743,
-          "order": 5
-        },
-        {
-          "id": "42TtHTxWk782ZBiqyOi2d1",
-          "name": "Dawns (feat. Maggie Rogers)",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/40ZNYROS4zLfyyBSs2PGe2"
-              },
-              "href": "https://api.spotify.com/v1/artists/40ZNYROS4zLfyyBSs2PGe2",
-              "id": "40ZNYROS4zLfyyBSs2PGe2",
-              "name": "Zach Bryan",
-              "type": "artist",
-              "uri": "spotify:artist:40ZNYROS4zLfyyBSs2PGe2"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/4NZvixzsSefsNiIqXn0NDe"
-              },
-              "href": "https://api.spotify.com/v1/artists/4NZvixzsSefsNiIqXn0NDe",
-              "id": "4NZvixzsSefsNiIqXn0NDe",
-              "name": "Maggie Rogers",
-              "type": "artist",
-              "uri": "spotify:artist:4NZvixzsSefsNiIqXn0NDe"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273a0a916db0206cc4d773f9013",
-          "album": "Dawns (feat. Maggie Rogers)",
-          "tags": [],
-          "duration": 290892,
-          "addedAt": 1717676775280,
-          "order": 6
-        },
-        {
-          "id": "1odExI7RdWc4BT515LTAwj",
-          "name": "Daylight",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/33NVpKoXjItPwUJTMZIOiY"
-              },
-              "href": "https://api.spotify.com/v1/artists/33NVpKoXjItPwUJTMZIOiY",
-              "id": "33NVpKoXjItPwUJTMZIOiY",
-              "name": "David Kushner",
-              "type": "artist",
-              "uri": "spotify:artist:33NVpKoXjItPwUJTMZIOiY"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27395ca6a9b4083a86c149934ae",
-          "album": "Daylight",
-          "tags": [],
-          "duration": 212953,
-          "addedAt": 1717248949676,
-          "order": 7
-        },
-        {
-          "id": "030OCtLMrljNhp8OWHBWW3",
-          "name": "Hey Daddy (Daddy's Home)",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/23zg3TcAtWQy7J6upgbUnj"
-              },
-              "href": "https://api.spotify.com/v1/artists/23zg3TcAtWQy7J6upgbUnj",
-              "id": "23zg3TcAtWQy7J6upgbUnj",
-              "name": "USHER",
-              "type": "artist",
-              "uri": "spotify:artist:23zg3TcAtWQy7J6upgbUnj"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27386b0c9728ad3ed338eaeea79",
-          "album": "Raymond v Raymond (Expanded Edition)",
-          "tags": [],
-          "duration": 224093,
-          "addedAt": 1717455716755,
-          "order": 8
-        },
-        {
-          "id": "2XU0oxnq2qxCpomAAuJY8K",
-          "name": "Dance Monkey",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/2NjfBq1NflQcKSeiDooVjY"
-              },
-              "href": "https://api.spotify.com/v1/artists/2NjfBq1NflQcKSeiDooVjY",
-              "id": "2NjfBq1NflQcKSeiDooVjY",
-              "name": "Tones And I",
-              "type": "artist",
-              "uri": "spotify:artist:2NjfBq1NflQcKSeiDooVjY"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273c6f7af36ecdc3ed6e0a1f169",
-          "album": "Dance Monkey (Stripped Back) / Dance Monkey",
-          "tags": [],
-          "duration": 209438,
-          "addedAt": 1717468879097,
-          "order": 9
-        },
-        {
-          "id": "1vYXt7VSjH9JIM5oRRo7vA",
-          "name": "Dance The Night - From Barbie The Album",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6M2wZ9GZgrQXHCFfjv46we"
-              },
-              "href": "https://api.spotify.com/v1/artists/6M2wZ9GZgrQXHCFfjv46we",
-              "id": "6M2wZ9GZgrQXHCFfjv46we",
-              "name": "Dua Lipa",
-              "type": "artist",
-              "uri": "spotify:artist:6M2wZ9GZgrQXHCFfjv46we"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2737dd3ba455ee3390cb55b0192",
-          "album": "Dance The Night (From Barbie The Album)",
-          "tags": [],
-          "duration": 176579,
-          "addedAt": 1717435402885,
-          "order": 10
-        },
-        {
-          "id": "0GjEhVFGZW8afUYGChu3Rr",
-          "name": "Dancing Queen",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/0LcJLqbBmaGUft1e9Mm8HV"
-              },
-              "href": "https://api.spotify.com/v1/artists/0LcJLqbBmaGUft1e9Mm8HV",
-              "id": "0LcJLqbBmaGUft1e9Mm8HV",
-              "name": "ABBA",
-              "type": "artist",
-              "uri": "spotify:artist:0LcJLqbBmaGUft1e9Mm8HV"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27370f7a1b35d5165c85b95a0e0",
-          "album": "Arrival",
-          "tags": [],
-          "duration": 230400,
-          "addedAt": 1717109793287,
-          "order": 11
+          "stationIds": ["HHCls"]
         }
       ],
       "_id": "HHCls"
@@ -3106,187 +739,39 @@
       "createdBy": {
         "_id": "u114",
         "fullname": "Beyoncé",
-        "imgUrl": "https://i.pravatar.cc/150?u=u114"
+        "imgUrl": "http://example-photo10/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "ViwtNLUqkMY",
           "artist": "Beyoncé",
-          "img": "https://i.scdn.co/image/ab67616d0000b27345680a4a57c97894490a01c1",
+          "img": "https://i.ytimg.com/vi/ViwtNLUqkMY/default.jpg",
           "name": "Crazy In Love",
           "tags": [],
           "duration": 235,
           "url": "https://www.youtube.com/watch?v=ViwtNLUqkMY",
-          "stationIds": ["RnBGro"],
-          "order": 1,
-          "addedAt": 1717408346881
+          "stationIds": ["RnBGro"]
         },
         {
           "id": "ZbZSe6N_BXs",
           "artist": "Pharrell Williams",
-          "img": "https://i.scdn.co/image/ab67616d0000b2734838420464683f253cd67b57",
+          "img": "https://i.ytimg.com/vi/ZbZSe6N_BXs/default.jpg",
           "name": "Happy",
           "tags": [],
           "duration": 233,
           "url": "https://www.youtube.com/watch?v=ZbZSe6N_BXs",
-          "stationIds": ["RnBGro"],
-          "order": 2,
-          "addedAt": 1717084912538
+          "stationIds": ["RnBGro"]
         },
         {
           "id": "GxBSyx85Kp8",
           "artist": "Usher",
-          "img": "https://i.scdn.co/image/ab67616d0000b273365b3fb800c19f7ff72602da",
+          "img": "https://i.ytimg.com/vi/GxBSyx85Kp8/default.jpg",
           "name": "Yeah!",
           "tags": [],
           "duration": 250,
           "url": "https://www.youtube.com/watch?v=GxBSyx85Kp8",
-          "stationIds": ["RnBGro"],
-          "order": 3,
-          "addedAt": 1717394468641
-        },
-        {
-          "id": "track0",
-          "name": "Respect",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7nwUJBm0HE4ZxD3f5cy5ok"
-              },
-              "href": "https://api.spotify.com/v1/artists/7nwUJBm0HE4ZxD3f5cy5ok",
-              "id": "7nwUJBm0HE4ZxD3f5cy5ok",
-              "name": "Aretha Franklin",
-              "type": "artist",
-              "uri": "spotify:artist:7nwUJBm0HE4ZxD3f5cy5ok"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2736aa9314b7ddfbd8f036ba3ac",
-          "album": "I Never Loved a Man the Way I Love You",
-          "tags": [],
-          "duration": 147600,
-          "addedAt": 1716841836615,
-          "order": 4
-        },
-        {
-          "id": "track2",
-          "name": "Respect - 2003 Remaster",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7nwUJBm0HE4ZxD3f5cy5ok"
-              },
-              "href": "https://api.spotify.com/v1/artists/7nwUJBm0HE4ZxD3f5cy5ok",
-              "id": "7nwUJBm0HE4ZxD3f5cy5ok",
-              "name": "Aretha Franklin",
-              "type": "artist",
-              "uri": "spotify:artist:7nwUJBm0HE4ZxD3f5cy5ok"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2732c584610c45a37bb87e8a5be",
-          "album": "Atlantic 60th: Soul, Sweat And Strut",
-          "tags": [],
-          "duration": 142186,
-          "addedAt": 1717410836511,
-          "order": 5
-        },
-        {
-          "id": "track1",
-          "name": "YA YA",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6vWDO969PvNqNYHIOW5v0m"
-              },
-              "href": "https://api.spotify.com/v1/artists/6vWDO969PvNqNYHIOW5v0m",
-              "id": "6vWDO969PvNqNYHIOW5v0m",
-              "name": "Beyoncé",
-              "type": "artist",
-              "uri": "spotify:artist:6vWDO969PvNqNYHIOW5v0m"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2731572698fff8a1db257a53599",
-          "album": "COWBOY CARTER",
-          "tags": [],
-          "duration": 274766,
-          "addedAt": 1717415754265,
-          "order": 6
-        },
-        {
-          "id": "track5",
-          "name": "II MOST WANTED",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6vWDO969PvNqNYHIOW5v0m"
-              },
-              "href": "https://api.spotify.com/v1/artists/6vWDO969PvNqNYHIOW5v0m",
-              "id": "6vWDO969PvNqNYHIOW5v0m",
-              "name": "Beyoncé",
-              "type": "artist",
-              "uri": "spotify:artist:6vWDO969PvNqNYHIOW5v0m"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/5YGY8feqx7naU7z4HrwZM6"
-              },
-              "href": "https://api.spotify.com/v1/artists/5YGY8feqx7naU7z4HrwZM6",
-              "id": "5YGY8feqx7naU7z4HrwZM6",
-              "name": "Miley Cyrus",
-              "type": "artist",
-              "uri": "spotify:artist:5YGY8feqx7naU7z4HrwZM6"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2731572698fff8a1db257a53599",
-          "album": "COWBOY CARTER",
-          "tags": [],
-          "duration": 208521,
-          "addedAt": 1716809874835,
-          "order": 7
-        },
-        {
-          "id": "track3",
-          "name": "TEXAS HOLD 'EM",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6vWDO969PvNqNYHIOW5v0m"
-              },
-              "href": "https://api.spotify.com/v1/artists/6vWDO969PvNqNYHIOW5v0m",
-              "id": "6vWDO969PvNqNYHIOW5v0m",
-              "name": "Beyoncé",
-              "type": "artist",
-              "uri": "spotify:artist:6vWDO969PvNqNYHIOW5v0m"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2731572698fff8a1db257a53599",
-          "album": "COWBOY CARTER",
-          "tags": [],
-          "duration": 233456,
-          "addedAt": 1716924657107,
-          "order": 8
-        },
-        {
-          "id": "track8",
-          "name": "Dangerously In Love",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6vWDO969PvNqNYHIOW5v0m"
-              },
-              "href": "https://api.spotify.com/v1/artists/6vWDO969PvNqNYHIOW5v0m",
-              "id": "6vWDO969PvNqNYHIOW5v0m",
-              "name": "Beyoncé",
-              "type": "artist",
-              "uri": "spotify:artist:6vWDO969PvNqNYHIOW5v0m"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27345680a4a57c97894490a01c1",
-          "album": "Dangerously In Love",
-          "tags": [],
-          "duration": 293133,
-          "addedAt": 1717643756895,
-          "order": 9
+          "stationIds": ["RnBGro"]
         }
       ],
       "_id": "RnBGro"
@@ -3299,45 +784,39 @@
       "createdBy": {
         "_id": "u115",
         "fullname": "Thom Yorke",
-        "imgUrl": "https://i.pravatar.cc/150?u=u115"
+        "imgUrl": "http://example-photo11/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "XFkzRNyygfk",
           "artist": "Radiohead",
-          "img": "https://i.scdn.co/image/ab67616d0000b273df55e326ed144ab4f5cecf95",
+          "img": "https://i.ytimg.com/vi/XFkzRNyygfk/default.jpg",
           "name": "Creep",
           "tags": [],
           "duration": 238,
           "url": "https://www.youtube.com/watch?v=XFkzRNyygfk",
-          "stationIds": ["AltRk"],
-          "order": 1,
-          "addedAt": 1717113109966
+          "stationIds": ["AltRk"]
         },
         {
           "id": "hTWKbfoikeg",
           "artist": "Nirvana",
-          "img": "https://i.scdn.co/image/ab67616d0000b273e175a19e530c898d167d39bf",
+          "img": "https://i.ytimg.com/vi/hTWKbfoikeg/default.jpg",
           "name": "Smells Like Teen Spirit",
           "tags": [],
           "duration": 300,
           "url": "https://www.youtube.com/watch?v=hTWKbfoikeg",
-          "stationIds": ["AltRk"],
-          "order": 2,
-          "addedAt": 1717156846325
+          "stationIds": ["AltRk"]
         },
         {
           "id": "vjVkXlxsO8Q",
           "artist": "Linkin Park",
-          "img": "https://i.scdn.co/image/ab67616d0000b273e2f039481babe23658fc719a",
+          "img": "https://i.ytimg.com/vi/vjVkXlxsO8Q/default.jpg",
           "name": "In the End",
           "tags": [],
           "duration": 216,
           "url": "https://www.youtube.com/watch?v=vjVkXlxsO8Q",
-          "stationIds": ["AltRk"],
-          "order": 3,
-          "addedAt": 1717489304333
+          "stationIds": ["AltRk"]
         }
       ],
       "_id": "AltRk"
@@ -3350,263 +829,39 @@
       "createdBy": {
         "_id": "u116",
         "fullname": "Blake Shelton",
-        "imgUrl": "https://i.pravatar.cc/150?u=u116"
+        "imgUrl": "http://example-photo12/"
       },
       "likedByUsers": [],
       "songs": [
         {
-          "id": "rItv9i6c7AY",
-          "artist": "Luke Combs",
-          "img": "https://i.scdn.co/image/ab67616d0000b273ccba76fad1c624c09e72bc78",
-          "name": "Beautiful Crazy",
-          "tags": [],
-          "duration": 199,
-          "url": "https://www.youtube.com/watch?v=pLlNBWG2pOM",
-          "stationIds": ["CntryFav"],
-          "order": 1,
-          "addedAt": 1717080930996
-        },
-        {
-          "id": "L3wKzyIN1yk",
-          "artist": "Johnny Cash",
-          "img": "https://i.scdn.co/image/ab67616d0000b2736f4f62da3d811b6501a69ffa",
-          "name": "Hurt",
-          "tags": [],
-          "duration": 215,
-          "url": "https://www.youtube.com/watch?v=L3wKzyIN1yk",
-          "stationIds": ["CntryFav"],
-          "order": 2,
-          "addedAt": 1717210990468
-        },
-        {
-          "id": "kkoT1nZOexY",
-          "name": "Home",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1UTPBmNbXNTittyMJrNkvw"
-              },
-              "href": "https://api.spotify.com/v1/artists/1UTPBmNbXNTittyMJrNkvw",
-              "id": "1UTPBmNbXNTittyMJrNkvw",
-              "name": "Blake Shelton",
-              "type": "artist",
-              "uri": "spotify:artist:1UTPBmNbXNTittyMJrNkvw"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273a6d26c8b8b7b00f4776dabcc",
-          "album": "Reloaded: 20 #1 Hits",
-          "tags": [],
-          "duration": 230453,
-          "addedAt": 1717166167110,
-          "order": 3
-        },
-        {
-          "id": "5M8goiFYynmNxhueYW6grR",
-          "name": "Nobody But You (Duet with Gwen Stefani)",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1UTPBmNbXNTittyMJrNkvw"
-              },
-              "href": "https://api.spotify.com/v1/artists/1UTPBmNbXNTittyMJrNkvw",
-              "id": "1UTPBmNbXNTittyMJrNkvw",
-              "name": "Blake Shelton",
-              "type": "artist",
-              "uri": "spotify:artist:1UTPBmNbXNTittyMJrNkvw"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/4yiQZ8tQPux8cPriYMWUFP"
-              },
-              "href": "https://api.spotify.com/v1/artists/4yiQZ8tQPux8cPriYMWUFP",
-              "id": "4yiQZ8tQPux8cPriYMWUFP",
-              "name": "Gwen Stefani",
-              "type": "artist",
-              "uri": "spotify:artist:4yiQZ8tQPux8cPriYMWUFP"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273acf99661b45380007ad598cb",
-          "album": "Fully Loaded: God's Country",
-          "tags": [],
-          "duration": 194866,
-          "addedAt": 1716733497917,
-          "order": 4
-        },
-        {
-          "id": "5wane5dFpp8xgriui6y0c7",
-          "name": "Ol' Red",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1UTPBmNbXNTittyMJrNkvw"
-              },
-              "href": "https://api.spotify.com/v1/artists/1UTPBmNbXNTittyMJrNkvw",
-              "id": "1UTPBmNbXNTittyMJrNkvw",
-              "name": "Blake Shelton",
-              "type": "artist",
-              "uri": "spotify:artist:1UTPBmNbXNTittyMJrNkvw"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2731716c34342160479d07aef9c",
-          "album": "Blake Shelton",
-          "tags": [],
-          "duration": 221266,
-          "addedAt": 1716926015938,
-          "order": 5
-        },
-        {
-          "id": "39FwE8edwuyiaa4PrGBkP7",
-          "name": "Boys 'Round Here (feat. Pistol Annies & Friends)",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1UTPBmNbXNTittyMJrNkvw"
-              },
-              "href": "https://api.spotify.com/v1/artists/1UTPBmNbXNTittyMJrNkvw",
-              "id": "1UTPBmNbXNTittyMJrNkvw",
-              "name": "Blake Shelton",
-              "type": "artist",
-              "uri": "spotify:artist:1UTPBmNbXNTittyMJrNkvw"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/2wSgVsgLUZeDJwoLcPO7ny"
-              },
-              "href": "https://api.spotify.com/v1/artists/2wSgVsgLUZeDJwoLcPO7ny",
-              "id": "2wSgVsgLUZeDJwoLcPO7ny",
-              "name": "Pistol Annies",
-              "type": "artist",
-              "uri": "spotify:artist:2wSgVsgLUZeDJwoLcPO7ny"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273de2b6ae73697b2da4d3e9c27",
-          "album": "Based on a True Story... (Deluxe Edition)",
-          "tags": [],
-          "duration": 288760,
-          "addedAt": 1716900305096,
-          "order": 6
-        },
-        {
-          "id": "0gY2iq0xJPRoIB1PScKSw4",
-          "name": "Honey Bee",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1UTPBmNbXNTittyMJrNkvw"
-              },
-              "href": "https://api.spotify.com/v1/artists/1UTPBmNbXNTittyMJrNkvw",
-              "id": "1UTPBmNbXNTittyMJrNkvw",
-              "name": "Blake Shelton",
-              "type": "artist",
-              "uri": "spotify:artist:1UTPBmNbXNTittyMJrNkvw"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273b210ae955aeea30e0fa97434",
-          "album": "Red River Blue (Deluxe Edition)",
-          "tags": [],
-          "duration": 210720,
-          "addedAt": 1716914685081,
-          "order": 7
-        },
-        {
-          "id": "0p1HtkrNYxv0iDfEKwXSTp",
-          "name": "Sangria",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1UTPBmNbXNTittyMJrNkvw"
-              },
-              "href": "https://api.spotify.com/v1/artists/1UTPBmNbXNTittyMJrNkvw",
-              "id": "1UTPBmNbXNTittyMJrNkvw",
-              "name": "Blake Shelton",
-              "type": "artist",
-              "uri": "spotify:artist:1UTPBmNbXNTittyMJrNkvw"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2731eae4b4bee84c621dff76b32",
-          "album": "BRINGING BACK THE SUNSHINE",
-          "tags": [],
-          "duration": 233480,
-          "addedAt": 1717393554463,
-          "order": 8
-        },
-        {
-          "id": "0w9LJae3sVlZlH2CnxTInF",
-          "name": "God Gave Me You",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1UTPBmNbXNTittyMJrNkvw"
-              },
-              "href": "https://api.spotify.com/v1/artists/1UTPBmNbXNTittyMJrNkvw",
-              "id": "1UTPBmNbXNTittyMJrNkvw",
-              "name": "Blake Shelton",
-              "type": "artist",
-              "uri": "spotify:artist:1UTPBmNbXNTittyMJrNkvw"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273b210ae955aeea30e0fa97434",
-          "album": "Red River Blue (Deluxe Edition)",
-          "tags": [],
-          "duration": 229533,
-          "addedAt": 1716980404413,
-          "order": 9
-        },
-        {
-          "id": "7kWeSMXLxUHHOkFxsS0vhP",
-          "name": "Some Beach",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1UTPBmNbXNTittyMJrNkvw"
-              },
-              "href": "https://api.spotify.com/v1/artists/1UTPBmNbXNTittyMJrNkvw",
-              "id": "1UTPBmNbXNTittyMJrNkvw",
-              "name": "Blake Shelton",
-              "type": "artist",
-              "uri": "spotify:artist:1UTPBmNbXNTittyMJrNkvw"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273d676ab41a5cfb441ac8e26ce",
-          "album": "Blake Shelton's Barn & Grill",
-          "tags": [],
-          "duration": 204826,
-          "addedAt": 1717674859707,
-          "order": 10
-        },
-        {
-          "id": "2WQAknZHrJAEQOFXe0F44P",
-          "name": "Austin",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1UTPBmNbXNTittyMJrNkvw"
-              },
-              "href": "https://api.spotify.com/v1/artists/1UTPBmNbXNTittyMJrNkvw",
-              "id": "1UTPBmNbXNTittyMJrNkvw",
-              "name": "Blake Shelton",
-              "type": "artist",
-              "uri": "spotify:artist:1UTPBmNbXNTittyMJrNkvw"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2731716c34342160479d07aef9c",
-          "album": "Blake Shelton",
-          "tags": [],
-          "duration": 230333,
-          "addedAt": 1717002285764,
-          "order": 11
-        },
-        {
           "id": "ZEWGyyLiqY4",
           "artist": "Blake Shelton",
-          "img": "https://i.scdn.co/image/ab67616d0000b2730d7cfe15d2f94083ccb6ae81",
+          "img": "https://i.ytimg.com/vi/ZEWGyyLiqY4/default.jpg",
           "name": "God's Country",
           "tags": [],
           "duration": 196,
           "url": "https://www.youtube.com/watch?v=ZEWGyyLiqY4",
-          "stationIds": ["CntryFav"],
-          "order": 12,
-          "addedAt": 1717599536032
+          "stationIds": ["CntryFav"]
+        },
+        {
+          "id": "rItv9i6c7AY",
+          "artist": "Luke Combs",
+          "img": "https://i.ytimg.com/vi/rItv9i6c7AY/default.jpg",
+          "name": "Beautiful Crazy",
+          "tags": [],
+          "duration": 199,
+          "url": "https://www.youtube.com/watch?v=pLlNBWG2pOM",
+          "stationIds": ["CntryFav"]
+        },
+        {
+          "id": "L3wKzyIN1yk",
+          "artist": "Johnny Cash",
+          "img": "https://i.ytimg.com/vi/L3wKzyIN1yk/default.jpg",
+          "name": "Hurt",
+          "tags": [],
+          "duration": 215,
+          "url": "https://www.youtube.com/watch?v=L3wKzyIN1yk",
+          "stationIds": ["CntryFav"]
         }
       ],
       "_id": "CntryFav"
@@ -3619,45 +874,39 @@
       "createdBy": {
         "_id": "u117",
         "fullname": "Taylor Swift",
-        "imgUrl": "https://i.pravatar.cc/150?u=u117"
+        "imgUrl": "http://example-photo13/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "3tmd-ClpJxA",
           "artist": "Taylor Swift",
-          "img": "https://i.scdn.co/image/ab67616d0000b2739abdf14e6058bd3903686148",
+          "img": "https://i.ytimg.com/vi/3tmd-ClpJxA/default.jpg",
           "name": "Shake It Off",
           "tags": [],
           "duration": 242,
           "url": "https://www.youtube.com/watch?v=3tmd-ClpJxA",
-          "stationIds": ["PopHts"],
-          "order": 1,
-          "addedAt": 1716858449214
+          "stationIds": ["PopHts"]
         },
         {
           "id": "YQHsXMglC9A",
           "artist": "Adele",
-          "img": "https://i.scdn.co/image/ab67616d0000b27347ce408fb4926d69da6713c2",
+          "img": "https://i.ytimg.com/vi/YQHsXMglC9A/default.jpg",
           "name": "Hello",
           "tags": [],
           "duration": 360,
           "url": "https://www.youtube.com/watch?v=YQHsXMglC9A",
-          "stationIds": ["PopHts"],
-          "order": 2,
-          "addedAt": 1717418273911
+          "stationIds": ["PopHts"]
         },
         {
           "id": "kXYiU_JCYtU",
           "artist": "Linkin Park",
-          "img": "https://i.scdn.co/image/ab67616d0000b2735f1f51d14e8bea89484ecd1b",
+          "img": "https://i.ytimg.com/vi/kXYiU_JCYtU/default.jpg",
           "name": "Numb",
           "tags": [],
           "duration": 216,
           "url": "https://www.youtube.com/watch?v=kXYiU_JCYtU",
-          "stationIds": ["PopHts"],
-          "order": 3,
-          "addedAt": 1717315265354
+          "stationIds": ["PopHts"]
         }
       ],
       "_id": "PopHts"
@@ -3670,45 +919,39 @@
       "createdBy": {
         "_id": "u118",
         "fullname": "Aretha Franklin",
-        "imgUrl": "https://i.pravatar.cc/150?u=u118"
+        "imgUrl": "http://example-photo14/"
       },
       "likedByUsers": [],
       "songs": [
         {
-          "id": "fJ9rUzIMcZQ",
-          "artist": "Marvin Gaye",
-          "img": "https://i.scdn.co/image/ab67616d0000b273e5833ee02b2b4f0e8fd539d2",
-          "name": "Let's Get It On",
-          "tags": [],
-          "duration": 302,
-          "url": "https://www.youtube.com/watch?v=fJ9rUzIMcZQ",
-          "stationIds": ["SoulCls"],
-          "order": 1,
-          "addedAt": 1716737759305
-        },
-        {
-          "id": "1bGOgY1CmiU",
-          "artist": "Stevie Wonder",
-          "img": "https://i.scdn.co/image/ab67616d0000b273f97219e49a23bfdd4de7eed1",
-          "name": "I Just Called To Say I Love You",
-          "tags": [],
-          "duration": 278,
-          "url": "https://www.youtube.com/watch?v=1bGOgY1CmiU",
-          "stationIds": ["SoulCls"],
-          "order": 2,
-          "addedAt": 1717334780030
-        },
-        {
           "id": "A134hShx_gw",
           "artist": "Aretha Franklin",
-          "img": "https://i.scdn.co/image/ab67616d0000b273058d85d25752a6701564ba06",
+          "img": "https://i.ytimg.com/vi/A134hShx_gw/default.jpg",
           "name": "Respect",
           "tags": [],
           "duration": 149,
           "url": "https://www.youtube.com/watch?v=A134hShx_gw",
-          "stationIds": ["SoulCls"],
-          "order": 3,
-          "addedAt": 1716912406813
+          "stationIds": ["SoulCls"]
+        },
+        {
+          "id": "fJ9rUzIMcZQ",
+          "artist": "Marvin Gaye",
+          "img": "https://i.ytimg.com/vi/fJ9rUzIMcZQ/default.jpg",
+          "name": "Let's Get It On",
+          "tags": [],
+          "duration": 302,
+          "url": "https://www.youtube.com/watch?v=fJ9rUzIMcZQ",
+          "stationIds": ["SoulCls"]
+        },
+        {
+          "id": "1bGOgY1CmiU",
+          "artist": "Stevie Wonder",
+          "img": "https://i.ytimg.com/vi/1bGOgY1CmiU/default.jpg",
+          "name": "I Just Called To Say I Love You",
+          "tags": [],
+          "duration": 278,
+          "url": "https://www.youtube.com/watch?v=1bGOgY1CmiU",
+          "stationIds": ["SoulCls"]
         }
       ],
       "_id": "SoulCls"
@@ -3721,243 +964,39 @@
       "createdBy": {
         "_id": "u119",
         "fullname": "Freddie Mercury",
-        "imgUrl": "https://i.pravatar.cc/150?u=u119"
+        "imgUrl": "http://example-photo15/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "fJ9rUzIMcZQ",
           "artist": "Queen",
-          "img": "https://i.scdn.co/image/ab67616d0000b2735a7602f0e508660b2ba40f8c",
+          "img": "https://i.ytimg.com/vi/fJ9rUzIMcZQ/default.jpg",
           "name": "Bohemian Rhapsody",
           "tags": [],
           "duration": 354,
           "url": "https://www.youtube.com/watch?v=fJ9rUzIMcZQ",
-          "stationIds": ["RockLgnd"],
-          "order": 1,
-          "addedAt": 1717535609594
+          "stationIds": ["RockLgnd"]
         },
         {
           "id": "3YxaaGgTQYM",
           "artist": "Green Day",
-          "img": "https://i.scdn.co/image/ab67616d0000b2737f213369d5265a60af5f7e82",
+          "img": "https://i.ytimg.com/vi/3YxaaGgTQYM/default.jpg",
           "name": "Boulevard Of Broken Dreams",
           "tags": [],
           "duration": 273,
           "url": "https://www.youtube.com/watch?v=3YxaaGgTQYM",
-          "stationIds": ["RockLgnd"],
-          "order": 2,
-          "addedAt": 1716780350133
+          "stationIds": ["RockLgnd"]
         },
         {
           "id": "u9Dg-g7t2l4",
           "artist": "Metallica",
-          "img": "https://i.scdn.co/image/ab67616d0000b2731f9edf15e43f4c2f4938b869",
+          "img": "https://i.ytimg.com/vi/u9Dg-g7t2l4/default.jpg",
           "name": "Enter Sandman",
           "tags": [],
           "duration": 331,
           "url": "https://www.youtube.com/watch?v=u9Dg-g7t2l4",
-          "stationIds": ["RockLgnd"],
-          "order": 3,
-          "addedAt": 1717506314936
-        },
-        {
-          "id": "track0",
-          "name": "Enter Sandman (Remastered)",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/2ye2Wgw4gimLv2eAKyk1NB"
-              },
-              "href": "https://api.spotify.com/v1/artists/2ye2Wgw4gimLv2eAKyk1NB",
-              "id": "2ye2Wgw4gimLv2eAKyk1NB",
-              "name": "Metallica",
-              "type": "artist",
-              "uri": "spotify:artist:2ye2Wgw4gimLv2eAKyk1NB"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2731f9edf15e43f4c2f4938b869",
-          "album": "Metallica (Remastered)",
-          "tags": [],
-          "duration": 331560,
-          "addedAt": 1717173273937,
-          "order": 4
-        },
-        {
-          "id": "track4",
-          "name": "Metálica",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1GfaAWKfZE9hrYS8IqkWKB"
-              },
-              "href": "https://api.spotify.com/v1/artists/1GfaAWKfZE9hrYS8IqkWKB",
-              "id": "1GfaAWKfZE9hrYS8IqkWKB",
-              "name": "Tranzas",
-              "type": "artist",
-              "uri": "spotify:artist:1GfaAWKfZE9hrYS8IqkWKB"
-            }
-          ],
-          "img": "https://i.scdn.co/image/c8d6f14635b286ac7c71450c7c8d69f3d6951b50",
-          "album": "Por Siempre",
-          "tags": [],
-          "duration": 253733,
-          "addedAt": 1717396660390,
-          "order": 5
-        },
-        {
-          "id": "track2",
-          "name": "Metalic",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/2NuLlZIDbKWaBBfqIOoWAz"
-              },
-              "href": "https://api.spotify.com/v1/artists/2NuLlZIDbKWaBBfqIOoWAz",
-              "id": "2NuLlZIDbKWaBBfqIOoWAz",
-              "name": "Ardee",
-              "type": "artist",
-              "uri": "spotify:artist:2NuLlZIDbKWaBBfqIOoWAz"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2730c6e3ea9e45bed5565a7b4a1",
-          "album": "Metalic",
-          "tags": [],
-          "duration": 139711,
-          "addedAt": 1717389201866,
-          "order": 6
-        },
-        {
-          "id": "track5",
-          "name": "Going to California - Remaster",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/36QJpDe2go2KgaRleHCDTp"
-              },
-              "href": "https://api.spotify.com/v1/artists/36QJpDe2go2KgaRleHCDTp",
-              "id": "36QJpDe2go2KgaRleHCDTp",
-              "name": "Led Zeppelin",
-              "type": "artist",
-              "uri": "spotify:artist:36QJpDe2go2KgaRleHCDTp"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273c8a11e48c91a982d086afc69",
-          "album": "Led Zeppelin IV (Deluxe Edition)",
-          "tags": [],
-          "duration": 212160,
-          "addedAt": 1717549145820,
-          "order": 8
-        },
-        {
-          "id": "track6",
-          "name": "Black Dog - Remaster",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/36QJpDe2go2KgaRleHCDTp"
-              },
-              "href": "https://api.spotify.com/v1/artists/36QJpDe2go2KgaRleHCDTp",
-              "id": "36QJpDe2go2KgaRleHCDTp",
-              "name": "Led Zeppelin",
-              "type": "artist",
-              "uri": "spotify:artist:36QJpDe2go2KgaRleHCDTp"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273c8a11e48c91a982d086afc69",
-          "album": "Led Zeppelin IV (Deluxe Edition)",
-          "tags": [],
-          "duration": 295386,
-          "addedAt": 1717264212864,
-          "order": 9
-        },
-        {
-          "id": "track7",
-          "name": "D'yer Mak'er - Remaster",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/36QJpDe2go2KgaRleHCDTp"
-              },
-              "href": "https://api.spotify.com/v1/artists/36QJpDe2go2KgaRleHCDTp",
-              "id": "36QJpDe2go2KgaRleHCDTp",
-              "name": "Led Zeppelin",
-              "type": "artist",
-              "uri": "spotify:artist:36QJpDe2go2KgaRleHCDTp"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2731aa47e71c4edfeaddb65cd54",
-          "album": "Houses of the Holy (Remaster)",
-          "tags": [],
-          "duration": 262748,
-          "addedAt": 1717476160839,
-          "order": 11
-        },
-        {
-          "id": "track1",
-          "name": "Immigrant Song - Remaster",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/36QJpDe2go2KgaRleHCDTp"
-              },
-              "href": "https://api.spotify.com/v1/artists/36QJpDe2go2KgaRleHCDTp",
-              "id": "36QJpDe2go2KgaRleHCDTp",
-              "name": "Led Zeppelin",
-              "type": "artist",
-              "uri": "spotify:artist:36QJpDe2go2KgaRleHCDTp"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27390a50cfe99a4c19ff3cbfbdb",
-          "album": "Led Zeppelin III (Remaster)",
-          "tags": [],
-          "duration": 146250,
-          "addedAt": 1717138066951,
-          "order": 12
-        },
-        {
-          "id": "track8",
-          "name": "Good Times Bad Times - 1993 Remaster",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/36QJpDe2go2KgaRleHCDTp"
-              },
-              "href": "https://api.spotify.com/v1/artists/36QJpDe2go2KgaRleHCDTp",
-              "id": "36QJpDe2go2KgaRleHCDTp",
-              "name": "Led Zeppelin",
-              "type": "artist",
-              "uri": "spotify:artist:36QJpDe2go2KgaRleHCDTp"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2736f2f499c1df1f210c9b34b32",
-          "album": "Led Zeppelin",
-          "tags": [],
-          "duration": 166266,
-          "addedAt": 1716980156343,
-          "order": 13
-        },
-        {
-          "id": "track9",
-          "name": "Over the Hills and Far Away - Remaster",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/36QJpDe2go2KgaRleHCDTp"
-              },
-              "href": "https://api.spotify.com/v1/artists/36QJpDe2go2KgaRleHCDTp",
-              "id": "36QJpDe2go2KgaRleHCDTp",
-              "name": "Led Zeppelin",
-              "type": "artist",
-              "uri": "spotify:artist:36QJpDe2go2KgaRleHCDTp"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2731aa47e71c4edfeaddb65cd54",
-          "album": "Houses of the Holy (Remaster)",
-          "tags": [],
-          "duration": 290933,
-          "addedAt": 1717123104541,
-          "order": 14
+          "stationIds": ["RockLgnd"]
         }
       ],
       "_id": "RockLgnd"
@@ -3970,175 +1009,39 @@
       "createdBy": {
         "_id": "u120",
         "fullname": "Miles Davis",
-        "imgUrl": "https://i.pravatar.cc/150?u=u120"
+        "imgUrl": "http://example-photo16/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "ylXk1LBvIqU",
           "artist": "Miles Davis",
-          "img": "https://i.scdn.co/image/ab67616d0000b2735a45d5041e4ffcb9f756f740",
+          "img": "https://i.ytimg.com/vi/ylXk1LBvIqU/default.jpg",
           "name": "So What",
           "tags": [],
           "duration": 566,
           "url": "https://www.youtube.com/watch?v=ylXk1LBvIqU",
-          "stationIds": ["JazzCls"],
-          "order": 1,
-          "addedAt": 1716872388415
+          "stationIds": ["JazzCls"]
         },
         {
           "id": "vmDDOFXSgAs",
           "artist": "John Coltrane",
-          "img": "https://i.scdn.co/image/ab67616d0000b273f90f61c31aae2d5653b80d55",
+          "img": "https://i.ytimg.com/vi/vmDDOFXSgAs/default.jpg",
           "name": "A Love Supreme",
           "tags": [],
           "duration": 470,
           "url": "https://www.youtube.com/watch?v=vmDDOFXSgAs",
-          "stationIds": ["JazzCls"],
-          "order": 2,
-          "addedAt": 1717310333165
+          "stationIds": ["JazzCls"]
         },
         {
           "id": "kvA6fjGsR04",
           "artist": "Duke Ellington",
-          "img": "https://i.scdn.co/image/ab67616d0000b273c32960c97393521616307684",
+          "img": "https://i.ytimg.com/vi/kvA6fjGsR04/default.jpg",
           "name": "Take The 'A' Train",
           "tags": [],
           "duration": 187,
           "url": "https://www.youtube.com/watch?v=kvA6fjGsR04",
-          "stationIds": ["JazzCls"],
-          "order": 3,
-          "addedAt": 1716949502584
-        },
-        {
-          "id": "track3",
-          "name": "Hiromi",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7nNml7OiJoyXojuihNAmDu"
-              },
-              "href": "https://api.spotify.com/v1/artists/7nNml7OiJoyXojuihNAmDu",
-              "id": "7nNml7OiJoyXojuihNAmDu",
-              "name": "ConsciousThoughts",
-              "type": "artist",
-              "uri": "spotify:artist:7nNml7OiJoyXojuihNAmDu"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273e8c3a914370fc39bf48c3df9",
-          "album": "Volume 1",
-          "tags": [],
-          "duration": 237600,
-          "addedAt": 1717300741989,
-          "order": 4
-        },
-        {
-          "id": "track0",
-          "name": "Beethoven's Piano Sonata No. 8, Pathetique",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7DeuppKQdCVhuWrzzCBBpc"
-              },
-              "href": "https://api.spotify.com/v1/artists/7DeuppKQdCVhuWrzzCBBpc",
-              "id": "7DeuppKQdCVhuWrzzCBBpc",
-              "name": "Hiromi",
-              "type": "artist",
-              "uri": "spotify:artist:7DeuppKQdCVhuWrzzCBBpc"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/4jSvNq6yedPhkC4p3zlznC"
-              },
-              "href": "https://api.spotify.com/v1/artists/4jSvNq6yedPhkC4p3zlznC",
-              "id": "4jSvNq6yedPhkC4p3zlznC",
-              "name": "Anthony Jackson",
-              "type": "artist",
-              "uri": "spotify:artist:4jSvNq6yedPhkC4p3zlznC"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6pPx8jYe1vzHuQea1st8Iy"
-              },
-              "href": "https://api.spotify.com/v1/artists/6pPx8jYe1vzHuQea1st8Iy",
-              "id": "6pPx8jYe1vzHuQea1st8Iy",
-              "name": "Simon Phillips",
-              "type": "artist",
-              "uri": "spotify:artist:6pPx8jYe1vzHuQea1st8Iy"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273df5c1e2d01aeb2614a33fb4d",
-          "album": "Voice",
-          "tags": [],
-          "duration": 313026,
-          "addedAt": 1717708758921,
-          "order": 5
-        },
-        {
-          "id": "track7",
-          "name": "Instrument Americano",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/5KuhCoPsTrIkjUdaaJ41ae"
-              },
-              "href": "https://api.spotify.com/v1/artists/5KuhCoPsTrIkjUdaaJ41ae",
-              "id": "5KuhCoPsTrIkjUdaaJ41ae",
-              "name": "Restaurante Jazz Clásicos",
-              "type": "artist",
-              "uri": "spotify:artist:5KuhCoPsTrIkjUdaaJ41ae"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273914940c213dd30a0e6612eca",
-          "album": "Jazz for Kids",
-          "tags": [],
-          "duration": 140689,
-          "addedAt": 1717351716835,
-          "order": 7
-        },
-        {
-          "id": "track4",
-          "name": "Estilo jazz clásico con saxofón soprano",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6NgBpdhUmcEBGKa63GeWUK"
-              },
-              "href": "https://api.spotify.com/v1/artists/6NgBpdhUmcEBGKa63GeWUK",
-              "id": "6NgBpdhUmcEBGKa63GeWUK",
-              "name": "Cena Española con Jazz",
-              "type": "artist",
-              "uri": "spotify:artist:6NgBpdhUmcEBGKa63GeWUK"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27325dd4dd61ba18e5f8de33111",
-          "album": "Ambiente de fiesta de cena",
-          "tags": [],
-          "duration": 131462,
-          "addedAt": 1716774020697,
-          "order": 8
-        },
-        {
-          "id": "track1",
-          "name": "Jazz Classic",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3yKoHgjtyenCOIRaD2Gghu"
-              },
-              "href": "https://api.spotify.com/v1/artists/3yKoHgjtyenCOIRaD2Gghu",
-              "id": "3yKoHgjtyenCOIRaD2Gghu",
-              "name": "Cafe Music BGM channel",
-              "type": "artist",
-              "uri": "spotify:artist:3yKoHgjtyenCOIRaD2Gghu"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2732fe5b60b4b22c93bac6eaafc",
-          "album": "Coffee & Jazz",
-          "tags": [],
-          "duration": 182480,
-          "addedAt": 1717265880177,
-          "order": 9
+          "stationIds": ["JazzCls"]
         }
       ],
       "_id": "JazzCls"
@@ -4151,45 +1054,39 @@
       "createdBy": {
         "_id": "u121",
         "fullname": "Calvin Harris",
-        "imgUrl": "https://i.pravatar.cc/150?u=u121"
+        "imgUrl": "http://example-photo17/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "5NV6Rdv1a3I",
           "artist": "Daft Punk",
-          "img": "https://i.scdn.co/image/ab67616d0000b2739b9b36b0e22870b9f542d937",
+          "img": "https://i.ytimg.com/vi/5NV6Rdv1a3I/default.jpg",
           "name": "Get Lucky",
           "tags": [],
           "duration": 248,
           "url": "https://www.youtube.com/watch?v=5NV6Rdv1a3I",
-          "stationIds": ["ElecEss"],
-          "order": 1,
-          "addedAt": 1717430722074
+          "stationIds": ["ElecEss"]
         },
         {
           "id": "tKi9Z-f6qX4",
           "artist": "Deadmau5",
-          "img": "https://i.scdn.co/image/ab67616d0000b27372123fd7f792d5d197d46e34",
+          "img": "https://i.ytimg.com/vi/tKi9Z-f6qX4/default.jpg",
           "name": "Strobe",
           "tags": [],
           "duration": 631,
           "url": "https://www.youtube.com/watch?v=tKi9Z-f6qX4",
-          "stationIds": ["ElecEss"],
-          "order": 2,
-          "addedAt": 1717459039204
+          "stationIds": ["ElecEss"]
         },
         {
           "id": "gCYcHz2k5x0",
           "artist": "Zedd",
-          "img": "https://i.scdn.co/image/ab67616d0000b273941dd3b3343d9cb9329d37bf",
+          "img": "https://i.ytimg.com/vi/gCYcHz2k5x0/default.jpg",
           "name": "Clarity",
           "tags": [],
           "duration": 272,
           "url": "https://www.youtube.com/watch?v=gCYcHz2k5x0",
-          "stationIds": ["ElecEss"],
-          "order": 3,
-          "addedAt": 1717188603988
+          "stationIds": ["ElecEss"]
         }
       ],
       "_id": "ElecEss"
@@ -4202,161 +1099,29 @@
       "createdBy": {
         "_id": "u122",
         "fullname": "Noa Kirel",
-        "imgUrl": "https://i.pravatar.cc/150?u=u122"
+        "imgUrl": "http://example-photo18/"
       },
       "likedByUsers": [],
       "songs": [
         {
-          "id": "track5",
-          "name": "נאדי באדי",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3uwJWwjkS3wKPICQ2ZztuC"
-              },
-              "href": "https://api.spotify.com/v1/artists/3uwJWwjkS3wKPICQ2ZztuC",
-              "id": "3uwJWwjkS3wKPICQ2ZztuC",
-              "name": "שחר טבוך",
-              "type": "artist",
-              "uri": "spotify:artist:3uwJWwjkS3wKPICQ2ZztuC"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3JPKPnzWJGjccn8SnjwA5i"
-              },
-              "href": "https://api.spotify.com/v1/artists/3JPKPnzWJGjccn8SnjwA5i",
-              "id": "3JPKPnzWJGjccn8SnjwA5i",
-              "name": "אגם בוחבוט",
-              "type": "artist",
-              "uri": "spotify:artist:3JPKPnzWJGjccn8SnjwA5i"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273436d7fcc6c3bba5ce98019c2",
-          "album": "נאדי באדי",
-          "tags": [],
-          "duration": 150420,
-          "addedAt": 1716880357423,
-          "order": 1
-        },
-        {
           "id": "oQbh5Kvet04",
           "artist": "Noa Kirel",
-          "img": "https://i.scdn.co/image/ab67616d0000b2731aa92dbd764956b61b208f6f",
+          "img": "https://i.ytimg.com/vi/oQbh5Kvet04/default.jpg",
           "name": "Million Dollar",
           "tags": [],
           "duration": 200,
           "url": "https://www.youtube.com/watch?v=oQbh5Kvet04",
-          "stationIds": ["IsrPop"],
-          "order": 2,
-          "addedAt": 1717600289127
+          "stationIds": ["IsrPop"]
         },
         {
           "id": "NpDAFKqeUDw",
           "artist": "Static and Ben El",
-          "img": "https://i.scdn.co/image/ab67616d0000b273501edb1591f1c46f4159f4c5",
+          "img": "https://i.ytimg.com/vi/NpDAFKqeUDw/default.jpg",
           "name": "Zero Effort",
           "tags": [],
           "duration": 216,
           "url": "https://www.youtube.com/watch?v=NpDAFKqeUDw",
-          "stationIds": ["IsrPop"],
-          "order": 3,
-          "addedAt": 1717414059270
-        },
-        {
-          "id": "track0",
-          "name": "לך לישון",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3lVXtKsFTJM8ecY8gqdoCo"
-              },
-              "href": "https://api.spotify.com/v1/artists/3lVXtKsFTJM8ecY8gqdoCo",
-              "id": "3lVXtKsFTJM8ecY8gqdoCo",
-              "name": "אנה זק",
-              "type": "artist",
-              "uri": "spotify:artist:3lVXtKsFTJM8ecY8gqdoCo"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273ec71813c0c13422d225981da",
-          "album": "לך לישון",
-          "tags": [],
-          "duration": 158589,
-          "addedAt": 1717115114049,
-          "order": 4
-        },
-        {
-          "id": "track2",
-          "name": "אלבבאלה",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3v9RYe2J8eJLUlggkXxmZL"
-              },
-              "href": "https://api.spotify.com/v1/artists/3v9RYe2J8eJLUlggkXxmZL",
-              "id": "3v9RYe2J8eJLUlggkXxmZL",
-              "name": "ישראל בידור",
-              "type": "artist",
-              "uri": "spotify:artist:3v9RYe2J8eJLUlggkXxmZL"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3lVXtKsFTJM8ecY8gqdoCo"
-              },
-              "href": "https://api.spotify.com/v1/artists/3lVXtKsFTJM8ecY8gqdoCo",
-              "id": "3lVXtKsFTJM8ecY8gqdoCo",
-              "name": "אנה זק",
-              "type": "artist",
-              "uri": "spotify:artist:3lVXtKsFTJM8ecY8gqdoCo"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7MKSeamhiRpa0xiS4FHGSC"
-              },
-              "href": "https://api.spotify.com/v1/artists/7MKSeamhiRpa0xiS4FHGSC",
-              "id": "7MKSeamhiRpa0xiS4FHGSC",
-              "name": "כפיר צפריר",
-              "type": "artist",
-              "uri": "spotify:artist:7MKSeamhiRpa0xiS4FHGSC"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2738010df4cb322fca38de98e48",
-          "album": "אלבבאלה",
-          "tags": [],
-          "duration": 160645,
-          "addedAt": 1717303804002,
-          "order": 5
-        },
-        {
-          "id": "track1",
-          "name": "חביב אלבי",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/0xHa28taiElkcQf9o3z76g"
-              },
-              "href": "https://api.spotify.com/v1/artists/0xHa28taiElkcQf9o3z76g",
-              "id": "0xHa28taiElkcQf9o3z76g",
-              "name": "סטטיק & בן אל תבורי",
-              "type": "artist",
-              "uri": "spotify:artist:0xHa28taiElkcQf9o3z76g"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/6kKweapGufuHSv5CXVURim"
-              },
-              "href": "https://api.spotify.com/v1/artists/6kKweapGufuHSv5CXVURim",
-              "id": "6kKweapGufuHSv5CXVURim",
-              "name": "נסרין קדרי",
-              "type": "artist",
-              "uri": "spotify:artist:6kKweapGufuHSv5CXVURim"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273d7a14716d49745d8aa4a9c59",
-          "album": "חביב אלבי",
-          "tags": [],
-          "duration": 198400,
-          "addedAt": 1717522453678,
-          "order": 7
+          "stationIds": ["IsrPop"]
         }
       ],
       "_id": "IsrPop"
@@ -4369,251 +1134,39 @@
       "createdBy": {
         "_id": "u123",
         "fullname": "Aviv Geffen",
-        "imgUrl": "https://i.pravatar.cc/150?u=u123"
+        "imgUrl": "http://example-photo19/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "TeJQz1Bco84",
           "artist": "Aviv Geffen",
-          "img": "https://i.scdn.co/image/ab67616d0000b273a413630c394e503a32030121",
+          "img": "https://i.ytimg.com/vi/TeJQz1Bco84/default.jpg",
           "name": "Or Yareach",
           "tags": [],
           "duration": 258,
           "url": "https://www.youtube.com/watch?v=TeJQz1Bco84",
-          "stationIds": ["IsrRck"],
-          "order": 1,
-          "addedAt": 1716723710893
+          "stationIds": ["IsrRck"]
         },
         {
           "id": "0y0gaLiyiak",
           "artist": "Mashina",
-          "img": "https://i.scdn.co/image/ab67616d0000b2734b47d00df97185e44ded6101",
+          "img": "https://i.ytimg.com/vi/0y0gaLiyiak/default.jpg",
           "name": "Night Train to Cairo",
           "tags": [],
           "duration": 222,
           "url": "https://www.youtube.com/watch?v=0y0gaLiyiak",
-          "stationIds": ["IsrRck"],
-          "order": 2,
-          "addedAt": 1716902304751
+          "stationIds": ["IsrRck"]
         },
         {
           "id": "eWYvErtwmzk",
           "artist": "Teapacks",
-          "img": "https://i.scdn.co/image/ab67616d0000b273223460c8d31d2c3a0b148e46",
+          "img": "https://i.ytimg.com/vi/eWYvErtwmzk/default.jpg",
           "name": "perah ha shunot",
           "tags": [],
           "duration": 210,
           "url": "https://www.youtube.com/watch?v=eWYvErtwmzk",
-          "stationIds": ["IsrRck"],
-          "order": 3,
-          "addedAt": 1716942528667
-        },
-        {
-          "id": "track2",
-          "name": "ישראל",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/54jZWpivOTllo1afYNSx5U"
-              },
-              "href": "https://api.spotify.com/v1/artists/54jZWpivOTllo1afYNSx5U",
-              "id": "54jZWpivOTllo1afYNSx5U",
-              "name": "אייל גולן",
-              "type": "artist",
-              "uri": "spotify:artist:54jZWpivOTllo1afYNSx5U"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273c24c4c41dbcaeb370605685c",
-          "album": "הלב על השולחן",
-          "tags": [],
-          "duration": 234053,
-          "addedAt": 1717639500907,
-          "order": 4
-        },
-        {
-          "id": "track4",
-          "name": "ADIVINO",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7iK8PXO48WeuP03g8YR51W"
-              },
-              "href": "https://api.spotify.com/v1/artists/7iK8PXO48WeuP03g8YR51W",
-              "id": "7iK8PXO48WeuP03g8YR51W",
-              "name": "Myke Towers",
-              "type": "artist",
-              "uri": "spotify:artist:7iK8PXO48WeuP03g8YR51W"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/4q3ewBCX7sLwd24euuV69X"
-              },
-              "href": "https://api.spotify.com/v1/artists/4q3ewBCX7sLwd24euuV69X",
-              "id": "4q3ewBCX7sLwd24euuV69X",
-              "name": "Bad Bunny",
-              "type": "artist",
-              "uri": "spotify:artist:4q3ewBCX7sLwd24euuV69X"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273b41f34aa51be675c5cfd3d94",
-          "album": "ADIVINO",
-          "tags": [],
-          "duration": 278644,
-          "addedAt": 1717503997986,
-          "order": 5
-        },
-        {
-          "id": "track0",
-          "name": "Avivamiento",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7m4gF38CPATtHrk5HS42WZ"
-              },
-              "href": "https://api.spotify.com/v1/artists/7m4gF38CPATtHrk5HS42WZ",
-              "id": "7m4gF38CPATtHrk5HS42WZ",
-              "name": "Hillsong Young & Free",
-              "type": "artist",
-              "uri": "spotify:artist:7m4gF38CPATtHrk5HS42WZ"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3phVKYqeq84Ai91CHTQfNq"
-              },
-              "href": "https://api.spotify.com/v1/artists/3phVKYqeq84Ai91CHTQfNq",
-              "id": "3phVKYqeq84Ai91CHTQfNq",
-              "name": "Hillsong en Español",
-              "type": "artist",
-              "uri": "spotify:artist:3phVKYqeq84Ai91CHTQfNq"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2732e942bcc8bfbaaf5ae0e8b00",
-          "album": "Todos Mis Mejores Amigos",
-          "tags": [],
-          "duration": 414586,
-          "addedAt": 1717135566678,
-          "order": 6
-        },
-        {
-          "id": "track6",
-          "name": "Geffen",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/7bcQu0b61NMPYsXc9jonvF"
-              },
-              "href": "https://api.spotify.com/v1/artists/7bcQu0b61NMPYsXc9jonvF",
-              "id": "7bcQu0b61NMPYsXc9jonvF",
-              "name": "Ralfington",
-              "type": "artist",
-              "uri": "spotify:artist:7bcQu0b61NMPYsXc9jonvF"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273df7deb1ac4ba5c8eed85f30d",
-          "album": "Windbreaker",
-          "tags": [],
-          "duration": 256168,
-          "addedAt": 1717485900648,
-          "order": 10
-        },
-        {
-          "id": "track1",
-          "name": "קוצים",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/73ieysHN7XpJYEnEAYsO3K"
-              },
-              "href": "https://api.spotify.com/v1/artists/73ieysHN7XpJYEnEAYsO3K",
-              "id": "73ieysHN7XpJYEnEAYsO3K",
-              "name": "אביב גפן",
-              "type": "artist",
-              "uri": "spotify:artist:73ieysHN7XpJYEnEAYsO3K"
-            },
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/5EBnQEKoaiAk37Q7cfGrE1"
-              },
-              "href": "https://api.spotify.com/v1/artists/5EBnQEKoaiAk37Q7cfGrE1",
-              "id": "5EBnQEKoaiAk37Q7cfGrE1",
-              "name": "עידן רייכל",
-              "type": "artist",
-              "uri": "spotify:artist:5EBnQEKoaiAk37Q7cfGrE1"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273b76754cc3ffddd74b02185e8",
-          "album": "פסיפס",
-          "tags": [],
-          "duration": 220480,
-          "addedAt": 1716998144049,
-          "order": 11
-        },
-        {
-          "id": "track7",
-          "name": "עונות",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/73ieysHN7XpJYEnEAYsO3K"
-              },
-              "href": "https://api.spotify.com/v1/artists/73ieysHN7XpJYEnEAYsO3K",
-              "id": "73ieysHN7XpJYEnEAYsO3K",
-              "name": "אביב גפן",
-              "type": "artist",
-              "uri": "spotify:artist:73ieysHN7XpJYEnEAYsO3K"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b27399d9570eb96387cdd7535310",
-          "album": "המכתב",
-          "tags": [],
-          "duration": 235000,
-          "addedAt": 1717698647848,
-          "order": 12
-        },
-        {
-          "id": "track5",
-          "name": "Not the Jew I Had in Mind",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1OfzYsm4cu4Q0VUzLVYuTv"
-              },
-              "href": "https://api.spotify.com/v1/artists/1OfzYsm4cu4Q0VUzLVYuTv",
-              "id": "1OfzYsm4cu4Q0VUzLVYuTv",
-              "name": "Geoff Berner",
-              "type": "artist",
-              "uri": "spotify:artist:1OfzYsm4cu4Q0VUzLVYuTv"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2736f67036cfd6936053a37a8f5",
-          "album": "Grand Hotel Cosmopolis",
-          "tags": [],
-          "duration": 168040,
-          "addedAt": 1717217421554,
-          "order": 13
-        },
-        {
-          "id": "track8",
-          "name": "Geoffrey The Giraffe",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/203FpGhrLGuDjU5N1OFA0l"
-              },
-              "href": "https://api.spotify.com/v1/artists/203FpGhrLGuDjU5N1OFA0l",
-              "id": "203FpGhrLGuDjU5N1OFA0l",
-              "name": "Too Many Cookes",
-              "type": "artist",
-              "uri": "spotify:artist:203FpGhrLGuDjU5N1OFA0l"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273069617ced45562a5ce96faea",
-          "album": "Down At The Zoo",
-          "tags": [],
-          "duration": 141400,
-          "addedAt": 1717146418850,
-          "order": 14
+          "stationIds": ["IsrRck"]
         }
       ],
       "_id": "IsrRck"
@@ -4626,199 +1179,39 @@
       "createdBy": {
         "_id": "u124",
         "fullname": "Tuna",
-        "imgUrl": "https://i.pravatar.cc/150?u=u124"
+        "imgUrl": "http://example-photo20/"
       },
       "likedByUsers": [],
       "songs": [
         {
           "id": "upnBxPFcLY8",
           "artist": "Tuna",
-          "img": "https://i.scdn.co/image/ab67616d0000b2730daecc2b1e66797b1a40e4e0",
+          "img": "https://i.ytimg.com/vi/upnBxPFcLY8/default.jpg",
           "name": "BaParallel",
           "tags": [],
           "duration": 235,
           "url": "https://www.youtube.com/watch?v=upnBxPFcLY8",
-          "stationIds": ["IsrHH"],
-          "order": 1,
-          "addedAt": 1717327039953
-        },
-        {
-          "id": "R76bLycvIs8",
-          "artist": "Eden Derso",
-          "img": "https://i.scdn.co/image/ab67616d0000b27398ac3e9f391a2149f3c88db4",
-          "name": "Elohim Sel Hahetziot",
-          "tags": [],
-          "duration": 202,
-          "url": "https://www.youtube.com/watch?v=R76bLycvIs8",
-          "stationIds": ["IsrHH"],
-          "order": 2,
-          "addedAt": 1716878938115
-        },
-        {
-          "id": "1saT4tObMScARIwT4wTv0W",
-          "name": "נתראה בגלגול הבא",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/2JQK9mzxqKz16lSgICHDTx"
-              },
-              "href": "https://api.spotify.com/v1/artists/2JQK9mzxqKz16lSgICHDTx",
-              "id": "2JQK9mzxqKz16lSgICHDTx",
-              "name": "רביד פלוטניק",
-              "type": "artist",
-              "uri": "spotify:artist:2JQK9mzxqKz16lSgICHDTx"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2731ca01773a293ac400bb300fb",
-          "album": "ועכשיו לחלק האומנותי",
-          "tags": [],
-          "duration": 213720,
-          "addedAt": 1717293523855,
-          "order": 3
-        },
-        {
-          "id": "4mRreSUqP7waa2jT5ul41T",
-          "name": "יום חדש",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/2JQK9mzxqKz16lSgICHDTx"
-              },
-              "href": "https://api.spotify.com/v1/artists/2JQK9mzxqKz16lSgICHDTx",
-              "id": "2JQK9mzxqKz16lSgICHDTx",
-              "name": "רביד פלוטניק",
-              "type": "artist",
-              "uri": "spotify:artist:2JQK9mzxqKz16lSgICHDTx"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273300437faf7091d1de6a61cb3",
-          "album": "ברוכים הבאים לפתח תקוה",
-          "tags": [],
-          "duration": 208653,
-          "addedAt": 1716967414492,
-          "order": 4
-        },
-        {
-          "id": "0PfvEnfj3hHl7zlc0WcfGY",
-          "name": "‏שלווה בארמונותייך",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/2JQK9mzxqKz16lSgICHDTx"
-              },
-              "href": "https://api.spotify.com/v1/artists/2JQK9mzxqKz16lSgICHDTx",
-              "id": "2JQK9mzxqKz16lSgICHDTx",
-              "name": "רביד פלוטניק",
-              "type": "artist",
-              "uri": "spotify:artist:2JQK9mzxqKz16lSgICHDTx"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273dd4bbb94d87480587d778eb5",
-          "album": "תוך כדי תנועה",
-          "tags": [],
-          "duration": 275738,
-          "addedAt": 1717680792186,
-          "order": 5
-        },
-        {
-          "id": "track0",
-          "name": "Slippery Fish",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/1bguJ0c7PghwoaLvBIVU3A"
-              },
-              "href": "https://api.spotify.com/v1/artists/1bguJ0c7PghwoaLvBIVU3A",
-              "id": "1bguJ0c7PghwoaLvBIVU3A",
-              "name": "Amy Liz",
-              "type": "artist",
-              "uri": "spotify:artist:1bguJ0c7PghwoaLvBIVU3A"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273753900d289aba6025c30c292",
-          "album": "Kid Hits",
-          "tags": [],
-          "duration": 103493,
-          "addedAt": 1717445439920,
-          "order": 6
-        },
-        {
-          "id": "track8",
-          "name": "Tunay Na Pag-Ibig",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/3d5g9VpiJlxNVmBNcZU4Pl"
-              },
-              "href": "https://api.spotify.com/v1/artists/3d5g9VpiJlxNVmBNcZU4Pl",
-              "id": "3d5g9VpiJlxNVmBNcZU4Pl",
-              "name": "APRIL BOYS",
-              "type": "artist",
-              "uri": "spotify:artist:3d5g9VpiJlxNVmBNcZU4Pl"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b273b53147c00b85ead20ab901b5",
-          "album": "April Boys",
-          "tags": [],
-          "duration": 297666,
-          "addedAt": 1717462392852,
-          "order": 7
-        },
-        {
-          "id": "track4",
-          "name": "כל הכוכבים",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/17pbOSPIn3lmY0vHhOlKGL"
-              },
-              "href": "https://api.spotify.com/v1/artists/17pbOSPIn3lmY0vHhOlKGL",
-              "id": "17pbOSPIn3lmY0vHhOlKGL",
-              "name": "טונה",
-              "type": "artist",
-              "uri": "spotify:artist:17pbOSPIn3lmY0vHhOlKGL"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2734f47b731cb76ab750c10e903",
-          "album": "מזרח פרוע",
-          "tags": [],
-          "duration": 161208,
-          "addedAt": 1717026193907,
-          "order": 9
-        },
-        {
-          "id": "track6",
-          "name": "סהרה",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "https://open.spotify.com/artist/17pbOSPIn3lmY0vHhOlKGL"
-              },
-              "href": "https://api.spotify.com/v1/artists/17pbOSPIn3lmY0vHhOlKGL",
-              "id": "17pbOSPIn3lmY0vHhOlKGL",
-              "name": "טונה",
-              "type": "artist",
-              "uri": "spotify:artist:17pbOSPIn3lmY0vHhOlKGL"
-            }
-          ],
-          "img": "https://i.scdn.co/image/ab67616d0000b2734f47b731cb76ab750c10e903",
-          "album": "מזרח פרוע",
-          "tags": [],
-          "duration": 244939,
-          "addedAt": 1717435898828,
-          "order": 10
+          "stationIds": ["IsrHH"]
         },
         {
           "id": "Maf6BaEhCzY",
           "artist": "Nechi Nech",
-          "img": "https://i.scdn.co/image/ab67616d0000b2735d2f2cbe8ea319d313bc63d4",
+          "img": "https://i.ytimg.com/vi/Maf6BaEhCzY/default.jpg",
           "name": "Hummus Metamtem",
           "tags": [],
           "duration": 218,
           "url": "https://www.youtube.com/watch?v=Maf6BaEhCzY",
-          "stationIds": ["IsrHH"],
-          "order": 11,
-          "addedAt": 1717338169792
+          "stationIds": ["IsrHH"]
+        },
+        {
+          "id": "R76bLycvIs8",
+          "artist": "Eden Derso",
+          "img": "https://i.ytimg.com/vi/R76bLycvIs8/default.jpg",
+          "name": "Elohim Sel Hahetziot",
+          "tags": [],
+          "duration": 202,
+          "url": "https://www.youtube.com/watch?v=R76bLycvIs8",
+          "stationIds": ["IsrHH"]
         }
       ],
       "_id": "IsrHH"

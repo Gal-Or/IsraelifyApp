@@ -13,33 +13,15 @@
     height: em(70px);
     background-color: $logo-clr; /* Use the logo color for the play button */
     border: none;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    * {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      * {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    }
+    border-radius: 500px;
 
     svg {
       width: em(25px);
       height: em(25px);
     }
   }
-  button {
-    padding: em(5px);
-  }
 
   .change-view {
     margin-left: auto;
-
-    padding-right: 0;
   }
 }

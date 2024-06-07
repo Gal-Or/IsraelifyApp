@@ -65,12 +65,7 @@ async function addSongToStation(song, stationId) {
     stationId = stations[0]._id;
   }
   const station = await getById(stationId);
-  if (
-    station.songs.find(
-      (stationSong) =>
-        stationSong.id === song.id && stationSong.name === song.name
-    )
-  ) {
+  if (station.songs.find((stationSong) => stationSong.name === song.name)) {
     return;
   }
   song.order = station.songs.length + 1;
@@ -205,15 +200,20 @@ async function updateSongId(stationId = "liked-songs", songId, newSongId) {
 async function _createStations() {
   let stations = utilService.loadFromStorage(STORAGE_KEY);
   const demoDataCount = 1;
-  stations = [];
-  // if (!stations || !stations.length) {
 
-  //   for (let i = 0; i < demoDataCount; i++) stations.push(_createStation());
-  // }
+  if (!stations || !stations.length) {
+    stations = [];
+    for (let i = 0; i < demoDataCount; i++) stations.push(_createStation());
+  }
 
   if (stations.length < 10) {
     for (const station of demo_stations.demo_stations) {
       for (const [idx, song] of station.songs.entries()) {
+        // search for spotify song and get its album image
+        const spotifySongs = await spotifyService.getSongBySearch(song.name);
+        if (spotifySongs && spotifySongs.length > 0) {
+          song.img = spotifySongs[0].img;
+        }
         song.order = idx + 1;
         song.addedAt = Date.now() - Math.floor(Math.random() * 1000000000);
       }
@@ -258,31 +258,10 @@ function _createStation() {
     createdBy: {
       _id: "u101",
       fullname: "Bar and Gal",
-      imgUrl:
-        "https://ohsobserver.com/wp-content/uploads/2022/12/Guest-user.png",
+      imgUrl: "http://some-photo/",
     },
     likedByUsers: ["{minimal-user}", "{minimal-user}"],
     img: thumbnail,
     songs: [],
   };
 }
-
-function removeDuplicatesFromLocalStorage() {
-  let stations = utilService.loadFromStorage(STORAGE_KEY);
-  if (!stations) return;
-  const uniqueStations = stations.filter(
-    (station, index, self) =>
-      index === self.findIndex((t) => t._id === station._id)
-  );
-
-  //for each station, remove duplicate songs
-  uniqueStations.forEach((station) => {
-    station.songs = station.songs.filter(
-      (song, index, self) => index === self.findIndex((t) => t.id === song.id)
-    );
-  });
-  console.log("uniqueStations", uniqueStations);
-  utilService.saveToStorage(STORAGE_KEY, uniqueStations);
-}
-
-removeDuplicatesFromLocalStorage();

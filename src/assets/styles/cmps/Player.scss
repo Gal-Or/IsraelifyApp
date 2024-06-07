@@ -1,10 +1,11 @@
 .player {
-  flex-direction: column; /* Set flex direction to column */
-  display: flex; /* Set display to flex */
+  display: grid; /* Enable subgrid */
+  grid-template-rows: 1fr 1fr; /* Define two rows */
+  grid-template-columns: 1fr; /* Single column */
   width: 100%; /* Set width to 100% */
   align-items: center; /* Align items to center */
   justify-content: center; /* Justify content to center */
-  gap: 0.3em; /* Set gap between elements */
+
   .player-controls {
     grid-row: 1;
     display: flex;
@@ -65,8 +66,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 100%;
+    max-width: 40vw;
     width: 100%;
+    height: 100%;
     align-self: center;
     justify-self: center;
     font-size: 0.95em;

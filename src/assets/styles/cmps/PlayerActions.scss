@@ -1,15 +1,12 @@
 @include for-normal-layout {
   .player-actions {
     display: flex;
-    justify-content: right;
+    justify-content: center;
     align-items: center;
     gap: 1em;
-    padding: 0.4em;
+    padding: 1em;
     border-radius: 0 0 0.5em 0.5em;
     box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
-    svg {
-      fill: white;
-    }
     button {
       border: none;
       background-color: transparent;

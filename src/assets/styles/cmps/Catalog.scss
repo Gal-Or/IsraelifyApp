@@ -21,7 +21,7 @@
 
   .station-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-template-rows: 1fr;
     gap: 1em;
     padding: 0;
@@ -40,7 +40,8 @@
       .img-container {
         position: relative;
         width: 100%;
-        padding-top: 100%; /* This ensures a 1:1 aspect ratio */
+        padding-top: 100%;
+        /* This ensures a 1:1 aspect ratio */
         overflow: hidden;
         display: flex;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
@@ -60,23 +61,14 @@
 
         .play-btn {
           position: absolute;
-          bottom: -20px; /* Start below the container */
-          right: 10px;
-          width: 40px;
-          height: 40px;
+          bottom: 0;
+          right: 0;
+          width: 0;
+          height: 0;
           opacity: 0;
           background-color: $logo-clr;
           border: none;
           border-radius: 50%;
-          transition: all 0.3s ease-in-out; /* Transition for the fade-in effect */
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          svg {
-            width: 20px;
-            height: 20px;
-          }
         }
       }
 
@@ -92,8 +84,23 @@
         background-color: #242424;
 
         .play-btn {
-          bottom: 10px; /* Move to the final position */
+          width: 40px;
+          height: 40px;
           opacity: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          * {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          svg {
+            width: 20px;
+            height: 20px;
+          }
         }
       }
     }

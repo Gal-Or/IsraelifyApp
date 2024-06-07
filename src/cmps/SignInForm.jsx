@@ -18,8 +18,8 @@ export function SignInForm() {
 
   function handleGuestClick() {
     setLoggedinUser({
-      username: "Guest",
-      fullname: "Guest",
+      username: "guest",
+      fullname: "guest",
       imgUrl:
         "https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-1024.png",
     });
