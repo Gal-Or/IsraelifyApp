@@ -14,7 +14,6 @@ export function NavBar() {
     refreshRate: 100,
     onResize,
     handleWidth: true,
-    handleHeight: false,
   });
 
   function onResize() {

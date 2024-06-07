@@ -8,8 +8,8 @@ import { addStation } from "../store/station.actions";
 
 import { StationList } from "./StationList";
 import { ReactSVG } from "react-svg";
-import LibraryClose from "../assets/icons/libraryClose.svg";
-import LibraryOpen from "../assets/icons/libraryOpen.svg";
+import LibraryClose from "../assets/icons/LibraryClose.svg";
+import LibraryOpen from "../assets/icons/LibraryOpen.svg";
 import plus from "../assets/icons/plus.svg";
 import rightArrow from "../assets/icons/full_right_arrow.svg";
 import listIcon from "../assets/icons/list.svg";
