@@ -10,7 +10,6 @@ let stationsCount = 1;
 export const stationService = {
   query,
   save,
-  saveAll,
   remove,
   getById,
   getDefaultFilter,
@@ -43,9 +42,7 @@ async function save(stationToSave) {
   }
 }
 
-async function saveAll(updatedStations) {
-  return await storageService.saveAll(STORAGE_KEY, updatedStations);
-}
+
 
 async function remove(id) {
   return await storageService.remove(STORAGE_KEY, id);
