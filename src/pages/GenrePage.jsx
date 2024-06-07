@@ -6,7 +6,7 @@ import { youtubeService } from "../services/youtube.service"; // Import youtubeS
 import { Loader } from "../cmps/Loader";
 import { ReactSVG } from "react-svg";
 import tempStationImg from "../assets/imgs/logo-Blue3D.png";
-import pencil from "../assets/icons/pencil.svg";
+import pencil from "../assets/icons/Pencil.svg";
 import clockIcon from "../assets/icons/clock.svg";
 import playIcon from "../assets/icons/playIcon.svg";
 import pauseIcon from "../assets/icons/pauseIcon.svg";
