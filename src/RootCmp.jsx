@@ -113,18 +113,25 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
   }, [position, handleResize]);
 
   return (
-    <div className="page-container">
-      <div className="main-content">
-        {renderNavBar(position)}
-        {renderSeperator(separatorProps, isDragging)}
-        {renderContentArea()}
+    <>
+      <div className="page-container">
+        <div className="main-content">
+          {renderNavBar(position)}
+          {renderSeperator(separatorProps, isDragging)}
+          {renderContentArea()}
+        </div>
+        <AppFooter
+          className="app-footer"
+          setShowSidePopUp={setShowSidePopUp}
+          showSidePopUp={showSidePopUp}
+        />
       </div>
-      <AppFooter
-        className="app-footer"
-        setShowSidePopUp={setShowSidePopUp}
-        showSidePopUp={showSidePopUp}
-      />
-    </div>
+      <div className="page-container-mobile">
+        {renderMainContainer()}
+        <AppFooter />
+        <NavBar />
+      </div>
+    </>
   );
 };
 

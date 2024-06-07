@@ -23,9 +23,10 @@ export function AddSongToStationButton({ song, containerRect }) {
 
   useEffect(() => {
     checkSongExistInAnyStations();
-  }, [song, stationsMenuOpen, currentSong]);
+  }, [song, stationsMenuOpen, currentSong, stations]);
 
   async function checkSongExistInAnyStations() {
+    console.log("checkSongExistInAnyStations", song, stations);
     if (!stations) return;
     if (stations.length === 0) return;
     try {
