@@ -9,7 +9,8 @@ export function useSpacebarPlayPause() {
     function handleKeyDown(event) {
       if (
         event.keyCode === 32 &&
-        event.target.tagName.toLowerCase() !== "input"
+        event.target.tagName.toLowerCase() !== "input" &&
+        event.target.tagName.toLowerCase() !== "textarea"
       ) {
         event.preventDefault();
         setIsPlaying(!isPlaying);
