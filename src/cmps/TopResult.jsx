@@ -32,6 +32,7 @@ export function TopResult({ song, updateResults }) {
       return;
     }
     setCurrentSong(songToPlay);
+
     setIsPlaying(true);
     updateResults(songToPlay);
   }

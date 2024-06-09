@@ -82,6 +82,7 @@ export function GenrePage() {
       return;
     }
     setCurrentSong(songToPlay);
+
     setIsPlaying(true);
 
     setGenreSongs((prevSongs) => {

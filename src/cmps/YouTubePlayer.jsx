@@ -13,6 +13,7 @@ import { youtubeService } from "../services/youtube.service";
 import { stationService } from "../services/station.service";
 import { TimeBar } from "./TimeBar";
 import { useParams } from "react-router";
+import { updateSongId } from "../store/station.actions";
 
 export function YouTubePlayer() {
   const params = useParams();
@@ -29,6 +30,7 @@ export function YouTubePlayer() {
 
   const playFirstSong = (song) => {
     setCurrentSong(song);
+
     setIsPlaying(true);
   };
 
@@ -37,16 +39,19 @@ export function YouTubePlayer() {
       const nextSong = queue[0];
       setCurrentSong(nextSong);
       removeFromQueue(nextSong.id);
+
       setIsPlaying(true);
     } else {
       // Repeat the current song if the queue is empty
       playerRef.current.seekTo(0);
-      playerRef.current.playVideo();
+
       setIsPlaying(true);
     }
   }, [queue]);
 
   useEffect(() => {
+    console.log("currentSong", currentSong);
+    console.log("isPlaying", isPlaying);
     if (playerRef.current && isPlaying) {
       playerRef.current.playVideo();
     } else if (playerRef.current) {
@@ -105,15 +110,17 @@ export function YouTubePlayer() {
           break;
         case window.YT.PlayerState.PAUSED:
           clearInterval(intervalRef.current);
-          setIsPlaying(false);
           break;
         case window.YT.PlayerState.ENDED:
           clearInterval(intervalRef.current);
           setPercentagePlayed(0);
-          setIsPlaying(false);
           // onNext(); // Call the onNext function when the song ends
           break;
         case window.YT.PlayerState.CUED:
+          clearInterval(intervalRef.current);
+          setPercentagePlayed(0);
+
+          break;
 
         default:
           break;
@@ -151,7 +158,7 @@ export function YouTubePlayer() {
       } else {
         // Repeat the current song if the queue is empty
         youtubePlayer.seekTo(0);
-        youtubePlayer.playVideo();
+
         setIsPlaying(true);
       }
     }
@@ -172,7 +179,8 @@ export function YouTubePlayer() {
       const results = await youtubeService.query(searchStr, 1);
       if (results.length > 0) {
         songToPlay.id = results[0].id;
-        stationService.updateSongId(params.stationId, song.id, songToPlay.id);
+        if (params.stationId)
+          await updateSongId(params.stationId, song.id, songToPlay.id);
       }
     }
     playerRef.current.loadVideoById(currentSong.id);

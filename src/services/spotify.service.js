@@ -133,7 +133,7 @@ async function getSongBySearch(query) {
     const params = {
       q: query,
       type: "track",
-      limit: 10,
+      limit: 15,
     };
     const response = await axios.get(url, {
       params,
@@ -146,7 +146,7 @@ async function getSongBySearch(query) {
     // Save results to cache
     saveToCache(query, songs, `spotify_song_search_${query}`);
     songs = songs.map((song, idx) => {
-      return { ...song, id: `track${idx}` };
+      return { ...song, id: `track ${song.name} ${idx}` };
     });
     return songs;
   } catch (error) {
@@ -157,7 +157,11 @@ async function getSongBySearch(query) {
 
 // Function to clean up the song data
 function cleanSongsData(songs) {
-  return songs.map((song) => {
+  //remove dupicate names
+  const filteredSongs = songs.filter(
+    (song, index, self) => index === self.findIndex((t) => t.name === song.name)
+  );
+  return filteredSongs.map((song) => {
     return {
       id: song.id,
       name: song.name,

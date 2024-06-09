@@ -83,3 +83,11 @@ export async function updateStaionInState(station) {
     station,
   });
 }
+
+export async function updateSongId(stationId, songId, newSongId) {
+  const station = await stationService.getById(stationId);
+  const songIdx = station.songs.findIndex((song) => song.id === songId);
+  const stationToUpdate = { ...station };
+  stationToUpdate.songs[songIdx].id = newSongId;
+  updateStation(stationToUpdate);
+}

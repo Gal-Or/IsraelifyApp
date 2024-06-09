@@ -50,7 +50,6 @@ export function AppHeader({ station, stationHeaderRef, backgroundColor } = {}) {
     // Play the first song
     playFirstSong(station.songs[0]);
     if (isPlaying) {
-      youtubePlayer.pauseVideo();
       setIsPlaying(false);
     }
   };

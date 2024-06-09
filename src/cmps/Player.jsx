@@ -24,11 +24,9 @@ export function Player() {
   const currentSong = useSelector((state) => state.playerModule.currentSong);
 
   function onPlay() {
-    youtubePlayer.playVideo();
     setIsPlaying(true);
   }
   function onPause() {
-    youtubePlayer.pauseVideo();
     setIsPlaying(false);
   }
   function onNext() {
@@ -39,7 +37,7 @@ export function Player() {
     } else {
       // Repeat the current song if the queue is empty
       youtubePlayer.seekTo(0);
-      youtubePlayer.playVideo();
+
       setIsPlaying(true);
     }
   }
@@ -47,7 +45,8 @@ export function Player() {
     // If the current song is playing for more than 3 seconds, restart it
     if (youtubePlayer.getCurrentTime() > 3) {
       youtubePlayer.seekTo(0);
-      youtubePlayer.playVideo();
+
+      setIsPlaying(true);
     }
   }
   function onShuffle() {

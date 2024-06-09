@@ -13,6 +13,7 @@ import {
   setIsPlaying,
   addToQueue,
 } from "../store/player.actions";
+import { updateSongId } from "../store/station.actions";
 import { updateStation } from "../store/station.actions";
 import { youtubeService } from "../services/youtube.service";
 import { stationService } from "../services/station.service";
@@ -74,25 +75,26 @@ export function SongContainer({
   drag(drop(ref));
 
   async function onPlaySong(song) {
-    let songToPlay = song;
+    let songToPlay = { ...song };
 
     if (song.id.includes("track") || song.id.length === 22) {
       const searchStr = `${song.name} ${song.artists
         .map((artist) => artist.name)
-        .join(" ")}`;
+        .join(" ")} official audio`;
       const results = await youtubeService.query(searchStr, 1);
       if (results.length > 0) {
         songToPlay.id = results[0].id;
-        stationService.updateSongId(params.stationId, song.id, songToPlay.id);
+        updateSongId(params.stationId, song.id, songToPlay.id);
       }
     }
 
-    if (currentSong.id === song.id) {
+    if (currentSong.id === songToPlay.id) {
       setIsPlaying(!isPlaying);
       return;
     }
-
+    console.log("songToPlay", songToPlay);
     setCurrentSong(songToPlay);
+
     setIsPlaying(true);
   }
 

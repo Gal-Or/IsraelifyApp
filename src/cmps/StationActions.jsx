@@ -70,7 +70,6 @@ export function StationActions({
     // Play the first song
     playFirstSong(station.songs[0]);
     if (isPlaying) {
-      youtubePlayer.pauseVideo();
       setIsPlaying(false);
     }
   };

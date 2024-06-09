@@ -16,6 +16,7 @@ export function SongActions({ song }) {
       return;
     }
     setCurrentSong(song);
+
     setIsPlaying(true);
   }
 

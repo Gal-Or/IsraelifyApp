@@ -47,7 +47,9 @@ export function StationList({
       return;
     }
     console.log("shuffling");
+    if (!stations) return;
     setShuffledStations([...stations].sort(() => Math.random() - 0.5));
+    randomize = false;
   }, [stations]);
 
   function onDeleteStation(ev, stationId) {
