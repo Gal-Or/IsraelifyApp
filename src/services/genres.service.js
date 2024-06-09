@@ -26,13 +26,13 @@ const genres = [
     name: "alt-rock",
     photo:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqJcqMQheCxObDb08h6ivF9AgMzuw25p-WMa2YjF1MdKVHujDQ&s",
-    color: "rgb(58, 81, 54)",
+    color: "rgb(58, 3, 54)",
   },
   {
     name: "alternative",
     photo:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMopfPij9P6TfaG6P7aqlsJnBamCMCgn-mvETLYXG5-4MAu68K&s",
-    color: "rgb(102, 96, 25)",
+    color: "rgb(200, 96, 25)",
   },
   {
     name: "ambient",
@@ -50,7 +50,7 @@ const genres = [
     name: "black-metal",
     photo:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1F1DZe4E8hIiJ0404wG8NM1tDFqRA7qAAkObNflwxdWbkcKo&s",
-    color: "rgb(90, 205, 2)",
+    color: "rgb(90, 205, 80)",
   },
   {
     name: "bluegrass",
@@ -104,7 +104,7 @@ const genres = [
     name: "children",
     photo:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-vjtn6f-ftpu7LGvMR-SAWwjf-HaE39RHXVhwAKkGmUwJ2js&s",
-    color: "rgb(121, 138, 104)",
+    color: "rgb(200, 200, 104)",
   },
   {
     name: "chill",
@@ -122,13 +122,13 @@ const genres = [
     name: "club",
     photo:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_Wp9WpZU_GKi9envgCXG2fQlLOiW28EcT_wefHR-3HZ3Ldzg&s",
-    color: "rgb(88, 94, 43)",
+    color: "rgb(88, 94, 150)",
   },
   {
     name: "comedy",
     photo:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-GLYHB28piNk9rO3uhjwOu650Lhp0fJdkzrFBsXjPrDUPQuI&s",
-    color: "rgb(219, 216, 187)",
+    color: "rgb(219, 60, 187)",
   },
   {
     name: "country",
@@ -146,7 +146,7 @@ const genres = [
     name: "dancehall",
     photo:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpt5Cdm0X0pfEU5MIvNu11CpDCgHN3gQuml88quuclNsaPaQM&s",
-    color: "rgb(202, 250, 97)",
+    color: "rgb(137, 250,120)",
   },
   {
     name: "death-metal",
@@ -763,5 +763,6 @@ const genres = [
 ];
 
 function query() {
-  return genres;
+  const shuffledGenres = genres.sort(() => 0.5 - Math.random());
+  return shuffledGenres;
 }

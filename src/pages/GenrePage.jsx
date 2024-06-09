@@ -134,10 +134,6 @@ export function GenrePage() {
           <div className="station-header-grid">
             <div className="station-header-img">
               <img src={genreSongs[0].album.images[0].url} alt="" />
-              <div className="overlay">
-                <ReactSVG src={pencil} />
-                <h6>Choose Photo</h6>
-              </div>
             </div>
             <div className="station-header-info">
               <span className="station-type">Genre</span>
