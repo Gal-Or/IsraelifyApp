@@ -22,15 +22,20 @@ export function AddSongToStationButton({ song, containerRect }) {
   const currentSong = useSelector((state) => state.playerModule.currentSong);
 
   useEffect(() => {
+    console.log("stations", stations);
     checkSongExistInAnyStations();
   }, [song, stationsMenuOpen, currentSong, stations]);
 
-  async function checkSongExistInAnyStations() {
+  function checkSongExistInAnyStations() {
     if (!stations) return;
     if (stations.length === 0) return;
     try {
       const existInStations =
-        await stationService.checkIfSongInExistInAnyStation(song);
+        stations.filter((station) => {
+          return station.songs.find(
+            (stationSong) => stationSong.id === song.id
+          );
+        }).length > 0;
 
       if (existInStations) {
         setButtonState(ADD_TO_STATION);
