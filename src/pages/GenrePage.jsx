@@ -141,7 +141,9 @@ export function GenrePage() {
             </div>
             <div className="station-header-info">
               <span className="station-type">Genre</span>
-              <span className="station-name">{params.genreId}</span>
+              <span className="station-name">
+                {utilService.capitalize(params.genreId)}
+              </span>
               <div className="station-info">
                 <div className="station-creator">
                   <img src={tempStationImg} alt="" />
