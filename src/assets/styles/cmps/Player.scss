@@ -85,6 +85,7 @@
       font-size: 0.75em;
       justify-self: end;
       padding-right: 1em;
+      width: em(50px);
     }
 
     .time-bar {
@@ -96,7 +97,8 @@
       font-size: 0.75em;
       //set it to left
       justify-self: start;
-      padding-left: 1em;
+      padding-left: 0.7em;
+      width: em(50px);
     }
   }
 }

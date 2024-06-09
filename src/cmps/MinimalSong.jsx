@@ -33,7 +33,7 @@ export function MinimalSong() {
   return (
     <section className="minimal-song">
       <div className="song-img">
-        <img src={song.img} alt={song.name} />
+        <img src={song.img ? song.img : song.album.images[0].url} alt="" />
       </div>
       <div className="song-info">
         <p>{song.name}</p>
