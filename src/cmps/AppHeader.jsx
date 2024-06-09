@@ -43,7 +43,6 @@ export function AppHeader({ station, stationHeaderRef, backgroundColor } = {}) {
     return query.split("+").join(" ");
   }
   const handlePlayClick = () => {
-    console.log("station", station);
     if (!station.songs.length) return;
     // Play the first song and add remaining songs to the top of the queue
     addSongsToQueueTop(station.songs.slice(1));

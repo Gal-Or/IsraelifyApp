@@ -22,7 +22,6 @@ export function AddSongToStationButton({ song, containerRect }) {
   const currentSong = useSelector((state) => state.playerModule.currentSong);
 
   useEffect(() => {
-    console.log("stations", stations);
     checkSongExistInAnyStations();
   }, [song, stationsMenuOpen, currentSong, stations]);
 

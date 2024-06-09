@@ -17,7 +17,6 @@ export function stationReducer(state = initialState, action) {
       newState = { ...state, stations: action.stations };
       break;
     case REMOVE_STATION:
-      console.log("Station removed", action, state);
       newState = {
         ...state,
         stations: state.stations.filter(
@@ -25,7 +24,6 @@ export function stationReducer(state = initialState, action) {
         ),
         currentStation: null,
       };
-      console.log("newState", newState);
       break;
     case ADD_STATION:
       newState = { ...state, stations: [...state.stations, action.newStation] };
