@@ -261,23 +261,3 @@ function _createStation() {
     songs: [],
   };
 }
-
-function removeDuplicatesFromLocalStorage() {
-  let stations = utilService.loadFromStorage(STORAGE_KEY);
-  if (!stations) return;
-  const uniqueStations = stations.filter(
-    (station, index, self) =>
-      index === self.findIndex((t) => t._id === station._id)
-  );
-
-  //for each station, remove duplicate songs
-  uniqueStations.forEach((station) => {
-    station.songs = station.songs.filter(
-      (song, index, self) => index === self.findIndex((t) => t.id === song.id)
-    );
-  });
-  console.log("uniqueStations", uniqueStations);
-  utilService.saveToStorage(STORAGE_KEY, uniqueStations);
-}
-
-removeDuplicatesFromLocalStorage();

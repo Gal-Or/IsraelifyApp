@@ -63,13 +63,14 @@
 
   .youtube-player {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     max-width: 100%;
     width: 100%;
     align-self: center;
     justify-self: center;
     font-size: 0.95em;
+    gap: 0.5em;
     &:hover {
       .time-bar-track {
         color: $logo-clr; /* Change the color of the track on hover */
