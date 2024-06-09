@@ -2,8 +2,8 @@ import axios from "axios";
 import qs from "qs";
 
 import logoBlue3D from "../assets/imgs/logo-Blue3D.png";
-const SPOTIFY_CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
-const SPOTIFY_CLIENT_SECRET = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET;
+const SPOTIFY_CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID; //on production use - process.env.VITE_SPOTIFY_CLIENT_ID;
+const SPOTIFY_CLIENT_SECRET = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET; //on production use - process.env.VITE_SPOTIFY_CLIENT_SECRET;
 
 export const spotifyService = {
   getArtistResults,

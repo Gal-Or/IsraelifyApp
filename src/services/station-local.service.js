@@ -1,6 +1,9 @@
+import { storageService } from "./async-storage.service";
 import { utilService } from "./util.service";
+import demo_stations from "../assets/data/stations.json";
 import thumbnail from "../assets/imgs/likedSongs.jpeg";
-import { httpService } from "../services/http.service";
+import { storageService } from "./async-storage.service";
+
 const STORAGE_KEY = "stationsDB";
 let stationsCount = 1;
 
@@ -21,8 +24,10 @@ export const stationService = {
   updateSongId,
 };
 
+_createStations();
+
 async function query(filterBy) {
-  let stations = await httpService.get("station");
+  let stations = await storageService.query(STORAGE_KEY);
   if (filterBy) {
     stations = filterStations(stations, filterBy);
   }
@@ -31,19 +36,18 @@ async function query(filterBy) {
 
 async function save(stationToSave) {
   if (stationToSave._id) {
-    return await httpService.put("station", stationToSave);
+    return await storageService.put(STORAGE_KEY, stationToSave);
   } else {
-    console.log("stationToSave", stationToSave);
-    return await httpService.post("station", stationToSave);
+    return await storageService.post(STORAGE_KEY, stationToSave);
   }
 }
 
 async function remove(id) {
-  return await httpService.delete(`station/${id}`);
+  return await storageService.remove(STORAGE_KEY, id);
 }
 
 async function getById(id) {
-  return await httpService.get(`station/${id}`);
+  return await storageService.get(STORAGE_KEY, id);
 }
 
 function getDefaultFilter() {
@@ -70,7 +74,7 @@ async function addSongToStation(song, stationId) {
 }
 
 async function findStationWithQuery(query) {
-  const result = await httpService.get("station");
+  const result = await storageService.query(STORAGE_KEY);
   if (!query || query.length < 1) return result;
   const stations = result;
   let filteredStations = stations.filter((station) => {
@@ -193,6 +197,30 @@ async function updateSongId(stationId = "liked-songs", songId, newSongId) {
   }
 }
 
+async function _createStations() {
+  let stations = utilService.loadFromStorage(STORAGE_KEY);
+  const demoDataCount = 1;
+  stations = stations || [];
+  // if (!stations || !stations.length) {
+
+  //   for (let i = 0; i < demoDataCount; i++) stations.push(_createStation());
+  // }
+
+  if (stations.length < 10) {
+    for (const station of demo_stations.demo_stations) {
+      for (const [idx, song] of station.songs.entries()) {
+        song.order = idx + 1;
+        song.addedAt = Date.now() - Math.floor(Math.random() * 1000000000);
+      }
+      station.createdBy.imgUrl = `https://i.pravatar.cc/150?u=${station.createdBy._id}`;
+      if (!stations.find((s) => s._id === station._id)) stations.push(station);
+    }
+  }
+  stations[0].img = thumbnail;
+  utilService.saveToStorage(STORAGE_KEY, stations);
+  return stations;
+}
+
 async function updateSongOrder(stationId, songId, newOrder) {
   const station = await getById(stationId);
   const songIdx = station.songs.findIndex((song) => song.id === songId);
@@ -213,4 +241,23 @@ async function checkIfSongInExistInAnyStation(song) {
   return stations.some((station) =>
     station.songs.find((stationSong) => stationSong.name === song.name)
   );
+}
+
+function _createStation() {
+  return {
+    _id: "liked-songs",
+    name: "Liked Songs",
+    type: "playlist",
+    tags: ["liked"],
+    backgroundColor: "#d8bfd8",
+    createdBy: {
+      _id: "u101",
+      fullname: "Bar and Gal",
+      imgUrl:
+        "https://ohsobserver.com/wp-content/uploads/2022/12/Guest-user.png",
+    },
+    likedByUsers: ["{minimal-user}", "{minimal-user}"],
+    img: thumbnail,
+    songs: [],
+  };
 }
