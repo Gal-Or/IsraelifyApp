@@ -64,13 +64,14 @@ export function setCurrentStation(station) {
   });
 }
 
-export async function updateStation(station) {
+export async function updateStation(station, saveToState = true) {
   try {
     await stationService.save(station);
-    store.dispatch({
-      type: UPDATE_STATION,
-      station,
-    });
+    if (saveToState)
+      store.dispatch({
+        type: UPDATE_STATION,
+        station,
+      });
   } catch (err) {
     console.log("Cannot update station", err);
   }

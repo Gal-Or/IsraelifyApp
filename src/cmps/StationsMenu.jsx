@@ -85,7 +85,7 @@ export function StationsMenu({ song, closeModal, position }) {
       });
       closeModal();
       for (const station of updatedStations) {
-        await updateStation(station);
+        await updateStation(station, false);
       }
     } catch (err) {
       console.error("Error in updateStationsSongs:", err);
