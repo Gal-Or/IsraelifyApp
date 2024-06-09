@@ -23,4 +23,13 @@
       box-shadow: 0 0 0 0;
     }
   }
+  &:hover {
+    .volume-bar-thumb {
+      width: rem(15px);
+      height: rem(15px);
+    }
+    .volume-bar-track {
+      color: $logo-clr;
+    }
+  }
 }
