@@ -19,7 +19,7 @@ function createResultObj(result) {
   };
 }
 
-const API_KEYS = ["AIzaSyA4GrtDo-M6Gj_89NM-arZJGcKRIQvOhkk"];
+const API_KEYS = [import.meta.env.VITE_YOUTUBE_API_KEY];
 let apiIndex = 0;
 
 const CACHE_KEY_PREFIX = "youtube_search_cache_";

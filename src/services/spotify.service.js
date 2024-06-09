@@ -1,13 +1,9 @@
 import axios from "axios";
 import qs from "qs";
-import { getJson } from "serpapi";
-import { youtubeService } from "./youtube.service";
 
 import logoBlue3D from "../assets/imgs/logo-Blue3D.png";
-const SPOTIFY_CLIENT_ID = "e87cf49e042f446ca8d49ee1b49653f0";
-const SPOTIFY_CLIENT_SECRET = "bd49c32ee0b74d6dbdf0dafbcfc0a4a9";
-
-import { utilService } from "./util.service";
+const SPOTIFY_CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
+const SPOTIFY_CLIENT_SECRET = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET;
 
 export const spotifyService = {
   getArtistResults,
