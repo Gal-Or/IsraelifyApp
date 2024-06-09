@@ -75,3 +75,10 @@ export async function updateStation(station) {
     console.log("Cannot update station", err);
   }
 }
+
+export async function updateStaionInState(station) {
+  store.dispatch({
+    type: UPDATE_STATION,
+    station,
+  });
+}

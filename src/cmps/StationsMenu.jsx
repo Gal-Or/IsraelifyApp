@@ -6,7 +6,11 @@ import React, {
   useCallback,
 } from "react";
 import { useSelector } from "react-redux";
-import { addStation, updateStation } from "../store/station.actions";
+import {
+  addStation,
+  updateStation,
+  updateStaionInState,
+} from "../store/station.actions";
 import * as RadixCheckbox from "@radix-ui/react-checkbox";
 import { ReactSVG } from "react-svg";
 import checkIcon from "../assets/icons/tickIcon.svg";
@@ -76,6 +80,7 @@ export function StationsMenu({ song, closeModal, position }) {
             (stationSong) => stationSong.id !== song.id
           );
         }
+        updateStaionInState(station);
         return station;
       });
       closeModal();
