@@ -2,12 +2,11 @@ import { storageService } from "./async-storage.service";
 import { utilService } from "./util.service";
 import demo_stations from "../assets/data/stations.json";
 import thumbnail from "../assets/imgs/likedSongs.jpeg";
-import { storageService } from "./async-storage.service";
 
 const STORAGE_KEY = "stationsDB";
 let stationsCount = 1;
 
-export const stationService = {
+export const localStationService = {
   query,
   save,
   remove,

@@ -1,25 +1,31 @@
 import { utilService } from "./util.service";
 import thumbnail from "../assets/imgs/likedSongs.jpeg";
 import { httpService } from "../services/http.service";
+import { localStationService } from "./station-local.service";
 const STORAGE_KEY = "stationsDB";
 let stationsCount = 1;
+var stationService;
+if (import.meta.env.VITE_NODE_ENV === "development") {
+  stationService = { ...localStationService };
+} else
+  stationService = {
+    query,
+    save,
+    remove,
+    getById,
+    getDefaultFilter,
+    addSongToStation,
+    createDefaultStation,
+    findStationWithQuery,
+    getStationIds,
+    editStationInfo,
+    updateSongOrder,
+    getStationDuration,
+    checkIfSongInExistInAnyStation,
+    updateSongId,
+  };
 
-export const stationService = {
-  query,
-  save,
-  remove,
-  getById,
-  getDefaultFilter,
-  addSongToStation,
-  createDefaultStation,
-  findStationWithQuery,
-  getStationIds,
-  editStationInfo,
-  updateSongOrder,
-  getStationDuration,
-  checkIfSongInExistInAnyStation,
-  updateSongId,
-};
+export { stationService };
 
 async function query(filterBy) {
   let stations = await httpService.get("station");
