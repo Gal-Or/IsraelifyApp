@@ -2,15 +2,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 99%;
+
+  .MuiSlider-root {
+    padding: 0;
+  }
+
+  .time-bar-thumb {
+    display: none;
+  }
+
   .time-bar-track {
     color: #fff;
   }
+
   .time-bar-rail {
-    color: $sec-font-clr;
-  }
-  .time-bar-thumb {
-    width: 0px; /* Set the width of the thumb */
-    height: 0px; /* Set the height of the thumb */
+    color: rgba(255, 255, 255, 0.3);
   }
 }
 
@@ -19,6 +26,9 @@
     width: 100%;
     position: relative;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .MuiSlider-root {
       padding: 0;
@@ -30,6 +40,16 @@
         box-shadow: 0 0 0 0; /* Remove the box shadow on hover */
       }
       padding: 0; /* Remove padding */
+    }
+    .time-bar-track {
+      color: #fff;
+    }
+    .time-bar-rail {
+      color: $sec-font-clr;
+    }
+    .time-bar-thumb {
+      width: 0px; /* Set the width of the thumb */
+      height: 0px; /* Set the height of the thumb */
     }
   }
 }

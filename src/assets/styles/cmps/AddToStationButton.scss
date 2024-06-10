@@ -1,21 +1,27 @@
 .add-to-playlist {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border: none;
-  background: none;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
+  display: none;
+}
 
-  &.active {
-    svg {
-      fill: $logo-clr;
+@include for-normal-layout {
+  .add-to-playlist {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+
+    &.active {
+      svg {
+        fill: $logo-clr;
+      }
     }
-  }
 
-  &:hover {
-    transform: scale(1.1);
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }

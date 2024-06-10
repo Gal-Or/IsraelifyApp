@@ -2,6 +2,10 @@
   display: flex;
   width: 100%;
   height: 100%;
+  flex-direction: column;
+  .player-actions {
+    display: none;
+  }
 }
 
 @include for-normal-layout {

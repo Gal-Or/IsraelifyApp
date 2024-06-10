@@ -1,104 +1,130 @@
 .player {
-  flex-direction: column; /* Set flex direction to column */
-  display: flex; /* Set display to flex */
-  width: 100%; /* Set width to 100% */
-  align-items: center; /* Align items to center */
-  justify-content: center; /* Justify content to center */
-  gap: 0.3em; /* Set gap between elements */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
   .player-controls {
-    grid-row: 1;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    align-items: center;
-    .next-prev {
-      background-color: transparent;
-
-      svg {
-        fill: #b3b3b3;
-        width: rem(16px);
-        height: rem(16px);
-      }
-      &:hover {
-        svg {
-          fill: #fff;
-        }
-      }
-    }
-
-    button {
-      background-color: #fff; /* Set background color */
-      padding: 10px; /* Add some padding for spacing */
-      border: none; /* Remove border */
-      cursor: pointer; /* Change cursor to pointer on hover */
-      transition: background-color 0.3s; /* Smooth transition for color change */
-      border-radius: 50%; /* Make button round */
-      width: rem(32px);
-      height: rem(32px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      * {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      svg {
-        width: rem(16px); /* Set width of SVG icon */
-        height: rem(16px); /* Set height of SVG icon */
-        fill: black; /* Set fill color of SVG icon */
-      }
-    }
-    .play-btn {
-      &:hover {
-        transform: scale(1.1); /* Scale button on hover */
-      }
-      &:active {
-        transform: scale(0.9); /* Scale button on click */
-      }
-    }
+    display: none;
   }
-
   .youtube-player {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    max-width: 100%;
+    position: fixed;
     width: 100%;
-    align-self: center;
-    justify-self: center;
-    font-size: 0.95em;
-    gap: 0.5em;
-    &:hover {
-      .time-bar-track {
-        color: $logo-clr; /* Change the color of the track on hover */
-      }
-      .time-bar-thumb {
-        width: rem(15px); /* Set the width of the thumb on hover */
-        height: rem(15px); /* Set the height of the thumb on hover */
-      }
-    }
-
-    .current-time {
-      font-size: 0.75em;
-      justify-self: end;
-      padding-right: 1em;
-      width: em(50px);
-    }
-
     .time-bar {
       width: 100%;
       padding: 0;
     }
-
+    .current-time,
     .duration {
-      font-size: 0.75em;
-      //set it to left
-      justify-self: start;
-      padding-left: 0.7em;
-      width: em(50px);
+      display: none;
+    }
+  }
+}
+
+@include for-normal-layout {
+  .player {
+    flex-direction: column; /* Set flex direction to column */
+    display: flex; /* Set display to flex */
+    width: 100%; /* Set width to 100% */
+    align-items: center; /* Align items to center */
+    justify-content: center; /* Justify content to center */
+    gap: 0.3em; /* Set gap between elements */
+    .player-controls {
+      grid-row: 1;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      align-items: center;
+      .next-prev {
+        background-color: transparent;
+
+        svg {
+          fill: #b3b3b3;
+          width: rem(16px);
+          height: rem(16px);
+        }
+        &:hover {
+          svg {
+            fill: #fff;
+          }
+        }
+      }
+
+      button {
+        background-color: #fff; /* Set background color */
+        padding: 10px; /* Add some padding for spacing */
+        border: none; /* Remove border */
+        cursor: pointer; /* Change cursor to pointer on hover */
+        transition: background-color 0.3s; /* Smooth transition for color change */
+        border-radius: 50%; /* Make button round */
+        width: rem(32px);
+        height: rem(32px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        * {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        svg {
+          width: rem(16px); /* Set width of SVG icon */
+          height: rem(16px); /* Set height of SVG icon */
+          fill: black; /* Set fill color of SVG icon */
+        }
+      }
+      .play-btn {
+        &:hover {
+          transform: scale(1.1); /* Scale button on hover */
+        }
+        &:active {
+          transform: scale(0.9); /* Scale button on click */
+        }
+      }
+    }
+
+    .youtube-player {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 100%;
+      width: 100%;
+      align-self: center;
+      justify-self: center;
+      font-size: 0.95em;
+      gap: 0.5em;
+      &:hover {
+        .time-bar-track {
+          color: $logo-clr; /* Change the color of the track on hover */
+        }
+        .time-bar-thumb {
+          width: rem(15px); /* Set the width of the thumb on hover */
+          height: rem(15px); /* Set the height of the thumb on hover */
+        }
+      }
+
+      .current-time {
+        font-size: 0.75em;
+        justify-self: end;
+        padding-right: 1em;
+        width: em(50px);
+      }
+
+      .time-bar {
+        width: 100%;
+        padding: 0;
+      }
+
+      .duration {
+        font-size: 0.75em;
+        //set it to left
+        justify-self: start;
+        padding-left: 0.7em;
+        width: em(50px);
+      }
     }
   }
 }

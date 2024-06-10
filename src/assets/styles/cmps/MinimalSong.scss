@@ -7,6 +7,18 @@
   overflow: hidden;
   flex-wrap: nowrap;
   gap: em(10px);
+
+  .play-pause {
+    display: block;
+    justify-self: end;
+    margin-left: em(150px);
+    background-color: transparent;
+    svg {
+      width: 1.5em;
+      height: 1.5em;
+      fill: #fff;
+    }
+  }
   .song-info {
     display: flex;
     flex-direction: column;
@@ -40,7 +52,7 @@
       height: 100%;
       border-radius: 5px;
       object-fit: cover;
-      border: 1px solid rgba(30, 255, 0, 0.3);
+      border: 1px solid rgba(72, 101, 68, 0.3);
     }
     .play-btn {
       position: absolute;
@@ -87,5 +99,11 @@
         transform: scale(1.1);
       }
     }
+  }
+}
+
+@include for-normal-layout {
+  .play-pause {
+    display: none;
   }
 }
