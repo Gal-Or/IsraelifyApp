@@ -126,8 +126,11 @@ export const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
       </div>
       <div className="page-container-mobile">
         {renderMainContainer()}
-        <AppFooter />
-        {renderNavBar()}
+
+        <div className="mobile-footer">
+          <AppFooter />
+          {renderNavBar()}
+        </div>
       </div>
     </>
   );
