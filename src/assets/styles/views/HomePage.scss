@@ -1,6 +1,7 @@
 .home-page {
-    display: flex;
-    flex-direction: column;
-    padding: em(15px);
-
+  display: flex;
+  flex-direction: column;
+  padding: em(15px);
+  width: 100%;
+  position: relative;
 }
