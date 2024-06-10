@@ -6,8 +6,8 @@ const STORAGE_KEY = "stationsDB";
 let stationsCount = 1;
 var stationService;
 if (import.meta.env.VITE_NODE_ENV === "development") {
-  stationService = { ...localStationService };
-} else
+  stationService = localStationService;
+} else {
   stationService = {
     query,
     save,
@@ -24,7 +24,7 @@ if (import.meta.env.VITE_NODE_ENV === "development") {
     checkIfSongInExistInAnyStation,
     updateSongId,
   };
-
+}
 export { stationService };
 
 async function query(filterBy) {
