@@ -1,5 +1,4 @@
 .app-footer {
-  background-color: $main-bg-clr;
   color: $sec-font-clr;
   display: flex;
   justify-content: center;
@@ -11,6 +10,13 @@
   align-self: center;
   padding: em(1px);
   padding-right: em(15px);
+  background-color: #454a44;
 
   margin: 0;
+}
+
+@include for-normal-layout {
+  .app-footer {
+    background-color: $main-bg-clr;
+  }
 }
