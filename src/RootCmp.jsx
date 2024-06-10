@@ -47,14 +47,15 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
     axis: "x",
     initial: 400,
     min: 300,
+    max: 600,
   });
 
   const { position: positionRight, separatorProps: separatorPropsRight } =
     useResizable({
       axis: "x",
-      initial: 400,
+      initial: 300,
       min: 200,
-      max: 600,
+      max: 500,
       reverse: true,
     });
 
