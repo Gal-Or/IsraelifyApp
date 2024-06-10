@@ -11,7 +11,7 @@
   .play-pause {
     display: block;
     justify-self: end;
-    margin-left: em(150px);
+    margin-left: auto;
     background-color: transparent;
     svg {
       width: 1.5em;
@@ -103,7 +103,9 @@
 }
 
 @include for-normal-layout {
-  .play-pause {
-    display: none;
+  .minimal-song {
+    .play-pause {
+      display: none;
+    }
   }
 }

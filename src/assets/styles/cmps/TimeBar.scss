@@ -14,10 +14,12 @@
 
   .time-bar-track {
     color: #fff;
+    height: em(1px);
   }
 
   .time-bar-rail {
     color: rgba(255, 255, 255, 0.3);
+    height: em(2px);
   }
 }
 
@@ -35,6 +37,7 @@
     }
 
     .time-bar-thumb {
+      display: block;
       background-color: #fff; /* Set the color of the thumb */
       &:hover {
         box-shadow: 0 0 0 0; /* Remove the box shadow on hover */
@@ -42,9 +45,11 @@
       padding: 0; /* Remove padding */
     }
     .time-bar-track {
+      height: em(3px); /* Set the height of the track */
       color: #fff;
     }
     .time-bar-rail {
+      height: em(4px); /* Set the height of the rail */
       color: $sec-font-clr;
     }
     .time-bar-thumb {

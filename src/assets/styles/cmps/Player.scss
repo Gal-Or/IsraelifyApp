@@ -10,7 +10,6 @@
     display: flex;
     justify-content: space-between;
     position: fixed;
-    width: 100%;
     .time-bar {
       width: 100%;
       padding: 0;
@@ -87,6 +86,8 @@
     }
 
     .youtube-player {
+      //ufix the position
+      position: static;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -107,6 +108,7 @@
       }
 
       .current-time {
+        display: block;
         font-size: 0.75em;
         justify-self: end;
         padding-right: 1em;
@@ -119,6 +121,7 @@
       }
 
       .duration {
+        display: block;
         font-size: 0.75em;
         //set it to left
         justify-self: start;
