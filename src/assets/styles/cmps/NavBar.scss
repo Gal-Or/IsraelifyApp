@@ -7,10 +7,26 @@
   min-width: em(75px);
   overflow: hidden;
 
+  svg {
+    height: em(20px);
+    width: em(20px);
+    fill: $sec-font-clr;
+  }
+
+  .icon-lable-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: em(4px);
+    text-decoration: none;
+  }
+
   .nav-options {
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
+    padding: 10px;
 
     .to-library {
       display: block;
@@ -32,14 +48,9 @@
       }
 
       .icon-lable-div {
+        flex-direction: row;
         padding: em(4px) em(12px);
         justify-content: start;
-      }
-
-      svg {
-        height: em(20px);
-        width: em(20px);
-        fill: $sec-font-clr;
       }
 
       span {
@@ -163,14 +174,9 @@
           overflow-y: scroll;
           height: 100%;
 
-
           .station-list {}
 
-
-
         }
-
-
 
         ::-webkit-scrollbar-button {
           display: none;

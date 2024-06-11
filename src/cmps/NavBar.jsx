@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { useResizeDetector } from "react-resize-detector";
 import { LayoutContext } from "../RootCmp";
 
-export function NavBar() {
+export function NavBar({ currentLayout }) {
   const [Layout, setLayout] = useContext(LayoutContext);
 
   const { width, ref } = useResizeDetector({
@@ -27,8 +27,8 @@ export function NavBar() {
 
   return (
     <section className="nav-bar" ref={ref}>
-      <NavOptions />
-      <Library width={width} />
+      <NavOptions currentLayout={currentLayout} />
+      {currentLayout === "desktop" && <Library width={width} />}
     </section>
   );
 }

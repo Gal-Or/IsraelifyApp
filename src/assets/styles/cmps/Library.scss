@@ -1,6 +1,22 @@
-.library-container {
-  display: none;
+.nav-bar {
+  .library-container {
+    display: none;
+  }
 }
+
+.library-container {
+  display: flex;
+  flex-direction: column;
+  // justify-content: stretch;
+
+  .icon-lable-div {
+    display: none
+  }
+
+}
+
+
+
 
 @include for-normal-layout {
   .library-container {
