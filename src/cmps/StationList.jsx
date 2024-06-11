@@ -1,12 +1,7 @@
 import { useEffect, useState, useContext } from "react";
-
-import { stationService } from "../services/station.service";
 import { loadStations, removeStation } from "../store/station.actions";
-
 import { useVisibleCount } from "../customHooks/useVisibleCount";
-
 import { LayoutContext } from "../RootCmp";
-
 import { StationPreview } from "./StationPreview";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -23,6 +18,7 @@ export function StationList({
     (storeState) => storeState.stationModule.stations
   );
   const [shuffledStations, setShuffledStations] = useState([]);
+  const [hasShuffled, setHasShuffled] = useState(false);
 
   // Use the custom hook to get the container ref, visible count, and update function
   const [containerRef, visibleCount, updateVisibleCount] = useVisibleCount(
@@ -42,15 +38,13 @@ export function StationList({
   }, [stations.length]);
 
   useEffect(() => {
-    if (!randomize) {
+    if (stations.length > 0 && randomize && !hasShuffled) {
+      setShuffledStations([...stations].sort(() => Math.random() - 0.5));
+      setHasShuffled(true);
+    } else if (stations.length > 0 && !randomize) {
       setShuffledStations(stations);
-      return;
     }
-    console.log("shuffling");
-    if (!stations) return;
-    setShuffledStations([...stations].sort(() => Math.random() - 0.5));
-    randomize = false;
-  }, [stations]);
+  }, [stations, randomize, hasShuffled]);
 
   function onDeleteStation(ev, stationId) {
     ev.stopPropagation();
@@ -86,14 +80,6 @@ export function StationList({
                 isCompact={isCompact}
               />
             </NavLink>
-
-            {/* <button
-            className="delete-btn"
-            key={station._id}
-            onClick={(ev) => onDeleteStation(ev, station._id)}
-          >
-            Delete
-          </button> */}
           </article>
         ))}
     </section>
