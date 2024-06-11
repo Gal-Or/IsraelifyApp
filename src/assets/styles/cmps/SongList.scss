@@ -104,6 +104,9 @@
   .song-container.active {
     background-color: #656465;
     .song-details {
+      .song-name {
+        color: $logo-clr;
+      }
       small {
         color: #fff;
       }

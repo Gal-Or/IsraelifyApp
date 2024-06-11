@@ -19,6 +19,9 @@
 
 @include for-normal-layout {
   .app-footer {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
     background-color: $main-bg-clr;
   }
 }
