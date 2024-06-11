@@ -73,7 +73,7 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
 
   const renderNavBar = (position) => (
     <div className="nav-bar-content" style={{ width: position }}>
-      <NavBar />
+      <NavBar currentLayout={currentLayout} />
     </div>
   );
 

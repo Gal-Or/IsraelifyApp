@@ -5,6 +5,7 @@ import { StationPage } from "./pages/StationPage.jsx";
 import { GenrePage } from "./pages/GenrePage.jsx";
 import { SignInPage } from "./pages/SignInPage.jsx";
 import { SignUpPage } from "./pages/SignUpPage.jsx";
+import { Library } from "./cmps/Library.jsx";
 
 // Routes accessible from the main navigation (in AppHeader)
 const routes = [
@@ -12,6 +13,11 @@ const routes = [
     path: "/",
     component: <HomePage />,
     label: "Home",
+  },
+  {
+    path: "/library",
+    component: <Library width={100} />,
+    label: "Library",
   },
   {
     path: "/search",
