@@ -33,6 +33,10 @@
     }
   }
 
+  .library-container {
+    display: none;
+  }
+
   //all the children of the nav-bar border-radius
   >* {
     border-radius: em(8px);
@@ -74,6 +78,10 @@
           fill: white;
           transition: fill 300ms linear;
         }
+      }
+
+      .library-container {
+        display: flex;
       }
 
       .nav-options {

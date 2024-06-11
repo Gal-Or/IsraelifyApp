@@ -1,9 +1,3 @@
-.nav-bar {
-  .library-container {
-    display: none;
-  }
-}
-
 .library-container {
   display: flex;
   flex-direction: column;
@@ -19,6 +13,8 @@
 
 
 @include for-normal-layout {
+
+
   .library-container {
     display: flex;
     flex-direction: column;
