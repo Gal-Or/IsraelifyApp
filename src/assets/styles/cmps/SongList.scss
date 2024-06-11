@@ -6,7 +6,7 @@
   .song-header,
   .song-container {
     display: grid;
-    grid-template-columns: 1fr 40% 8fr 8fr 8fr;
+    grid-template-columns: 0.3fr 8fr 2fr;
     align-items: center;
     padding: em(10px);
     gap: em(20px);
@@ -25,6 +25,10 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+    .song-album,
+    .song-date-added {
+      display: none;
     }
 
     .song-duration {
@@ -109,6 +113,20 @@
       }
       small {
         color: #fff;
+      }
+    }
+  }
+}
+
+@include for-normal-layout {
+  .song-list {
+    .song-header,
+    .song-container {
+      grid-template-columns: 1fr 40% 8fr 8fr 8fr;
+      gap: 10px;
+      .song-album,
+      .song-date-added {
+        display: block;
       }
     }
   }
