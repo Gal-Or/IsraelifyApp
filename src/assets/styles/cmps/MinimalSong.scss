@@ -4,6 +4,10 @@
   align-items: center;
   justify-content: start;
   position: relative;
+  padding-right: em(15px);
+  padding-left: em(10px);
+  padding-top: em(3px);
+  padding-bottom: em(3px);
 
   overflow: hidden;
   flex-wrap: nowrap;
@@ -41,8 +45,8 @@
   }
   .song-img {
     position: relative;
-    width: 56px;
-    height: 56px;
+    width: em(45px);
+    height: em(45px);
     max-width: em(56px);
     max-height: em(56px);
     border-radius: 5px;
@@ -107,6 +111,10 @@
   .minimal-song {
     .play-pause {
       display: none;
+    }
+    song-img {
+      width: em(56px);
+      height: em(56px);
     }
   }
 }

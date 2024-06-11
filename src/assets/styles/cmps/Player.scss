@@ -9,12 +9,11 @@
   }
   .youtube-player {
     display: flex;
-    justify-content: space-between;
-    position: fixed;
+    justify-content: center;
+    position: relative;
     width: 100%;
     position: relative;
     .time-bar {
-      width: 100%;
       padding: 0;
     }
     .current-time,

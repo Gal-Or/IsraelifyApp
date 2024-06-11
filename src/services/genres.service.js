@@ -284,7 +284,7 @@ const genres = [
     name: "grunge",
     photo:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrKbJSRTIE-AXgqHGFd27lauQ-rww6puQQ3n_lQLmvRb4GebDE&s",
-    color: "rgb(97, 196, 17)",
+    color: "rgb(97, 10, 17)",
   },
   {
     name: "guitar",
@@ -350,7 +350,7 @@ const genres = [
     name: "idm",
     photo:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRygid4iM6bro6CvY-YWx68x4tiW0rJKF-0OLX-C997hkPYwo&s",
-    color: "rgb(122, 229, 110)",
+    color: "rgb(122, 67, 110)",
   },
   {
     name: "indian",
@@ -374,7 +374,7 @@ const genres = [
     name: "industrial",
     photo:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-rIqXAw-RVeNLYaVv2pbai4odFT-jygWc0FEr926wI-k5_40&s",
-    color: "rgb(170, 207, 12)",
+    color: "rgb(170, 20, 12)",
   },
   {
     name: "iranian",
@@ -422,7 +422,7 @@ const genres = [
     name: "kids",
     photo:
       "https://img.freepik.com/free-vector/little-girl-blowing-flute-with-music-notes-white-background_1308-110144.jpg?t=st=1717085413~exp=1717089013~hmac=9f061ef8e733d458e7c0d2bea7e55977df13fdf360b673fc2a25f29bfa4f2a85&w=1800",
-    color: "rgb(205, 237, 114)",
+    color: "rgb(11, 11, 100)",
   },
   {
     name: "latin",
@@ -488,7 +488,7 @@ const genres = [
     name: "new-age",
     photo:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJhT06rgT5VDz1F_1vXPxvk91oCPD8sJQqqeb-XwA12zYvDH9X&s",
-    color: "rgb(71, 231, 58)",
+    color: "rgb(99, 150, 111)",
   },
   {
     name: "new-release",
@@ -500,7 +500,7 @@ const genres = [
     name: "opera",
     photo:
       "https://imgs.classicfm.com/images/609444?crop=16_9&width=660&relax=1&format=webp&signature=FZMM8AX-9Fy5JMnzk2Mz0CFscic=",
-    color: "rgb(9, 132, 52)",
+    color: "rgb(9, 132, 100)",
   },
   {
     name: "pagode",
@@ -632,13 +632,13 @@ const genres = [
     name: "salsa",
     photo:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj8qho8KtcijTm885FieA2UCw9DBoFqmhF9tgwyHd77tOkRmo&s",
-    color: "rgb(147.9843069164829, 232.0040746195647, 81.9974471306264)",
+    color: "rgb(147.9843069164829, 11, 81.9974471306264)",
   },
   {
     name: "samba",
     photo:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUkEB9TmZVI8zkXXP1noodDA6US5SyGoj3sNGz0j34hnqd58Q&s",
-    color: "rgb(92.5168373321455, 160.01642719677457, 60.11401311867327)",
+    color: "rgb(1, 11,60.11401311867327)",
   },
   {
     name: "sertanejo",

@@ -2,6 +2,11 @@
   display: flex;
   flex-direction: column;
   padding: em(15px);
-  width: 100%;
-  position: relative;
+}
+
+@include for-normal-layout {
+  .home-page {
+    width: 100%;
+    position: relative;
+  }
 }
