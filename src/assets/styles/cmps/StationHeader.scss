@@ -1,3 +1,4 @@
+//mobile layout
 .station-header {
   padding: 1em;
   overflow: hidden;
@@ -5,70 +6,29 @@
   .station-header-grid {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
+    justify-content: center;
     gap: 1em;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
 
     .station-header-img {
       position: relative;
-      width: 100px;
-      height: 100px;
+      width: em(250px);
+      height: em(250px);
       box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.3);
       border-radius: 5px;
       overflow: hidden;
+      justify-self: center;
+      align-self: center;
 
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
-
-      .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-
-        svg {
-          width: 30px;
-          height: 30px;
-          fill: white;
-        }
-      }
-
-      &:hover .overlay {
-        opacity: 1;
-      }
     }
-
     .station-header-info {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5em;
-      align-items: center;
-      justify-content: space-between;
-      text-align: center;
-
-      .station-type {
-        font-size: 0.75em;
-        font-weight: normal;
-      }
-
-      .station-creator {
-        font-size: 1em;
-      }
-
       .station-name {
-        font-size: var(--dynamic-font-size, 2em); // Use a custom property
+        font-size: 1.5em;
         font-family: "CircularSpotifyTextBold";
         font-weight: 700;
         display: inline;
@@ -77,31 +37,52 @@
         overflow: hidden;
         text-overflow: ellipsis;
       }
+      .station-type,
+      .station-description {
+        display: none;
+      }
+      .station-info {
+        .station-stats {
+          display: none;
+        }
+        .station-creator {
+          font-size: 0.7em;
+          font-family: "CircularSpotifyText";
+          display: flex;
+          gap: 0.3em;
+          justify-content: start;
+          align-items: center;
+          img {
+            width: em(40px);
+            height: em(40px);
+            border-radius: 50%;
+          }
+        }
+      }
     }
   }
 }
 
 @include for-normal-layout {
   .station-header {
-    height: 100%;
     padding: 1em;
+    overflow: hidden;
 
     .station-header-grid {
-      display: grid;
-      grid-template-columns: 1fr 5fr;
-      grid-template-rows: 1fr;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       gap: 1em;
       border-radius: 5px;
       color: white;
-      font-size: 1.5em;
       font-weight: bold;
-      align-items: center;
-      justify-content: space-between;
 
       .station-header-img {
-        width: var(--dynamic-image-size, 15vw); // Use a custom property
-        height: var(--dynamic-image-size, 15vw); // Use a custom property
-        border-radius: 2.5%;
+        position: relative;
+        width: 100px;
+        height: 100px;
+        box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
         overflow: hidden;
 
         img {
@@ -116,18 +97,16 @@
           left: 0;
           width: 100%;
           height: 100%;
-          background-color: rgba(0, 0, 0, 0.7);
+          background-color: rgba(0, 0, 0, 0.5);
           display: flex;
-          flex-direction: column;
           justify-content: center;
           align-items: center;
-          gap: 1em;
           opacity: 0;
           transition: opacity 0.3s ease;
 
           svg {
-            width: 50px;
-            height: 50px;
+            width: 30px;
+            height: 30px;
             fill: white;
           }
         }
@@ -138,18 +117,22 @@
       }
 
       .station-header-info {
-        height: 100%;
         display: flex;
         flex-direction: column;
-        align-items: start;
-        justify-content: end;
-        gap: 0.3em;
+        gap: 0.5em;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
 
         .station-type {
-          font-size: 0.5em;
+          font-size: 0.75em;
           font-weight: normal;
-          align-self: start;
         }
+
+        .station-creator {
+          font-size: 1em;
+        }
+
         .station-name {
           font-size: var(--dynamic-font-size, 2em); // Use a custom property
           font-family: "CircularSpotifyTextBold";
@@ -160,45 +143,129 @@
           overflow: hidden;
           text-overflow: ellipsis;
         }
-        .station-info {
-          display: flex;
-          flex-direction: row;
-          gap: 0.15em;
+      }
+    }
+  }
 
-          .station-creator {
-            font-family: "CircularSpotifyTextBold";
-            font-weight: 700;
+  @include for-normal-layout {
+    .station-header {
+      height: 100%;
+      padding: 1em;
+
+      .station-header-grid {
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        grid-template-rows: 1fr;
+        gap: 1em;
+        border-radius: 5px;
+        color: white;
+        font-size: 1.5em;
+        font-weight: bold;
+        align-items: center;
+        justify-content: space-between;
+
+        .station-header-img {
+          width: var(--dynamic-image-size, 15vw); // Use a custom property
+          height: var(--dynamic-image-size, 15vw); // Use a custom property
+          border-radius: 2.5%;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
             display: flex;
-            gap: 0.3em;
-            justify-content: start;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            font-size: 0.5em;
+            gap: 1em;
+            opacity: 0;
+            transition: opacity 0.3s ease;
 
-            &::after {
-              font-size: 0.5em;
-              content: "•";
-            }
-
-            img {
-              width: 35px;
-              height: 35px;
-              border-radius: 50%;
+            svg {
+              width: 50px;
+              height: 50px;
+              fill: white;
             }
           }
 
-          .station-stats {
-            display: flex;
-            gap: 0.5em;
-            font-size: 0.5em;
-            align-items: center;
-            justify-content: start;
+          &:hover .overlay {
+            opacity: 1;
           }
         }
 
-        .station-description {
-          font-size: 0.5em;
-          word-break: break-word;
-          color: $sec-font-clr;
+        .station-header-info {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          justify-content: end;
+          gap: 0.3em;
+
+          .station-type {
+            font-size: 0.5em;
+            font-weight: normal;
+            align-self: start;
+          }
+          .station-name {
+            font-size: var(--dynamic-font-size, 2em); // Use a custom property
+            font-family: "CircularSpotifyTextBold";
+            font-weight: 700;
+            display: inline;
+            text-wrap: nowrap;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          .station-info {
+            display: flex;
+            flex-direction: row;
+            gap: 0.15em;
+
+            .station-creator {
+              font-family: "CircularSpotifyTextBold";
+              font-weight: 700;
+              display: flex;
+              gap: 0.3em;
+              justify-content: start;
+              align-items: center;
+              font-size: 0.5em;
+
+              &::after {
+                font-size: 0.5em;
+                content: "•";
+              }
+
+              img {
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+              }
+            }
+
+            .station-stats {
+              display: flex;
+              gap: 0.5em;
+              font-size: 0.5em;
+              align-items: center;
+              justify-content: start;
+            }
+          }
+
+          .station-description {
+            font-size: 0.5em;
+            word-break: break-word;
+            color: $sec-font-clr;
+          }
         }
       }
     }
