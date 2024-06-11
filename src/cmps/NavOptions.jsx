@@ -5,9 +5,10 @@ import homeClicked from "../assets/icons/home_clicked.svg"
 import home from "../assets/icons/home.svg"
 import search from "../assets/icons/search.svg"
 import searchClicked from "../assets/icons/search_clicked.svg"
+import LibraryClose from "../assets/icons/LibraryClose.svg";
+import LibraryOpen from "../assets/icons/LibraryOpen.svg";
 
-
-export function NavOptions() {
+export function NavOptions({ currentLayout }) {
 
   const location = useLocation()
 
@@ -39,6 +40,21 @@ export function NavOptions() {
             <span >Search</span>
           </div>}
       </Link>
+
+      {currentLayout === "mobile" &&
+        <Link to="/library">
+          {location.pathname === '/search'
+            ?
+            <div className="icon-lable-div">
+              <ReactSVG src={LibraryOpen} className="clicked" />
+              <span className="clicked">Library</span>
+            </div>
+            :
+            <div className="icon-lable-div">
+              <ReactSVG src={LibraryClose} />
+              <span >Library</span>
+            </div>}
+        </Link>}
     </div>
   );
 }
