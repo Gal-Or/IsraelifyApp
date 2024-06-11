@@ -5,6 +5,9 @@ import { REMOVE_FROM_QUEUE } from "./player.reducer";
 import { SET_QUEUE } from "./player.reducer";
 import { ADD_SONGS_TO_QUEUE_TOP } from "./player.reducer";
 import { ADD_SONGS_TO_QUEUE_BOTTOM } from "./player.reducer";
+import { SHUFFLE_QUEUE } from "./player.reducer";
+import { SET_IS_SHUFFLED } from "./player.reducer";
+import { SET_IS_REPEAT } from "./player.reducer";
 
 import { SET_CURRENT_SONG } from "./player.reducer";
 import { SET_YOUTUBE_PLAYER } from "./player.reducer";
@@ -109,5 +112,37 @@ export function setQueue(queue) {
     });
   } catch (err) {
     console.log("Cannot set queue ", err);
+  }
+}
+
+export function shuffleQueue() {
+  try {
+    store.dispatch({
+      type: SHUFFLE_QUEUE,
+    });
+  } catch (err) {
+    console.log("Cannot shuffle queue ", err);
+  }
+}
+
+export function setIsShuffled(isShuffled) {
+  try {
+    store.dispatch({
+      type: SET_IS_SHUFFLED,
+      isShuffled: isShuffled,
+    });
+  } catch (err) {
+    console.log("Cannot set is shuffled ", err);
+  }
+}
+
+export function setIsRepeat(isRepeat) {
+  try {
+    store.dispatch({
+      type: SET_IS_REPEAT,
+      isRepeat: isRepeat,
+    });
+  } catch (err) {
+    console.log("Cannot set is repeat ", err);
   }
 }

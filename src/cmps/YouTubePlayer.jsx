@@ -25,9 +25,9 @@ export function YouTubePlayer() {
   const isPlaying = useSelector((state) => state.playerModule.isPlaying);
   const currentSong = useSelector((state) => state.playerModule.currentSong);
   const queue = useSelector((state) => state.playerModule.queue);
+  const isRepeat = useSelector((state) => state.playerModule.isRepeat);
   const [percentagePlayed, setPercentagePlayed] = useState(0);
   const [duration, setDuration] = useState(0);
-
   const playFirstSong = (song) => {
     setCurrentSong(song);
 
@@ -150,11 +150,16 @@ export function YouTubePlayer() {
   }, [currentSong, onNext]);
 
   useEffect(() => {
-    if (percentagePlayed > 99) {
+    if (percentagePlayed > 99.5) {
       if (queue.length > 0) {
-        const nextSong = queue[0];
-        removeFromQueue(nextSong.id);
-        setCurrentSong(nextSong);
+        if (isRepeat) {
+          playerRef.current.seekTo(0);
+          setIsPlaying(true);
+        } else {
+          const nextSong = queue[0];
+          removeFromQueue(nextSong.id);
+          setCurrentSong(nextSong);
+        }
       } else {
         // Repeat the current song if the queue is empty
         youtubePlayer.seekTo(0);

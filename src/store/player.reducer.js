@@ -6,6 +6,9 @@ export const REMOVE_FROM_QUEUE = "REMOVE_FROM_QUEUE";
 export const SET_QUEUE = "SET_QUEUE";
 export const ADD_SONGS_TO_QUEUE_TOP = "ADD_SONGS_TO_QUEUE_TOP";
 export const ADD_SONGS_TO_QUEUE_BOTTOM = "ADD_SONGS_TO_QUEUE_BOTTOM";
+export const SHUFFLE_QUEUE = "SHUFFLE_QUEUE";
+export const SET_IS_SHUFFLED = "SET_IS_SHUFFLED";
+export const SET_IS_REPEAT = "SET_IS_REPEAT";
 
 const initialState = {
   currentSong: {
@@ -22,7 +25,9 @@ const initialState = {
   },
   youtubePlayer: null,
   queue: [],
+  originalQueue: [],
   isPlaying: false,
+  isShuffled: false,
 };
 
 export function playerReducer(state = initialState, action) {
@@ -38,24 +43,60 @@ export function playerReducer(state = initialState, action) {
       newState = { ...state, isPlaying: action.isPlaying };
       break;
     case ADD_TO_QUEUE:
-      newState = { ...state, queue: [...state.queue, action.song] };
+      newState = {
+        ...state,
+        queue: [...state.queue, action.song],
+        originalQueue: [...state.queue, action.song],
+      };
       break;
     case REMOVE_FROM_QUEUE:
       newState = {
         ...state,
         queue: state.queue.filter((song) => song.id !== action.songId),
+        originalQueue: state.originalQueue.filter(
+          (song) => song.id !== action.songId
+        ),
       };
       break;
     case SET_QUEUE:
       newState = { ...state, queue: action.queue };
       break;
-
     case ADD_SONGS_TO_QUEUE_TOP:
-      newState = { ...state, queue: [...action.songs, ...state.queue] };
+      newState = {
+        ...state,
+        queue: [...action.songs, ...state.queue],
+        originalQueue: [...action.songs, ...state.queue],
+      };
       break;
     case ADD_SONGS_TO_QUEUE_BOTTOM:
-      newState = { ...state, queue: [...state.queue, ...action.songs] };
+      newState = {
+        ...state,
+        queue: [...state.queue, ...action.songs],
+        originalQueue: [...state.queue, ...action.songs],
+      };
       break;
+    case SHUFFLE_QUEUE:
+      newState = {
+        ...state,
+        queue: state.queue.sort(() => Math.random() - 0.5),
+        isShuffled: true,
+      };
+      break;
+    case SET_IS_SHUFFLED:
+      newState = {
+        ...state,
+        isShuffled: action.isShuffled,
+        queue: action.isShuffled ? [...state.queue] : [...state.originalQueue],
+      };
+      break;
+
+    case SET_IS_REPEAT:
+      newState = {
+        ...state,
+        isRepeat: action.isRepeat,
+      };
+      break;
+
     default:
   }
   return newState;
