@@ -133,6 +133,10 @@
           font-size: 1em;
         }
 
+        .station-type,
+        .station-description {
+          display: block;
+        }
         .station-name {
           font-size: var(--dynamic-font-size, 2em); // Use a custom property
           font-family: "CircularSpotifyTextBold";
