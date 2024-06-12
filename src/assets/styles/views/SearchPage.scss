@@ -1,31 +1,41 @@
 .search-page {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   position: relative;
+  padding: em(10px);
+  min-height: em(1050px);
+}
 
-  .app-header-container {
-    .app-header {
-      background-color: $sec-bg-clr;
-      padding: em(10px);
-      .input-wrapper {
-        display: flex;
+@include for-normal-layout {
+  .search-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+
+    .app-header-container {
+      .app-header {
+        background-color: $sec-bg-clr;
+        padding: em(10px);
+        .input-wrapper {
+          display: flex;
+        }
       }
     }
-  }
 
-  .search-container {
-    padding: em(10px);
-  }
+    .search-container {
+      padding: em(10px);
+    }
 
-  .filter-bar-container {
-    //below the app header
-    display: flex;
-    position: sticky;
-    z-index: 1;
-    top: em(50px);
-    background-color: $sec-bg-clr;
-    width: 100%;
-    margin: 0;
+    .filter-bar-container {
+      //below the app header
+      display: flex;
+      position: sticky;
+      z-index: 1;
+      top: em(50px);
+      background-color: $sec-bg-clr;
+      width: 100%;
+      margin: 0;
+    }
   }
 }

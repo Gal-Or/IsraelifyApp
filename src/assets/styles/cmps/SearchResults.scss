@@ -2,7 +2,7 @@
 
 .search-results {
   display: grid;
-  grid-template-columns: 23fr 33fr;
+  grid-template-columns: 1fr;
   grid-template-rows: auto 1fr 1fr;
   gap: em(10px);
   //set to start from top of the cell
@@ -20,7 +20,7 @@
     grid-row: 1;
     grid-column: 1;
     position: relative; /* Add this line to position the play button */
-    display: flex;
+    display: none; /* Hide the top song result by default */
     flex-direction: column;
     justify-content: space-between;
     container-type: inline-size;
@@ -139,5 +139,15 @@
   .song-resuls {
     grid-row: 1;
     grid-column: 2;
+  }
+}
+
+@include for-normal-layout {
+  .search-results {
+    grid-template-columns: 23fr 33fr;
+    grid-template-rows: auto 1fr 1fr;
+    .top-song-result {
+      display: flex;
+    }
   }
 }
