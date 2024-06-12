@@ -16,7 +16,20 @@
     .song-duration {
       text-align: left;
     }
-
+    &.playing {
+      color: $logo-clr;
+      * {
+        color: $logo-clr;
+      }
+      .play-icon {
+        svg {
+          fill: white;
+        }
+      }
+      svg {
+        fill: $logo-clr;
+      }
+    }
     .song-title,
     .song-album,
     .song-date-added,
@@ -108,9 +121,6 @@
   .song-container.active {
     background-color: #656465;
     .song-details {
-      .song-name {
-        color: $logo-clr;
-      }
       small {
         color: #fff;
       }

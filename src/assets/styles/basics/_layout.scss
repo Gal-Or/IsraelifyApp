@@ -85,6 +85,7 @@
     overflow-y: auto;
     border-radius: 8px;
     background-color: $sec-bg-clr;
+    min-width: 60vw;
 
     .main-container-bg {
       transition: background-image 2s ease;

@@ -8,6 +8,7 @@ import pauseIcon from "../assets/icons/PauseIcon.svg";
 import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
 import addIcon from "../assets/icons/AddToQueue.svg";
 import deleteIcon from "../assets/icons/Delete.svg";
+import playingIcon from "../assets/icons/playing.svg";
 import {
   setCurrentSong,
   setIsPlaying,
@@ -101,7 +102,7 @@ export function SongContainer({
   const handleContextMenu = (event) => {
     event.preventDefault();
     setContextMenu({
-      position: { x: event.clientX, y: event.clientY },
+      position: { x: event.clientX - 350, y: event.clientY - 30 },
       options: [
         {
           label: "Add to playlist",
@@ -139,24 +140,50 @@ export function SongContainer({
     <li
       ref={ref}
       data-handler-id={handlerId}
-      className={className}
+      className={
+        currentSong.id === song.id ? `${className} playing` : className
+      }
       style={{ opacity: isDragging ? 0.5 : 1 }}
       onClick={() => onClick(song)}
       onContextMenu={handleContextMenu}
     >
       <div className="song-order-play">
-        <button
-          className="play-btn"
-          onClick={(ev) => {
-            ev.stopPropagation();
-            onPlaySong(song);
-          }}
-        >
+        {currentSong.id !== song.id && (
+          <button
+            className="play-btn"
+            onClick={(ev) => {
+              ev.stopPropagation();
+              onPlaySong(song);
+            }}
+          >
+            <ReactSVG
+              src={
+                isPlaying && currentSong.id === song.id ? pauseIcon : playIcon
+              }
+            />
+          </button>
+        )}
+        {isPlaying && currentSong.id === song.id ? (
           <ReactSVG
-            src={isPlaying && currentSong.id === song.id ? pauseIcon : playIcon}
+            src={playingIcon}
+            className="playing-icon"
+            onClick={(ev) => {
+              ev.stopPropagation();
+              onPlaySong(song);
+            }}
           />
-        </button>
-        <span className="song-order">{index + 1}</span>
+        ) : currentSong.id === song.id ? (
+          <ReactSVG
+            src={playIcon}
+            className="play-icon"
+            onClick={(ev) => {
+              ev.stopPropagation();
+              onPlaySong(song);
+            }}
+          />
+        ) : (
+          <span className="song-order">{index + 1}</span>
+        )}
       </div>
       <SongDetails song={song} isCompact={isCompact} />
       <div className="song-album">
