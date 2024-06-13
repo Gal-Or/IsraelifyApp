@@ -52,7 +52,7 @@ export function SongList({ station, isCompact }) {
       {songs.map((song, index) => (
         <SongContainer
           onClick={() => setLastActiveSong(song)}
-          key={song.id}
+          key={song.id + index}
           index={index}
           song={song}
           className={`song-container ${

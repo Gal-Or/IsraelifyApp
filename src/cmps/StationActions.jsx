@@ -1,8 +1,11 @@
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 import { useNavigate } from "react-router";
 import { ReactSVG } from "react-svg";
 import { Dropdown } from "./DropDownMenu";
+
+import { AIModal } from "./AIModal";
 
 import {
   addSongsToQueueTop,
@@ -34,6 +37,7 @@ export function StationActions({
   const youtubePlayer = useSelector(
     (state) => state.playerModule.youtubePlayer
   );
+  const [showAIModal, setShowAIModal] = useState(false);
   const viewOptions = [
     { label: "List", value: false, icon: listIcon },
     { label: "Compact", value: true, icon: compactIcon },
@@ -86,6 +90,11 @@ export function StationActions({
           }
         />
       </button>
+      <CustomTooltip title={`Generate with AI`}>
+        <button className="generate-btn" onClick={() => setShowAIModal(true)}>
+          Generate
+        </button>
+      </CustomTooltip>
       <CustomTooltip title={`More options for ${station.name}`}>
         <div className="more-options">
           <Dropdown
@@ -108,6 +117,9 @@ export function StationActions({
           toggleTick={true}
         />
       </div>
+      {showAIModal && (
+        <AIModal station={station} setShowAIModal={setShowAIModal} />
+      )}
     </div>
   );
 }

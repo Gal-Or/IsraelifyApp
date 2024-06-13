@@ -1,6 +1,7 @@
 export const LOAD_STATIONS = "LOAD_STATIONS";
 export const REMOVE_STATION = "REMOVE_STATION";
 export const ADD_SONG_TO_STATION = "ADD_SONG_TO_STATION";
+export const ADD_SONGS_TO_STATION = "ADD_SONGS_TO_STATION";
 export const ADD_STATION = "ADD_STATION";
 export const SET_CURRENT_STATION = "SET_CURRENT_STATION";
 export const UPDATE_STATION = "UPDATE_STATION";
@@ -65,6 +66,46 @@ export function stationReducer(state = initialState, action) {
         // : state.currentStation,
       };
       break;
+
+    case ADD_SONGS_TO_STATION:
+      newState = {
+        ...state,
+        stations: state.stations.map((station) => {
+          if (station._id === action.station._id) {
+            const newSongs = action.songs.filter((song) => {
+              return !station.songs.find(
+                (stationSong) => stationSong.id === song.id
+              );
+            });
+            return {
+              ...station,
+              songs: [...station.songs, ...newSongs],
+              name: action.station.name,
+              description: action.station.description,
+            };
+          }
+          return station;
+        }),
+        currentStation:
+          state.currentStation &&
+          state.currentStation._id === action.station._id
+            ? {
+                ...state.currentStation,
+                songs: [
+                  ...state.currentStation.songs,
+                  ...action.songs.filter((song) => {
+                    return !state.currentStation.songs.find(
+                      (stationSong) => stationSong.id === song.id
+                    );
+                  }),
+                ],
+                name: action.station.name,
+                description: action.station.description,
+              }
+            : state.currentStation,
+      };
+      break;
+
     case SET_CURRENT_STATION:
       newState = { ...state, currentStation: action.station };
       break;
