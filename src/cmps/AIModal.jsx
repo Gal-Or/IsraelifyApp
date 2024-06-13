@@ -1,14 +1,36 @@
+import { useState, useEffect } from "react";
 import { spotifyService } from "../services/spotify.service";
 import { addSongsToStation } from "../store/station.actions";
+import { ReactSVG } from "react-svg";
+import micIcon from "../assets/icons/mic.svg";
+
 export function AIModal({ station, setShowAIModal }) {
+  const [loadingMessage, setLoadingMessage] = useState("Loading...");
+  const [loadingTimeout, setLoadingTimeout] = useState(null);
+
+  useEffect(() => {
+    return () => {
+      // Clean up the timeout if the component unmounts
+      if (loadingTimeout) clearTimeout(loadingTimeout);
+    };
+  }, [loadingTimeout]);
+
   async function getRecommendations() {
     const userPrompt = document.getElementById("userPrompt").value;
-    document.getElementById("loading").style.display = "block";
+    showLoading(true);
+    const timeout = setTimeout(() => {
+      setLoadingMessage("Still working on it...");
+    }, 7000);
+    setLoadingTimeout(timeout);
+
     const recommendations = await spotifyService.getRecommendedSongs(
       userPrompt
     );
-    document.getElementById("loading").style.display = "none";
+
+    clearTimeout(timeout);
+    setLoadingMessage("Loading...");
     updateStationWithRecommendations(recommendations, userPrompt);
+    showLoading(false);
   }
 
   function startSpeechRecognition() {
@@ -29,6 +51,10 @@ export function AIModal({ station, setShowAIModal }) {
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
 
+    recognition.onstart = () => {
+      showSpeaking(true);
+    };
+
     recognition.onresult = async (event) => {
       const speechResult = event.results[0][0].transcript;
       console.log("User speech:", speechResult);
@@ -37,20 +63,45 @@ export function AIModal({ station, setShowAIModal }) {
       );
       window.speechSynthesis.speak(message);
       document.getElementById("userPrompt").value = speechResult;
-      document.getElementById("loading").style.display = "block";
+      showLoading(true);
+      const timeout = setTimeout(() => {
+        setLoadingMessage("Still working on it...");
+      }, 4000);
+      setLoadingTimeout(timeout);
+
       const recommendations = await spotifyService.getRecommendedSongs(
         speechResult
       );
-      document.getElementById("loading").style.display = "none";
+      showLoading(false);
+      clearTimeout(timeout);
+      setLoadingMessage("Loading...");
       updateStationWithRecommendations(recommendations, speechResult);
     };
 
     recognition.onerror = (event) => {
       console.error("Speech recognition error:", event.error);
+      showSpeaking(false);
+    };
+
+    recognition.onend = () => {
+      showSpeaking(false);
     };
 
     recognition.start();
   }
+
+  function showLoading(isLoading) {
+    document.getElementById("loading").style.display = isLoading
+      ? "flex"
+      : "none";
+  }
+
+  function showSpeaking(isSpeaking) {
+    document.getElementById("speaking-indicator").style.display = isSpeaking
+      ? "flex"
+      : "none";
+  }
+
   async function updateStationWithRecommendations(recommendations, userPrompt) {
     try {
       const stationToUpdate = {
@@ -64,6 +115,7 @@ export function AIModal({ station, setShowAIModal }) {
       console.log(err);
     }
   }
+
   return (
     <div className="ai-modal">
       <div className="ai-modal-content">
@@ -81,8 +133,12 @@ export function AIModal({ station, setShowAIModal }) {
           Generate with Voice
         </button>
       </div>
-      <div id="loading" style={{ display: "none" }}>
-        Loading...
+      <div id="loading" className="loading-indicator">
+        <div className="spinner"></div> {loadingMessage}
+      </div>
+      <div id="speaking-indicator" className="speaking-indicator">
+        <ReactSVG src={micIcon} className="microphone" />
+        Listening...
       </div>
     </div>
   );

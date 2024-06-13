@@ -194,7 +194,7 @@ export function SongContainer({
       </div>
       <SongDetails song={song} isCompact={isCompact} />
       <div className="song-album">
-        <span>{song.album?.name || "Single"}</span>
+        <span>{song.album || "Single"}</span>
       </div>
       <div className="song-date-added">
         <span>{utilService.formatDate(song.addedAt)}</span>
