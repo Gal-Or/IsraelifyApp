@@ -5,8 +5,11 @@ export const SOCKET_EVENT_RENDER_STATION = "render-station";
 export const SOCKET_EMIT_UPDATE_STATION = "update-station";
 
 const baseUrl = process.env.NODE_ENV === "production" ? "" : "//localhost:3030";
-export const socketService = createSocketService();
-// export const socketService = createDummySocketService()
+
+export const socketService =
+  import.meta.env.VITE_NODE_ENV === "development"
+    ? createDummySocketService()
+    : createSocketService();
 
 // for debugging from console
 window.socketService = socketService;
