@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { useSelector } from "react-redux";
 import { ReactSVG } from "react-svg";
@@ -34,6 +34,7 @@ export function SongContainer({
   station,
 }) {
   const [contextMenu, setContextMenu] = useState(null);
+  const [isHovered, setIsHovered] = useState(false);
   const params = useParams();
   const ref = useRef(null);
   const isPlaying = useSelector((state) => state.playerModule.isPlaying);
@@ -95,7 +96,6 @@ export function SongContainer({
     }
     console.log("songToPlay", songToPlay);
     setCurrentSong(songToPlay);
-
     setIsPlaying(true);
   }
 
@@ -140,12 +140,12 @@ export function SongContainer({
     <li
       ref={ref}
       data-handler-id={handlerId}
-      className={
-        currentSong.id === song.id ? `${className} playing` : className
-      }
+      className={`${className} ${currentSong.id === song.id ? "playing" : ""}`}
       style={{ opacity: isDragging ? 0.5 : 1 }}
       onClick={() => onClick(song)}
       onContextMenu={handleContextMenu}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="song-order-play">
         {currentSong.id !== song.id && (
@@ -156,22 +156,29 @@ export function SongContainer({
               onPlaySong(song);
             }}
           >
-            <ReactSVG
-              src={
-                isPlaying && currentSong.id === song.id ? pauseIcon : playIcon
-              }
-            />
+            <ReactSVG src={playIcon} />
           </button>
         )}
         {isPlaying && currentSong.id === song.id ? (
-          <ReactSVG
-            src={playingIcon}
-            className="playing-icon"
-            onClick={(ev) => {
-              ev.stopPropagation();
-              onPlaySong(song);
-            }}
-          />
+          isHovered ? (
+            <ReactSVG
+              src={pauseIcon}
+              className="pause-icon"
+              onClick={(ev) => {
+                ev.stopPropagation();
+                onPlaySong(song);
+              }}
+            />
+          ) : (
+            <ReactSVG
+              src={playingIcon}
+              className="playing-icon"
+              onClick={(ev) => {
+                ev.stopPropagation();
+                onPlaySong(song);
+              }}
+            />
+          )
         ) : currentSong.id === song.id ? (
           <ReactSVG
             src={playIcon}
@@ -198,32 +205,7 @@ export function SongContainer({
       {contextMenu && (
         <ContextMenu
           position={contextMenu.position}
-          options={[
-            {
-              label: "Add to playlist",
-              value: "open add to playlist modal",
-              icon: <ReactSVG src={addToPlaylistIcon} />,
-              onClick: () => console.log("Add to playlist"),
-            },
-            {
-              label: "Add to queue",
-              value: "add to queue",
-              icon: <ReactSVG src={addIcon} />,
-              onClick: () => addToQueue(song),
-            },
-            {
-              label: "Remove",
-              value: "remove",
-              icon: <ReactSVG src={deleteIcon} />,
-              onClick: () => {
-                const newStation = {
-                  ...station,
-                  songs: station.songs.filter((s) => s.id !== song.id),
-                };
-                updateStation(newStation);
-              },
-            },
-          ]}
+          options={contextMenu.options}
           onClose={handleCloseContextMenu}
         />
       )}
