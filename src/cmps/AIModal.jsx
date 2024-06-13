@@ -37,57 +37,64 @@ export function AIModal({ station, setShowAIModal }) {
     const message = new SpeechSynthesisUtterance(
       "What type of music would you like to generate?"
     );
+    message.onend = () => {
+
+      const SpeechRecognition =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        console.error("SpeechRecognition API is not supported in this browser.");
+        return;
+      }
+
+      const recognition = new SpeechRecognition();
+      recognition.lang = "en-US";
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.onstart = () => {
+        showSpeaking(true);
+      };
+
+      recognition.onresult = async (event) => {
+
+        const speechResult = event.results[0][0].transcript;
+        console.log("User speech:", speechResult);
+        const message = new SpeechSynthesisUtterance(
+          `Generating AI recommendations for ${speechResult}`
+        );
+        window.speechSynthesis.speak(message);
+        document.getElementById("userPrompt").value = speechResult;
+        showLoading(true);
+        const timeout = setTimeout(() => {
+          setLoadingMessage("Still working on it...");
+        }, 4000);
+        setLoadingTimeout(timeout);
+
+        const recommendations = await spotifyService.getRecommendedSongs(
+          speechResult
+        );
+        showLoading(false);
+        clearTimeout(timeout);
+        setLoadingMessage("Loading...");
+        updateStationWithRecommendations(recommendations, speechResult);
+      };
+
+      recognition.onerror = (event) => {
+        console.error("Speech recognition error:", event.error);
+        showSpeaking(false);
+      };
+
+      recognition.onend = () => {
+        console.log("Speech recognition ended.");
+        showSpeaking(false);
+      };
+
+      recognition.start();
+
+    }
     window.speechSynthesis.speak(message);
 
-    const SpeechRecognition =
-      window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (!SpeechRecognition) {
-      console.error("SpeechRecognition API is not supported in this browser.");
-      return;
-    }
 
-    const recognition = new SpeechRecognition();
-    recognition.lang = "en-US";
-    recognition.interimResults = false;
-    recognition.maxAlternatives = 1;
-
-    recognition.onstart = () => {
-      showSpeaking(true);
-    };
-
-    recognition.onresult = async (event) => {
-      const speechResult = event.results[0][0].transcript;
-      console.log("User speech:", speechResult);
-      const message = new SpeechSynthesisUtterance(
-        `Generating AI recommendations for ${speechResult}`
-      );
-      window.speechSynthesis.speak(message);
-      document.getElementById("userPrompt").value = speechResult;
-      showLoading(true);
-      const timeout = setTimeout(() => {
-        setLoadingMessage("Still working on it...");
-      }, 4000);
-      setLoadingTimeout(timeout);
-
-      const recommendations = await spotifyService.getRecommendedSongs(
-        speechResult
-      );
-      showLoading(false);
-      clearTimeout(timeout);
-      setLoadingMessage("Loading...");
-      updateStationWithRecommendations(recommendations, speechResult);
-    };
-
-    recognition.onerror = (event) => {
-      console.error("Speech recognition error:", event.error);
-      showSpeaking(false);
-    };
-
-    recognition.onend = () => {
-      showSpeaking(false);
-    };
-
-    recognition.start();
   }
 
   function showLoading(isLoading) {
