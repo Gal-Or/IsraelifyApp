@@ -2,6 +2,8 @@ import { useState, useCallback, useEffect } from "react";
 import { useDrop } from "react-dnd";
 import { SongContainer } from "./SongContainer";
 import { stationService } from "../services/station.service";
+import { socketService } from "../services/socket.service";
+import { SOCKET_EMIT_UPDATE_STATION } from "../services/socket.service";
 import { ReactSVG } from "react-svg";
 import clockIcon from "../assets/icons/clock.svg";
 
@@ -27,6 +29,8 @@ export function SongList({ station, isCompact }) {
         dragSong.id,
         hoverIndex
       );
+      socketService.emit(SOCKET_EMIT_UPDATE_STATION, station);
+      console.log("station.songs changed, emitting update-station");
     },
     [songs, station._id]
   );
@@ -35,6 +39,7 @@ export function SongList({ station, isCompact }) {
 
   useEffect(() => {
     setSongs(station.songs || []);
+
   }, [station.songs, isCompact]);
 
   return (
@@ -55,9 +60,8 @@ export function SongList({ station, isCompact }) {
           key={song.id + index}
           index={index}
           song={song}
-          className={`song-container ${
-            song.id === lastActiveSong?.id ? "active" : ""
-          }`}
+          className={`song-container ${song.id === lastActiveSong?.id ? "active" : ""
+            }`}
           moveSong={moveSong}
           station={station}
           isCompact={isCompact}

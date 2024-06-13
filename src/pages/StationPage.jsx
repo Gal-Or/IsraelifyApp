@@ -9,6 +9,9 @@ import { AddSongs } from "../cmps/AddSongs.jsx";
 import { setCurrentStation, updateStation } from "../store/station.actions.js";
 import { StationEditModal } from "../cmps/StationEditModal";
 import { Loader } from "../cmps/Loader.jsx";
+import { socketService } from "../services/socket.service.js";
+import { SOCKET_EVENT_RENDER_STATION } from "../services/socket.service.js";
+
 
 export function StationPage() {
   const params = useParams();
@@ -18,6 +21,15 @@ export function StationPage() {
     (state) => state.stationModule.currentStation
   );
   const stationHeaderRef = useRef(null);
+
+
+  useEffect(() => {
+    socketService.on(SOCKET_EVENT_RENDER_STATION, loadStation)
+
+    return () => {
+      socketService.off(SOCKET_EVENT_RENDER_STATION, loadStation)
+    }
+  }, [])
 
   useEffect(() => {
     setIsLoading(true);
@@ -35,6 +47,7 @@ export function StationPage() {
   }
 
   async function loadStation() {
+    console.log("Loading station");
     try {
       const station = await stationService.getById(params.stationId);
       setCurrentStation(station);
