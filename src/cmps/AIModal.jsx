@@ -38,11 +38,12 @@ export function AIModal({ station, setShowAIModal }) {
       "What type of music would you like to generate?"
     );
     message.onend = () => {
-
       const SpeechRecognition =
         window.SpeechRecognition || window.webkitSpeechRecognition;
       if (!SpeechRecognition) {
-        console.error("SpeechRecognition API is not supported in this browser.");
+        console.error(
+          "SpeechRecognition API is not supported in this browser."
+        );
         return;
       }
 
@@ -56,7 +57,6 @@ export function AIModal({ station, setShowAIModal }) {
       };
 
       recognition.onresult = async (event) => {
-
         const speechResult = event.results[0][0].transcript;
         console.log("User speech:", speechResult);
         const message = new SpeechSynthesisUtterance(
@@ -90,11 +90,8 @@ export function AIModal({ station, setShowAIModal }) {
       };
 
       recognition.start();
-
-    }
+    };
     window.speechSynthesis.speak(message);
-
-
   }
 
   function showLoading(isLoading) {
@@ -131,7 +128,7 @@ export function AIModal({ station, setShowAIModal }) {
         </span>
         <h2>AI Recommendations</h2>
         <p>
-          Get AI recommendations for songs similar to the ones in this station.
+          Get AI recommendations for songs based on your input. Enter a prompt
         </p>
         <label htmlFor="userPrompt">User Prompt:</label>
         <input type="text" id="userPrompt" />

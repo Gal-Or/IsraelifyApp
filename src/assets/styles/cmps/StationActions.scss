@@ -33,13 +33,46 @@
       height: em(25px);
     }
   }
-  button {
-    padding: em(5px);
+
+  .generate-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: $sec-font-clr;
+    border: none;
+    border-radius: 25px;
+    padding: em(5px) em(10px);
+    font-size: em(13px);
+    gap: em(7px);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    * {
+      svg {
+        width: em(25px);
+        height: em(25px);
+        fill: $sec-font-clr;
+      }
+    }
+
+    // &:hover {
+    //   background-color: $logo-clr; /* Change to logo color on hover */
+    //   color: #fff; /* Change text color on hover */
+    //   * {
+    //     svg {
+    //       fill: #fff; /* Change icon color on hover */
+    //     }
+    //   }
+    // }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 em(5px) rgba(0, 0, 0, 0.2);
+    }
   }
 
   .change-view {
     margin-left: auto;
-
     padding-right: 0;
   }
 }
