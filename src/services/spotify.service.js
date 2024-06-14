@@ -259,6 +259,8 @@ async function getRecommendedSongs(userPrompt) {
 }
 
 async function getSongsFromAI(userPrompt) {
-  const songs = await httpService.get("station/openai", { userPrompt });
+  console.log("userPrompt", userPrompt);
+  const songs = await httpService.post("station/openai", { userPrompt });
+  console.log("songs", songs);
   return songs;
 }
