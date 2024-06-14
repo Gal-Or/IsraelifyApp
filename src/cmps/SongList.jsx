@@ -39,8 +39,7 @@ export function SongList({ station, isCompact }) {
 
   useEffect(() => {
     setSongs(station.songs || []);
-
-  }, [station.songs, isCompact]);
+  }, [station, isCompact]);
 
   return (
     <ul ref={drop} className={`song-list ${isCompact ? "compact" : ""}`}>
@@ -60,8 +59,9 @@ export function SongList({ station, isCompact }) {
           key={song.id + index}
           index={index}
           song={song}
-          className={`song-container ${song.id === lastActiveSong?.id ? "active" : ""
-            }`}
+          className={`song-container ${
+            song.id === lastActiveSong?.id ? "active" : ""
+          }`}
           moveSong={moveSong}
           station={station}
           isCompact={isCompact}
