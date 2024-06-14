@@ -12,7 +12,6 @@ import { Loader } from "../cmps/Loader.jsx";
 import { socketService } from "../services/socket.service.js";
 import { SOCKET_EVENT_RENDER_STATION } from "../services/socket.service.js";
 
-
 export function StationPage() {
   const params = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,14 +21,13 @@ export function StationPage() {
   );
   const stationHeaderRef = useRef(null);
 
-
   useEffect(() => {
-    socketService.on(SOCKET_EVENT_RENDER_STATION, loadStation)
+    socketService.on(SOCKET_EVENT_RENDER_STATION, loadStation);
 
     return () => {
-      socketService.off(SOCKET_EVENT_RENDER_STATION, loadStation)
-    }
-  }, [])
+      socketService.off(SOCKET_EVENT_RENDER_STATION, loadStation);
+    };
+  }, [params.stationId]);
 
   useEffect(() => {
     setIsLoading(true);
