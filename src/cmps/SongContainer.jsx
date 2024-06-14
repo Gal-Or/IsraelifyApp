@@ -8,7 +8,6 @@ import pauseIcon from "../assets/icons/PauseIcon.svg";
 import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
 import addIcon from "../assets/icons/AddToQueue.svg";
 import deleteIcon from "../assets/icons/Delete.svg";
-import playingIcon from "../assets/icons/playing.svg";
 import {
   setCurrentSong,
   setIsPlaying,
@@ -170,14 +169,13 @@ export function SongContainer({
               }}
             />
           ) : (
-            <ReactSVG
-              src={playingIcon}
-              className="playing-icon"
-              onClick={(ev) => {
-                ev.stopPropagation();
-                onPlaySong(song);
-              }}
-            />
+            <section className="equalizer">
+              <img
+                className="equalizer-img"
+                src="https://res.cloudinary.com/dk9b84f0u/image/upload/v1664386983/Symphny/ezgif.com-gif-maker_cbbaoz.gif"
+                alt="equalizer"
+              />
+            </section>
           )
         ) : currentSong.id === song.id ? (
           <ReactSVG

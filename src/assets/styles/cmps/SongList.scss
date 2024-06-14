@@ -8,7 +8,8 @@
     display: grid;
     grid-template-columns: 1fr 80% 5fr;
     align-items: center;
-    padding: 10px;
+    padding: em(10px);
+    gap: em(5px);
 
     .song-order,
     .song-date-added,
@@ -107,6 +108,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      .equalizer {
+        width: 16px;
+        height: 16px;
+        fill: white;
+        background-color: transparent;
+        .equalizer-img {
+          //cover
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
 
       .song-order {
         display: flex;
