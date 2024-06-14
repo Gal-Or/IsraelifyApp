@@ -6,10 +6,9 @@
   .song-header,
   .song-container {
     display: grid;
-    grid-template-columns: 0.3fr 8fr 2fr;
+    grid-template-columns: 1fr 80% 5fr;
     align-items: center;
     padding: 10px;
-    gap: 20px;
 
     .song-order,
     .song-date-added,
@@ -35,7 +34,7 @@
       }
     }
 
-    .song-title,
+    .song-name,
     .song-album,
     .song-date-added,
     .song-duration {
@@ -81,6 +80,28 @@
     font-size: 14px;
     width: 100%;
     border-radius: 5px;
+    .song-details {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: none;
+
+      .song-info {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        .song-name {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          display: block; /* Add this line */
+          width: 100%; /* Add this line */
+        }
+      }
+    }
 
     .song-order-play {
       display: flex;
