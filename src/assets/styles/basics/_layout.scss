@@ -85,7 +85,7 @@
     overflow-y: auto;
     border-radius: 8px;
     background-color: $sec-bg-clr;
-    min-width: 60vw;
+    //min-width: 60vw;
 
     .main-container-bg {
       transition: background-image 2s ease;
@@ -114,5 +114,6 @@
   .side-pop-up {
     display: flex;
     flex-direction: column;
+    max-width: 30vw;
   }
 }
