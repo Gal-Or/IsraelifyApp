@@ -1,5 +1,6 @@
 import axios from "axios";
 import qs from "qs";
+import { httpService } from "./http.service";
 
 import logoBlue3D from "../assets/imgs/logo-Blue3D.png";
 const SPOTIFY_CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID; //on production use - process.env.VITE_SPOTIFY_CLIENT_ID;
@@ -240,45 +241,9 @@ function updateSearchResultsCache(query, updatedSong) {
 
 // Function to get recommended songs based on user input - open ai
 async function getRecommendedSongs(userPrompt) {
-  const apiKey = openAI_API_KEY;
-  const url = "https://api.openai.com/v1/completions";
-
-  const requestBody = {
-    model: "gpt-3.5-turbo-instruct",
-    prompt: `You are an advanced music recommendation engine. Based on the user's input: "${userPrompt}", provide a list of 20 diverse song recommendations. Each recommendation should be formatted as follows:
-  - Song Name: [song name]
-  - Artist: [artist name]
-  Ensure that each recommendation is on a new line, clearly listed, and includes a variety of genres and artists.`,
-    temperature: 0.8,
-    max_tokens: 300,
-    top_p: 1,
-    frequency_penalty: 0,
-    presence_penalty: 0,
-  };
-
   try {
-    const response = await axios.post(url, requestBody, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-      },
-    });
-
-    const recommendations = response.data.choices[0].text;
-    console.log("Recommendations:", response);
-    const lines = recommendations
-      .split("\n")
-      .filter((line) => line.trim() !== "");
-    const songs = [];
-    for (let i = 0; i < lines.length; i += 2) {
-      if (lines[i] && lines[i + 1]) {
-        const name = lines[i].replace("Song Name: ", "").trim();
-        const artist = lines[i + 1].replace("Artist: ", "").trim();
-        songs.push({ name, artist });
-      }
-    }
-
-    const songPromises = songs.map(async (song) => {
+    const songsFromAI = await getSongsFromAI(userPrompt);
+    const songPromises = songsFromAI.map(async (song) => {
       const query = `${song.name} ${song.artist}`;
       const results = await getSongBySearch(query);
       if (results.length > 0) return { ...results[0], addedAt: Date.now() };
@@ -291,4 +256,9 @@ async function getRecommendedSongs(userPrompt) {
     console.error("Error fetching recommendations:", error);
     return [];
   }
+}
+
+async function getSongsFromAI(userPrompt) {
+  const songs = await httpService.get("station/openai", { userPrompt });
+  return songs;
 }

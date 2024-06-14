@@ -28,7 +28,7 @@ export function AIModal({ station, setShowAIModal }) {
     );
 
     clearTimeout(timeout);
-    setLoadingMessage("Loading...");
+    setLoadingMessage("Creating amazing AI recommendations...");
     updateStationWithRecommendations(recommendations, userPrompt);
     showLoading(false);
   }
@@ -66,7 +66,7 @@ export function AIModal({ station, setShowAIModal }) {
         document.getElementById("userPrompt").value = speechResult;
         showLoading(true);
         const timeout = setTimeout(() => {
-          setLoadingMessage("Still working on it...");
+          setLoadingMessage("Still generating amazing recommendations...");
         }, 4000);
         setLoadingTimeout(timeout);
 
@@ -75,7 +75,7 @@ export function AIModal({ station, setShowAIModal }) {
         );
         showLoading(false);
         clearTimeout(timeout);
-        setLoadingMessage("Loading...");
+        setLoadingMessage("Creating amazing AI recommendations...");
         updateStationWithRecommendations(recommendations, speechResult);
       };
 

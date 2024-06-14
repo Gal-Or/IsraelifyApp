@@ -15,6 +15,7 @@ if (import.meta.env.VITE_NODE_ENV === "development") {
     getById,
     getDefaultFilter,
     addSongToStation,
+    addSongsToStation,
     createDefaultStation,
     findStationWithQuery,
     getStationIds,
@@ -71,6 +72,21 @@ async function addSongToStation(song, stationId) {
   }
   song.order = station.songs.length + 1;
   station.songs.push(song);
+  return await save(station);
+}
+async function addSongsToStation(song, station) {
+  song.forEach((song) => {
+    if (
+      station.songs.find(
+        (stationSong) =>
+          stationSong.id === song.id && stationSong.name === song.name
+      )
+    ) {
+      return;
+    }
+    song.order = station.songs.length + 1;
+    station.songs.push(song);
+  });
   return await save(station);
 }
 
