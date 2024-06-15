@@ -58,7 +58,6 @@ export function AIModal({ station, setShowAIModal }) {
 
       recognition.onresult = async (event) => {
         const speechResult = event.results[0][0].transcript;
-        console.log("User speech:", speechResult);
         const message = new SpeechSynthesisUtterance(
           `Generating AI recommendations for ${speechResult}`
         );
