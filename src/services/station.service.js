@@ -56,7 +56,10 @@ function getDefaultFilter() {
   return {};
 }
 
-async function addSongToStation(song, stationId) {
+async function addSongToStation(
+  song,
+  stationId = import.meta.env.VITE_LIKED_SONGS_PLAYLIST_ID
+) {
   if (stationId === "liked-songs") {
     const stations = await query();
     stationId = stations[0]._id;
@@ -103,7 +106,7 @@ async function findStationWithQuery(query) {
       )
     );
   });
-  filteredStations = fillWithRandomStations(filteredStations, stations, 10);
+  filteredStations = fillWithRandomStations(filteredStations, stations, 6);
   return filteredStations;
 }
 

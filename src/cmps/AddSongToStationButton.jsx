@@ -65,10 +65,10 @@ export function AddSongToStationButton({ song, containerRect }) {
 
   async function addSongToLikedSongs() {
     try {
-      const savedStation = await stationService.addSongToStation(
-        { ...song, addedAt: Date.now() },
-        "liked-songs"
-      );
+      const savedStation = await stationService.addSongToStation({
+        ...song,
+        addedAt: Date.now(),
+      });
       updateStation(savedStation);
     } catch (err) {
       console.log("Error in addSongToLikedSongs:", err);

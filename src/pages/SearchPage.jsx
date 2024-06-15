@@ -29,7 +29,7 @@ export function SearchPage() {
     getSpotifySongResults(formattedQuery);
     getStationResults(formattedQuery);
     getArtistResults(formattedQuery);
-  }, [params.query, params.viewType]);
+  }, [params.query]);
 
   // On view type change navigate to the new URL
   useEffect(() => {
