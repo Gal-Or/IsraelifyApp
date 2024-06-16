@@ -4,6 +4,7 @@ import { StationEditModal } from "./StationEditModal";
 import tempStationImg from "../assets/imgs/logo-Blue3D.png";
 import pencil from "../assets/icons/Pencil.svg";
 import { stationService } from "../services/station.service";
+import { utilService } from "../services/util.service";
 
 export const StationHeader = forwardRef(
   ({ station, onSetStation, openModal }, ref) => {
@@ -32,7 +33,7 @@ export const StationHeader = forwardRef(
           <div className="station-header-info">
             <span className="station-type">Playlist</span>
             <span className="station-name" ref={stationNameRef}>
-              {station.name || "New Playlist"}
+              {utilService.capitalize(station.name) || "New Playlist"}
             </span>
             <span className="station-description">
               {station.description || "No description"}

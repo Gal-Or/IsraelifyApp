@@ -1,6 +1,7 @@
 .station-actions {
   display: flex;
   justify-content: start;
+  flex-direction: row-reverse;
   align-self: center;
   align-items: center;
   gap: em(30px);
@@ -31,6 +32,7 @@
     svg {
       width: em(25px);
       height: em(25px);
+      fill: #000;
     }
   }
 
@@ -72,7 +74,26 @@
   }
 
   .change-view {
-    margin-left: auto;
+    margin-right: auto;
+    margin-left: 0;
     padding-right: 0;
+    padding-left: 0;
+  }
+  * {
+    svg {
+      fill: $sec-font-clr;
+    }
+  }
+}
+
+@include for-normal-layout {
+  .station-actions {
+    flex-direction: row;
+    .change-view {
+      margin-right: 0;
+      margin-left: auto;
+      padding-right: em(20px);
+      padding-left: 0;
+    }
   }
 }

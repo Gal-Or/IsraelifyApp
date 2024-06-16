@@ -6,7 +6,7 @@ export function FilterBar() {
   const handleFilterClick = (filter) => {
     if (type === filter) return;
     if (filter === "all") {
-      navigate(`/search/${query}`);
+      navigate(`/search/${query}/all`);
       return;
     }
     // Change the URL to reflect the new filter

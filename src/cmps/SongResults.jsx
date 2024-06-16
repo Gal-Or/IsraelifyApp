@@ -121,7 +121,7 @@ export function SongResults({
     const rect = songResultsRef.current.getBoundingClientRect();
 
     setContextMenu({
-      position: { x: clientX, y: clientY },
+      position: { x: clientX - 600, y: clientY - 15 },
       containerRect: rect,
       options: options.map((option) => ({
         ...option,
