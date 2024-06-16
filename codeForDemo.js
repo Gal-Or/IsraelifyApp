@@ -1,11 +1,13 @@
-function startSpeechRecognition() {
-  const message = new SpeechSynthesisUtterance(
-    "What type of music would you like to generate?"
-  );
+function speak(message, endCallback) {
+  const message = new SpeechSynthesisUtterance(message);
   message.onend = () => {
-    getSpeechRecognition();
+    endCallback();
   };
   window.speechSynthesis.speak(message);
+}
+
+function startSpeechRecognition() {
+  speak("What would you like to listen to?", getSpeechRecognition);
 }
 
 function getSpeechRecognition() {
@@ -21,24 +23,11 @@ function getSpeechRecognition() {
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
 
-  recognition.onstart = () => {
-    showSpeaking(true);
-  };
-
   recognition.onresult = async (event) => {
     const speechResult = event.results[0][0].transcript;
-    const message = new SpeechSynthesisUtterance(
-      `Generating AI recommendations for ${speechResult}`
-    );
-    window.speechSynthesis.speak(message);
-    const recommendations = await spotifyService.getRecommendedSongs(
-      speechResult
-    );
-    updateStationWithRecommendations(recommendations, speechResult);
-  };
-
-  recognition.onend = () => {
-    console.log("Speech recognition ended.");
+    speak(`Generating AI recommendations for ${speechResult}`);
+    const recommendations = await getRecommendedSongs(speechResult); //fetch recommendations from openAI and get the songs from spotify
+    updateStationWithRecommendations(recommendations, speechResult); //dispatch action to update station
   };
 
   recognition.start();
