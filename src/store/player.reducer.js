@@ -10,36 +10,43 @@ export const SHUFFLE_QUEUE = "SHUFFLE_QUEUE";
 export const SET_IS_SHUFFLED = "SET_IS_SHUFFLED";
 export const SET_IS_REPEAT = "SET_IS_REPEAT";
 
-const initialState = {
-  currentSong: sessionStorage.getItem("currentSong")
-    ? JSON.parse(sessionStorage.getItem("currentSong"))
-    : {
-        id: "ZkXG3ZrXlbc",
-        artist: "Drake",
-        img: "https://i.scdn.co/image/ab67616d0000b273a0ac23f4b446a7264e67bf0e",
-        name: "DRAKE - FAMILY MATTERS",
-        tags: [],
-        duration: 458,
-        url: "https://www.youtube.com/watch?v=ZkXG3ZrXlbc",
-        stationIds: ["T3qSs"],
-        order: 1,
-        addedAt: 1717682537505,
-      },
-  youtubePlayer: null,
-  queue: [],
-  originalQueue: [],
-  isPlaying: false,
-  isShuffled: false,
-};
+const initialState = sessionStorage.getItem("player")
+  ? { ...JSON.parse(sessionStorage.getItem("player")), youtubePlayer: null }
+  : {
+      currentSong: sessionStorage.getItem("currentSong")
+        ? JSON.parse(sessionStorage.getItem("currentSong"))
+        : {
+            id: "ZkXG3ZrXlbc",
+            artist: "Drake",
+            img: "https://i.scdn.co/image/ab67616d0000b273a0ac23f4b446a7264e67bf0e",
+            name: "DRAKE - FAMILY MATTERS",
+            tags: [],
+            duration: 458,
+            url: "https://www.youtube.com/watch?v=ZkXG3ZrXlbc",
+            stationIds: ["T3qSs"],
+            order: 1,
+            addedAt: 1717682537505,
+          },
+      youtubePlayer: null,
+      queue: [],
+      originalQueue: [],
+      isPlaying: false,
+      isShuffled: false,
+    };
 
 export function playerReducer(state = initialState, action) {
   var newState = state;
+
   switch (action.type) {
     case SET_CURRENT_SONG:
       newState = { ...state, currentSong: action.song };
       sessionStorage.setItem("currentSong", JSON.stringify(action.song));
       break;
     case SET_YOUTUBE_PLAYER:
+      if (!action.youtubePlayer) {
+        newState = { ...state, youtubePlayer: null };
+        break;
+      }
       newState = { ...state, youtubePlayer: action.youtubePlayer };
       break;
     case SET_IS_PLAYING:
@@ -102,5 +109,10 @@ export function playerReducer(state = initialState, action) {
 
     default:
   }
+
+  sessionStorage.setItem(
+    "player",
+    JSON.stringify({ ...newState, youtubePlayer: null, isPlaying: false })
+  );
   return newState;
 }

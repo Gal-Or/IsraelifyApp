@@ -3,6 +3,7 @@ import { spotifyService } from "../services/spotify.service";
 import { addSongsToStation } from "../store/station.actions";
 import { ReactSVG } from "react-svg";
 import micIcon from "../assets/icons/mic.svg";
+import { utilService } from "../services/util.service";
 
 export function AIModal({ station, setShowAIModal }) {
   const [loadingMessage, setLoadingMessage] = useState("Loading...");
@@ -109,7 +110,7 @@ export function AIModal({ station, setShowAIModal }) {
     try {
       const stationToUpdate = {
         ...station,
-        name: `${userPrompt}`,
+        name: `${utilService.capitalize(userPrompt)}`,
         description: `AI generated station based on :\n${userPrompt}`,
       };
       await addSongsToStation(recommendations, stationToUpdate);
