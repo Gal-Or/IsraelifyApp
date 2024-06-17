@@ -21,18 +21,15 @@ export function StationPage() {
   );
   const stationHeaderRef = useRef(null);
 
-  useEffect(() => {
-    socketService.on(SOCKET_EVENT_RENDER_STATION, loadStation);
-
-    return () => {
-      socketService.off(SOCKET_EVENT_RENDER_STATION, loadStation);
-    };
-  }, [params.stationId]);
+  useEffect(() => {}, []);
 
   useEffect(() => {
     setIsLoading(true);
     loadStation();
+    socketService.on(SOCKET_EVENT_RENDER_STATION, loadStation);
+
     return () => {
+      socketService.off(SOCKET_EVENT_RENDER_STATION, loadStation);
       const mainElement = document.querySelector(".main-container-bg");
       if (!mainElement) return;
       mainElement.style.backgroundImage = "none";

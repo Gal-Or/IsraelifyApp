@@ -5,7 +5,6 @@ function speak(message, endCallback) {
   };
   window.speechSynthesis.speak(message);
 }
-
 function startSpeechRecognition() {
   speak("What would you like to listen to?", getSpeechRecognition);
 }
@@ -17,7 +16,6 @@ function getSpeechRecognition() {
     console.error("SpeechRecognition API is not supported in this browser.");
     return;
   }
-
   const recognition = new SpeechRecognition();
   recognition.lang = "en-US";
   recognition.interimResults = false;
@@ -26,8 +24,8 @@ function getSpeechRecognition() {
   recognition.onresult = async (event) => {
     const speechResult = event.results[0][0].transcript;
     speak(`Generating AI recommendations for ${speechResult}`);
-    const recommendations = await getRecommendedSongs(speechResult); //fetch recommendations from openAI and get the songs from spotify
-    updateStationWithRecommendations(recommendations, speechResult); //dispatch action to update station
+    const recommendations = await getRecommendedSongs(speechResult);
+    updateStationWithRecommendations(recommendations, speechResult);
   };
 
   recognition.start();
