@@ -22,7 +22,7 @@ export function StationList({
 
   // Use the custom hook to get the container ref, visible count, and update function
   const [containerRef, visibleCount, updateVisibleCount] = useVisibleCount(
-    170,
+    167,
     16
   );
 
