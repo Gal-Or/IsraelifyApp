@@ -8,7 +8,7 @@ export default defineConfig({
     exclude: ["translate"],
   },
   build: {
-    outDir: "../Israelify-backend/public",
+    outDir: "/Users/barmoshe/Downloads/Israelify-backend/public",
     emptyOutDir: true,
   },
 });

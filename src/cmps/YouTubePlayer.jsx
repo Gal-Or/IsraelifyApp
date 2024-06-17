@@ -110,7 +110,6 @@ export function YouTubePlayer() {
           break;
         case window.YT.PlayerState.PAUSED:
           clearInterval(intervalRef.current);
-          setIsPlaying(false);
           break;
         case window.YT.PlayerState.ENDED:
           clearInterval(intervalRef.current);
