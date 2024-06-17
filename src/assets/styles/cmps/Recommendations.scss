@@ -19,13 +19,13 @@
                 background-color: $logo-clr;
                 border: none;
                 border-radius: 50%;
-                width: em(80px);
+                width: 55px;
                 aspect-ratio: 1/1;
                 opacity: 1;
                 margin-right: em(10px);
                 align-items: center;
                 justify-content: center;
-                box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+                // max-width: 85px;
 
 
                 * {
@@ -40,7 +40,13 @@
                 }
 
                 &:hover {
-                    width: em(85px);
+                    //width: 63px;
+                    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+                    // svg {
+                    //     width: em(20px);
+                    //     height: em(20px);
+                    // }
                 }
             }
 

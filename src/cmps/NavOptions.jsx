@@ -43,7 +43,7 @@ export function NavOptions({ currentLayout }) {
 
       {currentLayout === "mobile" &&
         <Link to="/library">
-          {location.pathname === '/search'
+          {location.pathname === '/library'
             ?
             <div className="icon-lable-div">
               <ReactSVG src={LibraryOpen} className="clicked" />

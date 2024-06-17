@@ -40,7 +40,8 @@
       .img-container {
         position: relative;
         width: 100%;
-        padding-top: 100%; /* This ensures a 1:1 aspect ratio */
+        padding-top: 100%;
+        /* This ensures a 1:1 aspect ratio */
         overflow: hidden;
         display: flex;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
@@ -60,39 +61,45 @@
 
         .play-btn {
           position: absolute;
-          bottom: -20px; /* Start below the container */
+          bottom: -20px;
+          /* Start below the container */
           right: 10px;
-          width: 40px;
-          height: 40px;
+          width: 52px;
+          aspect-ratio: 1/1;
+          // height: 40px;
           opacity: 0;
           background-color: $logo-clr;
           border: none;
           border-radius: 50%;
-          transition: all 0.3s ease-in-out; /* Transition for the fade-in effect */
+          transition: all 0.3s ease-in-out;
+          /* Transition for the fade-in effect */
           display: flex;
           align-items: center;
           justify-content: center;
 
+
           svg {
-            width: 20px;
-            height: 20px;
+            width: em(20px);
+            height: em(20px);
+          }
+
+          &:hover {
+            //width: 57px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+            // svg {
+            //   width: em(22px);
+            //   height: em(22px);
+            // }
           }
         }
-      }
-
-      .info-container {
-        // span {
-        //   white-space: nowrap;
-        //   overflow: hidden;
-        //   text-overflow: ellipsis;
-        // }
       }
 
       &:hover {
         background-color: #242424;
 
         .play-btn {
-          bottom: 10px; /* Move to the final position */
+          bottom: 10px;
+          /* Move to the final position */
           opacity: 1;
         }
       }
