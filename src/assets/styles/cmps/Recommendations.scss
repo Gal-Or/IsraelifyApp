@@ -8,6 +8,7 @@
     grid-template-columns: 1fr 1fr;
 
     .mini-preview {
+      background-color: #3c3c3c;
       .play-btn {
         display: flex;
         visibility: hidden;
@@ -54,10 +55,9 @@
       grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr);
 
       @container (min-width: 600px) {
-        grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr) minmax(
-            100px,
-            1fr
-          ) minmax(100px, 1fr);
+        grid-template-columns:
+          minmax(100px, 1fr) minmax(100px, 1fr) minmax(100px, 1fr)
+          minmax(100px, 1fr);
       }
     }
 
