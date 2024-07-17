@@ -1,0 +1,59 @@
+.mobile-library-container {
+
+    margin: em(20px) em(10px) 0 em(10px);
+
+    h2 {
+        margin-left: em(10px);
+    }
+
+    .station-list {
+        display: flex;
+        flex-direction: column;
+        row-gap: em(2px);
+        margin: em(5px);
+
+        .station-preview {
+            display: grid;
+            grid-template-columns: max-content max-content;
+            column-gap: em(10px);
+            padding: em(4px);
+            border-radius: em(4px);
+
+            .img-container {
+                display: flex;
+                // justify-content: center;
+                align-items: center;
+
+                .play-btn {
+                    display: none;
+                }
+
+                img {
+                    width: em(50px);
+                    height: em(50px);
+                    object-fit: cover;
+                    border-radius: em(4px);
+                }
+            }
+
+            .info-container {
+                display: flex;
+                justify-content: center;
+
+                .station-name {
+                    color: white;
+                    font-size: em(15px);
+                }
+
+                .station-creator {
+                    font-size: em(13px);
+                }
+            }
+
+        }
+
+
+
+    }
+
+}
