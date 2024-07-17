@@ -6,8 +6,6 @@ import { addSongToStation } from "../store/station.actions";
 import playIcon from "../assets/icons/PlayIcon.svg";
 import pauseIcon from "../assets/icons/PauseIcon.svg";
 
-import addToPlaylistIcon from "../assets/icons/plusWithBorderIcon.svg";
-import tickIcon from "../assets/icons/tickIcon.svg";
 import { useEffect, useState } from "react";
 import { setIsPlaying } from "../store/player.actions";
 
@@ -52,15 +50,6 @@ export function MinimalSong() {
       <button className="play-pause" onClick={onPlayPause}>
         <ReactSVG src={isPlaying ? pauseIcon : playIcon} />
       </button>
-
-      {/* <button className="add-to-playlist" onClick={onAddToPlaylist}>
-        {likedSongs &&
-        likedSongs.find((likedSong) => likedSong.id === song.id) ? (
-          <ReactSVG src={tickIcon} className="liked-icon" />
-        ) : (
-          <ReactSVG src={addToPlaylistIcon} />
-        )}
-      </button> */}
     </section>
   );
 }

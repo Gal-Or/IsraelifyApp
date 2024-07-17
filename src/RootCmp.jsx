@@ -143,12 +143,16 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
             className="mobile-footer "
             onClick={() => {
               console.log("clicked");
-              setFullMobilePlayer(!fullMobilePlayer);
+              if (!fullMobilePlayer) {
+                setFullMobilePlayer(true);
+              }
             }}
           >
             <AppFooter
               key="app-footer-mobile"
               className={` ${fullMobilePlayer ? "full-screen-player" : ""}`}
+              fullMobilePlayer={fullMobilePlayer}
+              setFullMobilePlayer={setFullMobilePlayer}
             />
             {renderNavBar()}
           </div>

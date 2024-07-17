@@ -1,6 +1,7 @@
 .app-footer {
   color: $sec-font-clr;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: start;
   max-height: em(70px);
@@ -25,6 +26,13 @@
     max-height: unset;
     min-height: unset;
     margin-right: unset;
+    padding: em(20px);
+
+    svg {
+      width: em(18px);
+      height: em(18px);
+      fill: white;
+    }
 
     .full-player {
       display: flex;
@@ -38,16 +46,76 @@
       .minimal-song {
         display: flex;
         flex-direction: column;
+
+        svg {
+          display: none;
+        }
         .song-img {
-          width: em(300px);
-          height: em(300px);
+          width: 100%;
+          height: 100%;
+          aspect-ratio: 1/1;
+
           max-width: unset;
           max-height: unset;
           border-radius: 10px;
           margin: 0 auto;
         }
+        .song-info {
+          width: 100%;
+        }
       }
       .player {
+        .player-controls {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          gap: em(15px);
+          padding: em(10px);
+          .next-prev {
+            background-color: transparent;
+            svg {
+              fill: $sec-font-clr;
+              width: em(20px);
+              height: em(20px);
+            }
+            &:hover {
+              svg {
+                fill: white;
+              }
+            }
+            &.active {
+              svg {
+                fill: $logo-clr;
+              }
+            }
+          }
+          button {
+            background-color: white;
+            padding: em(10px);
+            border: none;
+            border-radius: 50%;
+            aspect-ratio: 1/1;
+            width: em(50px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            * {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              * {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+            }
+            svg {
+              width: em(20px);
+              height: em(20px);
+              fill: #454a44;
+            }
+          }
+        }
       }
     }
   }
