@@ -20,6 +20,9 @@ body {
   font-family: "CircularSpotifyText";
   font-size: em(18px);
 }
+.no-scroll {
+  overflow: hidden;
+}
 
 div {
   display: block;
@@ -49,7 +52,7 @@ footer {
 
 img {
   max-width: 80svw;
-  max-height: 45vh;
+  max-height: 45svh;
   object-fit: cover;
   aspect-ratio: 1/1;
 }

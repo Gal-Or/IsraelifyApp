@@ -11,6 +11,7 @@ import { userService } from "./services/user-local.service";
 
 const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
   const [currentLayout, setCurrentLayout] = useState("desktop");
+  const [fullMobilePlayer, setFullMobilePlayer] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -21,6 +22,18 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
     handleResize(); // Call once to set initial layout
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    if (fullMobilePlayer) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, [fullMobilePlayer]);
 
   const currentStation = useSelector(
     (state) => state.stationModule.currentStation
@@ -117,7 +130,6 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
       {renderSidePopUp()}
     </div>
   );
-  const [fullMobilePlayer, setFullMobilePlayer] = useState(false);
 
   return (
     <>
@@ -142,7 +154,6 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
           <div
             className="mobile-footer "
             onClick={() => {
-              console.log("clicked");
               if (!fullMobilePlayer) {
                 setFullMobilePlayer(true);
               }
