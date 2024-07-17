@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, createContext } from "react";
+import { useState, useEffect, useCallback, createContext } from "react";
 import { Navigate } from "react-router-dom";
 import { Routes, Route } from "react-router";
 import { useResizable } from "react-resizable-layout";
@@ -26,7 +26,7 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
     (state) => state.stationModule.currentStation
   );
 
-  const handleResize = useCallback((position) => {
+  const handleResize = useCallback(() => {
     const mainContainer = document.querySelector(".main-container");
     if (mainContainer) {
       const width = mainContainer.offsetWidth;
@@ -117,6 +117,7 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
       {renderSidePopUp()}
     </div>
   );
+  const [fullMobilePlayer, setFullMobilePlayer] = useState(false);
 
   return (
     <>
@@ -138,8 +139,17 @@ const PageContainer = ({ showSidePopUp, setShowSidePopUp }) => {
       {currentLayout === "mobile" && (
         <div className="page-container-mobile">
           {renderMainContainer()}
-          <div className="mobile-footer">
-            <AppFooter key="app-footer-mobile" />
+          <div
+            className="mobile-footer "
+            onClick={() => {
+              console.log("clicked");
+              setFullMobilePlayer(!fullMobilePlayer);
+            }}
+          >
+            <AppFooter
+              key="app-footer-mobile"
+              className={` ${fullMobilePlayer ? "full-screen-player" : ""}`}
+            />
             {renderNavBar()}
           </div>
         </div>

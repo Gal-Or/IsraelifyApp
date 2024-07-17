@@ -7,9 +7,19 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
+  max-height: 100vh;
+
+  * {
+    * {
+      .app-header-container {
+        display: none;
+      }
+    }
+  }
+  
 
   .mobile-footer {
-    position: fixed;
+    position: sticky;
     bottom: 0;
     width: 100%;
     height: fit-content;

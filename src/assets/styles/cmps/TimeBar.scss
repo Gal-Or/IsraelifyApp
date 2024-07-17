@@ -39,10 +39,11 @@
     .time-bar-thumb {
       display: block;
       background-color: #fff; /* Set the color of the thumb */
+      padding: 0; /* Remove padding */
+
       &:hover {
         box-shadow: 0 0 0 0; /* Remove the box shadow on hover */
       }
-      padding: 0; /* Remove padding */
     }
     .time-bar-track {
       height: em(3px); /* Set the height of the track */

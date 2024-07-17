@@ -15,7 +15,7 @@
       justify-content: center;
       position: relative;
       border-radius: 8px;
-      padding: 10px;
+      padding: em(10px);
 
       p {
         white-space: nowrap;
@@ -55,8 +55,6 @@
         }
       }
 
-      border-radius: em(8px);
-      padding: em(10px);
       &:hover {
         background-color: #242424;
 

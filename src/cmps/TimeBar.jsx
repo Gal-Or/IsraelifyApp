@@ -11,7 +11,7 @@ export function TimeBar({ percentage, handleTimeBarChange, endValue }) {
     <div className="time-bar">
       <Slider
         value={isNaN(percentage) ? 0 : percentage}
-        valueLabelDisplay="auto"
+        valueLabelDisplay="off"
         valueLabelFormat={(value) =>
           utilService.formatTime((value * endValue) / 100)
         }

@@ -1,73 +1,69 @@
 .recommendations-container {
+  margin: em(4px);
+  position: relative;
 
-    container-type: inline-size; // for container query
-    margin: em(4px);
+  .content {
+    display: grid;
+    gap: em(5px);
+    grid-template-columns: 1fr 1fr;
+
+    .mini-preview {
+      .play-btn {
+        display: flex;
+        visibility: hidden;
+        background-color: $logo-clr;
+        border: none;
+        border-radius: 50%;
+        width: 55px;
+        aspect-ratio: 1/1;
+        opacity: 1;
+        margin-right: em(10px);
+        align-items: center;
+        justify-content: center;
+
+        * {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        svg {
+          width: em(18px);
+          height: em(18px);
+        }
+      }
+
+      &:hover {
+        background-color: rgba(159, 157, 157, 0.375);
+        transition: background-color 0.5s;
+
+        .play-btn {
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
+
+@include for-normal-layout {
+  .recommendations-container {
+    container-type: inline-size;
     min-width: em(400px);
 
     .content {
+      grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr);
 
-        display: grid;
-        grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr);
-        gap: em(5px);
-
-        .mini-preview {
-
-            .play-btn {
-
-                display: flex;
-                visibility: hidden;
-                background-color: $logo-clr;
-                border: none;
-                border-radius: 50%;
-                width: 55px;
-                aspect-ratio: 1/1;
-                opacity: 1;
-                margin-right: em(10px);
-                align-items: center;
-                justify-content: center;
-                // max-width: 85px;
-
-
-                * {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-
-                svg {
-                    width: em(18px);
-                    height: em(18px);
-                }
-
-                &:hover {
-                    //width: 63px;
-                    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-
-                    // svg {
-                    //     width: em(20px);
-                    //     height: em(20px);
-                    // }
-                }
-            }
-
-            &:hover {
-                background-color: rgba(159, 157, 157, 0.375);
-                transition: background-color 0.5s;
-
-                .play-btn {
-                    visibility: visible;
-                }
-            }
-        }
+      @container (min-width: 600px) {
+        grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr) minmax(
+            100px,
+            1fr
+          ) minmax(100px, 1fr);
+      }
     }
 
-    @container (min-width: 600px) {
-
-        .content {
-            grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr) minmax(100px, 1fr) minmax(100px, 1fr);
-        }
-
+    .mini-preview .play-btn:hover {
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+        rgba(0, 0, 0, 0.22) 0px 10px 10px;
     }
-
-
+  }
 }
