@@ -65,6 +65,51 @@
         }
       }
       .player {
+        .youtube-player {
+          //ufix the position
+          position: static;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          max-width: 100%;
+          width: 100%;
+          align-self: center;
+          justify-self: center;
+          font-size: 0.95em;
+          gap: 0.5em;
+          &:hover {
+            .time-bar-track {
+              color: $logo-clr; /* Change the color of the track on hover */
+            }
+            .time-bar-thumb {
+              width: rem(15px); /* Set the width of the thumb on hover */
+              height: rem(15px); /* Set the height of the thumb on hover */
+            }
+          }
+
+          .current-time {
+            display: block;
+            font-size: 0.75em;
+            justify-self: end;
+            padding-right: 1em;
+            width: em(50px);
+          }
+
+          .time-bar {
+            width: 100%;
+            padding: 0;
+          }
+
+          .duration {
+            display: block;
+            font-size: 0.75em;
+            //set it to left
+            justify-self: start;
+            padding-left: 0.7em;
+            width: em(50px);
+          }
+        }
+
         .player-controls {
           display: flex;
           flex-direction: row;
