@@ -1,36 +1,33 @@
 # IsraelifyApp
 
-<img src="https://github.com/Gal-Or/IsraelifyApp/assets/7868565/1d0e9429-e8fa-43db-8e26-58f1d2454238" alt="IsraelifyApp" width="400">
+<img src="https://github.com/Gal-Or/IsraelifyApp/assets/7868565/1d0e9429-e8fa-43db-8e26-58f1d2454238" alt="IsraelifyApp" width="250">
 
-deployed version - https://israelify.onrender.com/
+[Deployed Version](https://israelify.onrender.com/) | [Backend Repository](https://github.com/barmoshe/Israelify-backend)
 
-
-IsraelifyApp is the final project of the Fullstack Development course at Coding Academy. This project aims to replicate the core features of Spotify, tailored specifically for Israeli music enthusiasts. 
+IsraelifyApp is the final project of the Fullstack Development course at Coding Academy. This project is a Spotify web clone with additional unique features.
 
 ## Table of Contents
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+- [IsraelifyApp](#israelifyapp)
+  - [Table of Contents](#table-of-contents)
+  - [Project Overview](#project-overview)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Technologies Used](#technologies-used)
+  - [Music Playback Flow](#music-playback-flow)
 
 ## Project Overview
 
-Israelify is a music streaming platform that allows users to explore, listen to, and create playlists of their favorite Israeli songs. The application mimics the user experience and functionality of Spotify, with a focus on providing a rich library of Israeli music.
-
-This project was developed as the final project in the Fullstack Development course at Coding Academy. The primary goal was to apply the knowledge and skills acquired during the course to build a fully functional web application.
+Israelify is a music streaming platform that allows users to explore, listen to, and create playlists of their favorite songs. The name "Israelify" is derived from combining "Israel" and "Spotify." This application mimics the user experience and functionality of Spotify. Developed as the final project in the Fullstack Development course at Coding Academy, the primary goal was to apply the knowledge and skills acquired during the course to build a fully functional web application.
 
 ## Features
 
-- **User Authentication**: Secure login and registration using JWT.
-- **Music Library**: Browse and search a vast collection of Israeli songs.
+- **Music Library**: Browse and search a vast collection of songs from all around the world.
 - **Playlists**: Create, edit, and share playlists.
 - **Real-time Playback**: Enjoy seamless music playback with a user-friendly player.
 - **Responsive Design**: Optimized for both desktop and mobile devices.
 - **Interactive UI**: Intuitive and interactive user interface for an enhanced user experience.
+- **Editing Playlists Together**: Use socket connections to create and edit shared playlists in real time.
+- **AI Integration**: Use OpenAI to generate playlists according to user voice or text prompts.
 
 ## Installation
 
@@ -42,46 +39,27 @@ To run this project locally, follow these steps:
     cd IsraelifyApp
     ```
 
-2. **Install server dependencies:**
+2. **Install dependencies:**
     ```sh
-    cd server
     npm install
     ```
 
-3. **Install client dependencies:**
-    ```sh
-    cd ../client
-    npm install
-    ```
-
-4. **Set up environment variables:**
-    Create a `.env` file in the `server` directory with the following variables:
+3. **Set up environment variables:**
+    Create a `.env` file with the following variables:
     ```env
-    PORT=5000
-    MONGO_URI=your_mongodb_uri
-    JWT_SECRET=your_jwt_secret
+    VITE_SPOTIFY_CLIENT_ID=your_spotify_client_id
+    VITE_SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
+    VITE_YOUTUBE_API_KEY=your_youtube_api_key
+    VITE_NODE_ENV=development
     ```
 
-5. **Run the application:**
+4. **Run the application:**
     ```sh
-    # In the server directory
-    npm start
-
-    # In the client directory
-    npm start
+    npm run dev
     ```
 
-6. **Access the application:**
-    Open your browser and navigate to `http://localhost:3000`
-
-## Usage
-
-Once the application is running, you can:
-
-- Register a new account or log in with existing credentials.
-- Browse the music library and search for songs.
-- Play music using the integrated player.
-- Create and manage your playlists.
+5. **Access the application:**
+    Open your browser and navigate to `http://localhost:5173`
 
 ## Technologies Used
 
@@ -90,43 +68,55 @@ Once the application is running, you can:
   - Redux
   - SCSS
   - React Router
+  - HTML
 
 - **Backend:**
   - Node.js
   - Express
   - MongoDB
-  - Mongoose
-
-- **Authentication:**
-  - JSON Web Tokens (JWT)
   
 - **Other Tools:**
-  - Webpack
+  - Browser API
   - Babel
+  - Spotify Web API
+  - YouTube Data API 
+  - OpenAI API
 
-## Contributing
+## Music Playback Flow
 
-We welcome contributions to IsraelifyApp! To contribute, follow these steps:
+```mermaid
+graph TD
+    A[User Searches for a Song] --> B[API Call to Spotify]
+    B --> C[Store Search Data in Database]
+    C --> D[User Plays a Song]
+    D --> E{Song YouTube ID Exists in DB?}
+    E -->|Yes| F[Play Song in Hidden YouTube Iframe]
+    E -->|No| G[Search for Song on YouTube]
+    G --> H[Store YouTube ID in Database]
+    H --> F[Play Song in Hidden YouTube Iframe]
+```
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/your-feature-name`).
-3. Make your changes.
-4. Commit your changes (`git commit -m 'Add some feature'`).
-5. Push to the branch (`git push origin feature/your-feature-name`).
-6. Open a pull request.
+<hr> 
 
-## License
+```mermaid
+sequenceDiagram
+    participant User
+    participant IsraelifyApp
+    participant SpotifyAPI
+    participant YouTubeAPI
+    participant Database
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-For any questions or suggestions, please contact us at:
-
-- **Name**: Your Name
-- **Email**: your.email@example.com
-- **GitHub**: [Gal-Or](https://github.com/Gal-Or)
-
----
-
-Thank you for visiting the IsraelifyApp repository! We hope you enjoy using our music streaming platform.
+    User ->> IsraelifyApp: Search for a song
+    IsraelifyApp ->> SpotifyAPI: API call to search song
+    SpotifyAPI -->> IsraelifyApp: Return search results
+    IsraelifyApp ->> Database: Store search data
+    User ->> IsraelifyApp: Play a song
+    IsraelifyApp ->> Database: Check if YouTube ID exists
+    alt YouTube ID exists
+        Database -->> IsraelifyApp: Return YouTube ID
+    else YouTube ID does not exist
+        IsraelifyApp ->> YouTubeAPI: Search for song on YouTube
+        YouTubeAPI -->> IsraelifyApp: Return YouTube ID
+        IsraelifyApp ->> Database: Store YouTube ID
+    end
+    IsraelifyApp ->> User: Play song in hidden YouTube iframe```
