@@ -3,8 +3,12 @@
 <img src="https://github.com/Gal-Or/IsraelifyApp/assets/7868565/1d0e9429-e8fa-43db-8e26-58f1d2454238" alt="IsraelifyApp" width="250">
 
 [Deployed Version](https://israelify.onrender.com/) | [Backend Repository](https://github.com/barmoshe/Israelify-backend)
+<br/>
+<img src="https://github.com/user-attachments/assets/487719bc-f6b5-4a19-b43e-1f10dcf0fa4d" alt="Israelify-demo-gif" width="800">
+<br/>
 
 IsraelifyApp is the final project of the Fullstack Development course at Coding Academy. This project is a Spotify web clone with additional unique features.
+
 
 ## Table of Contents
 - [IsraelifyApp](#israelifyapp)
