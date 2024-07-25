@@ -14,6 +14,8 @@ IsraelifyApp is the final project of the Fullstack Development course at Coding 
   - [Installation](#installation)
   - [Technologies Used](#technologies-used)
   - [Music Playback Flow](#music-playback-flow)
+  - [Contact](#contact)
+  
 
 ## Project Overview
 
@@ -82,6 +84,7 @@ To run this project locally, follow these steps:
   - YouTube Data API 
   - OpenAI API
 
+
 ## Music Playback Flow
 
 ```mermaid
@@ -119,4 +122,24 @@ sequenceDiagram
         YouTubeAPI -->> IsraelifyApp: Return YouTube ID
         IsraelifyApp ->> Database: Store YouTube ID
     end
-    IsraelifyApp ->> User: Play song in hidden YouTube iframe```
+    IsraelifyApp ->> User: Play song in hidden YouTube iframe
+
+```
+
+
+## Contact
+
+For any questions or suggestions, please contact us at:
+
+- **Gal**
+  - **Email**: Galor.dvlp@gmail.com
+  - **GitHub**: [Gal-Or](https://github.com/Gal-Or)
+
+- **Bar**
+  - **Email**: 1barmoshe1@gmail.com
+  - **GitHub**: [Bar-Moshe](https://github.com/barmoshe)
+
+  ---
+
+Thank you for visiting the Israelify repository! We hope you enjoy using our music streaming platform.
+
