@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router";
+import { useLocation, useNavigate, useParams } from "react-router";
 import { useState, useCallback, useContext, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useScroll } from "../customHooks/useScroll.js";
@@ -22,6 +22,7 @@ import { ContextMenu } from "./ContextMenu.jsx";
 
 export function AppHeader({ station, stationHeaderRef, backgroundColor } = {}) {
   const navigate = useNavigate();
+  const location = useLocation();
   const params = useParams();
   const currentSong = useSelector((state) => state.playerModule.currentSong);
   const isPlaying = useSelector((state) => state.playerModule.isPlaying);
@@ -35,6 +36,20 @@ export function AppHeader({ station, stationHeaderRef, backgroundColor } = {}) {
   const [currentQuery, setCurrentQuery] = useState(
     params.query ? formatQuery(params.query) : ""
   );
+
+  useEffect(() => {
+    //check url,if route is search page, make the input wrapper visible url prefix is /search
+    if (location.pathname.includes("/search")) {
+      const inputWrapper = document.querySelector(".input-wrapper");
+      inputWrapper.style.display = "flex";
+    }
+    return () => {
+      const inputWrapper = document.querySelector(".input-wrapper");
+      if (inputWrapper) {
+        inputWrapper.style.display = "none";
+      }
+    };
+  }, [location.pathname]);
 
   const headerRef = useRef(null);
   const songsHeaderRef = useRef(null);
