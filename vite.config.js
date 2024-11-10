@@ -7,8 +7,4 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ["translate"],
   },
-  build: {
-    outDir: "/Users/barmoshe/Downloads/Israelify-backend/public",
-    emptyOutDir: true,
-  },
 });
