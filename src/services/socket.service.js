@@ -4,17 +4,17 @@ import io from "socket.io-client";
 export const SOCKET_EVENT_RENDER_STATION = "render-station";
 export const SOCKET_EMIT_UPDATE_STATION = "update-station";
 
-const baseUrl = process.env.NODE_ENV === "production" ? "" : "//localhost:3030";
+const baseUrl = process.env.NODE_ENV === "production" ? "" : "";
 
 export const socketService =
   import.meta.env.VITE_NODE_ENV === "development"
     ? createDummySocketService()
-    : createSocketService();
+    : createDummySocketService();
 
 // for debugging from console
 window.socketService = socketService;
 
-socketService.setup();
+// socketService.setup();
 
 function createSocketService() {
   var socket = null;

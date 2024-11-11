@@ -29,7 +29,7 @@ export function SongList({ station, isCompact }) {
         dragSong.id,
         hoverIndex
       );
-      socketService.emit(SOCKET_EMIT_UPDATE_STATION, station);
+      // socketService.emit(SOCKET_EMIT_UPDATE_STATION, station);
       console.log("station.songs changed, emitting update-station");
     },
     [songs, station._id]

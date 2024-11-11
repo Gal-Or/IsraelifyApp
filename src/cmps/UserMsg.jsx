@@ -18,13 +18,13 @@ export function UserMsg() {
             timeoutIdRef.current = setTimeout(closeMsg, 3000)
         })
 
-        socketService.on(SOCKET_EVENT_REVIEW_ABOUT_YOU, (review) => {
-            showSuccessMsg(`New review about me ${review.txt}`)
-        })
+        // socketService.on(SOCKET_EVENT_REVIEW_ABOUT_YOU, (review) => {
+        //     showSuccessMsg(`New review about me ${review.txt}`)
+        // })
 
         return () => {
             unsubscribe()
-            socketService.off(SOCKET_EVENT_REVIEW_ABOUT_YOU)
+            // socketService.off(SOCKET_EVENT_REVIEW_ABOUT_YOU)
         }
     }, [])
 
