@@ -144,7 +144,9 @@ async function getSongBySearch(query) {
         Authorization: `Bearer ${token}`,
       },
     });
+    console.log("response", response.data.tracks.items);
     var songs = cleanSongsData(response.data.tracks.items);
+    console.log("songs after clean", songs);
 
     // Save results to cache
     saveToCache(query, songs, `spotify_song_search_${query}`);
@@ -165,14 +167,15 @@ function cleanSongsData(songs) {
     (song, index, self) => index === self.findIndex((t) => t.name === song.name)
   );
   return filteredSongs.map((song) => {
+    const imageUrl = song.album?.images?.[0]?.url || logoBlue3D;
     return {
       id: song.id,
       name: song.name,
-      artists: song.artists,
-      img: song.album.images[0].url,
-      album: song.album.name,
+      artists: song.artists || [],
+      img: imageUrl,
+      album: song.album?.name || "Unknown Album",
       tags: [],
-      duration: song.duration_ms,
+      duration: song.duration_ms || 0,
     };
   });
 }
